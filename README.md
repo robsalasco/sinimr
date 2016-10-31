@@ -10,7 +10,7 @@ When querying the API, please be respectful of the resources required to provide
 
 ```R
 install.packages("devtools")
-devtools::install_github("SeaAroundUs/rseaaroundus")
+devtools::install_github("robsalasco/sinimr")
 ``
 
 Example usage
