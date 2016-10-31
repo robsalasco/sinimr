@@ -11,7 +11,7 @@ When querying the API, please be respectful of the resources required to provide
 ```R
 install.packages("devtools")
 devtools::install_github("robsalasco/sinimr")
-``
+```
 
 Example usage
 
@@ -28,4 +28,4 @@ getsinimvariables("A. INGRESOS MUNICIPALES (M$)")
 # get data
 getsinimr(c(3752,3954,880),2015)
 
-``
+```
