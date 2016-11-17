@@ -37,5 +37,5 @@ getname <- function(names) {
   lista$id <- lista2$value
   colnames(lista) <- c("VARIABLE", "CATEGORY","VALUE")
   lista$VARIABLE <- as.vector(lapply(as.character(lista$VARIABLE), function(x) trimws(x)))
-  return(unlist(lista[complete.cases(match(lista$VALUE, names)),1]))
+  return(toupper(unlist(lista[complete.cases(match(lista$VALUE, names)),1])))
 }
