@@ -1,4 +1,4 @@
-# SINIMr
+# SINIMr 0.0.3 (Beta)
 
 Chilean Municipalities Information System Wrapper
 
