@@ -1,7 +1,7 @@
 Package: sinimr
 Title: Chilean Municipalities Information System Wrapper
 Description: Access SINIM data and view it as data frames.
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: person("Roberto Salas", "robsalasco", email = "rosalas@uc.cl", role=c("aut", "cre"))
 Depends:
     R (>= 3.2.2)

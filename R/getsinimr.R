@@ -1,4 +1,4 @@
-#' Get catch data for a region as a dataframe or stacked area chart
+#' Get catch data for a region as a dataframe 
 #' @param variable variable type
 #' @param year year id
 #' @return data frame with data for the requested variable over time
@@ -19,6 +19,8 @@ getsinimr <- function(var,year) {
   varxml <- xpathSApply(data, "//tei:Cell[not(@tei:StyleID)]",namespaces=c(tei=getDefaultNamespace(data)[[1]]$uri),xmlValue)
   values <- t(as.data.frame(split(as.character(varxml),ceiling(seq_along(varxml)/columns))))
   values[which(values == "No Recepcionado")] <- NA
+  colnames(values) <- c("CODIGO","MUNICIPIO",getname(var))
+  rownames(values) <- c(1:nrow(values))
   return(values)
 }
 

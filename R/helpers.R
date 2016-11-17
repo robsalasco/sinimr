@@ -28,3 +28,14 @@ getid <- function(name) {
     lista$VARIABLE <- as.vector(lapply(as.character(lista$VARIABLE), function(x) trimws(x)))
     return(lista[complete.cases(match(lista$VARIABLE, name)),3])
 }
+
+getname <- function(names) {
+  body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
+  omg <- postapi("http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php", body)
+  lista <- melt(sapply(omg, function(b) b$mtro_datos_nombre))
+  lista2 <- melt(sapply(omg, function(b) b$id_dato))
+  lista$id <- lista2$value
+  colnames(lista) <- c("VARIABLE", "CATEGORY","VALUE")
+  lista$VARIABLE <- as.vector(lapply(as.character(lista$VARIABLE), function(x) trimws(x)))
+  return(unlist(lista[complete.cases(match(lista$VALUE, names)),1]))
+}
