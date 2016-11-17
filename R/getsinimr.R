@@ -21,7 +21,7 @@ getsinimr <- function(var,year) {
   values[which(values == "No Recepcionado")] <- NA
   colnames(values) <- c("CODIGO","MUNICIPIO",getname(var))
   rownames(values) <- c(1:nrow(values))
-  return(values)
+  return(as.data.frame(values))
 }
 
 #getsinimr <- function(var,year) {
