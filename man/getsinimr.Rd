@@ -2,7 +2,7 @@
 % Please edit documentation in R/getsinimr.R
 \name{getsinimr}
 \alias{getsinimr}
-\title{Get catch data for a region as a dataframe or stacked area chart}
+\title{Get catch data for a region as a dataframe}
 \usage{
 getsinimr(var, year)
 }
@@ -15,7 +15,7 @@ getsinimr(var, year)
 data frame with data for the requested variable over time
 }
 \description{
-Get catch data for a region as a dataframe or stacked area chart
+Get catch data for a region as a dataframe
 }
 \examples{
 getsinimr(880, 2015)

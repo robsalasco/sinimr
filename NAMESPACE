@@ -2,6 +2,7 @@
 
 export(getsinimcategories)
 export(getsinimr)
+export(getsinimryears)
 export(getsinimvariables)
 import(XML)
 import(httr)

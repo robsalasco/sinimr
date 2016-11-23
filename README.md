@@ -1,4 +1,4 @@
-# SINIMr 0.0.3 (Beta)
+# SINIMr 0.0.4 (Beta)
 
 Chilean Municipalities Information System Wrapper
 
@@ -27,5 +27,8 @@ getsinimvariables("A. INGRESOS MUNICIPALES (M$)")
 
 # get data
 getsinimr(c(3752,3954,880),2015)
+
+# get variable by year
+getsinimr(880,c(2015,2014,2013))
 
 ```
