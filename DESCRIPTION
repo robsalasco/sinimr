@@ -17,5 +17,6 @@ Collate:
     getsinimcategories.R
     getsinimr.R
     getsinimvariables.R
+    getsinimryears.R
     helpers.R
 RoxygenNote: 5.0.1.9000
