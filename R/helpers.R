@@ -39,3 +39,9 @@ getname <- function(names) {
   lista$VARIABLE <- as.vector(lapply(as.character(lista$VARIABLE), function(x) trimws(x)))
   return(toupper(unlist(lista[complete.cases(match(lista$VALUE, names)),1])))
 }
+
+getsinimrbyyear <- function(x,year) {
+  data <- getsinimr(x,year)
+  colnames(data)[3] <- as.character(year)
+  return(data)
+}
