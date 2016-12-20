@@ -11,8 +11,8 @@
 #' @import reshape
 
 getsinimryears <- function(var,years) {
-  lista <- lapply(years, function(x) getsinimrbyyear(var,x))
-  lista <- Reduce(function(x, y) merge(x, y, all=TRUE), lista)
-  lista[,3:ncol(lista)] <- apply(lista[,3:ncol(lista)],2, function(x) as.numeric(as.character(x)))
-  return(melt(lista, id=c("CODIGO","MUNICIPIO"),factorsAsStrings=T))
+  list <- lapply(years, function(x) getsinimrbyyear(var,x))
+  list <- Reduce(function(x, y) merge(x, y, all=TRUE), list)
+  list[,3:ncol(list)] <- apply(list[,3:ncol(list)],2, function(x) as.numeric(as.character(x)))
+  return(melt(list, id=c("CODIGO","MUNICIPIO"),factorsAsStrings=T))
 }

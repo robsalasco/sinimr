@@ -23,17 +23,3 @@ getsinimr <- function(var,year) {
   rownames(values) <- c(1:nrow(values))
   return(as.data.frame(values))
 }
-
-#getsinimr <- function(var,year) {
-#    code <- getid(var)
-#    year <- getyear(year)
-#    url <- paste("http://datos.sinim.gov.cl/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",code,"&periodos[]=",year,"&regiones[]=T&municipios[]=T&corrmon=false", sep = "")
-#    data <- xmlParse(callapi(url))
-#    xml_data <- xmlToList(data)
-#    varxml <- list(xml_data[["Worksheet"]][["Table"]][7:351])
-#    values <- as.vector(sapply(varxml, function(x) sapply(x, function(b) b[[3]][[1]]$text)))
-#    values[which(values == "No Recepcionado")] <- NA
-#    values <- as.numeric(as.character(values))
-#    final <- data.frame(ID = as.vector(sapply(varxml, function(x) sapply(x, function(b) b[[1]][[1]]$text))), COMUNA = as.vector(sapply(varxml, function(x) sapply(x, function(b) b[[2]][[1]]$text))), VALUES = values)
-#    return(final)
-#} 

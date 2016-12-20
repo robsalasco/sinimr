@@ -11,13 +11,13 @@
 
 getsinimvariables<- function(category_s) {
     body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
-    omg <- postapi("http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php", body)
-    lista <- melt(sapply(omg, function(b) b$mtro_datos_nombre))
-    lista2 <- melt(sapply(omg, function(b) b$id_dato))
-    lista$id <- lista2$value
-    colnames(lista) <- c("VARIABLE", "CATEGORY","VALUE")
-    lista$VARIABLE <- as.vector(lapply(as.character(lista$VARIABLE), function(x) trimws(x)))
-    sub <- as.vector(subset(lista, CATEGORY == category_s, select= c("VARIABLE","VALUE")))
+    resp <- postapi("http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php", body)
+    list <- melt(sapply(resp, function(b) b$mtro_datos_nombre))
+    values <- melt(sapply(resp, function(b) b$id_dato))
+    list$id <- values$value
+    colnames(list) <- c("VARIABLE", "CATEGORY","VALUE")
+    list$VARIABLE <- as.vector(lapply(as.character(list$VARIABLE), function(x) trimws(x)))
+    sub <- as.vector(subset(list, CATEGORY == category_s, select= c("VARIABLE","VALUE")))
     return(sub)
 }
     
