@@ -6,7 +6,7 @@ A note on usage
 
 When querying the API, please be respectful of the resources required to provide this data. We recommend you retain the results for each request so you can avoid repeated requests for duplicate information.
 
-###Installation
+### Installation
 
 ```R
 install.packages("devtools")
