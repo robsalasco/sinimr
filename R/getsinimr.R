@@ -19,8 +19,8 @@ getsinimr <- function(var,year) {
   varxml <- xpathSApply(data, "//tei:Cell[not(@tei:StyleID)]",namespaces=c(tei=getDefaultNamespace(data)[[1]]$uri),xmlValue)
   values <- t(as.data.frame(split(as.character(varxml),ceiling(seq_along(varxml)/columns))))
   values[which(values == "No Recepcionado")] <- NA
-  values <- as.numeric(as.character(values))
   colnames(values) <- c("CODIGO","MUNICIPIO",getname(var))
   rownames(values) <- c(1:nrow(values))
+  values[,3] <- as.numeric(as.character(values[,3]))
   return(as.data.frame(values))
 }
