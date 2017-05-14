@@ -23,5 +23,6 @@ getsinimr <- function(var,year) {
   rownames(values) <- c(1:nrow(values))
   values <- as.data.frame(values)
   values[,3] <- as.numeric(as.character(values[,3]))
+  values[,1] <- as.character(values[,1])
   return(values)
 }
