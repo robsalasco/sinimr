@@ -8,11 +8,11 @@
 #' @import httr
 #' @importFrom jsonlite fromJSON serializeJSON
 #' @import XML
-#' @import reshape
+#' @import reshape2
 
 getsinimryears <- function(var,years) {
   list <- lapply(years, function(x) getsinimrbyyear(var,x))
   list <- Reduce(function(x, y) merge(x, y, all=TRUE), list)
   list[,3:ncol(list)] <- apply(list[,3:ncol(list)],2, function(x) as.numeric(as.character(x)))
-  return(reshape2::melt(list, id=c("CODIGO","MUNICIPIO"), variable.name= "YEAR", value.name = "VALUE", factorsAsStrings=T))
+  return(melt(list, id=c("CODIGO","MUNICIPIO"), variable.name= "YEAR", value.name = "VALUE", factorsAsStrings=T))
 }

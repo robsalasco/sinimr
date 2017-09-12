@@ -11,7 +11,7 @@ Imports:
     httr,
     jsonlite,
     XML,
-    reshape
+    reshape2
 Collate:
     sinimr.R
     getsinimcategories.R
