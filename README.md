@@ -16,11 +16,11 @@ devtools::install_github("robsalasco/sinimr")
 Example usage
 
 ```R
-# include the helper library
+# Include the helper library
 
 > library(sinimr)
 
-# list available categories
+# List available categories
 
 > getsinimcategories()
 
@@ -49,7 +49,7 @@ Example usage
 [45] "A. PRECARIEDAD SOCIOECONOMICA MUJERES"            "B. DOTACION FUNCIONARIA Y PROFESIONAL DE MUJERES"
 [47] "A. INGRESOS CEMENTERIO (M$)"                      "B. GASTOS CEMENTERIO (M$)"   
 
-# list available variables
+# List available variables
 
 > getsinimvariables("A. INGRESOS MUNICIPALES (M$)")
 
@@ -79,7 +79,7 @@ Example usage
 23                                    Presupuesto Vigente Saldo Inicial de Caja Sector Municipal  4226
 24                                                          Presupuesto Vigente Sector Municipal  4212
 
-# get data
+# Get data
 
 > head(getsinimr(c(3752,3954,880),2015))
 
@@ -91,16 +91,16 @@ Example usage
 5  01403      COLCHANE                               0              749                             984534
 6  01404         HUARA                               0             1072                            1166072
 
-# get variable by year
+# Get variable by year
 
-> getsinimryears(880,c(2015,2014,2013))
+> head(getsinimryears(880,c(2015,2014,2013)))
 
-  CODIGO     MUNICIPIO variable   value
-1  01101       IQUIQUE     2015 2927867
-2  01107 ALTO HOSPICIO     2015 6048042
-3  01401  POZO ALMONTE     2015      NA
-4  01402        CAMIÑA     2015 1394263
-5  01403      COLCHANE     2015  984534
-6  01404         HUARA     2015 1166072
+  CODIGO     MUNICIPIO YEAR   VALUE
+1  01101       IQUIQUE 2015 2927867
+2  01107 ALTO HOSPICIO 2015 6048042
+3  01401  POZO ALMONTE 2015      NA
+4  01402        CAMIÑA 2015 1394263
+5  01403      COLCHANE 2015  984534
+6  01404         HUARA 2015 1166072
 
 ```
