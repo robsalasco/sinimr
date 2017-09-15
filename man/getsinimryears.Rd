@@ -20,4 +20,3 @@ Get data for a variable by multiple years as a dataframe
 \examples{
 getsinimr(880, c(2015,2014,2013))
 }
-

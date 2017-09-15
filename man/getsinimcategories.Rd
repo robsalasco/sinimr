@@ -15,4 +15,3 @@ Get categories of data in SINIM
 \examples{
 getsinimcategories()
 }
-

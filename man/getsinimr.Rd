@@ -21,4 +21,3 @@ Get catch data for a region as a dataframe
 getsinimr(880, 2015)
 getsinimr(c(880,1023), 2015)
 }
-

@@ -18,4 +18,3 @@ List available variables for a category
 \examples{
 getsinimvariables("B. INGRESOS MUNICIPALES (\%)")
 }
-
