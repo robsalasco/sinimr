@@ -9,7 +9,7 @@
 #' @import httr
 #' @importFrom jsonlite fromJSON serializeJSON
 #' @import XML
-#' @import reshape
+#' @import reshape2
 
 getsinimr <- function(var,year) {
   year <- getyear(year)

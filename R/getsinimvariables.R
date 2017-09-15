@@ -7,7 +7,7 @@
 #' @import httr
 #' @importFrom jsonlite fromJSON serializeJSON
 #' @import XML
-#' @import reshape
+#' @import reshape2
 
 getsinimvariables<- function(category_s) {
     body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")

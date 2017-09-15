@@ -7,4 +7,4 @@
 #' @import httr
 #' @importFrom jsonlite fromJSON serializeJSON
 #' @import XML
-#' @import reshape
+#' @import reshape2
