@@ -11,8 +11,12 @@
 #' @import reshape2
 
 getsinimryears <- function(var,years) {
-  list <- lapply(years, function(x) getsinimrbyyear(var,x))
-  list <- Reduce(function(x, y) merge(x, y, all=TRUE), list)
-  list[,3:ncol(list)] <- apply(list[,3:ncol(list)],2, function(x) as.numeric(as.character(x)))
-  return(melt(list, id=c("CODIGO","MUNICIPIO"), variable.name= "YEAR", value.name = "VALUE", factorsAsStrings=T))
+  if(var & year != "numeric") {
+    stop("Variables must be numeric")
+  } else {
+    list <- lapply(years, function(x) getsinimrbyyear(var,x))
+    list <- Reduce(function(x, y) merge(x, y, all=TRUE), list)
+    list[,3:ncol(list)] <- apply(list[,3:ncol(list)],2, function(x) as.numeric(as.character(x)))
+    return(melt(list, id=c("CODIGO","MUNICIPIO"), variable.name= "YEAR", value.name = "VALUE", factorsAsStrings=T))
+  }
 }
