@@ -44,7 +44,7 @@ getyear <- function(year) {
       2015,
       2016
     )
-  if (match(year, year_list) == NA) {
+  if (is.na(match(year, year_list))) {
     stop("Year not found in list")
   } else {
     return(match(year, year_list))
