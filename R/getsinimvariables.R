@@ -25,10 +25,6 @@ getsinimvariables<- function(category_s) {
       trimws(x)))
   sub <-
     as.vector(subset(list, CATEGORY == category_s, select = c("VARIABLE", "VALUE")))
-  if (nrow(getsinimvariables(sub)) == 0) {
-    stop("Category not found")
-  } else {
     return(sub)
-  }
 }
     
