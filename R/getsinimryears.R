@@ -10,12 +10,12 @@
 #' @import XML
 #' @import reshape2
 
-getsinimryears <- function(var, years) {
+getsinimryears <- function(var, years, corrmon = TRUE) {
   if (!is.numeric(var) | !is.numeric(years) | (length(years)<2)) {
     stop("Variables must be numeric or you have to add more years to retrieve information")
   } else {
     list <- lapply(years, function(x)
-      getsinimrbyyear(var, x))
+      getsinimrbyyear(var, x, corrmon = corrmon))
     list <- Reduce(function(x, y)
       merge(x, y, all = TRUE), list)
     list[, 3:ncol(list)] <-
