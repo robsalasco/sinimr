@@ -11,7 +11,7 @@
 #' @import reshape2
 
 getsinimryears <- function(var, years) {
-  if ((class(var) != "integer") | (class(years) != "integer") | (length(years)<2)) {
+  if ((class(var) != "numeric") | (class(years) != "integer") | (length(years)<2)) {
     stop("Variables must be numeric or you have to add more years to retrieve information")
   } else {
     list <- lapply(years, function(x)
