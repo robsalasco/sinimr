@@ -22,7 +22,7 @@ getsinimr <- function(var, year) {
         paste(var, collapse = ","),
         "&periodos[]=",
         year,
-        "&regiones[]=T&municipios[]=T&corrmon=true",
+        "&regiones[]=T&municipios[]=T&corrmon=1",
         sep = ""
       )
     data <- xmlParse(callapi(url))
