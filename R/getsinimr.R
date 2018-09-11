@@ -11,7 +11,7 @@
 #' @import XML
 #' @import reshape2
 
-getsinimr <- function(var, year, corrmon = TRUE) {
+getsinimr <- function(var, year) {
   if (!is.numeric(var) | !is.numeric(year)) {
     stop("Variables must be numeric")
   } else {
@@ -22,7 +22,7 @@ getsinimr <- function(var, year, corrmon = TRUE) {
         paste(var, collapse = ","),
         "&periodos[]=",
         year,
-        "&regiones[]=T&municipios[]=T&corrmon=", as.numeric(corrmon),
+        "&regiones[]=T&municipios[]=T&corrmon=1",
         sep = ""
       )
     data <- xmlParse(callapi(url))
