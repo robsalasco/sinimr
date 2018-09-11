@@ -12,7 +12,7 @@
 #' @import reshape2
 
 getsinimr <- function(var, year) {
-  if ((class(var) != "integer") | (class(year) != "integer")) {
+  if ((class(var) != "numeric") | (class(year) != "integer")) {
     stop("Variables must be numeric")
   } else {
     year <- getyear(year)
