@@ -12,7 +12,7 @@
 #' @import reshape2
 
 getsinimr <- function(var, year) {
-  if ((class(var) != "numeric") | (class(year) != "numeric")) {
+  if (!is.numeric(var) | !is.numeric(year)) {
     stop("Variables must be numeric")
   } else {
     year <- getyear(year)
@@ -22,7 +22,7 @@ getsinimr <- function(var, year) {
         paste(var, collapse = ","),
         "&periodos[]=",
         year,
-        "&regiones[]=T&municipios[]=T&corrmon=false",
+        "&regiones[]=T&municipios[]=T&corrmon=1",
         sep = ""
       )
     data <- xmlParse(callapi(url))
