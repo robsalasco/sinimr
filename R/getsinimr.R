@@ -45,12 +45,11 @@ getsinimr <- function(var, year) {
     values <-
       t(as.data.frame(split(
         as.character(varxml), ceiling(seq_along(varxml) / columns)
-      )))
-    values[which(values == "No Recepcionado")] <- NA
+      ), stringsAsFactors=F))
     colnames(values) <- c("CODIGO", "MUNICIPIO", getname(var))
     rownames(values) <- c(1:nrow(values))
-    values <- as.data.frame(values)
-    values[, 3] <- as.numeric(as.character(values[, 3]))
+    values <- as.data.frame(values, stringsAsFactors=F)
+    values[, 3] <- as.numeric(gsub('[A-Za-z]', NA, values[, 3]))
     values[, 1] <- as.character(values[, 1])
     return(values)
   }
