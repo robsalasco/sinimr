@@ -1,7 +1,7 @@
-#' Get catch data for a region as a dataframe 
+#' Get a SINIM variable data in a specific year as a dataframe 
 #' @param variable variable type
 #' @param year year id
-#' @return data frame with data for the requested variable over time
+#' @return Returns a data frame with data for the requested variable over time
 #' @export
 #' @examples
 #' getsinimr(880, 2015)

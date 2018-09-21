@@ -24,30 +24,45 @@ Example usage
 
 > getsinimcategories()
 
- [1] "A. INGRESOS MUNICIPALES (M$)"                     "B. INGRESOS MUNICIPALES (%)"                     
- [3] "C. GASTOS MUNICIPALES (M$)"                       "D. GASTOS MUNICIPALES (%)"                       
- [5] "E. GASTOS EN PERSONAL"                            "F. TRANSFERENCIAS E INVERSION"                   
- [7] "G. SERVICIOS BASICOS Y GENERALES"                 "I. TRANSFERENCIAS Y COMPENSACIONES SUBDERE"      
- [9] "J. FONDO COMÚN MUNICIPAL (FCM)"                   "K. GESTION MUNICIPAL"                            
-[11] "A. PERSONAL DE PLANTA"                            "B. PERSONAL A CONTRATA"                          
-[13] "C. HONORARIOS "                                   "D. OTROS INDICADORES"                            
-[15] "A. ANTECEDENTES GENERALES DE EDUCACION"           "B. ASISTENCIA Y MATRÍCULAS EN EDUCACION"         
-[17] "C. RESULTADOS PSU"                                "D. INGRESOS EN EDUCACION MUNICIPAL"              
-[19] "E. GASTOS EN EDUCACION MUNICIPAL"                 "F. RECURSOS HUMANOS EN SECTOR EDUCACION"         
-[21] "G. ESTABLECIMIENTOS DE EDUCACION MUNICIPAL"       "A. ANTECEDENTES GENERALES DE SALUD"              
-[23] "B. COBERTURA EN SALUD MUNICIPAL"                  "C. INGRESOS  EN SALUD MUNICIPAL"                 
-[25] "D. GASTOS EN SALUD MUNICIPAL"                     "E. RED ASISTENCIAL SALUD"                        
-[27] "F. RECURSOS HUMANOS EN SALUD"                     "A. INFORMACION ENCUESTA CASEN"                   
-[29] "B. FICHA DE PROTECCION SOCIAL (FPS)"              "C. RED SOCIAL (SUBSIDIOS Y PENSIONES)"           
-[31] "D. INTERMEDIACION LABORAL"                        "E. ORGANIZACIONES COMUNITARIAS"                  
-[33] "F. BECAS"                                         "G. PARTICIPACIÓN CIUDADANA"                      
-[35] "H. PREVENCIÓN DEL DELITO"                         "I. DISCAPACIDAD"                                 
-[37] "A. CARACTERISTICAS TERRITORIALES"                 "B. SERVICIOS BASICOS A LA COMUNIDAD"             
-[39] "C. INFRAESTRUCTURA"                               "D. CATASTRO PREDIOS Y VALORACION CATASTRAL"      
-[41] "F. PLAN DE DESARROLLO COMUNAL (PLADECO)"          "G. PLAN REGULADOR COMUNAL"                       
-[43] "A. GEOGRAFICO ADMINISTRATIVA"                     "B. POBLACION"                                    
-[45] "A. PRECARIEDAD SOCIOECONOMICA MUJERES"            "B. DOTACION FUNCIONARIA Y PROFESIONAL DE MUJERES"
-[47] "A. INGRESOS CEMENTERIO (M$)"                      "B. GASTOS CEMENTERIO (M$)"   
+$`01.  ADMINISTRACION Y FINANZAS MUNICIPALES`
+ [1] "A.1. PRESUPUESTO INICIAL Y VIGENTE MUNICIPAL (M$)" "A. INGRESOS MUNICIPALES (M$)"                     
+ [3] "B. INGRESOS MUNICIPALES (%)"                       "C. GASTOS MUNICIPALES (M$)"                       
+ [5] "D. GASTOS MUNICIPALES (%)"                         "E. GASTOS EN PERSONAL"                            
+ [7] "F. TRANSFERENCIAS E INVERSION"                     "G. SERVICIOS BASICOS Y GENERALES"                 
+ [9] "I. TRANSFERENCIAS Y COMPENSACIONES SUBDERE"        "J. FONDO COMÚN MUNICIPAL (FCM)"                   
+[11] "K. GESTION MUNICIPAL"                              "L. "                                              
+[13] "M."                                               
+
+$`02.  RECURSOS HUMANOS MUNICIPAL`
+[1] "A. PERSONAL DE PLANTA"  "B. PERSONAL A CONTRATA" "C. HONORARIOS "         "D. OTROS INDICADORES"  
+
+$`03.  EDUCACION MUNICIPAL`
+[1] "A. ANTECEDENTES GENERALES DE EDUCACION"     "B. ASISTENCIA Y MATRÍCULAS EN EDUCACION"    "C. RESULTADOS PSU"                         
+[4] "D. INGRESOS EN EDUCACION MUNICIPAL"         "E. GASTOS EN EDUCACION MUNICIPAL"           "F. RECURSOS HUMANOS EN SECTOR EDUCACION"   
+[7] "G. ESTABLECIMIENTOS DE EDUCACION MUNICIPAL"
+
+$`04.  SALUD MUNICIPAL`
+[1] "A. ANTECEDENTES GENERALES DE SALUD" "B. COBERTURA EN SALUD MUNICIPAL"    "C. INGRESOS  EN SALUD MUNICIPAL"    "D. GASTOS EN SALUD MUNICIPAL"      
+[5] "E. RED ASISTENCIAL SALUD"           "F. RECURSOS HUMANOS EN SALUD"      
+
+$`05.  SOCIAL Y COMUNITARIA`
+[1] "A. INFORMACION ENCUESTA CASEN"         "B. RED SOCIAL (SUBSIDIOS Y PENSIONES)" "C. INTERMEDIACION LABORAL"            
+[4] "D. ORGANIZACIONES COMUNITARIAS"        "E. BECAS"                              "F. PARTICIPACIÓN CIUDADANA"           
+[7] "G. DISCAPACIDAD"                       "H. PREVENCIÓN DEL DELITO"             
+
+$`06.  DESARROLLO Y GESTION TERRITORIAL`
+[1] "A. CARACTERISTICAS TERRITORIALES"           "B. SERVICIOS BASICOS A LA COMUNIDAD"        "C. INFRAESTRUCTURA"                        
+[4] "D. CATASTRO PREDIOS Y VALORACION CATASTRAL" "E. AREAS VERDES "                           "F. PLAN DE DESARROLLO COMUNAL (PLADECO)"   
+[7] "G. PLAN REGULADOR COMUNAL"                 
+
+$`07.  CARACTERIZACION COMUNAL`
+[1] "A. GEOGRAFICO ADMINISTRATIVA" "B. POBLACION"                 "D. DISCAPACIDAD"             
+
+$`08.  GENERO`
+[1] "A. DOTACION FUNCIONARIA Y PROFESIONAL DE MUJERES"
+
+$`09. CEMENTERIO`
+[1] "1. INFORMACION GENERAL"      "A. INGRESOS CEMENTERIO (M$)" "B. GASTOS CEMENTERIO (M$)"   
 
 # List available variables
 
