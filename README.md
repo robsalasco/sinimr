@@ -1,10 +1,12 @@
-# SINIMr
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco)
+
+# sinimR <img src="inst/image/hex/sinimR_hexSticker.png" width = "175" height = "200" align="right" /> 
 
 Chilean Municipalities Information System Wrapper
 
-A note on usage
+### A note on usage
 
-When querying the API, please be respectful of the resources required to provide this data. We recommend you retain the results for each request so you can avoid repeated requests for duplicate information.
+When querying the API, please be respectful of the resources required to provide this data. Please retain the results for each request to avoid repeated requests for duplicate information.
 
 ### Installation
 
@@ -13,7 +15,7 @@ install.packages("devtools")
 devtools::install_github("robsalasco/sinimr")
 ```
 
-Example usage
+### Example
 
 ```R
 
