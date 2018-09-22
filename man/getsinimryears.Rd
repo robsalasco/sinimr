@@ -4,12 +4,14 @@
 \alias{getsinimryears}
 \title{Get data for a variable by multiple years as a data frame}
 \usage{
-getsinimryears(var, years)
+getsinimryears(var, years, moncorr = T)
 }
 \arguments{
 \item{var}{variable code}
 
 \item{years}{years}
+
+\item{moncorr}{A logical value indicating the use of monetary correction}
 }
 \value{
 data frame with data for the requested variable over time

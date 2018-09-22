@@ -4,12 +4,14 @@
 \alias{getsinimr}
 \title{Get a SINIM variable data in a specific year as a data frame}
 \usage{
-getsinimr(var, year)
+getsinimr(var, year, moncorr = T)
 }
 \arguments{
 \item{var}{variable code}
 
 \item{year}{year}
+
+\item{moncorr}{A logical value indicating the use of monetary correction}
 }
 \value{
 data frame with data for the requested variable over time
