@@ -18,6 +18,7 @@ Collate:
     getsinimr.R
     getsinimvariables.R
     getsinimryears.R
+    searchsinimvar.R
     helpers.R 
 Encoding: UTF-8
 RoxygenNote: 6.1.0
