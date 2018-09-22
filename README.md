@@ -15,7 +15,9 @@ install.packages("devtools")
 devtools::install_github("robsalasco/sinimr")
 ```
 
-### Example
+### How do I use it?
+
+sinimR comes with a small set of functions to deliver the content of SINIM's webpage. To get a first glance of the categories of information what are available please use the ```getsinimcategories()``` command.
 
 ```R
 
@@ -105,7 +107,11 @@ $`09. CEMENTERIO`
 1      1. INFORMACION GENERAL  516
 2 A. INGRESOS CEMENTERIO (M$)  456
 3   B. GASTOS CEMENTERIO (M$)  457
+```
 
+Every category have a bunch of variables associated. Use the CODE number and the ```getsinimvariables()``` function to get them.
+
+```R
 
 # List available variables
 
@@ -118,6 +124,12 @@ $`09. CEMENTERIO`
 109                     Presupuesto Vigente Gastos Municpiales M$   4213
 110 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226
 
+```
+
+Finally, to obtain the data across municipalities use the code column and specify a year.
+
+```R
+
 # Get data
 
 > head(getsinimr(c(4210,4211),2015))
@@ -129,7 +141,11 @@ $`09. CEMENTERIO`
 4 01402        CAMIÑA                                1248620                              1248618
 5 01403      COLCHANE                                2015333                              2015333
 6 01404         HUARA                                3090760                              3090759
+```
 
+You can get multiple years too! use the command ```getsinimryears()``` and add more years as in the example.
+
+```R
 # Get variable by year
 
 > head(getsinimryears(880,c(2015,2014,2013)))
