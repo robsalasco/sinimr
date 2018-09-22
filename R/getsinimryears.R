@@ -23,9 +23,9 @@ getsinimryears <- function(var, years) {
         as.numeric(as.character(x)))
     return(melt(
       list,
-      id = c("CODIGO", "MUNICIPIO"),
+      id = c("CODE", "MUNICIPALITY"),
       variable.name = "YEAR",
-      value.name = "VALUE",
+      value.name = "CODE",
       factorsAsStrings = T
     ))
   }

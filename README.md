@@ -16,7 +16,8 @@ devtools::install_github("robsalasco/sinimr")
 Example usage
 
 ```R
-# Include the helper library
+
+# Load library
 
 > library(sinimr)
 
@@ -25,97 +26,118 @@ Example usage
 > getsinimcategories()
 
 $`01.  ADMINISTRACION Y FINANZAS MUNICIPALES`
- [1] "A.1. PRESUPUESTO INICIAL Y VIGENTE MUNICIPAL (M$)" "A. INGRESOS MUNICIPALES (M$)"                     
- [3] "B. INGRESOS MUNICIPALES (%)"                       "C. GASTOS MUNICIPALES (M$)"                       
- [5] "D. GASTOS MUNICIPALES (%)"                         "E. GASTOS EN PERSONAL"                            
- [7] "F. TRANSFERENCIAS E INVERSION"                     "G. SERVICIOS BASICOS Y GENERALES"                 
- [9] "I. TRANSFERENCIAS Y COMPENSACIONES SUBDERE"        "J. FONDO COMÚN MUNICIPAL (FCM)"                   
-[11] "K. GESTION MUNICIPAL"                              "L. "                                              
-[13] "M."                                               
+                                            VARIABLE CODE
+1  A.1. PRESUPUESTO INICIAL Y VIGENTE MUNICIPAL (M$)  517
+2                       A. INGRESOS MUNICIPALES (M$)   21
+3                        B. INGRESOS MUNICIPALES (%)  191
+4                         C. GASTOS MUNICIPALES (M$)   22
+5                          D. GASTOS MUNICIPALES (%)  172
+6                              E. GASTOS EN PERSONAL  169
+7                      F. TRANSFERENCIAS E INVERSION  170
+8                   G. SERVICIOS BASICOS Y GENERALES  370
+9         I. TRANSFERENCIAS Y COMPENSACIONES SUBDERE  485
+10                    J. FONDO COMÚN MUNICIPAL (FCM)  508
+11                              K. GESTION MUNICIPAL  486
+12                                               L.    24
+13                                                M.  506
 
 $`02.  RECURSOS HUMANOS MUNICIPAL`
-[1] "A. PERSONAL DE PLANTA"  "B. PERSONAL A CONTRATA" "C. HONORARIOS "         "D. OTROS INDICADORES"  
+                VARIABLE CODE
+1  A. PERSONAL DE PLANTA  381
+2 B. PERSONAL A CONTRATA  382
+3         C. HONORARIOS   383
+4   D. OTROS INDICADORES  384
 
 $`03.  EDUCACION MUNICIPAL`
-[1] "A. ANTECEDENTES GENERALES DE EDUCACION"     "B. ASISTENCIA Y MATRÍCULAS EN EDUCACION"    "C. RESULTADOS PSU"                         
-[4] "D. INGRESOS EN EDUCACION MUNICIPAL"         "E. GASTOS EN EDUCACION MUNICIPAL"           "F. RECURSOS HUMANOS EN SECTOR EDUCACION"   
-[7] "G. ESTABLECIMIENTOS DE EDUCACION MUNICIPAL"
+                                    VARIABLE CODE
+1     A. ANTECEDENTES GENERALES DE EDUCACION   38
+2    B. ASISTENCIA Y MATRÍCULAS EN EDUCACION   32
+3                          C. RESULTADOS PSU   33
+4         D. INGRESOS EN EDUCACION MUNICIPAL   35
+5           E. GASTOS EN EDUCACION MUNICIPAL   36
+6    F. RECURSOS HUMANOS EN SECTOR EDUCACION   34
+7 G. ESTABLECIMIENTOS DE EDUCACION MUNICIPAL  379
 
 $`04.  SALUD MUNICIPAL`
-[1] "A. ANTECEDENTES GENERALES DE SALUD" "B. COBERTURA EN SALUD MUNICIPAL"    "C. INGRESOS  EN SALUD MUNICIPAL"    "D. GASTOS EN SALUD MUNICIPAL"      
-[5] "E. RED ASISTENCIAL SALUD"           "F. RECURSOS HUMANOS EN SALUD"      
+                            VARIABLE CODE
+1 A. ANTECEDENTES GENERALES DE SALUD   30
+2    B. COBERTURA EN SALUD MUNICIPAL   25
+3    C. INGRESOS  EN SALUD MUNICIPAL   26
+4       D. GASTOS EN SALUD MUNICIPAL   28
+5           E. RED ASISTENCIAL SALUD   31
+6       F. RECURSOS HUMANOS EN SALUD  362
 
 $`05.  SOCIAL Y COMUNITARIA`
-[1] "A. INFORMACION ENCUESTA CASEN"         "B. RED SOCIAL (SUBSIDIOS Y PENSIONES)" "C. INTERMEDIACION LABORAL"            
-[4] "D. ORGANIZACIONES COMUNITARIAS"        "E. BECAS"                              "F. PARTICIPACIÓN CIUDADANA"           
-[7] "G. DISCAPACIDAD"                       "H. PREVENCIÓN DEL DELITO"             
+                               VARIABLE CODE
+1         A. INFORMACION ENCUESTA CASEN   47
+2 B. RED SOCIAL (SUBSIDIOS Y PENSIONES)   44
+3             C. INTERMEDIACION LABORAL   43
+4        D. ORGANIZACIONES COMUNITARIAS   46
+5                              E. BECAS  377
+6            F. PARTICIPACIÓN CIUDADANA  510
+7                       G. DISCAPACIDAD  512
+8              H. PREVENCIÓN DEL DELITO  511
 
 $`06.  DESARROLLO Y GESTION TERRITORIAL`
-[1] "A. CARACTERISTICAS TERRITORIALES"           "B. SERVICIOS BASICOS A LA COMUNIDAD"        "C. INFRAESTRUCTURA"                        
-[4] "D. CATASTRO PREDIOS Y VALORACION CATASTRAL" "E. AREAS VERDES "                           "F. PLAN DE DESARROLLO COMUNAL (PLADECO)"   
-[7] "G. PLAN REGULADOR COMUNAL"                 
+                                    VARIABLE CODE
+1           A. CARACTERISTICAS TERRITORIALES   39
+2        B. SERVICIOS BASICOS A LA COMUNIDAD   41
+3                         C. INFRAESTRUCTURA   40
+4 D. CATASTRO PREDIOS Y VALORACION CATASTRAL  300
+5                           E. AREAS VERDES   376
+6    F. PLAN DE DESARROLLO COMUNAL (PLADECO)  304
+7                  G. PLAN REGULADOR COMUNAL   42
 
 $`07.  CARACTERIZACION COMUNAL`
-[1] "A. GEOGRAFICO ADMINISTRATIVA" "B. POBLACION"                 "D. DISCAPACIDAD"             
+                      VARIABLE CODE
+1 A. GEOGRAFICO ADMINISTRATIVA   49
+2                 B. POBLACION   50
+3              D. DISCAPACIDAD  366
 
 $`08.  GENERO`
-[1] "A. DOTACION FUNCIONARIA Y PROFESIONAL DE MUJERES"
+                                          VARIABLE CODE
+1 A. DOTACION FUNCIONARIA Y PROFESIONAL DE MUJERES  262
 
 $`09. CEMENTERIO`
-[1] "1. INFORMACION GENERAL"      "A. INGRESOS CEMENTERIO (M$)" "B. GASTOS CEMENTERIO (M$)"   
+                     VARIABLE CODE
+1      1. INFORMACION GENERAL  516
+2 A. INGRESOS CEMENTERIO (M$)  456
+3   B. GASTOS CEMENTERIO (M$)  457
+
 
 # List available variables
 
-> getsinimvariables("A. INGRESOS MUNICIPALES (M$)")
+> getsinimvariables(517)
 
-                                                                                        VARIABLE VALUE
-1                                                                Casinos de Juegos Ley Nº19.995.  3752
-2                                                                               Derechos de Aseo  3954
-3                                       Derechos de Aseo Cobro Directo y de Patentes Comerciales  3955
-4                                                      Derechos de Aseo por Impuesto Territorial  3956
-5                                  Impuesto Territorial de Beneficio Municipal (Art. 37 DL 3063)  4251
-6                                                 Ingresos Municipales (Ingreso Total Percibido)  1110
-7                       Ingresos Municipales (Ingreso Total Percibido) sin Saldo Inicial de Caja  4245
-8                                                             Ingresos por Fondo Común Municipal   880
-9                                                                         Ingresos por Impuestos  1226
-10                                      Ingresos por Patentes Municipales de Beneficio Municipal  4173
-11                                   Ingresos por Permisos de Circulación de Beneficio Municipal  4174
-12                                                                   Ingresos por Transferencias   883
-13 Ingresos por Transferencias menos Casino Ley N° 19.995, Patentes Acuícolas y Patentes Mineras  4325
-14                                                                  Ingresos Propios (IPP y FCM)   882
-15                                                            Ingresos Propios Permanentes (IPP)   879
-16                                                Ingresos Propios Permanentes per Cápita (IPPP)  1262
-17                       Ingresos Propios, según criterio de Contraloría General de la República   890
-18                                 Ingresos Totales, descontados los Ingresos por Transferencias   887
-19                                                            Monto Patentes Municipales Pagadas  1311
-20                                                       Patentes Acuícolas Ley Nº20.033 Art. 8.  3753
-21                                                                Patentes Mineras Ley Nº19.143.  3754
-22                                                          Presupuesto Inicial Sector Municipal  4210
-23                                    Presupuesto Vigente Saldo Inicial de Caja Sector Municipal  4226
-24                                                          Presupuesto Vigente Sector Municipal  4212
+                                                      VARIABLE UNIT CODE
+106                       Presupuesto Inicial Sector Municipal M$   4210
+107                     Presupuesto Inicial Gastos Municipales M$   4211
+108                       Presupuesto Vigente Sector Municipal M$   4212
+109                     Presupuesto Vigente Gastos Municpiales M$   4213
+110 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226
 
 # Get data
 
-> head(getsinimr(c(3752,3954,880),2015))
+> head(getsinimr(c(4210,4211),2015))
 
-  CODIGO     MUNICIPIO CASINOS DE JUEGOS LEY Nº19.995. DERECHOS DE ASEO INGRESOS POR FONDO COMÚN MUNICIPAL
-1  01101       IQUIQUE                               0          1072850                            2927867
-2  01107 ALTO HOSPICIO                               0           124979                            6048042
-3  01401  POZO ALMONTE                              NA             <NA>                               <NA>
-4  01402        CAMIÑA                               0              288                            1394263
-5  01403      COLCHANE                               0              749                             984534
-6  01404         HUARA                               0             1072                            1166072
+   CODE  MUNICIPALITY PRESUPUESTO INICIAL GASTOS MUNICIPALES PRESUPUESTO INICIAL SECTOR MUNICIPAL
+1 01101       IQUIQUE                               33387234                             33387234
+2 01107 ALTO HOSPICIO                                9708323                              9708323
+3 01401  POZO ALMONTE                                7270261                              7270262
+4 01402        CAMIÑA                                1248620                              1248618
+5 01403      COLCHANE                                2015333                              2015333
+6 01404         HUARA                                3090760                              3090759
 
 # Get variable by year
 
 > head(getsinimryears(880,c(2015,2014,2013)))
 
-  CODIGO     MUNICIPIO YEAR   VALUE
-1  01101       IQUIQUE 2015 2927867
-2  01107 ALTO HOSPICIO 2015 6048042
-3  01401  POZO ALMONTE 2015      NA
-4  01402        CAMIÑA 2015 1394263
-5  01403      COLCHANE 2015  984534
-6  01404         HUARA 2015 1166072
+   CODE  MUNICIPALITY YEAR    CODE
+1 01101       IQUIQUE 2015 3074260
+2 01107 ALTO HOSPICIO 2015 6350444
+3 01401  POZO ALMONTE 2015 1594943
+4 01402        CAMIÑA 2015 1463976
+5 01403      COLCHANE 2015 1033761
+6 01404         HUARA 2015 1224376
 
 ```
