@@ -87,8 +87,8 @@ getname <- function(names) {
   return(toupper(unlist(list[complete.cases(match(list$VALUE, names)), 1])))
 }
 
-getsinimrbyyear <- function(x, year) {
-  data <- getsinimr(x, year)
+getsinimrbyyear <- function(x, year, moncorr=moncorr) {
+  data <- getsinimr(x, year, moncorr=moncorr)
   colnames(data)[3] <- as.character(year)
   return(data)
 }

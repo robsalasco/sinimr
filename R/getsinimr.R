@@ -1,6 +1,7 @@
 #' Get a SINIM variable data in a specific year as a data frame
 #' @param var variable code
 #' @param year year
+#' @param moncorr A logical value indicating the use of monetary correction
 #' @return data frame with data for the requested variable over time
 #' @export
 #' @examples
@@ -11,16 +12,24 @@
 #' @import XML
 #' @import reshape2
 
-getsinimr <- function(var, year) {
+getsinimr <- function(var, year, moncorr=T) {
   if (!is.numeric(var) | !is.numeric(year)) {
     stop("Variables must be numeric")
   } else {
     year <- getyear(year)
+    if(moncorr==T){
     url <- paste(
       "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
       paste(var, collapse = ","), "&periodos[]=", year, "&regiones[]=T&municipios[]=T&corrmon=1",
       sep = ""
     )
+    } else {
+    url <- paste(
+      "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
+      paste(var, collapse = ","), "&periodos[]=", year, "&regiones[]=T&municipios[]=T&corrmon=0",
+      sep = ""
+      )
+    }
     data <- xmlParse(callapi(url))
     columns <- as.numeric(
       xpathApply(
