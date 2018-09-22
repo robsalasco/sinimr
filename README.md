@@ -159,3 +159,30 @@ You can get multiple years too! use the command ```getsinimryears()``` and add m
 6 01404         HUARA 2015 1224376
 
 ```
+
+If you don't know what are you looking for use ```searchsinimvar()```to get search results based on variable descriptions, names and groups.
+
+```R
+> searchsinimvar("cementerio")
+
+    CODE                                                                                                                               VARIABLE
+342 4140                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
+343 4141                                                                                              Gastos Cementerio (Gasto Total Devengado)
+344 4406                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
+345 4407 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
+                                                                                                                                                                 DESCRIPTION
+342                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
+343                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
+344 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
+345                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
+              AREA                     SUBAREA UNIT
+342 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
+343 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
+344 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
+345 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
+
+```
+
+
+
+
