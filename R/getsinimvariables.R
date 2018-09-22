@@ -9,22 +9,15 @@
 #' @import XML
 #' @import reshape2
 
-getsinimvariables<- function(category_s) {
+getsinimvariables <- function(code_s) {
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <-
     postapi("http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
-            body)
-  list <- melt(sapply(resp, function(b)
-    b$mtro_datos_nombre))
-  values <- melt(sapply(resp, function(b)
-    b$id_dato))
-  list$id <- values$value
-  colnames(list) <- c("VARIABLE", "CATEGORY", "VALUE")
-  list$VARIABLE <-
-    as.vector(lapply(as.character(list$VARIABLE), function(x)
-      trimws(x)))
+            body) 
+  list <- Reduce(function(...) merge(..., all=T), resp)
   sub <-
-    as.vector(subset(list, CATEGORY == category_s, select = c("VARIABLE", "VALUE")))
+    as.vector(subset(list, id_subarea == code_s, select = c("mtro_datos_nombre", "unidad_medida_simbolo","id_dato")))
+  colnames(sub) <- c("VARIABLE", "UNIT", "CODE")
   if (nrow(sub) == 0) {
     stop("Category not found")
   } else {

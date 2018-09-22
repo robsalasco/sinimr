@@ -13,5 +13,5 @@ getsinimcategories<- function() {
   resp <-
     postapi("http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
             body)
-  return(sapply(resp, function(b) b$nombre_subarea))
+  return(lapply(resp, function(b) data.frame(VARIABLE=b$nombre_subarea, CODE=b$id_subarea)))
 }
