@@ -2,20 +2,20 @@
 % Please edit documentation in R/getsinimryears.R
 \name{getsinimryears}
 \alias{getsinimryears}
-\title{Get data for a variable by multiple years as a dataframe}
+\title{Get data for a variable by multiple years as a data frame}
 \usage{
 getsinimryears(var, years)
 }
 \arguments{
-\item{years}{year id}
+\item{var}{variable code}
 
-\item{variable}{variable type}
+\item{years}{years}
 }
 \value{
 data frame with data for the requested variable over time
 }
 \description{
-Get data for a variable by multiple years as a dataframe
+Get data for a variable by multiple years as a data frame
 }
 \examples{
 getsinimr(880, c(2015,2014,2013))

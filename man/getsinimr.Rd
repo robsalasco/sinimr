@@ -2,20 +2,20 @@
 % Please edit documentation in R/getsinimr.R
 \name{getsinimr}
 \alias{getsinimr}
-\title{Get catch data for a region as a dataframe}
+\title{Get a SINIM variable data in a specific year as a data frame}
 \usage{
 getsinimr(var, year)
 }
 \arguments{
-\item{year}{year id}
+\item{var}{variable code}
 
-\item{variable}{variable type}
+\item{year}{year}
 }
 \value{
 data frame with data for the requested variable over time
 }
 \description{
-Get catch data for a region as a dataframe
+Get a SINIM variable data in a specific year as a data frame
 }
 \examples{
 getsinimr(880, 2015)

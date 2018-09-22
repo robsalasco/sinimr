@@ -8,10 +8,8 @@
 #' @import XML
 #' @import reshape2
 
-getsinimcategories<- function() {
+getsinimcategories <- function() {
   body <- list("dato_area[]" = "T")
-  resp <-
-    postapi("http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
-            body)
-  return(lapply(resp, function(b) data.frame(VARIABLE=b$nombre_subarea, CODE=b$id_subarea)))
+  resp <- postapi("http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php", body)
+  return(lapply(resp, function(b) data.frame(VARIABLE = b$nombre_subarea, CODE = b$id_subarea)))
 }

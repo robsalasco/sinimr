@@ -1,6 +1,6 @@
-#' Get data for a variable by multiple years as a dataframe 
-#' @param variable variable type
-#' @param years year id
+#' Get data for a variable by multiple years as a data frame
+#' @param var variable code
+#' @param years years
 #' @return data frame with data for the requested variable over time
 #' @export
 #' @examples
@@ -11,7 +11,7 @@
 #' @import reshape2
 
 getsinimryears <- function(var, years) {
-  if (!is.numeric(var) | !is.numeric(years) | (length(years)<2)) {
+  if (!is.numeric(var) | !is.numeric(years) | (length(years) < 2)) {
     stop("Variables must be numeric or you have to add more years to retrieve information")
   } else {
     list <- lapply(years, function(x)

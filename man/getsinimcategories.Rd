@@ -2,15 +2,15 @@
 % Please edit documentation in R/getsinimcategories.R
 \name{getsinimcategories}
 \alias{getsinimcategories}
-\title{Get categories of data in SINIM}
+\title{Get SINIM data categories}
 \usage{
 getsinimcategories()
 }
 \value{
-data frame with available data
+Returns a data frame with available data in SINIM's webpage
 }
 \description{
-Get categories of data in SINIM
+Get SINIM data categories
 }
 \examples{
 getsinimcategories()

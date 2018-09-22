@@ -1,22 +1,23 @@
 Package: sinimr
+Type: Package
 Title: Chilean Municipalities Information System Wrapper
+Version: 0.1.2
+Authors@R: c(person("Roberto", "Salas", email =
+    "rosalas@uc.cl", role = c("aut", "cre")))
 Description: Access SINIM data and view it as data frames.
-Version: 0.1.1
-Authors@R: person("Roberto Salas", "robsalasco", email = "rosalas@uc.cl", role=c("aut", "cre"))
-Depends:
-    R (>= 3.2.2)
 License: file LICENSE
 LazyData: true
 Imports:
-    httr,
-    jsonlite,
-    XML,
-    reshape2
+    httr (>= 1.3.1),
+    jsonlite (>= 1.5),
+    XML (>= 3.98-1.16),
+    reshape2 (>= 1.4.3)
 Collate:
     sinimr.R
     getsinimcategories.R
     getsinimr.R
     getsinimvariables.R
     getsinimryears.R
-    helpers.R
-RoxygenNote: 6.0.1
+    helpers.R 
+Encoding: UTF-8
+RoxygenNote: 6.1.0

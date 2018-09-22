@@ -4,17 +4,17 @@
 \alias{getsinimvariables}
 \title{List available variables for a category}
 \usage{
-getsinimvariables(category_s)
+getsinimvariables(catn)
 }
 \arguments{
-\item{category}{category type}
+\item{catn}{category number}
 }
 \value{
-a data frame with variables and values
+data frame with variables and values
 }
 \description{
 List available variables for a category
 }
 \examples{
-getsinimvariables("B. INGRESOS MUNICIPALES (\%)")
+getsinimvariables(47)
 }
