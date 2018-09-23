@@ -26,7 +26,7 @@ getsinimryears <- function(var, years, moncorr=T) {
       list,
       id = c("CODE", "MUNICIPALITY"),
       variable.name = "YEAR",
-      value.name = "CODE",
+      value.name = "VALUE",
       factorsAsStrings = T
     ))
   }
