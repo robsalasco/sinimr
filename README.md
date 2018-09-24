@@ -186,6 +186,7 @@ If you don't know what are you looking for use ```searchsinimvar()```to get sear
 ### Example plot
 
 ```R
+
 library(dplyr)
 library(sinimr)
 library(geojsonsf)
@@ -203,6 +204,8 @@ comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
 
 var <- getsinimr(882, 2017) %>% filter(MUNICIPALITY %in% comunas)
 
+var[3] <- var[3]*1000
+
 var.reg13.join <- reg13 %>%
   select(c_Cod) %>% 
   transmute(CODE = as.character(c_Cod)) %>%
@@ -214,7 +217,7 @@ tm_shape(var.reg13.join) +
   tm_legend(legend.position = c("left", "top")) +
   tm_compass(type = "8star", position = c("right", "bottom")) +
   tm_scale_bar(breaks = c(0, 10), size = 0.75, position = c("right", "bottom"), width = 1) +
-  tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.5)
+  tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)
 
 ```
 
