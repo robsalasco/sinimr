@@ -183,6 +183,40 @@ If you don't know what are you looking for use ```searchsinimvar()```to get sear
 
 ```
 
+### Example plot
+
+```R
+library(dplyr)
+library(sinimr)
+library(geojsonsf)
+library(sf)
+library(tmap)
+
+reg13 <- geojson_sf("http://datos.cedeus.cl/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3Acomunas_stgo_based_on_bcn_probreza_casen2013_v2&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature")
+
+comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
+             "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
+             "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
+             "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
+             "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
+             "VITACURA", "LA GRANJA", "PROVIDENCIA", "PADRE HURTADO", "SAN BERNARDO", "PUENTE ALTO", "PIRQUE")
+
+var <- getsinimr(882, 2017) %>% filter(MUNICIPALITY %in% comunas)
+
+var.reg13.join <- reg13 %>%
+  select(c_Cod) %>% 
+  transmute(CODE = as.character(c_Cod)) %>%
+  right_join(var, by=c("CODE"))
+
+tm_shape(var.reg13.join) +
+  tm_polygons(names(var.reg13.join)[3], palette="viridis")+
+  tm_text(names(var.reg13.join)[2], size = 0.4,style="jenks") +
+  tm_legend(legend.position = c("left", "top"))
+
+```
+
+![](plot.png)
+
 
 
 
