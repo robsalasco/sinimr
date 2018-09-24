@@ -148,15 +148,15 @@ You can get multiple years too! use the command ```getsinimryears()``` and add m
 ```R
 # Get variable by year
 
-> head(getsinimryears(880,c(2015,2014,2013)))
+> head(getsinimryears(880,2015:2017))
 
-   CODE  MUNICIPALITY YEAR   VALUE
-1 01101       IQUIQUE 2015 3074260
-2 01107 ALTO HOSPICIO 2015 6350444
-3 01401  POZO ALMONTE 2015 1594943
-4 01402        CAMIÑA 2015 1463976
-5 01403      COLCHANE 2015 1033761
-6 01404         HUARA 2015 1224376
+   CODE  MUNICIPALITY YEAR INGRESOS POR FONDO COMÚN MUNICIPAL
+1 01101       IQUIQUE 2015                            3257415
+2 01107 ALTO HOSPICIO 2015                            6873284
+3 01401  POZO ALMONTE 2015                            1788194
+4 01402        CAMIÑA 2015                            1540229
+5 01403      COLCHANE 2015                            1094716
+6 01404         HUARA 2015                            1332312
 
 ```
 
