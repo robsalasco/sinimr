@@ -209,12 +209,13 @@ var.reg13.join <- reg13 %>%
   right_join(var, by=c("CODE"))
 
 tm_shape(var.reg13.join) +
-  tm_polygons(names(var.reg13.join)[3], palette="viridis")+
-  tm_text(names(var.reg13.join)[2], size = 0.4,style="jenks") +
-  tm_legend(legend.position = c("left", "top")) +  
+  tm_polygons(names(var.reg13.join)[3], palette="inferno", border.col = "white") +
+  tm_text(names(var.reg13.join)[2], size = 0.4, style="jenks") +
+  tm_legend(legend.position = c("left", "top")) +
   tm_compass(type = "8star", position = c("right", "bottom")) +
   tm_scale_bar(breaks = c(0, 10), size = 0.75, position = c("right", "bottom"), width = 1) +
   tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.5)
+
 ```
 
 ![](plot.png)
