@@ -86,3 +86,39 @@ getname <- function(names) {
       trimws(x)))
   return(toupper(unlist(list[complete.cases(match(list$VALUE, names)), 1])))
 }
+
+parsexml <- function(var, years, moncorr=T) {
+    yearsn <- getyear(years)
+    if(moncorr==T){
+      url <- paste(
+        "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
+        paste(var, collapse = ","), "&periodos[]=", paste(yearsn, collapse = ","), "&regiones[]=T&municipios[]=T&corrmon=1",
+        sep = ""
+      )
+    } else {
+      url <- paste(
+        "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
+        paste(var, collapse = ","), "&periodos[]=", paste(yearsn, collapse = ","), "&regiones[]=T&municipios[]=T&corrmon=0",
+        sep = ""
+      )
+    }
+    data <- xmlParse(callapi(url))
+    columns <- as.numeric(
+      xpathApply(
+        data,
+        "//tei:Table/@tei:ExpandedColumnCount",
+        namespaces = c(tei = getDefaultNamespace(data)[[1]]$uri)
+      )[[1]][[1]],
+      xmlValue
+    )
+    varxml <- xpathSApply(
+      data,
+      "//tei:Cell[not(@tei:StyleID)]",
+      namespaces = c(tei = getDefaultNamespace(data)[[1]]$uri),
+      xmlValue
+    )
+    values <- t(as.data.frame(split(
+      as.character(varxml), ceiling(seq_along(varxml) / columns)
+    ), stringsAsFactors = F))
+    return(values)
+}
