@@ -223,6 +223,182 @@ tm_shape(var.reg13.join) +
 
 ![](plot.png)
 
+### Dataset included
 
+```R
+
+data("idgeocensus")
+
+> idgeocensus
+    REGION                    NOM_REGION PROVINCIA           NOM_PROVINCIA COMUNA           NOM_COMUNA
+1       12                    MAGALLANES       121              MAGALLANES  12101         PUNTA ARENAS
+2       12                    MAGALLANES       121              MAGALLANES  12102        LAGUNA BLANCA
+3       12                    MAGALLANES       121              MAGALLANES  12103            RÍO VERDE
+4       12                    MAGALLANES       121              MAGALLANES  12104         SAN GREGORIO
+5       12                    MAGALLANES       122       ANTÁRTICA CHILENA  12201       CABO DE HORNOS
+6       12                    MAGALLANES       122       ANTÁRTICA CHILENA  12202            ANTÁRTICA
+7       12                    MAGALLANES       123        TIERRA DEL FUEGO  12301             PORVENIR
+8       12                    MAGALLANES       123        TIERRA DEL FUEGO  12302            PRIMAVERA
+9       12                    MAGALLANES       123        TIERRA DEL FUEGO  12303             TIMAUKEL
+10      12                    MAGALLANES       124        ÚLTIMA ESPERANZA  12401              NATALES
+11      12                    MAGALLANES       124        ÚLTIMA ESPERANZA  12402     TORRES DEL PAINE
+12      11                         AYSÉN       111               COYHAIQUE  11101            COYHAIQUE
+13      11                         AYSÉN       111               COYHAIQUE  11102           LAGO VERDE
+14      11                         AYSÉN       112                   AYSÉN  11201                AYSÉN
+15      11                         AYSÉN       112                   AYSÉN  11202               CISNES
+16      11                         AYSÉN       112                   AYSÉN  11203            GUAITECAS
+17      11                         AYSÉN       113            CAPITÁN PRAT  11301             COCHRANE
+18      11                         AYSÉN       113            CAPITÁN PRAT  11302            O'HIGGINS
+19      11                         AYSÉN       113            CAPITÁN PRAT  11303               TORTEL
+20      11                         AYSÉN       114         GENERAL CARRERA  11401          CHILE CHICO
+21      11                         AYSÉN       114         GENERAL CARRERA  11402           RÍO IBÁÑEZ
+22       1                      TARAPACÁ        11                 IQUIQUE   1101              IQUIQUE
+23       1                      TARAPACÁ        11                 IQUIQUE   1107        ALTO HOSPICIO
+24       1                      TARAPACÁ        14               TAMARUGAL   1401         POZO ALMONTE
+25       1                      TARAPACÁ        14               TAMARUGAL   1402               CAMIÑA
+26       1                      TARAPACÁ        14               TAMARUGAL   1403             COLCHANE
+27       1                      TARAPACÁ        14               TAMARUGAL   1404                HUARA
+28       1                      TARAPACÁ        14               TAMARUGAL   1405                 PICA
+29       2                   ANTOFAGASTA        21             ANTOFAGASTA   2101          ANTOFAGASTA
+30       2                   ANTOFAGASTA        21             ANTOFAGASTA   2102           MEJILLONES
+31       2                   ANTOFAGASTA        21             ANTOFAGASTA   2103         SIERRA GORDA
+32       2                   ANTOFAGASTA        21             ANTOFAGASTA   2104               TALTAL
+33       2                   ANTOFAGASTA        22                  EL LOA   2201               CALAMA
+34       2                   ANTOFAGASTA        22                  EL LOA   2202              OLLAGÜE
+35       2                   ANTOFAGASTA        22                  EL LOA   2203 SAN PEDRO DE ATACAMA
+36       2                   ANTOFAGASTA        23               TOCOPILLA   2301            TOCOPILLA
+37       2                   ANTOFAGASTA        23               TOCOPILLA   2302          MARÍA ELENA
+38      10                     LOS LAGOS       101              LLANQUIHUE  10101         PUERTO MONTT
+39      10                     LOS LAGOS       101              LLANQUIHUE  10102              CALBUCO
+40      10                     LOS LAGOS       101              LLANQUIHUE  10103              COCHAMÓ
+41      10                     LOS LAGOS       101              LLANQUIHUE  10104               FRESIA
+42      10                     LOS LAGOS       101              LLANQUIHUE  10105            FRUTILLAR
+43      10                     LOS LAGOS       101              LLANQUIHUE  10106          LOS MUERMOS
+44      10                     LOS LAGOS       101              LLANQUIHUE  10107           LLANQUIHUE
+45      10                     LOS LAGOS       101              LLANQUIHUE  10108              MAULLÍN
+46      10                     LOS LAGOS       101              LLANQUIHUE  10109         PUERTO VARAS
+47      10                     LOS LAGOS       102                  CHILOÉ  10201               CASTRO
+48      10                     LOS LAGOS       102                  CHILOÉ  10202                ANCUD
+49      10                     LOS LAGOS       102                  CHILOÉ  10203              CHONCHI
+50      10                     LOS LAGOS       102                  CHILOÉ  10204      CURACO DE VÉLEZ
+51      10                     LOS LAGOS       102                  CHILOÉ  10205             DALCAHUE
+52      10                     LOS LAGOS       102                  CHILOÉ  10206            PUQUELDÓN
+53      10                     LOS LAGOS       102                  CHILOÉ  10207              QUEILÉN
+54      10                     LOS LAGOS       102                  CHILOÉ  10208              QUELLÓN
+55      10                     LOS LAGOS       102                  CHILOÉ  10209              QUEMCHI
+56      10                     LOS LAGOS       102                  CHILOÉ  10210             QUINCHAO
+57      10                     LOS LAGOS       103                  OSORNO  10301               OSORNO
+58      10                     LOS LAGOS       103                  OSORNO  10302         PUERTO OCTAY
+59      10                     LOS LAGOS       103                  OSORNO  10303            PURRANQUE
+60      10                     LOS LAGOS       103                  OSORNO  10304              PUYEHUE
+61      10                     LOS LAGOS       103                  OSORNO  10305            RÍO NEGRO
+62      10                     LOS LAGOS       103                  OSORNO  10306 SAN JUAN DE LA COSTA
+63      10                     LOS LAGOS       103                  OSORNO  10307            SAN PABLO
+64      10                     LOS LAGOS       104                  PALENA  10401              CHAITÉN
+65      10                     LOS LAGOS       104                  PALENA  10402            FUTALEUFÚ
+66      10                     LOS LAGOS       104                  PALENA  10403            HUALAIHUÉ
+67      10                     LOS LAGOS       104                  PALENA  10404               PALENA
+68      15            ARICA Y PARINACOTA       151                   ARICA  15101                ARICA
+69      15            ARICA Y PARINACOTA       151                   ARICA  15102            CAMARONES
+70      15            ARICA Y PARINACOTA       152              PARINACOTA  15201                PUTRE
+71      15            ARICA Y PARINACOTA       152              PARINACOTA  15202        GENERAL LAGOS
+72       5                    VALPARAÍSO        51              VALPARAÍSO   5101           VALPARAÍSO
+73       5                    VALPARAÍSO        51              VALPARAÍSO   5102           CASABLANCA
+74       5                    VALPARAÍSO        51              VALPARAÍSO   5103               CONCÓN
+75       5                    VALPARAÍSO        51              VALPARAÍSO   5104       JUAN FERNÁNDEZ
+76       5                    VALPARAÍSO        51              VALPARAÍSO   5105           PUCHUNCAVÍ
+77       5                    VALPARAÍSO        51              VALPARAÍSO   5107             QUINTERO
+78       5                    VALPARAÍSO        51              VALPARAÍSO   5109         VIÑA DEL MAR
+79       5                    VALPARAÍSO        52          ISLA DE PASCUA   5201       ISLA DE PASCUA
+80       5                    VALPARAÍSO        53               LOS ANDES   5301            LOS ANDES
+81       5                    VALPARAÍSO        53               LOS ANDES   5302          CALLE LARGA
+82       5                    VALPARAÍSO        53               LOS ANDES   5303            RINCONADA
+83       5                    VALPARAÍSO        53               LOS ANDES   5304          SAN ESTEBAN
+84       5                    VALPARAÍSO        54                 PETORCA   5401             LA LIGUA
+85       5                    VALPARAÍSO        54                 PETORCA   5402              CABILDO
+86       5                    VALPARAÍSO        54                 PETORCA   5403               PAPUDO
+87       5                    VALPARAÍSO        54                 PETORCA   5404              PETORCA
+88       5                    VALPARAÍSO        54                 PETORCA   5405             ZAPALLAR
+89       5                    VALPARAÍSO        55                QUILLOTA   5501             QUILLOTA
+90       5                    VALPARAÍSO        55                QUILLOTA   5502               CALERA
+91       5                    VALPARAÍSO        55                QUILLOTA   5503             HIJUELAS
+92       5                    VALPARAÍSO        55                QUILLOTA   5504              LA CRUZ
+93       5                    VALPARAÍSO        55                QUILLOTA   5506              NOGALES
+94       5                    VALPARAÍSO        56             SAN ANTONIO   5601          SAN ANTONIO
+95       5                    VALPARAÍSO        56             SAN ANTONIO   5602            ALGARROBO
+96       5                    VALPARAÍSO        56             SAN ANTONIO   5603            CARTAGENA
+97       5                    VALPARAÍSO        56             SAN ANTONIO   5604            EL QUISCO
+98       5                    VALPARAÍSO        56             SAN ANTONIO   5605              EL TABO
+99       5                    VALPARAÍSO        56             SAN ANTONIO   5606        SANTO DOMINGO
+100      5                    VALPARAÍSO        57 SAN FELIPE DE ACONCAGUA   5701           SAN FELIPE
+101      5                    VALPARAÍSO        57 SAN FELIPE DE ACONCAGUA   5702               CATEMU
+102      5                    VALPARAÍSO        57 SAN FELIPE DE ACONCAGUA   5703             LLAILLAY
+103      5                    VALPARAÍSO        57 SAN FELIPE DE ACONCAGUA   5704            PANQUEHUE
+104      5                    VALPARAÍSO        57 SAN FELIPE DE ACONCAGUA   5705             PUTAENDO
+105      5                    VALPARAÍSO        57 SAN FELIPE DE ACONCAGUA   5706          SANTA MARÍA
+106      5                    VALPARAÍSO        58             MARGA MARGA   5801              QUILPUÉ
+107      5                    VALPARAÍSO        58             MARGA MARGA   5802              LIMACHE
+108      5                    VALPARAÍSO        58             MARGA MARGA   5803                OLMUÉ
+109      5                    VALPARAÍSO        58             MARGA MARGA   5804        VILLA ALEMANA
+110      3                       ATACAMA        31                 COPIAPÓ   3102              CALDERA
+111      3                       ATACAMA        33                  HUASCO   3301             VALLENAR
+112      3                       ATACAMA        33                  HUASCO   3302      ALTO DEL CARMEN
+113      3                       ATACAMA        33                  HUASCO   3303             FREIRINA
+114      3                       ATACAMA        33                  HUASCO   3304               HUASCO
+115      4                      COQUIMBO        41                   ELQUI   4101            LA SERENA
+116      4                      COQUIMBO        41                   ELQUI   4102             COQUIMBO
+117      4                      COQUIMBO        41                   ELQUI   4103            ANDACOLLO
+118      4                      COQUIMBO        41                   ELQUI   4104           LA HIGUERA
+119      4                      COQUIMBO        41                   ELQUI   4105             PAIGUANO
+120      4                      COQUIMBO        41                   ELQUI   4106               VICUÑA
+121      4                      COQUIMBO        42                  CHOAPA   4201              ILLAPEL
+122      4                      COQUIMBO        42                  CHOAPA   4202               CANELA
+123      4                      COQUIMBO        42                  CHOAPA   4203            LOS VILOS
+124      4                      COQUIMBO        42                  CHOAPA   4204            SALAMANCA
+125      4                      COQUIMBO        43                  LIMARÍ   4301               OVALLE
+126      4                      COQUIMBO        43                  LIMARÍ   4302           COMBARBALÁ
+127      4                      COQUIMBO        43                  LIMARÍ   4303         MONTE PATRIA
+128      4                      COQUIMBO        43                  LIMARÍ   4304            PUNITAQUI
+129      4                      COQUIMBO        43                  LIMARÍ   4305          RÍO HURTADO
+130      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6101             RANCAGUA
+131      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6102              CODEGUA
+132      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6103               COINCO
+133      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6104             COLTAUCO
+134      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6105              DOÑIHUE
+135      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6106             GRANEROS
+136      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6107           LAS CABRAS
+137      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6108              MACHALÍ
+138      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6109               MALLOA
+139      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6110             MOSTAZAL
+140      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6111               OLIVAR
+141      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6112                PEUMO
+142      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6113           PICHIDEGUA
+143      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6114    QUINTA DE TILCOCO
+144      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6115                RENGO
+145      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6116             REQUÍNOA
+146      6 LIBERTADOR BERNARDO O’HIGGINS        61               CACHAPOAL   6117          SAN VICENTE
+147      6 LIBERTADOR BERNARDO O’HIGGINS        62           CARDENAL CARO   6201            PICHILEMU
+148      6 LIBERTADOR BERNARDO O’HIGGINS        62           CARDENAL CARO   6202          LA ESTRELLA
+149      6 LIBERTADOR BERNARDO O’HIGGINS        62           CARDENAL CARO   6203             LITUECHE
+150      6 LIBERTADOR BERNARDO O’HIGGINS        62           CARDENAL CARO   6204            MARCHIHUE
+151      6 LIBERTADOR BERNARDO O’HIGGINS        62           CARDENAL CARO   6205              NAVIDAD
+152      6 LIBERTADOR BERNARDO O’HIGGINS        62           CARDENAL CARO   6206            PAREDONES
+153      6 LIBERTADOR BERNARDO O’HIGGINS        63               COLCHAGUA   6301         SAN FERNANDO
+154      6 LIBERTADOR BERNARDO O’HIGGINS        63               COLCHAGUA   6302              CHÉPICA
+155      6 LIBERTADOR BERNARDO O’HIGGINS        63               COLCHAGUA   6303          CHIMBARONGO
+156      6 LIBERTADOR BERNARDO O’HIGGINS        63               COLCHAGUA   6304                LOLOL
+157      6 LIBERTADOR BERNARDO O’HIGGINS        63               COLCHAGUA   6305             NANCAGUA
+158      6 LIBERTADOR BERNARDO O’HIGGINS        63               COLCHAGUA   6306             PALMILLA
+159      6 LIBERTADOR BERNARDO O’HIGGINS        63               COLCHAGUA   6307            PERALILLO
+160      6 LIBERTADOR BERNARDO O’HIGGINS        63               COLCHAGUA   6308             PLACILLA
+161      6 LIBERTADOR BERNARDO O’HIGGINS        63               COLCHAGUA   6309             PUMANQUE
+162      6 LIBERTADOR BERNARDO O’HIGGINS        63               COLCHAGUA   6310           SANTA CRUZ
+163      7                         MAULE        71                   TALCA   7101                TALCA
+164      7                         MAULE        71                   TALCA   7102         CONSTITUCIÓN
+165      7                         MAULE        71                   TALCA   7103              CUREPTO
+166      7                         MAULE        71                   TALCA   7104            EMPEDRADO
+ [ reached getOption("max.print") -- omitted 180 rows ]
+ 
+```
 
 
