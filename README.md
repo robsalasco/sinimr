@@ -193,29 +193,30 @@ library(geojsonsf)
 library(sf)
 library(tmap)
 
-reg13 <- geojson_sf("http://datos.cedeus.cl/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3Acomunas_stgo_based_on_bcn_probreza_casen2013_v2&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature")
+reg13 <- read_sf("https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/GRAN_SANTIAGO.geojson")
 
 comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
              "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
              "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
              "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
              "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
-             "VITACURA", "LA GRANJA", "PROVIDENCIA", "PADRE HURTADO", "SAN BERNARDO", "PUENTE ALTO", "PIRQUE")
+             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE", 
+             "SAN JOSÉ DE MAIPO")
 
 var <- getsinimr(882, 2017) %>% filter(MUNICIPALITY %in% comunas)
 
 var[3] <- var[3]*1000
 
 var.reg13.join <- reg13 %>%
-  select(c_Cod) %>% 
-  transmute(CODE = as.character(c_Cod)) %>%
+  select(COMUNA) %>% 
+  transmute(CODE = as.character(COMUNA)) %>%
   right_join(var, by=c("CODE"))
 
 tm_shape(var.reg13.join) +
   tm_polygons(names(var.reg13.join)[3], palette="inferno", border.col = "white") +
   tm_text(names(var.reg13.join)[2], size = 0.4, style="jenks") +
   tm_legend(legend.position = c("left", "top")) +
-  tm_compass(type = "8star", position = c("right", "bottom")) +
+  tm_compass(type = "8star", position = c("left", "bottom")) +
   tm_scale_bar(breaks = c(0, 10), size = 0.75, position = c("right", "bottom"), width = 1) +
   tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)
 
