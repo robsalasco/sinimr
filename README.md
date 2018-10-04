@@ -221,11 +221,10 @@ reg.13.plot <- tm_shape(var.reg13.join) +
   tm_legend(legend.position = c("left", "top")) +
   tm_compass(type = "8star", position = c("right", "top")) +
   tm_scale_bar(breaks = c(0, 10), size = 0.75, position = c("right", "bottom"), width = 1) +
-  tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)
-
+  tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)+
+  tm_layout(legend.format = list(text.separator = "a", fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))
 tmap_save(reg.13.plot + tm_layout(inner.margins = c(0.1, 0.1, 0.10, 0.01)), 
           "plot.png", width=8, height=8, dpi = 300, units = "in")
-
 
 ```
 
