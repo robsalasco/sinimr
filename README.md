@@ -1,4 +1,5 @@
-[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco)
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco) 
+[![Travis-CI Build Status](https://travis-ci.org/robsalasco/sinimr.svg?branch=master)](https://travis-ci.org/robsalasco/sinimr)
 
 # sinimR <img src="inst/image/hex/sinimR_hexSticker.png" width = "175" height = "200" align="right" /> 
 
