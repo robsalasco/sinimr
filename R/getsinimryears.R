@@ -12,24 +12,26 @@
 #' @import reshape2
 
 getsinimryears <- function(var, years, moncorr=T) {
-  if (!is.numeric(var) | !is.numeric(years) | (length(years) < 2)) {
-    stop("Variables must be numeric or you have to add more years to retrieve information")
-  } else {
-    values <- parsexml(var, years, moncorr=moncorr)
-    colnames(values) <- c("CODE", "MUNICIPALITY", years)
-    rownames(values) <- c(1:nrow(values))
-    values <- as.data.frame(values, stringsAsFactors = F)
-    values <- melt(
-      values,
-      id = c("CODE", "MUNICIPALITY"),
-      variable.name = "YEAR",
-      value.name = getname(var),
-      factorsAsStrings = T
-    )
-    values[, 4] <- as.numeric(gsub("[A-Za-z]", NA, values[, 4]))
-    values[, 1] <- as.character(values[, 1])
-    return(values)
-  }
+  
+  stopifnot(is.numeric(years))
+  stopifnot(is.numeric(var))
+  stopifnot(length(years) >= 2)
+  
+  values <- parsexml(var, years, moncorr=moncorr)
+  colnames(values) <- c("CODE", "MUNICIPALITY", years)
+  rownames(values) <- c(1:nrow(values))
+  values <- as.data.frame(values, stringsAsFactors = F)
+  values <- melt(
+    values,
+    id = c("CODE", "MUNICIPALITY"),
+    variable.name = "YEAR",
+    value.name = getname(var),
+    factorsAsStrings = T
+  )
+  values[, 4] <- as.numeric(gsub("[A-Za-z]", NA, values[, 4]))
+  values[, 1] <- as.character(values[, 1])
+  return(values)
+
 }
 
 

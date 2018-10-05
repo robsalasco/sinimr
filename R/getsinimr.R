@@ -13,15 +13,15 @@
 #' @import reshape2
 
 getsinimr <- function(var, year, moncorr=T) {
-  if (!is.numeric(var) | !is.numeric(year)) {
-    stop("Variables must be numeric")
-  } else {
-    values <- parsexml(var, year, moncorr=moncorr)
-    colnames(values) <- c("CODE", "MUNICIPALITY", getname(var))
-    rownames(values) <- c(1:nrow(values))
-    values <- as.data.frame(values, stringsAsFactors = F)
-    values[, 3] <- as.numeric(gsub("[A-Za-z]", NA, values[, 3]))
-    values[, 1] <- as.character(values[, 1])
-    return(values)
-  }
+  
+  stopifnot(is.numeric(var))
+  stopifnot(is.numeric(year))
+  
+  values <- parsexml(var, year, moncorr=moncorr)
+  colnames(values) <- c("CODE", "MUNICIPALITY", getname(var))
+  rownames(values) <- c(1:nrow(values))
+  values <- as.data.frame(values, stringsAsFactors = F)
+  values[, 3] <- as.numeric(gsub("[A-Za-z]", NA, values[, 3]))
+  values[, 1] <- as.character(values[, 1])
+  return(values)
 }

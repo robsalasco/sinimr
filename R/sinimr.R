@@ -8,3 +8,4 @@
 #' @importFrom jsonlite fromJSON serializeJSON
 #' @import XML
 #' @import reshape2
+NULL

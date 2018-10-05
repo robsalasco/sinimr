@@ -10,6 +10,9 @@
 #' @import reshape2
 
 getsinimvariables <- function(catn) {
+  
+  stopifnot(is.numeric(catn))
+  
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <- postapi(
     "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
