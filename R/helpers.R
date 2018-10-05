@@ -1,3 +1,5 @@
+#' @importFrom stats complete.cases
+
 callapi <- function(url) {
   resp <- GET(url, add_headers("X-Request-Source" = "r"))
   stop_for_status(resp)

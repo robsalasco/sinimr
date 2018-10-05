@@ -5,7 +5,7 @@
 #' @return data frame with data for the requested variable over time
 #' @export
 #' @examples
-#' getsinimr(880, c(2015,2014,2013))
+#' getsinimryears(880, c(2015,2014,2013))
 #' @import httr
 #' @importFrom jsonlite fromJSON serializeJSON
 #' @import XML

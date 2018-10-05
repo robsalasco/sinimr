@@ -20,5 +20,5 @@ data frame with data for the requested variable over time
 Get data for a variable by multiple years as a data frame
 }
 \examples{
-getsinimr(880, c(2015,2014,2013))
+getsinimryears(880, c(2015,2014,2013))
 }
