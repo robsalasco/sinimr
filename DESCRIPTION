@@ -25,6 +25,9 @@ Collate:
 Encoding: UTF-8
 RoxygenNote: 6.1.0
 Suggests: testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown
 URL: https://github.com/robsalasco/sinimr
 BugReports: https://github.com/robsalasco/sinimr/issues
+VignetteBuilder: knitr
