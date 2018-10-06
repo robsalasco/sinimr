@@ -2,7 +2,4 @@ pandoc: '2.3'
 pkgdown: 1.1.0.9000
 pkgdown_sha: 77ceb8cc8bc815020a24f1f690e91d590d3a52e2
 articles: []
-urls:
-  reference: https://robsalasco.github.io/sinimr/reference
-  article: https://robsalasco.github.io/sinimr/articles
 
