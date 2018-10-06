@@ -1,0 +1,109 @@
+---
+output: github_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "docs/"
+)
+```
+
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco) 
+[![Travis-CI Build Status](https://travis-ci.org/robsalasco/sinimr.svg?branch=master)](https://travis-ci.org/robsalasco/sinimr)
+
+# sinimR <img src="docs/sinimR_hexSticker.png" width = "175" height = "200" align="right" /> 
+
+Chilean Municipalities Information System Wrapper
+
+### A note on usage
+
+When querying the API, please be respectful of the resources required to provide this data. Please retain the results for each request to avoid repeated requests for duplicate information.
+
+### What can I do with this?
+
+![](docs/plot2.png)
+
+### Installation
+
+```R
+install.packages("devtools")
+devtools::install_github("robsalasco/sinimr")
+```
+
+### How do I use it?
+
+sinimR comes with a small set of functions to deliver the content of SINIM's webpage. To get a first glance of the categories of information what are available please use the ```getsinimcategories()``` command.
+
+```{r}
+library(sinimr)
+getsinimcategories()
+```
+
+Every category have a bunch of variables associated. Use the CODE number and the ```getsinimvariables()``` function to get them.
+
+```{r}
+getsinimvariables(517)
+```
+
+
+Finally, to obtain the data across municipalities use the code column and specify a year.
+
+```{r}
+head(getsinimr(c(4210,4211),2015))
+```
+
+You can get multiple years too! use the command ```getsinimryears()``` and add more years as in the example.
+
+```{r}
+head(getsinimryears(880,2015:2017))
+```
+
+If you don't know what are you looking for use ```searchsinimvar()```to get search results based on variable descriptions, names and groups.
+
+```{r}
+searchsinimvar("cementerio")
+```
+
+
+### Example plot
+
+```{r, message=F, fig.height=8, fig.width=8, fig.retina=2}
+library(dplyr)
+library(sinimr)
+library(sf)
+library(tmap)
+
+reg13 <- read_sf("https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson")
+
+comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
+             "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
+             "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
+             "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
+             "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
+             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
+             "SAN JOSÉ DE MAIPO")
+
+var <- getsinimr(882, 2017) %>% filter(MUNICIPALITY %in% comunas)
+
+var[3] <- var[3]*1000
+
+var.reg13.join <- reg13 %>%
+  select(COMUNA) %>% 
+  transmute(CODE = as.character(COMUNA)) %>%
+  right_join(var, by=c("CODE"))
+
+reg.13.plot <- tm_shape(var.reg13.join) +
+  tm_polygons(names(var.reg13.join)[3], palette="magma", border.col = "white") +
+  tm_text(names(var.reg13.join)[2], size = 0.4, style="jenks") +
+  tm_legend(legend.position = c("left", "top")) +
+  tm_compass(type = "8star", position = c("right", "top")) +
+  tm_scale_bar(breaks = c(0, 10), size = 0.75, position = c("right", "bottom"), width = 1) +
+  tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)+
+  tm_layout(inner.margins = c(0.1, 0.1, 0.10, 0.01), legend.format = list(text.separator = "a", fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))
+
+reg.13.plot
+```
+
+

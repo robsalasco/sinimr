@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://robsalasco.github.io/sinimr/index.html</loc>
+  </url>
+  <url>
+    <loc>https://robsalasco.github.io/sinimr/reference/getsinimcategories.html</loc>
+  </url>
+  <url>
+    <loc>https://robsalasco.github.io/sinimr/reference/getsinimr.html</loc>
+  </url>
+  <url>
+    <loc>https://robsalasco.github.io/sinimr/reference/getsinimryears.html</loc>
+  </url>
+  <url>
+    <loc>https://robsalasco.github.io/sinimr/reference/getsinimvariables.html</loc>
+  </url>
+  <url>
+    <loc>https://robsalasco.github.io/sinimr/reference/idgeocensus.html</loc>
+  </url>
+  <url>
+    <loc>https://robsalasco.github.io/sinimr/reference/searchsinimvar.html</loc>
+  </url>
+  <url>
+    <loc>https://robsalasco.github.io/sinimr/reference/sinimr.html</loc>
+  </url>
+</urlset>
