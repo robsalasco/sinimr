@@ -12,6 +12,7 @@ knitr::opts_chunk$set(
 
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco) 
 [![Travis-CI Build Status](https://travis-ci.org/robsalasco/sinimr.svg?branch=master)](https://travis-ci.org/robsalasco/sinimr)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/robsalasco/sinimr?branch=master&svg=true)](https://ci.appveyor.com/project/robsalasco/sinimr)
 [![Coverage Status](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](https://codecov.io/github/robsalasco/sinimr?branch=master)
 
 # sinimR <img src="docs/sinimR_hexSticker.png" width = "175" height = "200" align="right" /> 
