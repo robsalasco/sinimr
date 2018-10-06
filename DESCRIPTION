@@ -24,6 +24,7 @@ Collate:
     data.R
 Encoding: UTF-8
 RoxygenNote: 6.1.0
-Suggests: testthat
+Suggests: testthat,
+    covr
 URL: https://github.com/robsalasco/sinimr
 BugReports: https://github.com/robsalasco/sinimr/issues
