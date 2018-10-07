@@ -235,4 +235,7 @@ reg.13.plot
 
 <img src="docs/unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="576" />
 
+### References
+
+Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.
 

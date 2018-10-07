@@ -108,4 +108,7 @@ reg.13.plot <- tm_shape(var.reg13.join) +
 reg.13.plot
 ```
 
+### References
+
+Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.
 
