@@ -237,5 +237,5 @@ reg.13.plot
 
 ### References
 
-Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.
+- Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.
 
