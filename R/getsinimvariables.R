@@ -12,6 +12,7 @@
 getsinimvariables <- function(catn) {
   
   stopifnot(is.numeric(catn))
+  stopifnot(catn > 0)
   
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <- postapi(
@@ -21,9 +22,9 @@ getsinimvariables <- function(catn) {
   list <- Reduce(function(...) merge(..., all = T), resp)
   sub <- as.vector(subset(list, id_subarea == catn, select = c("mtro_datos_nombre", "unidad_medida_simbolo", "id_dato")))
   colnames(sub) <- c("VARIABLE", "UNIT", "CODE")
-  if (nrow(sub) == 0) {
-    stop("Category not found")
-  } else {
-    return(sub)
-  }
+ 
+   stopifnot(nrow(sub) > 0)
+  
+   return(sub)
+
 }
