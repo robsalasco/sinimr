@@ -1,14 +1,14 @@
 #' @importFrom stats complete.cases
 
-callapi <- function(url) {
+callapi <- function(url) { # nocov start
   resp <- GET(url, add_headers("X-Request-Source" = "r"))
   stop_for_status(resp)
   data <- content(resp, "text", encoding = "UTF-8")
   data <- substr(data, 2, nchar(data))
   return(data)
-}
+} # nocov end
 
-postapi <- function(url, body) {
+postapi <- function(url, body) { # nocov start
   resp <- POST(
     url,
     body = body,
@@ -22,9 +22,9 @@ postapi <- function(url, body) {
   stop_for_status(resp)
   data <- fromJSON(content(resp, "text"))
   return(data)
-}
+} # nocov end
 
-getyear <- function(year) {
+getyear <- function(year) { # nocov start
   year_list <- c(
     2000,
     2001,
@@ -50,9 +50,9 @@ getyear <- function(year) {
   } else {
     return(match(year, year_list))
   }
-}
+} # nocov end
 
-getid <- function(name) {
+getid <- function(name) { # nocov start
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <-
     postapi(
@@ -69,9 +69,9 @@ getid <- function(name) {
     as.vector(lapply(as.character(list$VARIABLE), function(x)
       trimws(x)))
   return(list[complete.cases(match(list$VARIABLE, name)), 3])
-}
+} # nocov end
 
-getname <- function(names) {
+getname <- function(names) { # nocov start
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <- postapi(
       "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
@@ -87,9 +87,9 @@ getname <- function(names) {
     as.vector(lapply(as.character(list$VARIABLE), function(x)
       trimws(x)))
   return(toupper(unlist(list[complete.cases(match(list$VALUE, names)), 1])))
-}
+} # nocov end
 
-parsexml <- function(var, years, moncorr=T) {
+parsexml <- function(var, years, moncorr=T) { # nocov start
     yearsn <- getyear(years)
     if(moncorr==T){
       url <- paste(
@@ -123,4 +123,4 @@ parsexml <- function(var, years, moncorr=T) {
       as.character(varxml), ceiling(seq_along(varxml) / columns)
     ), stringsAsFactors = F))
     return(values)
-}
+} # nocov end

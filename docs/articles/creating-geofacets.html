@@ -80,7 +80,7 @@
       <h1>Creating geofacets with sinimR</h1>
                         <h4 class="author">Roberto Salas</h4>
             
-            <h4 class="date">2018-10-07</h4>
+            <h4 class="date">2018-10-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/robsalasco/sinimr/blob/master/vignettes/creating-geofacets.Rmd"><code>vignettes/creating-geofacets.Rmd</code></a></small>
       <div class="hidden name"><code>creating-geofacets.Rmd</code></div>
@@ -110,7 +110,7 @@
 <a class="sourceLine" id="cb1-15" data-line-number="15">             <span class="st">"VITACURA"</span>, <span class="st">"LA GRANJA"</span>, <span class="st">"PROVIDENCIA"</span>, <span class="st">"SAN BERNARDO"</span>, <span class="st">"PUENTE ALTO"</span>, <span class="st">"PADRE HURTADO"</span>, <span class="st">"PIRQUE"</span>,</a>
 <a class="sourceLine" id="cb1-16" data-line-number="16">             <span class="st">"SAN JOSÉ DE MAIPO"</span>)</a>
 <a class="sourceLine" id="cb1-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18">data &lt;-<span class="st"> </span><span class="kw"><a href="../reference/getsinimryears.html">getsinimryears</a></span>(<span class="dv">882</span>,<span class="dv">2002</span><span class="op">:</span><span class="dv">2017</span>, <span class="dt">moncorr =</span> F) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/filter">filter</a></span>(MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas)</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">data &lt;-<span class="st"> </span><span class="kw"><a href="../reference/getsinimryears.html">getsinimryears</a></span>(<span class="dv">882</span>,<span class="dv">2002</span><span class="op">:</span><span class="dv">2017</span>, <span class="dt">moncorr =</span> F) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas)</a>
 <a class="sourceLine" id="cb1-19" data-line-number="19">data[<span class="dv">4</span>] &lt;-<span class="st"> </span>data[<span class="dv">4</span>]<span class="op">*</span><span class="dv">1000</span></a>
 <a class="sourceLine" id="cb1-20" data-line-number="20"></a>
 <a class="sourceLine" id="cb1-21" data-line-number="21">test &lt;-<span class="st"> </span>data</a>
