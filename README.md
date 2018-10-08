@@ -1,21 +1,21 @@
----
-output: github_document
----
 
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco)
+[![Travis-CI Build
+Status](https://travis-ci.org/robsalasco/sinimr.svg?branch=master)](https://travis-ci.org/robsalasco/sinimr)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/robsalasco/sinimr?branch=master&svg=true)](https://ci.appveyor.com/project/robsalasco/sinimr)
+[![Coverage
+Status](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](https://codecov.io/github/robsalasco/sinimr?branch=master)
 
-
-[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco) 
-[![Travis-CI Build Status](https://travis-ci.org/robsalasco/sinimr.svg?branch=master)](https://travis-ci.org/robsalasco/sinimr)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/robsalasco/sinimr?branch=master&svg=true)](https://ci.appveyor.com/project/robsalasco/sinimr)
-[![Coverage Status](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](https://codecov.io/github/robsalasco/sinimr?branch=master)
-
-# sinimR <img src="docs/sinimR_hexSticker.png" width = "175" height = "200" align="right" /> 
+# sinimR <img src="docs/sinimR_hexSticker.png" width = "175" height = "200" align="right" />
 
 Chilean Municipalities Information System Wrapper
 
 ### A note on usage
 
-When querying the API, please be respectful of the resources required to provide this data. Please retain the results for each request to avoid repeated requests for duplicate information.
+When querying the API, please be respectful of the resources required to
+provide this data. Please retain the results for each request to avoid
+repeated requests for duplicate information.
 
 ### What can I do with this?
 
@@ -23,17 +23,18 @@ When querying the API, please be respectful of the resources required to provide
 
 ### Installation
 
-```R
+``` r
 install.packages("devtools")
 devtools::install_github("robsalasco/sinimr")
 ```
 
 ### How do I use it?
 
-sinimR comes with a small set of functions to deliver the content of SINIM's webpage. To get a first glance of the categories of information what are available please use the ```getsinimcategories()``` command.
+sinimR comes with a small set of functions to deliver the content of
+SINIM’s webpage. To get a first glance of the categories of information
+what are available please use the `getsinimcategories()` command.
 
-
-```r
+``` r
 library(sinimr)
 getsinimcategories()
 #> $`01.  ADMINISTRACION Y FINANZAS MUNICIPALES`
@@ -116,10 +117,10 @@ getsinimcategories()
 #> 3   B. GASTOS CEMENTERIO (M$)  457
 ```
 
-Every category have a bunch of variables associated. Use the CODE number and the ```getsinimvariables()``` function to get them.
+Every category have a bunch of variables associated. Use the CODE number
+and the `getsinimvariables()` function to get them.
 
-
-```r
+``` r
 getsinimvariables(517)
 #>                                                       VARIABLE UNIT CODE
 #> 106                       Presupuesto Inicial Sector Municipal M$   4210
@@ -129,11 +130,10 @@ getsinimvariables(517)
 #> 110 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226
 ```
 
+Finally, to obtain the data across municipalities use the code column
+and specify a year.
 
-Finally, to obtain the data across municipalities use the code column and specify a year.
-
-
-```r
+``` r
 head(getsinimr(c(4210,4211),2015))
 #>    CODE  MUNICIPALITY PRESUPUESTO INICIAL GASTOS MUNICIPALES
 #> 1 01101       IQUIQUE                               33387234
@@ -151,10 +151,10 @@ head(getsinimr(c(4210,4211),2015))
 #> 6                              3090759
 ```
 
-You can get multiple years too! use the command ```getsinimryears()``` and add more years as in the example.
+You can get multiple years too\! use the command `getsinimryears()` and
+add more years as in the example.
 
-
-```r
+``` r
 head(getsinimryears(880,2015:2017))
 #>    CODE  MUNICIPALITY YEAR INGRESOS POR FONDO COMÚN MUNICIPAL
 #> 1 01101       IQUIQUE 2015                            3257415
@@ -165,10 +165,10 @@ head(getsinimryears(880,2015:2017))
 #> 6 01404         HUARA 2015                            1332312
 ```
 
-If you don't know what are you looking for use ```searchsinimvar()```to get search results based on variable descriptions, names and groups.
+If you don’t know what are you looking for use `searchsinimvar()`to get
+search results based on variable descriptions, names and groups.
 
-
-```r
+``` r
 searchsinimvar("cementerio")
 #>     CODE
 #> 343 4140
@@ -192,11 +192,9 @@ searchsinimvar("cementerio")
 #> 346 09. CEMENTERIO      1. INFORMACION GENERAL S-N
 ```
 
-
 ### Example plot
 
-
-```r
+``` r
 library(dplyr)
 library(sinimr)
 library(sf)
@@ -233,9 +231,9 @@ reg.13.plot <- tm_shape(var.reg13.join) +
 reg.13.plot
 ```
 
-<img src="docs/unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="576" />
+<img src="docs/unnamed-chunk-7-1.png" width="768" />
 
 ### References
 
-- Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.
-
+  - Sistema Nacional de Información Municipal (SINIM), SUBDERE,
+    Ministerio del Interior.
