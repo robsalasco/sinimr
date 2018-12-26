@@ -6,7 +6,7 @@
 #' @export
 #' @examples
 #' getsinimr(880, 2015)
-#' getsinimr(c(880,1023), 2015)
+#' getsinimr(c(880,882), 2015)
 #' @import httr
 #' @importFrom jsonlite fromJSON serializeJSON
 #' @import XML
