@@ -80,7 +80,7 @@
       <h1>Creating geofacets with sinimR</h1>
                         <h4 class="author">Roberto Salas</h4>
             
-            <h4 class="date">2018-10-08</h4>
+            <h4 class="date">2018-12-26</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/robsalasco/sinimr/blob/master/vignettes/creating-geofacets.Rmd"><code>vignettes/creating-geofacets.Rmd</code></a></small>
       <div class="hidden name"><code>creating-geofacets.Rmd</code></div>
@@ -123,12 +123,12 @@
 <a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co">#grid_preview(grd, label = "name_NOM_COMUNA")</span></a>
 <a class="sourceLine" id="cb1-29" data-line-number="29"><span class="co">#grid_design(grd, label = "name_NOM_COMUNA")</span></a>
 <a class="sourceLine" id="cb1-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(test, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(YEAR, <span class="st">`</span><span class="dt">INGRESOS PROPIOS (IPP Y FCM)</span><span class="st">`</span>, <span class="dt">group=</span><span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_path">geom_line</a></span>(<span class="dt">color =</span> <span class="st">"steelblue"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(test, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(YEAR, <span class="st">`</span><span class="dt">INGRESOS PROPIOS (IPP Y FCM)</span><span class="st">`</span>, <span class="dt">group=</span><span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(<span class="dt">color =</span> <span class="st">"steelblue"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb1-33" data-line-number="33"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/geofacet/topics/facet_geo">facet_geo</a></span>(<span class="op">~</span><span class="st"> </span>MUNICIPALITY, <span class="dt">grid =</span> grd, <span class="dt">scales =</span> <span class="st">"free_y"</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_date">scale_x_date</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_continuous">scale_y_continuous</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/scales/topics/dollar_format">dollar_format</a></span>(<span class="dt">suffix =</span> <span class="st">""</span>, <span class="dt">prefix =</span> <span class="st">"$"</span>, <span class="dt">big.mark =</span> <span class="st">"."</span>))<span class="op">+</span></a>
-<a class="sourceLine" id="cb1-36" data-line-number="36"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggtheme">theme_bw</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_date</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/scales/topics/dollar_format">dollar_format</a></span>(<span class="dt">suffix =</span> <span class="st">""</span>, <span class="dt">prefix =</span> <span class="st">"$"</span>, <span class="dt">big.mark =</span> <span class="st">"."</span>))<span class="op">+</span></a>
+<a class="sourceLine" id="cb1-36" data-line-number="36"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
 </div>
   </div>
 

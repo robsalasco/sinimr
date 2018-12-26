@@ -21,5 +21,5 @@ Get a SINIM variable data in a specific year as a data frame
 }
 \examples{
 getsinimr(880, 2015)
-getsinimr(c(880,1023), 2015)
+getsinimr(c(880,882), 2015)
 }
