@@ -146,697 +146,352 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>getsinimr</span>(<span class='fl'>880</span>, <span class='fl'>2015</span>)</div><div class='output co'>#&gt;      CODE         MUNICIPALITY INGRESOS POR FONDO COMÚN MUNICIPAL
-#&gt; 1   01101              IQUIQUE                            3074260
-#&gt; 2   01107        ALTO HOSPICIO                            6350444
-#&gt; 3   01401         POZO ALMONTE                            1594943
-#&gt; 4   01402               CAMIÑA                            1463976
-#&gt; 5   01403             COLCHANE                            1033761
-#&gt; 6   01404                HUARA                            1224376
-#&gt; 7   01405                 PICA                            1096470
-#&gt; 8   02101          ANTOFAGASTA                            7233677
-#&gt; 9   02102           MEJILLONES                            1111508
-#&gt; 10  02103         SIERRA GORDA                            1197074
-#&gt; 11  02104               TALTAL                            1396346
-#&gt; 12  02201               CALAMA                            4455655
-#&gt; 13  02202              OLLAGÜE                            1252333
-#&gt; 14  02203 SAN PEDRO DE ATACAMA                            2151458
-#&gt; 15  02301            TOCOPILLA                            2035909
-#&gt; 16  02302          MARÍA ELENA                             808620
-#&gt; 17  03101              COPIAPÓ                            7407702
-#&gt; 18  03102              CALDERA                            3701172
-#&gt; 19  03103      TIERRA AMARILLA                            1222671
-#&gt; 20  03201             CHAÑARAL                            3267268
-#&gt; 21  03202     DIEGO DE ALMAGRO                            1244926
-#&gt; 22  03301             VALLENAR                            3503161
-#&gt; 23  03302      ALTO DEL CARMEN                            1576287
-#&gt; 24  03303             FREIRINA                            1272094
-#&gt; 25  03304               HUASCO                            1142721
-#&gt; 26  04101            LA SERENA                            8693766
-#&gt; 27  04102             COQUIMBO                           11885604
-#&gt; 28  04103            ANDACOLLO                            1350837
-#&gt; 29  04104           LA HIGUERA                            1069895
-#&gt; 30  04105             PAIGUANO                            1673916
-#&gt; 31  04106               VICUÑA                            2953653
-#&gt; 32  04201              ILLAPEL                            3248934
-#&gt; 33  04202               CANELA                            1542681
-#&gt; 34  04203            LOS VILOS                            2929372
-#&gt; 35  04204            SALAMANCA                            1978474
-#&gt; 36  04301               OVALLE                           10798360
-#&gt; 37  04302           COMBARBALÁ                            2014451
-#&gt; 38  04303         MONTE PATRIA                            3779588
-#&gt; 39  04304            PUNITAQUI                            1583832
-#&gt; 40  04305          RÍO HURTADO                            1213042
-#&gt; 41  05101           VALPARAÍSO                            9784097
-#&gt; 42  05102           CASABLANCA                            1090579
-#&gt; 43  05103               CONCÓN                            1361781
-#&gt; 44  05104       JUAN FERNÁNDEZ                            1168937
-#&gt; 45  05105           PUCHUNCAVÍ                            1347303
-#&gt; 46  05107             QUINTERO                            4702148
-#&gt; 47  05109         VIÑA DEL MAR                            5074371
-#&gt; 48  05201       ISLA DE PASCUA                            5508316
-#&gt; 49  05301            LOS ANDES                            4737893
-#&gt; 50  05302          CALLE LARGA                            1259625
-#&gt; 51  05303            RINCONADA                            1075120
-#&gt; 52  05304          SAN ESTEBAN                            1688999
-#&gt; 53  05401             LA LIGUA                            2764363
-#&gt; 54  05402              CABILDO                            1924239
-#&gt; 55  05403               PAPUDO                             674923
-#&gt; 56  05404              PETORCA                            1421907
-#&gt; 57  05405             ZAPALLAR                             858678
-#&gt; 58  05501             QUILLOTA                            5706583
-#&gt; 59  05502               CALERA                            3828254
-#&gt; 60  05503             HIJUELAS                            1612529
-#&gt; 61  05504              LA CRUZ                            1546864
-#&gt; 62  05506              NOGALES                            1980439
-#&gt; 63  05601          SAN ANTONIO                            7009237
-#&gt; 64  05602            ALGARROBO                             782518
-#&gt; 65  05603            CARTAGENA                            5489899
-#&gt; 66  05604            EL QUISCO                            5693259
-#&gt; 67  05605              EL TABO                            4604252
-#&gt; 68  05606        SANTO DOMINGO                             905164
-#&gt; 69  05701           SAN FELIPE                            4952106
-#&gt; 70  05702               CATEMU                            1595975
-#&gt; 71  05703             LLAILLAY                            1953574
-#&gt; 72  05704            PANQUEHUE                            1080263
-#&gt; 73  05705             PUTAENDO                            2057132
-#&gt; 74  05706          SANTA MARÍA                            1682417
-#&gt; 75  05801              QUILPUÉ                            9083692
-#&gt; 76  05802              LIMACHE                            3642763
-#&gt; 77  05803                OLMUÉ                            1813367
-#&gt; 78  05804        VILLA ALEMANA                            8888870
-#&gt; 79  06101             RANCAGUA                            9403120
-#&gt; 80  06102              CODEGUA                            1217032
-#&gt; 81  06103               COINCO                            1157470
-#&gt; 82  06104             COLTAUCO                            1987712
-#&gt; 83  06105              DOÑIHUE                            2269143
-#&gt; 84  06106             GRANEROS                            2291520
-#&gt; 85  06107           LAS CABRAS                            1543451
-#&gt; 86  06108              MACHALÍ                            1535693
-#&gt; 87  06109               MALLOA                            1338908
-#&gt; 88  06110             MOSTAZAL                            1801271
-#&gt; 89  06111               OLIVAR                            1149395
-#&gt; 90  06112                PEUMO                            1413477
-#&gt; 91  06113           PICHIDEGUA                            2072337
-#&gt; 92  06114    QUINTA DE TILCOCO                            1276084
-#&gt; 93  06115                RENGO                            3790685
-#&gt; 94  06116             REQUINOA                            1280853
-#&gt; 95  06117          SAN VICENTE                            3223179
-#&gt; 96  06201            PICHILEMU                            4661982
-#&gt; 97  06202          LA ESTRELLA                             911333
-#&gt; 98  06203             LITUECHE                             985299
-#&gt; 99  06204            MARCHIHUE                            1181775
-#&gt; 100 06205              NAVIDAD                            3122040
-#&gt; 101 06206            PAREDONES                            1595219
-#&gt; 102 06301         SAN FERNANDO                            3842607
-#&gt; 103 06302              CHÉPICA                            1685584
-#&gt; 104 06303          CHIMBARONGO                            2605935
-#&gt; 105 06304                LOLOL                            1131897
-#&gt; 106 06305             NANCAGUA                            1528424
-#&gt; 107 06306             PALMILLA                            1273845
-#&gt; 108 06307            PERALILLO                            1077601
-#&gt; 109 06308             PLACILLA                            1222361
-#&gt; 110 06309             PUMANQUE                             985935
-#&gt; 111 06310           SANTA CRUZ                            2357562
-#&gt; 112 07101                TALCA                           12059145
-#&gt; 113 07102         CONSTITUCIÓN                            5989057
-#&gt; 114 07103              CUREPTO                            2036270
-#&gt; 115 07104            EMPEDRADO                            1512116
-#&gt; 116 07105                MAULE                            2441290
-#&gt; 117 07106              PELARCO                            1026723
-#&gt; 118 07107             PENCAHUE                            1279868
-#&gt; 119 07108            RÍO CLARO                            1383155
-#&gt; 120 07109         SAN CLEMENTE                            3909762
-#&gt; 121 07110           SAN RAFAEL                            1244098
-#&gt; 122 07201            CAUQUENES                            4526645
-#&gt; 123 07202               CHANCO                            1744362
-#&gt; 124 07203             PELLUHUE                            2502241
-#&gt; 125 07301               CURICÓ                            7727777
-#&gt; 126 07302              HUALAÑÉ                            1550785
-#&gt; 127 07303             LICANTÉN                            1606159
-#&gt; 128 07304               MOLINA                            3704684
-#&gt; 129 07305                RAUCO                            1381025
-#&gt; 130 07306              ROMERAL                            1103443
-#&gt; 131 07307      SAGRADA FAMILIA                            1830905
-#&gt; 132 07308                 TENO                            1969606
-#&gt; 133 07309            VICHUQUÉN                             916011
-#&gt; 134 07401              LINARES                            6698395
-#&gt; 135 07402               COLBÚN                            2482564
-#&gt; 136 07403              LONGAVÍ                            2832441
-#&gt; 137 07404               PARRAL                            3467544
-#&gt; 138 07405               RETIRO                            2101113
-#&gt; 139 07406           SAN JAVIER                            3945282
-#&gt; 140 07407         VILLA ALEGRE                            1911747
-#&gt; 141 07408        YERBAS BUENAS                            1837550
-#&gt; 142 08101           CONCEPCIÓN                            4081837
-#&gt; 143 08102              CORONEL                            8835586
-#&gt; 144 08103          CHIGUAYANTE                            7249265
-#&gt; 145 08104              FLORIDA                            1743496
-#&gt; 146 08105              HUALQUI                            3062453
-#&gt; 147 08106                 LOTA                            5507398
-#&gt; 148 08107                PENCO                            3801694
-#&gt; 149 08108  SAN PEDRO DE LA PAZ                            3755505
-#&gt; 150 08109          SANTA JUANA                            2558190
-#&gt; 151 08110           TALCAHUANO                            5818035
-#&gt; 152 08111                 TOMÉ                            5884086
-#&gt; 153 08112              HUALPÉN                            4588351
-#&gt; 154 08201                 LEBU                            3082844
-#&gt; 155 08202               ARAUCO                            3494197
-#&gt; 156 08203               CAÑETE                            3675625
-#&gt; 157 08204             CONTULMO                            1479577
-#&gt; 158 08205          CURANILAHUE                            3134671
-#&gt; 159 08206           LOS ÁLAMOS                            2462886
-#&gt; 160 08207                TIRÚA                            1880075
-#&gt; 161 08301          LOS ÁNGELES                           11787152
-#&gt; 162 08302               ANTUCO                            1416925
-#&gt; 163 08303              CABRERO                            2798941
-#&gt; 164 08304                 LAJA                            2363355
-#&gt; 165 08305              MULCHÉN                            2620938
-#&gt; 166 08306           NACIMIENTO                            2282165
-#&gt; 167 08307              NEGRETE                            1504671
-#&gt; 168 08308              QUILACO                            1025032
-#&gt; 169 08309             QUILLECO                            1595531
-#&gt; 170 08310          SAN ROSENDO                            1180773
-#&gt; 171 08311        SANTA BÁRBARA                            1747518
-#&gt; 172 08312              TUCAPEL                            1925573
-#&gt; 173 08313               YUMBEL                            4078460
-#&gt; 174 08314          ALTO BIOBÍO                            1396018
-#&gt; 175 09101               TEMUCO                           13273430
-#&gt; 176 09102              CARAHUE                            3556630
-#&gt; 177 09103                CUNCO                            2257778
-#&gt; 178 09104           CURARREHUE                            1493849
-#&gt; 179 09105               FREIRE                            3338928
-#&gt; 180 09106            GALVARINO                            2012345
-#&gt; 181 09107               GORBEA                            2075606
-#&gt; 182 09108              LAUTARO                            3461651
-#&gt; 183 09109             LONCOCHE                            2626381
-#&gt; 184 09110            MELIPEUCO                            1494252
-#&gt; 185 09111       NUEVA IMPERIAL                            4447584
-#&gt; 186 09112      PADRE LAS CASAS                            6791398
-#&gt; 187 09113            PERQUENCO                            1734570
-#&gt; 188 09114           PITRUFQUÉN                            2581499
-#&gt; 189 09115                PUCÓN                            1244186
-#&gt; 190 09116             SAAVEDRA                            2746732
-#&gt; 191 09117      TEODORO SCHMIDT                            2433746
-#&gt; 192 09118               TOLTÉN                            1849038
-#&gt; 193 09119               VILCÚN                            3061660
-#&gt; 194 09120           VILLARRICA                            3542918
-#&gt; 195 09121             CHOLCHOL                            2060379
-#&gt; 196 09201                ANGOL                            5628638
-#&gt; 197 09202           COLLIPULLI                            2473847
-#&gt; 198 09203           CURACAUTÍN                            2424757
-#&gt; 199 09204              ERCILLA                            1531196
-#&gt; 200 09205            LONQUIMAY                            1915216
-#&gt; 201 09206           LOS SAUCES                            1503170
-#&gt; 202 09207               LUMACO                            1909557
-#&gt; 203 09208                PURÉN                            2110956
-#&gt; 204 09209              RENAICO                            1507673
-#&gt; 205 09210             TRAIGUÉN                            2380813
-#&gt; 206 09211             VICTORIA                            3369798
-#&gt; 207 10101         PUERTO MONTT                           10931180
-#&gt; 208 10102              CALBUCO                            2743014
-#&gt; 209 10103              COCHAMÓ                            1147708
-#&gt; 210 10104               FRESIA                            1468966
-#&gt; 211 10105            FRUTILLAR                            1478129
-#&gt; 212 10106          LOS MUERMOS                            1836056
-#&gt; 213 10107           LLANQUIHUE                            1575890
-#&gt; 214 10108              MAULLÍN                            1960491
-#&gt; 215 10109         PUERTO VARAS                            1002531
-#&gt; 216 10201               CASTRO                            4453910
-#&gt; 217 10202                ANCUD                            4350639
-#&gt; 218 10203              CHONCHI                            1897299
-#&gt; 219 10204      CURACO DE VÉLEZ                            1372554
-#&gt; 220 10205             DALCAHUE                            1764069
-#&gt; 221 10206            PUQUELDÓN                            1201034
-#&gt; 222 10207              QUEILÉN                            1472148
-#&gt; 223 10208              QUELLÓN                            2713327
-#&gt; 224 10209              QUEMCHI                            1952483
-#&gt; 225 10210             QUINCHAO                            1887735
-#&gt; 226 10301               OSORNO                            7508314
-#&gt; 227 10302         PUERTO OCTAY                            1000339
-#&gt; 228 10303            PURRANQUE                            1921759
-#&gt; 229 10304              PUYEHUE                            1015329
-#&gt; 230 10305            RÍO NEGRO                            1504726
-#&gt; 231 10306 SAN JUAN DE LA COSTA                            2147515
-#&gt; 232 10307            SAN PABLO                            1262905
-#&gt; 233 10401              CHAITÉN                            1523447
-#&gt; 234 10402            FUTALEUFÚ                            1256618
-#&gt; 235 10403            HUALAIHUÉ                            1417463
-#&gt; 236 10404               PALENA                             937883
-#&gt; 237 11101            COIHAIQUE                            4253003
-#&gt; 238 11102           LAGO VERDE                             942488
-#&gt; 239 11201                AISÉN                            2407488
-#&gt; 240 11202               CISNES                            1417018
-#&gt; 241 11203            GUAITECAS                            1023074
-#&gt; 242 11301             COCHRANE                            1118025
-#&gt; 243 11302            O´HIGGINS                             930990
-#&gt; 244 11303               TORTEL                            1064802
-#&gt; 245 11401          CHILE CHICO                            1791852
-#&gt; 246 11402           RÍO IBÁÑEZ                            1159512
-#&gt; 247 12101         PUNTA ARENAS                            4012832
-#&gt; 248 12102        LAGUNA BLANCA                             862316
-#&gt; 249 12103            RÍO VERDE                             756154
-#&gt; 250 12104         SAN GREGORIO                             786016
-#&gt; 251 12201       CABO DE HORNOS                            1919260
-#&gt; 252 12301             PORVENIR                            1292217
-#&gt; 253 12302            PRIMAVERA                             832130
-#&gt; 254 12303             TIMAUKEL                             799528
-#&gt; 255 12401              NATALES                            2093886
-#&gt; 256 12402     TORRES DEL PAINE                             886576
-#&gt; 257 13101             SANTIAGO                            1600755
-#&gt; 258 13102            CERRILLOS                            2550083
-#&gt; 259 13103          CERRO NAVIA                           12205331
-#&gt; 260 13104             CONCHALÍ                            7076391
-#&gt; 261 13105            EL BOSQUE                           14355667
-#&gt; 262 13106     ESTACIÓN CENTRAL                            2023086
-#&gt; 263 13107           HUECHURABA                            2214089
-#&gt; 264 13108        INDEPENDENCIA                            2034598
-#&gt; 265 13109          LA CISTERNA                            1771731
-#&gt; 266 13110           LA FLORIDA                           22613097
-#&gt; 267 13111            LA GRANJA                           10399881
-#&gt; 268 13112           LA PINTANA                           17835829
-#&gt; 269 13113             LA REINA                            1140916
-#&gt; 270 13114           LAS CONDES                            2545452
-#&gt; 271 13115         LO BARNECHEA                            1378424
-#&gt; 272 13116            LO ESPEJO                            8493987
-#&gt; 273 13117             LO PRADO                            8021835
-#&gt; 274 13118                MACUL                            2582458
-#&gt; 275 13119                MAIPÚ                           40617354
-#&gt; 276 13120                ÑUÑOA                            2412334
-#&gt; 277 13121  PEDRO AGUIRRE CERDA                            6027436
-#&gt; 278 13122            PEÑALOLÉN                           11181535
-#&gt; 279 13123          PROVIDENCIA                            1465687
-#&gt; 280 13124             PUDAHUEL                           12017301
-#&gt; 281 13125            QUILICURA                            5778407
-#&gt; 282 13126        QUINTA NORMAL                            2960731
-#&gt; 283 13127             RECOLETA                            3077062
-#&gt; 284 13128                RENCA                            5131736
-#&gt; 285 13129          SAN JOAQUÍN                            3180885
-#&gt; 286 13130           SAN MIGUEL                            1405043
-#&gt; 287 13131            SAN RAMÓN                            7615690
-#&gt; 288 13132             VITACURA                            1159430
-#&gt; 289 13201          PUENTE ALTO                           49849667
-#&gt; 290 13202               PIRQUE                             844487
-#&gt; 291 13203    SAN JOSÉ DE MAIPO                            1317334
-#&gt; 292 13301               COLINA                            3144210
-#&gt; 293 13302                LAMPA                            2369520
-#&gt; 294 13303               TILTIL                            1137925
-#&gt; 295 13401         SAN BERNARDO                           14660430
-#&gt; 296 13402                 BUIN                            2023952
-#&gt; 297 13403      CALERA DE TANGO                             821096
-#&gt; 298 13404                PAINE                            2869600
-#&gt; 299 13501            MELIPILLA                            7420794
-#&gt; 300 13502                ALHUÉ                             950380
-#&gt; 301 13503             CURACAVÍ                            2131286
-#&gt; 302 13504          MARÍA PINTO                            1177545
-#&gt; 303 13505            SAN PEDRO                            1165696
-#&gt; 304 13601            TALAGANTE                            4355439
-#&gt; 305 13602             EL MONTE                            2189897
-#&gt; 306 13603        ISLA DE MAIPO                            2357926
-#&gt; 307 13604        PADRE HURTADO                            3155463
-#&gt; 308 13605             PEÑAFLOR                            5609349
-#&gt; 309 14101             VALDIVIA                            9997817
-#&gt; 310 14102               CORRAL                            1560219
-#&gt; 311 14103                LANCO                            2086924
-#&gt; 312 14104            LOS LAGOS                            1787738
-#&gt; 313 14105                MÁFIL                            1192844
-#&gt; 314 14106            MARIQUINA                            1904213
-#&gt; 315 14107             PAILLACO                            2051117
-#&gt; 316 14108          PANGUIPULLI                            3711286
-#&gt; 317 14201             LA UNIÓN                            3344632
-#&gt; 318 14202              FUTRONO                            1882667
-#&gt; 319 14203           LAGO RANCO                            1610361
-#&gt; 320 14204            RÍO BUENO                            2671752
-#&gt; 321 15101                ARICA                           12957349
-#&gt; 322 15102            CAMARONES                            1132891
-#&gt; 323 15201                PUTRE                            1603124
-#&gt; 324 15202        GENERAL LAGOS                             955498
-#&gt; 325 16101              CHILLÁN                           11351767
-#&gt; 326 16102               BULNES                            2234391
-#&gt; 327 16103        CHILLÁN VIEJO                            2461738
-#&gt; 328 16104            EL CARMEN                            1937320
-#&gt; 329 16105               PEMUCO                            1388983
-#&gt; 330 16106                PINTO                            1711717
-#&gt; 331 16107              QUILLÓN                            3204681
-#&gt; 332 16108          SAN IGNACIO                            2112333
-#&gt; 333 16109               YUNGAY                            2038723
-#&gt; 334 16201             QUIRIHUE                            1942260
-#&gt; 335 16202           COBQUECURA                            1703395
-#&gt; 336 16203              COELEMU                            2386396
-#&gt; 337 16204               NINHUE                            1532461
-#&gt; 338 16205           PORTEZUELO                            1348892
-#&gt; 339 16206              RÁNQUIL                            1341122
-#&gt; 340 16207             TREGUACO                            1361438
-#&gt; 341 16301           SAN CARLOS                            4915689
-#&gt; 342 16302             COIHUECO                            2832761
-#&gt; 343 16303               ÑIQUÉN                            1950629
-#&gt; 344 16304           SAN FABIÁN                            1157915
-#&gt; 345 16305          SAN NICOLÁS                            1515440</div><div class='input'><span class='fu'>getsinimr</span>(<span class='fu'>c</span>(<span class='fl'>880</span>,<span class='fl'>1023</span>), <span class='fl'>2015</span>)</div><div class='output co'>#&gt;      CODE         MUNICIPALITY INGRESOS POR FONDO COMÚN MUNICIPAL
-#&gt; 1   01101              IQUIQUE                            3074260
-#&gt; 2   01107        ALTO HOSPICIO                            6350444
-#&gt; 3   01401         POZO ALMONTE                            1594943
-#&gt; 4   01402               CAMIÑA                            1463976
-#&gt; 5   01403             COLCHANE                            1033761
-#&gt; 6   01404                HUARA                            1224376
-#&gt; 7   01405                 PICA                            1096470
-#&gt; 8   02101          ANTOFAGASTA                            7233677
-#&gt; 9   02102           MEJILLONES                            1111508
-#&gt; 10  02103         SIERRA GORDA                            1197074
-#&gt; 11  02104               TALTAL                            1396346
-#&gt; 12  02201               CALAMA                            4455655
-#&gt; 13  02202              OLLAGÜE                            1252333
-#&gt; 14  02203 SAN PEDRO DE ATACAMA                            2151458
-#&gt; 15  02301            TOCOPILLA                            2035909
-#&gt; 16  02302          MARÍA ELENA                             808620
-#&gt; 17  03101              COPIAPÓ                            7407702
-#&gt; 18  03102              CALDERA                            3701172
-#&gt; 19  03103      TIERRA AMARILLA                            1222671
-#&gt; 20  03201             CHAÑARAL                            3267268
-#&gt; 21  03202     DIEGO DE ALMAGRO                            1244926
-#&gt; 22  03301             VALLENAR                            3503161
-#&gt; 23  03302      ALTO DEL CARMEN                            1576287
-#&gt; 24  03303             FREIRINA                            1272094
-#&gt; 25  03304               HUASCO                            1142721
-#&gt; 26  04101            LA SERENA                            8693766
-#&gt; 27  04102             COQUIMBO                           11885604
-#&gt; 28  04103            ANDACOLLO                            1350837
-#&gt; 29  04104           LA HIGUERA                            1069895
-#&gt; 30  04105             PAIGUANO                            1673916
-#&gt; 31  04106               VICUÑA                            2953653
-#&gt; 32  04201              ILLAPEL                            3248934
-#&gt; 33  04202               CANELA                            1542681
-#&gt; 34  04203            LOS VILOS                            2929372
-#&gt; 35  04204            SALAMANCA                            1978474
-#&gt; 36  04301               OVALLE                           10798360
-#&gt; 37  04302           COMBARBALÁ                            2014451
-#&gt; 38  04303         MONTE PATRIA                            3779588
-#&gt; 39  04304            PUNITAQUI                            1583832
-#&gt; 40  04305          RÍO HURTADO                            1213042
-#&gt; 41  05101           VALPARAÍSO                            9784097
-#&gt; 42  05102           CASABLANCA                            1090579
-#&gt; 43  05103               CONCÓN                            1361781
-#&gt; 44  05104       JUAN FERNÁNDEZ                            1168937
-#&gt; 45  05105           PUCHUNCAVÍ                            1347303
-#&gt; 46  05107             QUINTERO                            4702148
-#&gt; 47  05109         VIÑA DEL MAR                            5074371
-#&gt; 48  05201       ISLA DE PASCUA                            5508316
-#&gt; 49  05301            LOS ANDES                            4737893
-#&gt; 50  05302          CALLE LARGA                            1259625
-#&gt; 51  05303            RINCONADA                            1075120
-#&gt; 52  05304          SAN ESTEBAN                            1688999
-#&gt; 53  05401             LA LIGUA                            2764363
-#&gt; 54  05402              CABILDO                            1924239
-#&gt; 55  05403               PAPUDO                             674923
-#&gt; 56  05404              PETORCA                            1421907
-#&gt; 57  05405             ZAPALLAR                             858678
-#&gt; 58  05501             QUILLOTA                            5706583
-#&gt; 59  05502               CALERA                            3828254
-#&gt; 60  05503             HIJUELAS                            1612529
-#&gt; 61  05504              LA CRUZ                            1546864
-#&gt; 62  05506              NOGALES                            1980439
-#&gt; 63  05601          SAN ANTONIO                            7009237
-#&gt; 64  05602            ALGARROBO                             782518
-#&gt; 65  05603            CARTAGENA                            5489899
-#&gt; 66  05604            EL QUISCO                            5693259
-#&gt; 67  05605              EL TABO                            4604252
-#&gt; 68  05606        SANTO DOMINGO                             905164
-#&gt; 69  05701           SAN FELIPE                            4952106
-#&gt; 70  05702               CATEMU                            1595975
-#&gt; 71  05703             LLAILLAY                            1953574
-#&gt; 72  05704            PANQUEHUE                            1080263
-#&gt; 73  05705             PUTAENDO                            2057132
-#&gt; 74  05706          SANTA MARÍA                            1682417
-#&gt; 75  05801              QUILPUÉ                            9083692
-#&gt; 76  05802              LIMACHE                            3642763
-#&gt; 77  05803                OLMUÉ                            1813367
-#&gt; 78  05804        VILLA ALEMANA                            8888870
-#&gt; 79  06101             RANCAGUA                            9403120
-#&gt; 80  06102              CODEGUA                            1217032
-#&gt; 81  06103               COINCO                            1157470
-#&gt; 82  06104             COLTAUCO                            1987712
-#&gt; 83  06105              DOÑIHUE                            2269143
-#&gt; 84  06106             GRANEROS                            2291520
-#&gt; 85  06107           LAS CABRAS                            1543451
-#&gt; 86  06108              MACHALÍ                            1535693
-#&gt; 87  06109               MALLOA                            1338908
-#&gt; 88  06110             MOSTAZAL                            1801271
-#&gt; 89  06111               OLIVAR                            1149395
-#&gt; 90  06112                PEUMO                            1413477
-#&gt; 91  06113           PICHIDEGUA                            2072337
-#&gt; 92  06114    QUINTA DE TILCOCO                            1276084
-#&gt; 93  06115                RENGO                            3790685
-#&gt; 94  06116             REQUINOA                            1280853
-#&gt; 95  06117          SAN VICENTE                            3223179
-#&gt; 96  06201            PICHILEMU                            4661982
-#&gt; 97  06202          LA ESTRELLA                             911333
-#&gt; 98  06203             LITUECHE                             985299
-#&gt; 99  06204            MARCHIHUE                            1181775
-#&gt; 100 06205              NAVIDAD                            3122040
-#&gt; 101 06206            PAREDONES                            1595219
-#&gt; 102 06301         SAN FERNANDO                            3842607
-#&gt; 103 06302              CHÉPICA                            1685584
-#&gt; 104 06303          CHIMBARONGO                            2605935
-#&gt; 105 06304                LOLOL                            1131897
-#&gt; 106 06305             NANCAGUA                            1528424
-#&gt; 107 06306             PALMILLA                            1273845
-#&gt; 108 06307            PERALILLO                            1077601
-#&gt; 109 06308             PLACILLA                            1222361
-#&gt; 110 06309             PUMANQUE                             985935
-#&gt; 111 06310           SANTA CRUZ                            2357562
-#&gt; 112 07101                TALCA                           12059145
-#&gt; 113 07102         CONSTITUCIÓN                            5989057
-#&gt; 114 07103              CUREPTO                            2036270
-#&gt; 115 07104            EMPEDRADO                            1512116
-#&gt; 116 07105                MAULE                            2441290
-#&gt; 117 07106              PELARCO                            1026723
-#&gt; 118 07107             PENCAHUE                            1279868
-#&gt; 119 07108            RÍO CLARO                            1383155
-#&gt; 120 07109         SAN CLEMENTE                            3909762
-#&gt; 121 07110           SAN RAFAEL                            1244098
-#&gt; 122 07201            CAUQUENES                            4526645
-#&gt; 123 07202               CHANCO                            1744362
-#&gt; 124 07203             PELLUHUE                            2502241
-#&gt; 125 07301               CURICÓ                            7727777
-#&gt; 126 07302              HUALAÑÉ                            1550785
-#&gt; 127 07303             LICANTÉN                            1606159
-#&gt; 128 07304               MOLINA                            3704684
-#&gt; 129 07305                RAUCO                            1381025
-#&gt; 130 07306              ROMERAL                            1103443
-#&gt; 131 07307      SAGRADA FAMILIA                            1830905
-#&gt; 132 07308                 TENO                            1969606
-#&gt; 133 07309            VICHUQUÉN                             916011
-#&gt; 134 07401              LINARES                            6698395
-#&gt; 135 07402               COLBÚN                            2482564
-#&gt; 136 07403              LONGAVÍ                            2832441
-#&gt; 137 07404               PARRAL                            3467544
-#&gt; 138 07405               RETIRO                            2101113
-#&gt; 139 07406           SAN JAVIER                            3945282
-#&gt; 140 07407         VILLA ALEGRE                            1911747
-#&gt; 141 07408        YERBAS BUENAS                            1837550
-#&gt; 142 08101           CONCEPCIÓN                            4081837
-#&gt; 143 08102              CORONEL                            8835586
-#&gt; 144 08103          CHIGUAYANTE                            7249265
-#&gt; 145 08104              FLORIDA                            1743496
-#&gt; 146 08105              HUALQUI                            3062453
-#&gt; 147 08106                 LOTA                            5507398
-#&gt; 148 08107                PENCO                            3801694
-#&gt; 149 08108  SAN PEDRO DE LA PAZ                            3755505
-#&gt; 150 08109          SANTA JUANA                            2558190
-#&gt; 151 08110           TALCAHUANO                            5818035
-#&gt; 152 08111                 TOMÉ                            5884086
-#&gt; 153 08112              HUALPÉN                            4588351
-#&gt; 154 08201                 LEBU                            3082844
-#&gt; 155 08202               ARAUCO                            3494197
-#&gt; 156 08203               CAÑETE                            3675625
-#&gt; 157 08204             CONTULMO                            1479577
-#&gt; 158 08205          CURANILAHUE                            3134671
-#&gt; 159 08206           LOS ÁLAMOS                            2462886
-#&gt; 160 08207                TIRÚA                            1880075
-#&gt; 161 08301          LOS ÁNGELES                           11787152
-#&gt; 162 08302               ANTUCO                            1416925
-#&gt; 163 08303              CABRERO                            2798941
-#&gt; 164 08304                 LAJA                            2363355
-#&gt; 165 08305              MULCHÉN                            2620938
-#&gt; 166 08306           NACIMIENTO                            2282165
-#&gt; 167 08307              NEGRETE                            1504671
-#&gt; 168 08308              QUILACO                            1025032
-#&gt; 169 08309             QUILLECO                            1595531
-#&gt; 170 08310          SAN ROSENDO                            1180773
-#&gt; 171 08311        SANTA BÁRBARA                            1747518
-#&gt; 172 08312              TUCAPEL                            1925573
-#&gt; 173 08313               YUMBEL                            4078460
-#&gt; 174 08314          ALTO BIOBÍO                            1396018
-#&gt; 175 09101               TEMUCO                           13273430
-#&gt; 176 09102              CARAHUE                            3556630
-#&gt; 177 09103                CUNCO                            2257778
-#&gt; 178 09104           CURARREHUE                            1493849
-#&gt; 179 09105               FREIRE                            3338928
-#&gt; 180 09106            GALVARINO                            2012345
-#&gt; 181 09107               GORBEA                            2075606
-#&gt; 182 09108              LAUTARO                            3461651
-#&gt; 183 09109             LONCOCHE                            2626381
-#&gt; 184 09110            MELIPEUCO                            1494252
-#&gt; 185 09111       NUEVA IMPERIAL                            4447584
-#&gt; 186 09112      PADRE LAS CASAS                            6791398
-#&gt; 187 09113            PERQUENCO                            1734570
-#&gt; 188 09114           PITRUFQUÉN                            2581499
-#&gt; 189 09115                PUCÓN                            1244186
-#&gt; 190 09116             SAAVEDRA                            2746732
-#&gt; 191 09117      TEODORO SCHMIDT                            2433746
-#&gt; 192 09118               TOLTÉN                            1849038
-#&gt; 193 09119               VILCÚN                            3061660
-#&gt; 194 09120           VILLARRICA                            3542918
-#&gt; 195 09121             CHOLCHOL                            2060379
-#&gt; 196 09201                ANGOL                            5628638
-#&gt; 197 09202           COLLIPULLI                            2473847
-#&gt; 198 09203           CURACAUTÍN                            2424757
-#&gt; 199 09204              ERCILLA                            1531196
-#&gt; 200 09205            LONQUIMAY                            1915216
-#&gt; 201 09206           LOS SAUCES                            1503170
-#&gt; 202 09207               LUMACO                            1909557
-#&gt; 203 09208                PURÉN                            2110956
-#&gt; 204 09209              RENAICO                            1507673
-#&gt; 205 09210             TRAIGUÉN                            2380813
-#&gt; 206 09211             VICTORIA                            3369798
-#&gt; 207 10101         PUERTO MONTT                           10931180
-#&gt; 208 10102              CALBUCO                            2743014
-#&gt; 209 10103              COCHAMÓ                            1147708
-#&gt; 210 10104               FRESIA                            1468966
-#&gt; 211 10105            FRUTILLAR                            1478129
-#&gt; 212 10106          LOS MUERMOS                            1836056
-#&gt; 213 10107           LLANQUIHUE                            1575890
-#&gt; 214 10108              MAULLÍN                            1960491
-#&gt; 215 10109         PUERTO VARAS                            1002531
-#&gt; 216 10201               CASTRO                            4453910
-#&gt; 217 10202                ANCUD                            4350639
-#&gt; 218 10203              CHONCHI                            1897299
-#&gt; 219 10204      CURACO DE VÉLEZ                            1372554
-#&gt; 220 10205             DALCAHUE                            1764069
-#&gt; 221 10206            PUQUELDÓN                            1201034
-#&gt; 222 10207              QUEILÉN                            1472148
-#&gt; 223 10208              QUELLÓN                            2713327
-#&gt; 224 10209              QUEMCHI                            1952483
-#&gt; 225 10210             QUINCHAO                            1887735
-#&gt; 226 10301               OSORNO                            7508314
-#&gt; 227 10302         PUERTO OCTAY                            1000339
-#&gt; 228 10303            PURRANQUE                            1921759
-#&gt; 229 10304              PUYEHUE                            1015329
-#&gt; 230 10305            RÍO NEGRO                            1504726
-#&gt; 231 10306 SAN JUAN DE LA COSTA                            2147515
-#&gt; 232 10307            SAN PABLO                            1262905
-#&gt; 233 10401              CHAITÉN                            1523447
-#&gt; 234 10402            FUTALEUFÚ                            1256618
-#&gt; 235 10403            HUALAIHUÉ                            1417463
-#&gt; 236 10404               PALENA                             937883
-#&gt; 237 11101            COIHAIQUE                            4253003
-#&gt; 238 11102           LAGO VERDE                             942488
-#&gt; 239 11201                AISÉN                            2407488
-#&gt; 240 11202               CISNES                            1417018
-#&gt; 241 11203            GUAITECAS                            1023074
-#&gt; 242 11301             COCHRANE                            1118025
-#&gt; 243 11302            O´HIGGINS                             930990
-#&gt; 244 11303               TORTEL                            1064802
-#&gt; 245 11401          CHILE CHICO                            1791852
-#&gt; 246 11402           RÍO IBÁÑEZ                            1159512
-#&gt; 247 12101         PUNTA ARENAS                            4012832
-#&gt; 248 12102        LAGUNA BLANCA                             862316
-#&gt; 249 12103            RÍO VERDE                             756154
-#&gt; 250 12104         SAN GREGORIO                             786016
-#&gt; 251 12201       CABO DE HORNOS                            1919260
-#&gt; 252 12301             PORVENIR                            1292217
-#&gt; 253 12302            PRIMAVERA                             832130
-#&gt; 254 12303             TIMAUKEL                             799528
-#&gt; 255 12401              NATALES                            2093886
-#&gt; 256 12402     TORRES DEL PAINE                             886576
-#&gt; 257 13101             SANTIAGO                            1600755
-#&gt; 258 13102            CERRILLOS                            2550083
-#&gt; 259 13103          CERRO NAVIA                           12205331
-#&gt; 260 13104             CONCHALÍ                            7076391
-#&gt; 261 13105            EL BOSQUE                           14355667
-#&gt; 262 13106     ESTACIÓN CENTRAL                            2023086
-#&gt; 263 13107           HUECHURABA                            2214089
-#&gt; 264 13108        INDEPENDENCIA                            2034598
-#&gt; 265 13109          LA CISTERNA                            1771731
-#&gt; 266 13110           LA FLORIDA                           22613097
-#&gt; 267 13111            LA GRANJA                           10399881
-#&gt; 268 13112           LA PINTANA                           17835829
-#&gt; 269 13113             LA REINA                            1140916
-#&gt; 270 13114           LAS CONDES                            2545452
-#&gt; 271 13115         LO BARNECHEA                            1378424
-#&gt; 272 13116            LO ESPEJO                            8493987
-#&gt; 273 13117             LO PRADO                            8021835
-#&gt; 274 13118                MACUL                            2582458
-#&gt; 275 13119                MAIPÚ                           40617354
-#&gt; 276 13120                ÑUÑOA                            2412334
-#&gt; 277 13121  PEDRO AGUIRRE CERDA                            6027436
-#&gt; 278 13122            PEÑALOLÉN                           11181535
-#&gt; 279 13123          PROVIDENCIA                            1465687
-#&gt; 280 13124             PUDAHUEL                           12017301
-#&gt; 281 13125            QUILICURA                            5778407
-#&gt; 282 13126        QUINTA NORMAL                            2960731
-#&gt; 283 13127             RECOLETA                            3077062
-#&gt; 284 13128                RENCA                            5131736
-#&gt; 285 13129          SAN JOAQUÍN                            3180885
-#&gt; 286 13130           SAN MIGUEL                            1405043
-#&gt; 287 13131            SAN RAMÓN                            7615690
-#&gt; 288 13132             VITACURA                            1159430
-#&gt; 289 13201          PUENTE ALTO                           49849667
-#&gt; 290 13202               PIRQUE                             844487
-#&gt; 291 13203    SAN JOSÉ DE MAIPO                            1317334
-#&gt; 292 13301               COLINA                            3144210
-#&gt; 293 13302                LAMPA                            2369520
-#&gt; 294 13303               TILTIL                            1137925
-#&gt; 295 13401         SAN BERNARDO                           14660430
-#&gt; 296 13402                 BUIN                            2023952
-#&gt; 297 13403      CALERA DE TANGO                             821096
-#&gt; 298 13404                PAINE                            2869600
-#&gt; 299 13501            MELIPILLA                            7420794
-#&gt; 300 13502                ALHUÉ                             950380
-#&gt; 301 13503             CURACAVÍ                            2131286
-#&gt; 302 13504          MARÍA PINTO                            1177545
-#&gt; 303 13505            SAN PEDRO                            1165696
-#&gt; 304 13601            TALAGANTE                            4355439
-#&gt; 305 13602             EL MONTE                            2189897
-#&gt; 306 13603        ISLA DE MAIPO                            2357926
-#&gt; 307 13604        PADRE HURTADO                            3155463
-#&gt; 308 13605             PEÑAFLOR                            5609349
-#&gt; 309 14101             VALDIVIA                            9997817
-#&gt; 310 14102               CORRAL                            1560219
-#&gt; 311 14103                LANCO                            2086924
-#&gt; 312 14104            LOS LAGOS                            1787738
-#&gt; 313 14105                MÁFIL                            1192844
-#&gt; 314 14106            MARIQUINA                            1904213
-#&gt; 315 14107             PAILLACO                            2051117
-#&gt; 316 14108          PANGUIPULLI                            3711286
-#&gt; 317 14201             LA UNIÓN                            3344632
-#&gt; 318 14202              FUTRONO                            1882667
-#&gt; 319 14203           LAGO RANCO                            1610361
-#&gt; 320 14204            RÍO BUENO                            2671752
-#&gt; 321 15101                ARICA                           12957349
-#&gt; 322 15102            CAMARONES                            1132891
-#&gt; 323 15201                PUTRE                            1603124
-#&gt; 324 15202        GENERAL LAGOS                             955498
-#&gt; 325 16101              CHILLÁN                           11351767
-#&gt; 326 16102               BULNES                            2234391
-#&gt; 327 16103        CHILLÁN VIEJO                            2461738
-#&gt; 328 16104            EL CARMEN                            1937320
-#&gt; 329 16105               PEMUCO                            1388983
-#&gt; 330 16106                PINTO                            1711717
-#&gt; 331 16107              QUILLÓN                            3204681
-#&gt; 332 16108          SAN IGNACIO                            2112333
-#&gt; 333 16109               YUNGAY                            2038723
-#&gt; 334 16201             QUIRIHUE                            1942260
-#&gt; 335 16202           COBQUECURA                            1703395
-#&gt; 336 16203              COELEMU                            2386396
-#&gt; 337 16204               NINHUE                            1532461
-#&gt; 338 16205           PORTEZUELO                            1348892
-#&gt; 339 16206              RÁNQUIL                            1341122
-#&gt; 340 16207             TREGUACO                            1361438
-#&gt; 341 16301           SAN CARLOS                            4915689
-#&gt; 342 16302             COIHUECO                            2832761
-#&gt; 343 16303               ÑIQUÉN                            1950629
-#&gt; 344 16304           SAN FABIÁN                            1157915
-#&gt; 345 16305          SAN NICOLÁS                            1515440</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>getsinimr</span>(<span class='fl'>880</span>, <span class='fl'>2015</span>)</div><div class='output co'>#&gt;      CODE         MUNICIPALITY YEAR                           VARIABLE    VALUE
+#&gt; 1   01101              IQUIQUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3074260
+#&gt; 2   01107        ALTO HOSPICIO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  6350444
+#&gt; 3   01401         POZO ALMONTE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1594943
+#&gt; 4   01402               CAMIÑA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1463976
+#&gt; 5   01403             COLCHANE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1033761
+#&gt; 6   01404                HUARA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1224376
+#&gt; 7   01405                 PICA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1096470
+#&gt; 8   02101          ANTOFAGASTA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  7233677
+#&gt; 9   02102           MEJILLONES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1111508
+#&gt; 10  02103         SIERRA GORDA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1197074
+#&gt; 11  02104               TALTAL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1396346
+#&gt; 12  02201               CALAMA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4455655
+#&gt; 13  02202              OLLAGÜE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1252333
+#&gt; 14  02203 SAN PEDRO DE ATACAMA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2151458
+#&gt; 15  02301            TOCOPILLA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2035909
+#&gt; 16  02302          MARÍA ELENA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   808620
+#&gt; 17  03101              COPIAPÓ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  7407702
+#&gt; 18  03102              CALDERA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3701172
+#&gt; 19  03103      TIERRA AMARILLA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1222671
+#&gt; 20  03201             CHAÑARAL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3267268
+#&gt; 21  03202     DIEGO DE ALMAGRO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1244926
+#&gt; 22  03301             VALLENAR 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3503161
+#&gt; 23  03302      ALTO DEL CARMEN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1576287
+#&gt; 24  03303             FREIRINA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1272094
+#&gt; 25  03304               HUASCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1142721
+#&gt; 26  04101            LA SERENA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  8693766
+#&gt; 27  04102             COQUIMBO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 11885604
+#&gt; 28  04103            ANDACOLLO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1350837
+#&gt; 29  04104           LA HIGUERA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1069895
+#&gt; 30  04105             PAIGUANO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1673916
+#&gt; 31  04106               VICUÑA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2953653
+#&gt; 32  04201              ILLAPEL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3248934
+#&gt; 33  04202               CANELA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1542681
+#&gt; 34  04203            LOS VILOS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2929372
+#&gt; 35  04204            SALAMANCA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1978474
+#&gt; 36  04301               OVALLE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 10798360
+#&gt; 37  04302           COMBARBALÁ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2014451
+#&gt; 38  04303         MONTE PATRIA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3779588
+#&gt; 39  04304            PUNITAQUI 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1583832
+#&gt; 40  04305          RÍO HURTADO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1213042
+#&gt; 41  05101           VALPARAÍSO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  9784097
+#&gt; 42  05102           CASABLANCA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1090579
+#&gt; 43  05103               CONCÓN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1361781
+#&gt; 44  05104       JUAN FERNÁNDEZ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1168937
+#&gt; 45  05105           PUCHUNCAVÍ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1347303
+#&gt; 46  05107             QUINTERO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4702148
+#&gt; 47  05109         VIÑA DEL MAR 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5074371
+#&gt; 48  05201       ISLA DE PASCUA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5508316
+#&gt; 49  05301            LOS ANDES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4737893
+#&gt; 50  05302          CALLE LARGA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1259625
+#&gt; 51  05303            RINCONADA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1075120
+#&gt; 52  05304          SAN ESTEBAN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1688999
+#&gt; 53  05401             LA LIGUA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2764363
+#&gt; 54  05402              CABILDO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1924239
+#&gt; 55  05403               PAPUDO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   674923
+#&gt; 56  05404              PETORCA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1421907
+#&gt; 57  05405             ZAPALLAR 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   858678
+#&gt; 58  05501             QUILLOTA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5706583
+#&gt; 59  05502               CALERA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3828254
+#&gt; 60  05503             HIJUELAS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1612529
+#&gt; 61  05504              LA CRUZ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1546864
+#&gt; 62  05506              NOGALES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1980439
+#&gt; 63  05601          SAN ANTONIO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  7009237
+#&gt; 64  05602            ALGARROBO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   782518
+#&gt; 65  05603            CARTAGENA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5489899
+#&gt; 66  05604            EL QUISCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5693259
+#&gt; 67  05605              EL TABO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4604252
+#&gt; 68  05606        SANTO DOMINGO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   905164
+#&gt; 69  05701           SAN FELIPE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4952106
+#&gt; 70  05702               CATEMU 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1595975
+#&gt; 71  05703             LLAILLAY 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1953574
+#&gt; 72  05704            PANQUEHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1080263
+#&gt; 73  05705             PUTAENDO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2057132
+#&gt; 74  05706          SANTA MARÍA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1682417
+#&gt; 75  05801              QUILPUÉ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  9083692
+#&gt; 76  05802              LIMACHE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3642763
+#&gt; 77  05803                OLMUÉ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1813367
+#&gt; 78  05804        VILLA ALEMANA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  8888870
+#&gt; 79  06101             RANCAGUA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  9403120
+#&gt; 80  06102              CODEGUA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1217032
+#&gt; 81  06103               COINCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1157470
+#&gt; 82  06104             COLTAUCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1987712
+#&gt; 83  06105              DOÑIHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2269143
+#&gt; 84  06106             GRANEROS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2291520
+#&gt; 85  06107           LAS CABRAS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1543451
+#&gt; 86  06108              MACHALÍ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1535693
+#&gt; 87  06109               MALLOA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1338908
+#&gt; 88  06110             MOSTAZAL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1801271
+#&gt; 89  06111               OLIVAR 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1149395
+#&gt; 90  06112                PEUMO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1413477
+#&gt; 91  06113           PICHIDEGUA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2072337
+#&gt; 92  06114    QUINTA DE TILCOCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1276084
+#&gt; 93  06115                RENGO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3790685
+#&gt; 94  06116             REQUINOA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1280853
+#&gt; 95  06117          SAN VICENTE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3223179
+#&gt; 96  06201            PICHILEMU 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4661982
+#&gt; 97  06202          LA ESTRELLA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   911333
+#&gt; 98  06203             LITUECHE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   985299
+#&gt; 99  06204            MARCHIHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1181775
+#&gt; 100 06205              NAVIDAD 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3122040
+#&gt; 101 06206            PAREDONES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1595219
+#&gt; 102 06301         SAN FERNANDO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3842607
+#&gt; 103 06302              CHÉPICA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1685584
+#&gt; 104 06303          CHIMBARONGO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2605935
+#&gt; 105 06304                LOLOL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1131897
+#&gt; 106 06305             NANCAGUA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1528424
+#&gt; 107 06306             PALMILLA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1273845
+#&gt; 108 06307            PERALILLO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1077601
+#&gt; 109 06308             PLACILLA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1222361
+#&gt; 110 06309             PUMANQUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   985935
+#&gt; 111 06310           SANTA CRUZ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2357562
+#&gt; 112 07101                TALCA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 12059145
+#&gt; 113 07102         CONSTITUCIÓN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5989057
+#&gt; 114 07103              CUREPTO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2036270
+#&gt; 115 07104            EMPEDRADO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1512116
+#&gt; 116 07105                MAULE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2441290
+#&gt; 117 07106              PELARCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1026723
+#&gt; 118 07107             PENCAHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1279868
+#&gt; 119 07108            RÍO CLARO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1383155
+#&gt; 120 07109         SAN CLEMENTE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3909762
+#&gt; 121 07110           SAN RAFAEL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1244098
+#&gt; 122 07201            CAUQUENES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4526645
+#&gt; 123 07202               CHANCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1744362
+#&gt; 124 07203             PELLUHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2502241
+#&gt; 125 07301               CURICÓ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  7727777
+#&gt; 126 07302              HUALAÑÉ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1550785
+#&gt; 127 07303             LICANTÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1606159
+#&gt; 128 07304               MOLINA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3704684
+#&gt; 129 07305                RAUCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1381025
+#&gt; 130 07306              ROMERAL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1103443
+#&gt; 131 07307      SAGRADA FAMILIA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1830905
+#&gt; 132 07308                 TENO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1969606
+#&gt; 133 07309            VICHUQUÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   916011
+#&gt; 134 07401              LINARES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  6698395
+#&gt; 135 07402               COLBÚN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2482564
+#&gt; 136 07403              LONGAVÍ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2832441
+#&gt; 137 07404               PARRAL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3467544
+#&gt; 138 07405               RETIRO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2101113
+#&gt; 139 07406           SAN JAVIER 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3945282
+#&gt; 140 07407         VILLA ALEGRE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1911747
+#&gt; 141 07408        YERBAS BUENAS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1837550
+#&gt; 142 08101           CONCEPCIÓN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4081837
+#&gt; 143 08102              CORONEL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  8835586
+#&gt; 144 08103          CHIGUAYANTE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  7249265
+#&gt; 145 08104              FLORIDA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1743496
+#&gt; 146 08105              HUALQUI 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3062453
+#&gt; 147 08106                 LOTA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5507398
+#&gt; 148 08107                PENCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3801694
+#&gt; 149 08108  SAN PEDRO DE LA PAZ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3755505
+#&gt; 150 08109          SANTA JUANA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2558190
+#&gt; 151 08110           TALCAHUANO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5818035
+#&gt; 152 08111                 TOMÉ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5884086
+#&gt; 153 08112              HUALPÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4588351
+#&gt; 154 08201                 LEBU 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3082844
+#&gt; 155 08202               ARAUCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3494197
+#&gt; 156 08203               CAÑETE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3675625
+#&gt; 157 08204             CONTULMO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1479577
+#&gt; 158 08205          CURANILAHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3134671
+#&gt; 159 08206           LOS ÁLAMOS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2462886
+#&gt; 160 08207                TIRÚA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1880075
+#&gt; 161 08301          LOS ÁNGELES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 11787152
+#&gt; 162 08302               ANTUCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1416925
+#&gt; 163 08303              CABRERO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2798941
+#&gt; 164 08304                 LAJA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2363355
+#&gt; 165 08305              MULCHÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2620938
+#&gt; 166 08306           NACIMIENTO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2282165
+#&gt; 167 08307              NEGRETE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1504671
+#&gt; 168 08308              QUILACO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1025032
+#&gt; 169 08309             QUILLECO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1595531
+#&gt; 170 08310          SAN ROSENDO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1180773
+#&gt; 171 08311        SANTA BÁRBARA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1747518
+#&gt; 172 08312              TUCAPEL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1925573
+#&gt; 173 08313               YUMBEL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4078460
+#&gt; 174 08314          ALTO BIOBÍO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1396018
+#&gt; 175 09101               TEMUCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 13273430
+#&gt; 176 09102              CARAHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3556630
+#&gt; 177 09103                CUNCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2257778
+#&gt; 178 09104           CURARREHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1493849
+#&gt; 179 09105               FREIRE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3338928
+#&gt; 180 09106            GALVARINO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2012345
+#&gt; 181 09107               GORBEA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2075606
+#&gt; 182 09108              LAUTARO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3461651
+#&gt; 183 09109             LONCOCHE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2626381
+#&gt; 184 09110            MELIPEUCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1494252
+#&gt; 185 09111       NUEVA IMPERIAL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4447584
+#&gt; 186 09112      PADRE LAS CASAS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  6791398
+#&gt; 187 09113            PERQUENCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1734570
+#&gt; 188 09114           PITRUFQUÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2581499
+#&gt; 189 09115                PUCÓN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1244186
+#&gt; 190 09116             SAAVEDRA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2746732
+#&gt; 191 09117      TEODORO SCHMIDT 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2433746
+#&gt; 192 09118               TOLTÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1849038
+#&gt; 193 09119               VILCÚN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3061660
+#&gt; 194 09120           VILLARRICA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3542918
+#&gt; 195 09121             CHOLCHOL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2060379
+#&gt; 196 09201                ANGOL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5628638
+#&gt; 197 09202           COLLIPULLI 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2473847
+#&gt; 198 09203           CURACAUTÍN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2424757
+#&gt; 199 09204              ERCILLA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1531196
+#&gt; 200 09205            LONQUIMAY 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1915216
+#&gt; 201 09206           LOS SAUCES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1503170
+#&gt; 202 09207               LUMACO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1909557
+#&gt; 203 09208                PURÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2110956
+#&gt; 204 09209              RENAICO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1507673
+#&gt; 205 09210             TRAIGUÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2380813
+#&gt; 206 09211             VICTORIA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3369798
+#&gt; 207 10101         PUERTO MONTT 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 10931180
+#&gt; 208 10102              CALBUCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2743014
+#&gt; 209 10103              COCHAMÓ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1147708
+#&gt; 210 10104               FRESIA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1468966
+#&gt; 211 10105            FRUTILLAR 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1478129
+#&gt; 212 10106          LOS MUERMOS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1836056
+#&gt; 213 10107           LLANQUIHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1575890
+#&gt; 214 10108              MAULLÍN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1960491
+#&gt; 215 10109         PUERTO VARAS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1002531
+#&gt; 216 10201               CASTRO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4453910
+#&gt; 217 10202                ANCUD 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4350639
+#&gt; 218 10203              CHONCHI 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1897299
+#&gt; 219 10204      CURACO DE VÉLEZ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1372554
+#&gt; 220 10205             DALCAHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1764069
+#&gt; 221 10206            PUQUELDÓN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1201034
+#&gt; 222 10207              QUEILÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1472148
+#&gt; 223 10208              QUELLÓN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2713327
+#&gt; 224 10209              QUEMCHI 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1952483
+#&gt; 225 10210             QUINCHAO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1887735
+#&gt; 226 10301               OSORNO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  7508314
+#&gt; 227 10302         PUERTO OCTAY 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1000339
+#&gt; 228 10303            PURRANQUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1921759
+#&gt; 229 10304              PUYEHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1015329
+#&gt; 230 10305            RÍO NEGRO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1504726
+#&gt; 231 10306 SAN JUAN DE LA COSTA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2147515
+#&gt; 232 10307            SAN PABLO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1262905
+#&gt; 233 10401              CHAITÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1523447
+#&gt; 234 10402            FUTALEUFÚ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1256618
+#&gt; 235 10403            HUALAIHUÉ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1417463
+#&gt; 236 10404               PALENA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   937883
+#&gt; 237 11101            COIHAIQUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4253003
+#&gt; 238 11102           LAGO VERDE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   942488
+#&gt; 239 11201                AISÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2407488
+#&gt; 240 11202               CISNES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1417018
+#&gt; 241 11203            GUAITECAS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1023074
+#&gt; 242 11301             COCHRANE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1118025
+#&gt; 243 11302            O´HIGGINS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   930990
+#&gt; 244 11303               TORTEL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1064802
+#&gt; 245 11401          CHILE CHICO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1791852
+#&gt; 246 11402           RÍO IBÁÑEZ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1159512
+#&gt; 247 12101         PUNTA ARENAS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4012832
+#&gt; 248 12102        LAGUNA BLANCA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   862316
+#&gt; 249 12103            RÍO VERDE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   756154
+#&gt; 250 12104         SAN GREGORIO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   786016
+#&gt; 251 12201       CABO DE HORNOS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1919260
+#&gt; 252 12301             PORVENIR 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1292217
+#&gt; 253 12302            PRIMAVERA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   832130
+#&gt; 254 12303             TIMAUKEL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   799528
+#&gt; 255 12401              NATALES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2093886
+#&gt; 256 12402     TORRES DEL PAINE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   886576
+#&gt; 257 13101             SANTIAGO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1600755
+#&gt; 258 13102            CERRILLOS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2550083
+#&gt; 259 13103          CERRO NAVIA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 12205331
+#&gt; 260 13104             CONCHALÍ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  7076391
+#&gt; 261 13105            EL BOSQUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 14355667
+#&gt; 262 13106     ESTACIÓN CENTRAL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2023086
+#&gt; 263 13107           HUECHURABA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2214089
+#&gt; 264 13108        INDEPENDENCIA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2034598
+#&gt; 265 13109          LA CISTERNA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1771731
+#&gt; 266 13110           LA FLORIDA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 22613097
+#&gt; 267 13111            LA GRANJA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 10399881
+#&gt; 268 13112           LA PINTANA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 17835829
+#&gt; 269 13113             LA REINA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1140916
+#&gt; 270 13114           LAS CONDES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2545452
+#&gt; 271 13115         LO BARNECHEA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1378424
+#&gt; 272 13116            LO ESPEJO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  8493987
+#&gt; 273 13117             LO PRADO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  8021835
+#&gt; 274 13118                MACUL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2582458
+#&gt; 275 13119                MAIPÚ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 40617354
+#&gt; 276 13120                ÑUÑOA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2412334
+#&gt; 277 13121  PEDRO AGUIRRE CERDA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  6027436
+#&gt; 278 13122            PEÑALOLÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 11181535
+#&gt; 279 13123          PROVIDENCIA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1465687
+#&gt; 280 13124             PUDAHUEL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 12017301
+#&gt; 281 13125            QUILICURA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5778407
+#&gt; 282 13126        QUINTA NORMAL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2960731
+#&gt; 283 13127             RECOLETA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3077062
+#&gt; 284 13128                RENCA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5131736
+#&gt; 285 13129          SAN JOAQUÍN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3180885
+#&gt; 286 13130           SAN MIGUEL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1405043
+#&gt; 287 13131            SAN RAMÓN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  7615690
+#&gt; 288 13132             VITACURA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1159430
+#&gt; 289 13201          PUENTE ALTO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 49849667
+#&gt; 290 13202               PIRQUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   844487
+#&gt; 291 13203    SAN JOSÉ DE MAIPO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1317334
+#&gt; 292 13301               COLINA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3144210
+#&gt; 293 13302                LAMPA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2369520
+#&gt; 294 13303               TILTIL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1137925
+#&gt; 295 13401         SAN BERNARDO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 14660430
+#&gt; 296 13402                 BUIN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2023952
+#&gt; 297 13403      CALERA DE TANGO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   821096
+#&gt; 298 13404                PAINE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2869600
+#&gt; 299 13501            MELIPILLA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  7420794
+#&gt; 300 13502                ALHUÉ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   950380
+#&gt; 301 13503             CURACAVÍ 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2131286
+#&gt; 302 13504          MARÍA PINTO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1177545
+#&gt; 303 13505            SAN PEDRO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1165696
+#&gt; 304 13601            TALAGANTE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4355439
+#&gt; 305 13602             EL MONTE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2189897
+#&gt; 306 13603        ISLA DE MAIPO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2357926
+#&gt; 307 13604        PADRE HURTADO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3155463
+#&gt; 308 13605             PEÑAFLOR 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  5609349
+#&gt; 309 14101             VALDIVIA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  9997817
+#&gt; 310 14102               CORRAL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1560219
+#&gt; 311 14103                LANCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2086924
+#&gt; 312 14104            LOS LAGOS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1787738
+#&gt; 313 14105                MÁFIL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1192844
+#&gt; 314 14106            MARIQUINA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1904213
+#&gt; 315 14107             PAILLACO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2051117
+#&gt; 316 14108          PANGUIPULLI 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3711286
+#&gt; 317 14201             LA UNIÓN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3344632
+#&gt; 318 14202              FUTRONO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1882667
+#&gt; 319 14203           LAGO RANCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1610361
+#&gt; 320 14204            RÍO BUENO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2671752
+#&gt; 321 15101                ARICA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 12957349
+#&gt; 322 15102            CAMARONES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1132891
+#&gt; 323 15201                PUTRE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1603124
+#&gt; 324 15202        GENERAL LAGOS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL   955498
+#&gt; 325 16101              CHILLÁN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 11351767
+#&gt; 326 16102               BULNES 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2234391
+#&gt; 327 16103        CHILLÁN VIEJO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2461738
+#&gt; 328 16104            EL CARMEN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1937320
+#&gt; 329 16105               PEMUCO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1388983
+#&gt; 330 16106                PINTO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1711717
+#&gt; 331 16107              QUILLÓN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  3204681
+#&gt; 332 16108          SAN IGNACIO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2112333
+#&gt; 333 16109               YUNGAY 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2038723
+#&gt; 334 16201             QUIRIHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1942260
+#&gt; 335 16202           COBQUECURA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1703395
+#&gt; 336 16203              COELEMU 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2386396
+#&gt; 337 16204               NINHUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1532461
+#&gt; 338 16205           PORTEZUELO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1348892
+#&gt; 339 16206              RÁNQUIL 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1341122
+#&gt; 340 16207             TREGUACO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1361438
+#&gt; 341 16301           SAN CARLOS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  4915689
+#&gt; 342 16302             COIHUECO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2832761
+#&gt; 343 16303               ÑIQUÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1950629
+#&gt; 344 16304           SAN FABIÁN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1157915
+#&gt; 345 16305          SAN NICOLÁS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1515440</div><div class='input'><span class='fu'>getsinimr</span>(<span class='fu'>c</span>(<span class='fl'>880</span>,<span class='fl'>1023</span>), <span class='fl'>2015</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: data length [1035] is not a sub-multiple or multiple of the number of rows [258]</span></div><div class='output co'>#&gt; <span class='error'>Error in reshape(values, idvar = c("CODE", "MUNICIPALITY"), varying = namesco(var,     year), v.names = getname(var), direction = "long", timevar = "YEAR",     times = year): length of 'varying' must be the product of length of 'v.names' and length of 'times'</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

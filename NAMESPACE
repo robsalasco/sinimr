@@ -2,7 +2,6 @@
 
 export(getsinimcategories)
 export(getsinimr)
-export(getsinimryears)
 export(getsinimvariables)
 export(searchsinimvar)
 import(XML)

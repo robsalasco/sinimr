@@ -119,8 +119,15 @@ parsexml <- function(var, years, moncorr=T) { # nocov start
       namespaces = c(tei = getDefaultNamespace(data)[[1]]$uri),
       xmlValue
     )
-    values <- t(as.data.frame(split(
-      as.character(varxml), ceiling(seq_along(varxml) / columns)
-    ), stringsAsFactors = F))
+    values <- matrix(varxml, 
+                     nrow = length(varxml)/((length(var)*length(yearsn))+2), 
+                     ncol = ((length(var)*length(yearsn))+2), byrow = T)
+    values <- as.data.frame(values, stringsAsFactors = F)
     return(values)
+} # nocov end
+
+namesco <- function(x,y){ #nocov start
+  rep_vars <- rep(getname(x), each=length(y))
+  rep_years <- rep(y, length(x))
+  return(paste(rep_vars, rep_years, sep="."))
 } # nocov end

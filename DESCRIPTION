@@ -18,7 +18,6 @@ Collate:
     getsinimcategories.R
     getsinimr.R
     getsinimvariables.R
-    getsinimryears.R
     searchsinimvar.R
     helpers.R
     data.R

@@ -18,10 +18,23 @@ getsinimr <- function(var, year, moncorr=T) {
   stopifnot(is.numeric(year))
   
   values <- parsexml(var, year, moncorr=moncorr)
-  colnames(values) <- c("CODE", "MUNICIPALITY", getname(var))
-  rownames(values) <- c(1:nrow(values))
-  values <- as.data.frame(values, stringsAsFactors = F)
-  values[, 3] <- as.numeric(gsub("[A-Za-z]", NA, values[, 3]))
-  values[, 1] <- as.character(values[, 1])
-  return(values)
+  
+  colnames(values) <- c("CODE","MUNICIPALITY", namesco(var, year))
+  
+  datav <- reshape(values, 
+                   idvar = c("CODE","MUNICIPALITY"),
+                   varying = namesco(var, year),
+                   v.names = getname(var), 
+                   direction = "long",
+                   timevar = "YEAR",
+                   times=year)
+  
+  rownames(datav) <- NULL
+  
+  datav <- melt(datav,id=c("CODE", "MUNICIPALITY","YEAR"),
+                value.name="VALUE",
+                variable.name = "VARIABLE") 
+  datav[, 5] <- as.numeric(gsub("[A-Za-z]", NA, datav[, 5]))
+  
+  return(datav)
 }

@@ -151,11 +151,11 @@ head(getsinimr(c(4210,4211),2015))
 #> 6                              3090759
 ```
 
-You can get multiple years too\! use the command `getsinimryears()` and
+You can get multiple years too\! use the command `getsinimr()` and
 add more years as in the example.
 
 ``` r
-head(getsinimryears(880,2015:2017))
+head(getsinimr(880,2015:2017))
 #>    CODE  MUNICIPALITY YEAR INGRESOS POR FONDO COMÚN MUNICIPAL
 #> 1 01101       IQUIQUE 2015                            3257415
 #> 2 01107 ALTO HOSPICIO 2015                            6873284
