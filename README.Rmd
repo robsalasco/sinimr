@@ -56,10 +56,10 @@ Finally, to obtain the data across municipalities use the code column and specif
 head(getsinimr(c(4210,4211),2015))
 ```
 
-You can get multiple years too! use the command ```getsinimryears()``` and add more years as in the example.
+You can get multiple years too! use the command ```getsinimr()``` and add more years as in the example.
 
 ```{r}
-head(getsinimryears(880,2015:2017))
+head(getsinimr(880,2015:2017))
 ```
 
 If you don't know what are you looking for use ```searchsinimvar()```to get search results based on variable descriptions, names and groups.
@@ -89,7 +89,7 @@ comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
 
 var <- getsinimr(882, 2017) %>% filter(MUNICIPALITY %in% comunas)
 
-var[3] <- var[3]*1000
+var[5] <- var[5]*1000
 
 var.reg13.join <- reg13 %>%
   select(COMUNA) %>% 
@@ -97,7 +97,7 @@ var.reg13.join <- reg13 %>%
   right_join(var, by=c("CODE"))
 
 reg.13.plot <- tm_shape(var.reg13.join) +
-  tm_polygons(names(var.reg13.join)[3], palette="magma", border.col = "white") +
+  tm_polygons(names(var.reg13.join)[5], palette="magma", border.col = "white") +
   tm_text(names(var.reg13.join)[2], size = 0.4, style="jenks") +
   tm_legend(legend.position = c("left", "top")) +
   tm_compass(type = "8star", position = c("right", "top")) +
@@ -106,6 +106,7 @@ reg.13.plot <- tm_shape(var.reg13.join) +
   tm_layout(inner.margins = c(0.1, 0.1, 0.10, 0.01), legend.format = list(text.separator = "a", fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))
 
 reg.13.plot
+
 ```
 
 ### References

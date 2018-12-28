@@ -39,8 +39,8 @@ comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
              "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
              "SAN JOSÉ DE MAIPO")
 
-data <- getsinimryears(882,2002:2017, moncorr = F) %>% filter(MUNICIPALITY %in% comunas)
-data[4] <- data[4]*1000
+data <- getsinimr(882,2002:2017, moncorr = F) %>% filter(MUNICIPALITY %in% comunas)
+data[5] <- data[5]*1000
 
 test <- data
 test$YEAR <- as.numeric(as.character(test$YEAR))
@@ -52,7 +52,7 @@ grd <- grid_auto(reg13, seed = 1, names = "NOM_COMUNA", codes = "COMUNA")
 #grid_preview(grd, label = "name_NOM_COMUNA")
 #grid_design(grd, label = "name_NOM_COMUNA")
 
-ggplot(test, aes(YEAR, `INGRESOS PROPIOS (IPP Y FCM)`, group=1)) +
+ggplot(test, aes(YEAR, VALUE, group=1)) +
   geom_line(color = "steelblue") +
   facet_geo(~ MUNICIPALITY, grid = grd, scales = "free_y")+
   scale_x_date() +
