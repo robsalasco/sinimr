@@ -58,7 +58,8 @@ getsinimcategories()
 #> 1  A. PERSONAL DE PLANTA  381
 #> 2 B. PERSONAL A CONTRATA  382
 #> 3         C. HONORARIOS   383
-#> 4   D. OTROS INDICADORES  384
+#> 4  D. CÓDIGO DEL TRABAJO  523
+#> 5   D. OTROS INDICADORES  384
 #> 
 #> $`03.  EDUCACION MUNICIPAL`
 #>                                     VARIABLE CODE
@@ -123,11 +124,11 @@ and the `getsinimvariables()` function to get them.
 ``` r
 getsinimvariables(517)
 #>                                                       VARIABLE UNIT CODE
-#> 106                       Presupuesto Inicial Sector Municipal M$   4210
-#> 107                     Presupuesto Inicial Gastos Municipales M$   4211
-#> 108                       Presupuesto Vigente Sector Municipal M$   4212
-#> 109                     Presupuesto Vigente Gastos Municpiales M$   4213
-#> 110 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226
+#> 107                       Presupuesto Inicial Sector Municipal M$   4210
+#> 108                     Presupuesto Inicial Gastos Municipales M$   4211
+#> 109                       Presupuesto Vigente Sector Municipal M$   4212
+#> 110                     Presupuesto Vigente Gastos Municpiales M$   4213
+#> 111 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226
 ```
 
 Finally, to obtain the data across municipalities use the code column
@@ -135,34 +136,27 @@ and specify a year.
 
 ``` r
 head(getsinimr(c(4210,4211),2015))
-#>    CODE  MUNICIPALITY PRESUPUESTO INICIAL GASTOS MUNICIPALES
-#> 1 01101       IQUIQUE                               33387234
-#> 2 01107 ALTO HOSPICIO                                9708323
-#> 3 01401  POZO ALMONTE                                7270261
-#> 4 01402        CAMIÑA                                1248620
-#> 5 01403      COLCHANE                                2015333
-#> 6 01404         HUARA                                3090760
-#>   PRESUPUESTO INICIAL SECTOR MUNICIPAL
-#> 1                             33387234
-#> 2                              9708323
-#> 3                              7270262
-#> 4                              1248618
-#> 5                              2015333
-#> 6                              3090759
+#>    CODE  MUNICIPALITY YEAR                               VARIABLE    VALUE
+#> 1 01101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 33387234
+#> 2 01107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9708323
+#> 3 01401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7270261
+#> 4 01402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1248620
+#> 5 01403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2015333
+#> 6 01404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3090760
 ```
 
-You can get multiple years too\! use the command `getsinimr()` and
-add more years as in the example.
+You can get multiple years too\! use the command `getsinimr()` and add
+more years as in the example.
 
 ``` r
 head(getsinimr(880,2015:2017))
-#>    CODE  MUNICIPALITY YEAR INGRESOS POR FONDO COMÚN MUNICIPAL
-#> 1 01101       IQUIQUE 2015                            3257415
-#> 2 01107 ALTO HOSPICIO 2015                            6873284
-#> 3 01401  POZO ALMONTE 2015                            1788194
-#> 4 01402        CAMIÑA 2015                            1540229
-#> 5 01403      COLCHANE 2015                            1094716
-#> 6 01404         HUARA 2015                            1332312
+#>    CODE  MUNICIPALITY YEAR                           VARIABLE   VALUE
+#> 1 01101       IQUIQUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 3257415
+#> 2 01107 ALTO HOSPICIO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 6873284
+#> 3 01401  POZO ALMONTE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 1788194
+#> 4 01402        CAMIÑA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 1540229
+#> 5 01403      COLCHANE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 1094716
+#> 6 01404         HUARA 2015 INGRESOS POR FONDO COMÚN MUNICIPAL 1332312
 ```
 
 If you don’t know what are you looking for use `searchsinimvar()`to get
@@ -171,25 +165,25 @@ search results based on variable descriptions, names and groups.
 ``` r
 searchsinimvar("cementerio")
 #>     CODE
-#> 343 4140
-#> 344 4141
-#> 345 4406
-#> 346 4407
+#> 344 4140
+#> 345 4141
+#> 346 4406
+#> 347 4407
 #>                                                                                                                                   VARIABLE
-#> 343                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
-#> 344                                                                                              Gastos Cementerio (Gasto Total Devengado)
-#> 345                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
-#> 346 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
+#> 344                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
+#> 345                                                                                              Gastos Cementerio (Gasto Total Devengado)
+#> 346                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
+#> 347 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
 #>                                                                                                                                                                  DESCRIPTION
-#> 343                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
-#> 344                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
-#> 345 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
-#> 346                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
+#> 344                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
+#> 345                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
+#> 346 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
+#> 347                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
 #>               AREA                     SUBAREA UNIT
-#> 343 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
-#> 344 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
-#> 345 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
-#> 346 09. CEMENTERIO      1. INFORMACION GENERAL S-N
+#> 344 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
+#> 345 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
+#> 346 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
+#> 347 09. CEMENTERIO      1. INFORMACION GENERAL S-N
 ```
 
 ### Example plot
@@ -212,7 +206,7 @@ comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
 
 var <- getsinimr(882, 2017) %>% filter(MUNICIPALITY %in% comunas)
 
-var[3] <- var[3]*1000
+var[5] <- var[5]*1000
 
 var.reg13.join <- reg13 %>%
   select(COMUNA) %>% 
@@ -220,7 +214,7 @@ var.reg13.join <- reg13 %>%
   right_join(var, by=c("CODE"))
 
 reg.13.plot <- tm_shape(var.reg13.join) +
-  tm_polygons(names(var.reg13.join)[3], palette="magma", border.col = "white") +
+  tm_polygons(names(var.reg13.join)[5], palette="magma", border.col = "white") +
   tm_text(names(var.reg13.join)[2], size = 0.4, style="jenks") +
   tm_legend(legend.position = c("left", "top")) +
   tm_compass(type = "8star", position = c("right", "top")) +
