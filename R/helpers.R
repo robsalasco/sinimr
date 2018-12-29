@@ -128,6 +128,6 @@ parsexml <- function(var, years, moncorr=T) { # nocov start
 
 namesco <- function(x,y){ #nocov start
   rep_vars <- rep(getname(x), each=length(y))
-  rep_years <- rep(y, length(x))
+  rep_years <- rep(sort(y, decreasing = T), length(x))
   return(paste(rep_vars, rep_years, sep="."))
 } # nocov end
