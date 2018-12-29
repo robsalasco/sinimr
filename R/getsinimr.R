@@ -26,10 +26,9 @@ getsinimr <- function(var, year, moncorr=T) {
   datav <- reshape(values, 
                    idvar = c("CODE","MUNICIPALITY"),
                    varying = namesco(var, year),
-                   v.names = getname(var), 
                    direction = "long",
                    timevar = "YEAR",
-                   times=year)
+                   times=sort(year, decreasing = T))
   
   rownames(datav) <- NULL
   
