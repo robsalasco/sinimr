@@ -32,7 +32,7 @@ getsinimr <- function(var, year, moncorr=T) {
   
   rownames(datav) <- NULL
   
-  datav <- melt(datav,id=c("CODE", "MUNICIPALITY","YEAR"),
+  datav <- reshape2::melt(datav,id=c("CODE", "MUNICIPALITY","YEAR"),
                 value.name="VALUE",
                 variable.name = "VARIABLE") 
   datav[, 5] <- as.numeric(gsub("[A-Za-z]", NA, datav[, 5]))
