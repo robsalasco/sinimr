@@ -86,7 +86,8 @@ getname <- function(names) { # nocov start
   list$VARIABLE <-
     as.vector(lapply(as.character(list$VARIABLE), function(x)
       trimws(x)))
-  return(toupper(unlist(list[complete.cases(match(list$VALUE, names)), 1])))
+  names.list <- gsub("\\.", "", toupper(unlist(list[which(list$VALUE %in% names), 1])))
+  return(names.list)
 } # nocov end
 
 parsexml <- function(var, years, moncorr=T) { # nocov start
