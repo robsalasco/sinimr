@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sinimR</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -80,7 +80,7 @@
       <h1>Creating geofacets with sinimR</h1>
                         <h4 class="author">Roberto Salas</h4>
             
-            <h4 class="date">2018-12-29</h4>
+            <h4 class="date">2019-01-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/robsalasco/sinimr/blob/master/vignettes/creating-geofacets.Rmd"><code>vignettes/creating-geofacets.Rmd</code></a></small>
       <div class="hidden name"><code>creating-geofacets.Rmd</code></div>
@@ -93,42 +93,42 @@
 <h1 class="hasAnchor">
 <a href="#description" class="anchor"></a>Description</h1>
 <p>When you need to get a global overview of a phenomenom it’s difficult to have a plot with all the data. One option to achieve the goal are the use of facets but what if you want an spatial view? geofacets are the answer.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(sf)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(geofacet)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">library</span>(sinimr)</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw">library</span>(zoo)</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">library</span>(scales)</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">library</span>(ggpubr)</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">comunas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"CERRILLOS"</span>, <span class="st">"LA REINA"</span>, <span class="st">"PUDAHUEL"</span>, <span class="st">"CERRO NAVIA"</span>, <span class="st">"LAS CONDES"</span>,</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">             <span class="st">"QUILICURA"</span>, <span class="st">"CONCHALÍ"</span>, <span class="st">"LO BARNECHEA"</span>, <span class="st">"QUINTA NORMAL"</span>, <span class="st">"EL BOSQUE"</span>,</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">             <span class="st">"LO ESPEJO"</span>, <span class="st">"RECOLETA"</span>, <span class="st">"ESTACIÓN CENTRAL"</span>, <span class="st">"LO PRADO"</span>, <span class="st">"RENCA"</span>, <span class="st">"HUECHURABA"</span>,</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">             <span class="st">"MACUL"</span>, <span class="st">"SAN MIGUEL"</span>, <span class="st">"INDEPENDENCIA"</span>, <span class="st">"MAIPÚ"</span>, <span class="st">"SAN JOAQUÍN"</span>, <span class="st">"LA CISTERNA"</span>, <span class="st">"ÑUÑOA"</span>,</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">             <span class="st">"SAN RAMÓN"</span>, <span class="st">"LA FLORIDA"</span>, <span class="st">"PEDRO AGUIRRE CERDA"</span>, <span class="st">"SANTIAGO"</span>, <span class="st">"LA PINTANA"</span>, <span class="st">"PEÑALOLÉN"</span>,</a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">             <span class="st">"VITACURA"</span>, <span class="st">"LA GRANJA"</span>, <span class="st">"PROVIDENCIA"</span>, <span class="st">"SAN BERNARDO"</span>, <span class="st">"PUENTE ALTO"</span>, <span class="st">"PADRE HURTADO"</span>, <span class="st">"PIRQUE"</span>,</a>
-<a class="sourceLine" id="cb1-16" data-line-number="16">             <span class="st">"SAN JOSÉ DE MAIPO"</span>)</a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18">data &lt;-<span class="st"> </span><span class="kw"><a href="../reference/getsinimr.html">getsinimr</a></span>(<span class="dv">882</span>,<span class="dv">2002</span><span class="op">:</span><span class="dv">2017</span>, <span class="dt">moncorr =</span> F) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas)</a>
-<a class="sourceLine" id="cb1-19" data-line-number="19">data[<span class="dv">5</span>] &lt;-<span class="st"> </span>data[<span class="dv">5</span>]<span class="op">*</span><span class="dv">1000</span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21">test &lt;-<span class="st"> </span>data</a>
-<a class="sourceLine" id="cb1-22" data-line-number="22">test<span class="op">$</span>YEAR &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(test<span class="op">$</span>YEAR))</a>
-<a class="sourceLine" id="cb1-23" data-line-number="23">test<span class="op">$</span>YEAR &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/zoo/topics/yearmon">as.Date</a></span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/zoo/topics/yearmon">as.yearmon</a></span>(test<span class="op">$</span>YEAR, <span class="st">"1-%y"</span>))</a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25">reg13 &lt;-<span class="st"> </span>geogrid<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/geogrid/topics/read_polygons">read_polygons</a></span>(<span class="st">"https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson"</span>)</a>
-<a class="sourceLine" id="cb1-26" data-line-number="26">grd &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/geofacet/topics/grid_auto">grid_auto</a></span>(reg13, <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">names =</span> <span class="st">"NOM_COMUNA"</span>, <span class="dt">codes =</span> <span class="st">"COMUNA"</span>)</a>
-<a class="sourceLine" id="cb1-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co">#grid_preview(grd, label = "name_NOM_COMUNA")</span></a>
-<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="co">#grid_design(grd, label = "name_NOM_COMUNA")</span></a>
-<a class="sourceLine" id="cb1-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(test, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(YEAR, VALUE, <span class="dt">group=</span><span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(<span class="dt">color =</span> <span class="st">"steelblue"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-33" data-line-number="33"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/geofacet/topics/facet_geo">facet_geo</a></span>(<span class="op">~</span><span class="st"> </span>MUNICIPALITY, <span class="dt">grid =</span> grd, <span class="dt">scales =</span> <span class="st">"free_y"</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_date</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/scales/topics/dollar_format">dollar_format</a></span>(<span class="dt">suffix =</span> <span class="st">""</span>, <span class="dt">prefix =</span> <span class="st">"$"</span>, <span class="dt">big.mark =</span> <span class="st">"."</span>))<span class="op">+</span></a>
-<a class="sourceLine" id="cb1-36" data-line-number="36"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(sf)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">library</span>(geofacet)</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">library</span>(sinimr)</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">library</span>(zoo)</a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="kw">library</span>(scales)</a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="kw">library</span>(ggpubr)</a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10">comunas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"CERRILLOS"</span>, <span class="st">"LA REINA"</span>, <span class="st">"PUDAHUEL"</span>, <span class="st">"CERRO NAVIA"</span>, <span class="st">"LAS CONDES"</span>,</a>
+<a class="sourceLine" id="cb1-11" title="11">             <span class="st">"QUILICURA"</span>, <span class="st">"CONCHALÍ"</span>, <span class="st">"LO BARNECHEA"</span>, <span class="st">"QUINTA NORMAL"</span>, <span class="st">"EL BOSQUE"</span>,</a>
+<a class="sourceLine" id="cb1-12" title="12">             <span class="st">"LO ESPEJO"</span>, <span class="st">"RECOLETA"</span>, <span class="st">"ESTACIÓN CENTRAL"</span>, <span class="st">"LO PRADO"</span>, <span class="st">"RENCA"</span>, <span class="st">"HUECHURABA"</span>,</a>
+<a class="sourceLine" id="cb1-13" title="13">             <span class="st">"MACUL"</span>, <span class="st">"SAN MIGUEL"</span>, <span class="st">"INDEPENDENCIA"</span>, <span class="st">"MAIPÚ"</span>, <span class="st">"SAN JOAQUÍN"</span>, <span class="st">"LA CISTERNA"</span>, <span class="st">"ÑUÑOA"</span>,</a>
+<a class="sourceLine" id="cb1-14" title="14">             <span class="st">"SAN RAMÓN"</span>, <span class="st">"LA FLORIDA"</span>, <span class="st">"PEDRO AGUIRRE CERDA"</span>, <span class="st">"SANTIAGO"</span>, <span class="st">"LA PINTANA"</span>, <span class="st">"PEÑALOLÉN"</span>,</a>
+<a class="sourceLine" id="cb1-15" title="15">             <span class="st">"VITACURA"</span>, <span class="st">"LA GRANJA"</span>, <span class="st">"PROVIDENCIA"</span>, <span class="st">"SAN BERNARDO"</span>, <span class="st">"PUENTE ALTO"</span>, <span class="st">"PADRE HURTADO"</span>, <span class="st">"PIRQUE"</span>,</a>
+<a class="sourceLine" id="cb1-16" title="16">             <span class="st">"SAN JOSÉ DE MAIPO"</span>)</a>
+<a class="sourceLine" id="cb1-17" title="17"></a>
+<a class="sourceLine" id="cb1-18" title="18">data &lt;-<span class="st"> </span><span class="kw"><a href="../reference/getsinimr.html">getsinimr</a></span>(<span class="dv">882</span>,<span class="dv">2002</span><span class="op">:</span><span class="dv">2017</span>, <span class="dt">moncorr =</span> F) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas)</a>
+<a class="sourceLine" id="cb1-19" title="19">data[<span class="dv">5</span>] &lt;-<span class="st"> </span>data[<span class="dv">5</span>]<span class="op">*</span><span class="dv">1000</span></a>
+<a class="sourceLine" id="cb1-20" title="20"></a>
+<a class="sourceLine" id="cb1-21" title="21">test &lt;-<span class="st"> </span>data</a>
+<a class="sourceLine" id="cb1-22" title="22">test<span class="op">$</span>YEAR &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(test<span class="op">$</span>YEAR))</a>
+<a class="sourceLine" id="cb1-23" title="23">test<span class="op">$</span>YEAR &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/zoo/topics/yearmon">as.Date</a></span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/zoo/topics/yearmon">as.yearmon</a></span>(test<span class="op">$</span>YEAR, <span class="st">"1-%y"</span>))</a>
+<a class="sourceLine" id="cb1-24" title="24"></a>
+<a class="sourceLine" id="cb1-25" title="25">reg13 &lt;-<span class="st"> </span>geogrid<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/geogrid/topics/read_polygons">read_polygons</a></span>(<span class="st">"https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson"</span>)</a>
+<a class="sourceLine" id="cb1-26" title="26">grd &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/geofacet/topics/grid_auto">grid_auto</a></span>(reg13, <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">names =</span> <span class="st">"NOM_COMUNA"</span>, <span class="dt">codes =</span> <span class="st">"COMUNA"</span>)</a>
+<a class="sourceLine" id="cb1-27" title="27"></a>
+<a class="sourceLine" id="cb1-28" title="28"><span class="co">#grid_preview(grd, label = "name_NOM_COMUNA")</span></a>
+<a class="sourceLine" id="cb1-29" title="29"><span class="co">#grid_design(grd, label = "name_NOM_COMUNA")</span></a>
+<a class="sourceLine" id="cb1-30" title="30"></a>
+<a class="sourceLine" id="cb1-31" title="31"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(test, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(YEAR, VALUE, <span class="dt">group=</span><span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-32" title="32"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(<span class="dt">color =</span> <span class="st">"steelblue"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-33" title="33"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/geofacet/topics/facet_geo">facet_geo</a></span>(<span class="op">~</span><span class="st"> </span>MUNICIPALITY, <span class="dt">grid =</span> grd, <span class="dt">scales =</span> <span class="st">"free_y"</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb1-34" title="34"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_date</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-35" title="35"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/scales/topics/dollar_format">dollar_format</a></span>(<span class="dt">suffix =</span> <span class="st">""</span>, <span class="dt">prefix =</span> <span class="st">"$"</span>, <span class="dt">big.mark =</span> <span class="st">"."</span>))<span class="op">+</span></a>
+<a class="sourceLine" id="cb1-36" title="36"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
 </div>
   </div>
 
