@@ -4,10 +4,6 @@
 #' @export
 #' @examples
 #' getsinimvariables(47)
-#' @import httr
-#' @importFrom jsonlite fromJSON serializeJSON
-#' @import XML
-#' @import reshape2
 
 getsinimvariables <- function(catn) {
   

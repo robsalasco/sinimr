@@ -9,10 +9,9 @@
 #' getsinimr(880, 2015:2017)
 #' getsinimr(c(880, 882), 2015)
 #' getsinimr(c(880, 882), 2015:2017)
-#' @import httr
-#' @importFrom jsonlite fromJSON serializeJSON
-#' @import XML
-#' @import reshape2
+#' @importFrom reshape2 melt
+#' @importFrom stats reshape
+
 
 getsinimr <- function(var, year, moncorr=T) {
   
@@ -23,7 +22,7 @@ getsinimr <- function(var, year, moncorr=T) {
   
   colnames(values) <- c("CODE","MUNICIPALITY", namesco(var, year))
   
-  datav <- reshape(values, 
+  datav <- stats::reshape(values, 
                    idvar = c("CODE","MUNICIPALITY"),
                    varying = namesco(var, year),
                    direction = "long",

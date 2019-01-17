@@ -1,3 +1,7 @@
+#' @import httr
+#' @import XML
+#' @importFrom jsonlite fromJSON
+#' @importFrom reshape2 melt
 #' @importFrom stats complete.cases
 
 callapi <- function(url) { # nocov start

@@ -4,10 +4,6 @@
 #' @export
 #' @examples
 #' searchsinimvar("ingresos propios")
-#' @import httr
-#' @importFrom jsonlite fromJSON serializeJSON
-#' @import XML
-#' @import reshape2
 
 searchsinimvar <- function(keyword) {
     

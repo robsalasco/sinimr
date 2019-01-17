@@ -3,10 +3,6 @@
 #' @export
 #' @examples
 #' getsinimcategories()
-#' @import httr
-#' @importFrom jsonlite fromJSON serializeJSON
-#' @import XML
-#' @import reshape2
 
 getsinimcategories <- function() {
   body <- list("dato_area[]" = "T")
