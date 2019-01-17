@@ -1,15 +1,15 @@
 #' @importFrom stats complete.cases
 
 callapi <- function(url) { # nocov start
-  resp <- GET(url, add_headers("X-Request-Source" = "r"))
+  resp <- httr::GET(url, add_headers("X-Request-Source" = "r"))
   stop_for_status(resp)
-  data <- content(resp, "text", encoding = "UTF-8")
+  data <- httr::content(resp, "text", encoding = "UTF-8")
   data <- substr(data, 2, nchar(data))
   return(data)
 } # nocov end
 
 postapi <- function(url, body) { # nocov start
-  resp <- POST(
+  resp <- httr::POST(
     url,
     body = body,
     add_headers(
@@ -20,7 +20,7 @@ postapi <- function(url, body) { # nocov start
     )
   )
   stop_for_status(resp)
-  data <- fromJSON(content(resp, "text"))
+  data <- jsonlite::fromJSON(content(resp, "text"))
   return(data)
 } # nocov end
 
@@ -59,9 +59,9 @@ getid <- function(name) { # nocov start
       "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
       body
     )
-  list <- melt(sapply(resp, function(b)
+  list <- reshape2::melt(sapply(resp, function(b)
     b$mtro_datos_nombre))
-  values <- melt(sapply(resp, function(b)
+  values <- reshape2::melt(sapply(resp, function(b)
     b$id_dato))
   list$id <- values$value
   colnames(list) <- c("VARIABLE", "CATEGORY", "VALUE")
@@ -77,9 +77,9 @@ getname <- function(names) { # nocov start
       "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
       body
     )
-  list <- melt(sapply(resp, function(b)
+  list <- reshape2::melt(sapply(resp, function(b)
     b$mtro_datos_nombre))
-  values <- melt(sapply(resp, function(b)
+  values <- reshape2::melt(sapply(resp, function(b)
     b$id_dato))
   list$id <- values$value
   colnames(list) <- c("VARIABLE", "CATEGORY", "VALUE")
@@ -105,16 +105,16 @@ parsexml <- function(var, years, moncorr=T) { # nocov start
         sep = ""
       )
     }
-    data <- xmlParse(callapi(url))
+    data <- XML::xmlParse(callapi(url))
     columns <- as.numeric(
-      xpathApply(
+      XML::xpathApply(
         data,
         "//tei:Table/@tei:ExpandedColumnCount",
         namespaces = c(tei = getDefaultNamespace(data)[[1]]$uri)
       )[[1]][[1]],
       xmlValue
     )
-    varxml <- xpathSApply(
+    varxml <- XML::xpathSApply(
       data,
       "//tei:Cell[not(@tei:StyleID)]",
       namespaces = c(tei = getDefaultNamespace(data)[[1]]$uri),
