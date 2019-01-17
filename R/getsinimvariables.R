@@ -23,8 +23,8 @@ getsinimvariables <- function(catn) {
   sub <- as.vector(subset(list, id_subarea == catn, select = c("mtro_datos_nombre", "unidad_medida_simbolo", "id_dato")))
   colnames(sub) <- c("VARIABLE", "UNIT", "CODE")
  
-   stopifnot(nrow(sub) > 0)
+  stopifnot(nrow(sub) > 0)
   
-   return(sub)
+  return(sub)
 
 }
