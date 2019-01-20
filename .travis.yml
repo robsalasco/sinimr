@@ -1,6 +1,7 @@
 language: r
 env: _R_CHECK_CRAN_INCOMING_=FALSE
 sudo: required
+warnings_are_errors: false
 
 r:
   - release
