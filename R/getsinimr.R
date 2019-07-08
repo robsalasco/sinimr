@@ -33,8 +33,16 @@ getsinimr <- function(var, year, moncorr=T) {
   
   datav <- reshape2::melt(datav,id=c("CODE", "MUNICIPALITY","YEAR"),
                 value.name="VALUE",
-                variable.name = "VARIABLE") 
-  datav[, 5] <- as.numeric(gsub("[A-Za-z]", NA, datav[, 5]))
+                variable.name = "VARIABLE")
+  
+  datav[, 5] <- gsub("No Recepcionado", NA, datav[, 5])
+  
+  if (all(is.na(as.numeric(gsub("[A-Za-z]", NA, datav[, 5]))))) {
+    datav[, 5] <- as.character(datav[, 5])
+  }
+  else {
+    datav[, 5] <- as.numeric(datav[, 5])
+  }
   
   return(datav)
 }
