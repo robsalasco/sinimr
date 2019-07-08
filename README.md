@@ -37,6 +37,10 @@ what are available please use the `getsinimcategories()` command.
 ``` r
 library(sinimr)
 getsinimcategories()
+#> $`-`
+#>     VARIABLE CODE
+#> 1 * SIM FIMU  539
+#> 
 #> $`01.  ADMINISTRACION Y FINANZAS MUNICIPALES`
 #>                                             VARIABLE CODE
 #> 1  A.1. PRESUPUESTO INICIAL Y VIGENTE MUNICIPAL (M$)  517
@@ -105,7 +109,6 @@ getsinimcategories()
 #>                       VARIABLE CODE
 #> 1 A. GEOGRAFICO ADMINISTRATIVA   49
 #> 2                 B. POBLACION   50
-#> 3              D. DISCAPACIDAD  366
 #> 
 #> $`08.  GENERO`
 #>                                           VARIABLE CODE
@@ -124,11 +127,11 @@ and the `getsinimvariables()` function to get them.
 ``` r
 getsinimvariables(517)
 #>                                                       VARIABLE UNIT CODE
-#> 107                       Presupuesto Inicial Sector Municipal M$   4210
-#> 108                     Presupuesto Inicial Gastos Municipales M$   4211
-#> 109                       Presupuesto Vigente Sector Municipal M$   4212
-#> 110                     Presupuesto Vigente Gastos Municpiales M$   4213
-#> 111 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226
+#> 108                       Presupuesto Inicial Sector Municipal M$   4210
+#> 109                     Presupuesto Inicial Gastos Municipales M$   4211
+#> 110                       Presupuesto Vigente Sector Municipal M$   4212
+#> 111                     Presupuesto Vigente Gastos Municpiales M$   4213
+#> 112 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226
 ```
 
 Finally, to obtain the data across municipalities use the code column
@@ -137,12 +140,12 @@ and specify a year.
 ``` r
 head(getsinimr(c(4210,4211),2015))
 #>    CODE  MUNICIPALITY YEAR                               VARIABLE    VALUE
-#> 1 01101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 33387234
-#> 2 01107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9708323
-#> 3 01401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7270261
-#> 4 01402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1248620
-#> 5 01403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2015333
-#> 6 01404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3090760
+#> 1 01101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 34245763
+#> 2 01107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9957966
+#> 3 01401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7457210
+#> 4 01402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1280727
+#> 5 01403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2067156
+#> 6 01404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3170237
 ```
 
 You can get multiple years too\! use the command `getsinimr()` and add
@@ -151,12 +154,12 @@ more years as in the example.
 ``` r
 head(getsinimr(880,2015:2017))
 #>    CODE  MUNICIPALITY YEAR                           VARIABLE   VALUE
-#> 1 01101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3257415
-#> 2 01107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 6873284
-#> 3 01401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1788194
-#> 4 01402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1540229
-#> 5 01403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1094716
-#> 6 01404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1332312
+#> 1 01101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3342108
+#> 2 01107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7051989
+#> 3 01401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1834687
+#> 4 01402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1580275
+#> 5 01403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1123179
+#> 6 01404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1366952
 ```
 
 If you don’t know what are you looking for use `searchsinimvar()`to get
@@ -165,25 +168,25 @@ search results based on variable descriptions, names and groups.
 ``` r
 searchsinimvar("cementerio")
 #>     CODE
-#> 344 4140
-#> 345 4141
-#> 346 4406
-#> 347 4407
+#> 350 4140
+#> 351 4141
+#> 352 4406
+#> 353 4407
 #>                                                                                                                                   VARIABLE
-#> 344                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
-#> 345                                                                                              Gastos Cementerio (Gasto Total Devengado)
-#> 346                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
-#> 347 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
+#> 350                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
+#> 351                                                                                              Gastos Cementerio (Gasto Total Devengado)
+#> 352                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
+#> 353 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
 #>                                                                                                                                                                  DESCRIPTION
-#> 344                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
-#> 345                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
-#> 346 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
-#> 347                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
+#> 350                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
+#> 351                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
+#> 352 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
+#> 353                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
 #>               AREA                     SUBAREA UNIT
-#> 344 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
-#> 345 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
-#> 346 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
-#> 347 09. CEMENTERIO      1. INFORMACION GENERAL S-N
+#> 350 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
+#> 351 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
+#> 352 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
+#> 353 09. CEMENTERIO      1. INFORMACION GENERAL S-N
 ```
 
 ### Example plot
