@@ -11,7 +11,7 @@
 #' getsinimr(c(880, 882), 2015:2017)
 #' @importFrom reshape2 melt
 #' @importFrom stats reshape
-
+#' @importFrom stats na.omit
 
 getsinimr <- function(var, year, moncorr=T) {
   
