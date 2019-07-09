@@ -20,6 +20,10 @@ knitr::opts_chunk$set(
 
 Chilean Municipalities Information System Wrapper
 
+### Support
+
+FONDECYT Regular 2016 Nº 1161417, ¿Quién es responsable del desarrollo local? Una geografía política del neoestructuralismo en "comunas de exportación" (Comisión Nacional de Investigación Científica y Tecnológica).
+
 ### A note on usage
 
 When querying the API, please be respectful of the resources required to provide this data. Please retain the results for each request to avoid repeated requests for duplicate information.
@@ -108,6 +112,12 @@ reg.13.plot <- tm_shape(var.reg13.join) +
 
 reg.13.plot
 
+```
+
+### Citation
+
+```{r}
+citation("sinimr")
 ```
 
 ### References

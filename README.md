@@ -12,6 +12,13 @@ Status](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](h
 
 Chilean Municipalities Information System Wrapper
 
+### Support
+
+FONDECYT Regular 2016 Nº 1161417, ¿Quién es responsable del desarrollo
+local? Una geografía política del neoestructuralismo en “comunas de
+exportación” (Comisión Nacional de Investigación Científica y
+Tecnológica).
+
 ### A note on usage
 
 When querying the API, please be respectful of the resources required to
@@ -230,6 +237,28 @@ reg.13.plot
 ```
 
 <img src="docs/unnamed-chunk-7-1.png" width="768" />
+
+### Citation
+
+``` r
+citation("sinimr")
+#> 
+#> To cite package 'sinimr' in publications use:
+#> 
+#>   Roberto Salas (2019). sinimr: Chilean Municipalities Information
+#>   System Wrapper. R package version 0.2.2.
+#>   https://github.com/robsalasco/sinimr
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {sinimr: Chilean Municipalities Information System Wrapper},
+#>     author = {Roberto Salas},
+#>     year = {2019},
+#>     note = {R package version 0.2.2},
+#>     url = {https://github.com/robsalasco/sinimr},
+#>   }
+```
 
 ### References
 
