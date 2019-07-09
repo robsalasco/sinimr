@@ -6,12 +6,12 @@
 \title{Geographical identifier}
 \format{A data frame with 246 rows and 6 variables:
 \describe{
-  \item{REGION}{Region code}
-  \item{NOM_REGION}{Region name}
-  \item{PROVINCIA}{Provincia code}
-  \item{NOM_PROVINCIA}{Provincia name}
-  \item{COMUNA}{Municipality code}
-  \item{NOM_COMUNA}{Municipality name}
+  \item{CODE.REG}{Region code}
+  \item{NOM.REG}{Region name}
+  \item{CODE.PROV}{Provincia code}
+  \item{NOM.PROV}{Provincia name}
+  \item{CODE}{Municipality code}
+  \item{MUNICIPALITY}{Municipality name}
 }}
 \source{
 \url{http://www.censo2017.cl}
