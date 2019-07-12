@@ -2,7 +2,7 @@
 % Please edit documentation in R/searchsinimvar.R
 \name{searchsinimvar}
 \alias{searchsinimvar}
-\title{Search a SINIM variable}
+\title{Search for a SINIM variable and if no keyword is provided returns all variables}
 \usage{
 searchsinimvar(keyword)
 }
@@ -13,8 +13,9 @@ searchsinimvar(keyword)
 data frame with results
 }
 \description{
-Search a SINIM variable
+Search for a SINIM variable and if no keyword is provided returns all variables
 }
 \examples{
+searchsinimvar()
 searchsinimvar("ingresos propios")
 }

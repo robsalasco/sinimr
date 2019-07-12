@@ -1,8 +1,9 @@
-#' Search a SINIM variable
+#' Search for a SINIM variable and if no keyword is provided returns all variables
 #' @param keyword keyword
 #' @return data frame with results 
 #' @export
 #' @examples
+#' searchsinimvar()
 #' searchsinimvar("ingresos propios")
 
 searchsinimvar <- function(keyword) {
