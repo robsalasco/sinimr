@@ -99,6 +99,12 @@
 <div id="what-can-i-do-with-this" class="section level3">
 <h3 class="hasAnchor">
 <a href="#what-can-i-do-with-this" class="anchor"></a>What can I do with this?</h3>
+<p>This R package allows easy SINIM (<a href="http://sinim.gov.cl" class="uri">http://sinim.gov.cl</a>) data retrieval what have advantages over the site:</p>
+<ul>
+<li>When you work with multiple variables or years it will be very useful for rapid analyses.</li>
+<li>Fast ploting directly from data source.</li>
+<li>Data download with or without monetary correction using a switch.</li>
+</ul>
 <p><img src="plot2.png"></p>
 </div>
 <div id="installation" class="section level3">
@@ -262,14 +268,14 @@
 <a class="sourceLine" id="cb7-13" title="13">             <span class="st">"VITACURA"</span>, <span class="st">"LA GRANJA"</span>, <span class="st">"PROVIDENCIA"</span>, <span class="st">"SAN BERNARDO"</span>, <span class="st">"PUENTE ALTO"</span>, <span class="st">"PADRE HURTADO"</span>, <span class="st">"PIRQUE"</span>,</a>
 <a class="sourceLine" id="cb7-14" title="14">             <span class="st">"SAN JOSÉ DE MAIPO"</span>)</a>
 <a class="sourceLine" id="cb7-15" title="15"></a>
-<a class="sourceLine" id="cb7-16" title="16">var &lt;-<span class="st"> </span><span class="kw"><a href="reference/getsinimr.html">getsinimr</a></span>(<span class="dv">882</span>, <span class="dv">2017</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas)</a>
+<a class="sourceLine" id="cb7-16" title="16">var &lt;-<span class="st"> </span><span class="kw"><a href="reference/getsinimr.html">getsinimr</a></span>(<span class="dv">882</span>, <span class="dv">2017</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/filter">filter</a></span>(MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas)</a>
 <a class="sourceLine" id="cb7-17" title="17"></a>
 <a class="sourceLine" id="cb7-18" title="18">var[<span class="dv">5</span>] &lt;-<span class="st"> </span>var[<span class="dv">5</span>]<span class="op">*</span><span class="dv">1000</span></a>
 <a class="sourceLine" id="cb7-19" title="19"></a>
 <a class="sourceLine" id="cb7-20" title="20">var.reg13.join &lt;-<span class="st"> </span>reg13 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-21" title="21"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(COMUNA) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-22" title="22"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">transmute</a></span>(<span class="dt">CODE =</span> <span class="kw">as.character</span>(COMUNA)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-23" title="23"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">right_join</a></span>(var, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">"CODE"</span>))</a>
+<a class="sourceLine" id="cb7-21" title="21"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/select">select</a></span>(COMUNA) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-22" title="22"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/mutate">transmute</a></span>(<span class="dt">CODE =</span> <span class="kw">as.character</span>(COMUNA)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-23" title="23"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/join">right_join</a></span>(var, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">"CODE"</span>))</a>
 <a class="sourceLine" id="cb7-24" title="24"></a>
 <a class="sourceLine" id="cb7-25" title="25">reg.<span class="fl">13.</span>plot &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_shape">tm_shape</a></span>(var.reg13.join) <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-26" title="26"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_polygons</a></span>(<span class="kw">names</span>(var.reg13.join)[<span class="dv">5</span>], <span class="dt">palette=</span><span class="st">"magma"</span>, <span class="dt">border.col =</span> <span class="st">"white"</span>) <span class="op">+</span></a>

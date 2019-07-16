@@ -27,6 +27,14 @@ repeated requests for duplicate information.
 
 ### What can I do with this?
 
+This R package allows easy SINIM (<http://sinim.gov.cl>) data retrieval
+what have advantages over the site:
+
+  - When you work with multiple variables or years it will be very
+    useful for rapid analyses.
+  - Fast ploting directly from data source.
+  - Data download with or without monetary correction using a switch.
+
 ![](docs/plot2.png)
 
 ### Installation
