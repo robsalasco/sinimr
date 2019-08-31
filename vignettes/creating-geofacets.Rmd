@@ -39,7 +39,7 @@ comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
              "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
              "SAN JOSÉ DE MAIPO")
 
-data <- getsinimr(882,2002:2017, moncorr = F) %>% filter(MUNICIPALITY %in% comunas)
+data <- get_sinim(882,2002:2017, moncorr = F) %>% filter(MUNICIPALITY %in% comunas)
 data[5] <- data[5]*1000
 
 test <- data

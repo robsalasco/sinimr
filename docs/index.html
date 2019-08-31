@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">sinimR</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.3</span>
       </span>
     </div>
 
@@ -116,9 +116,9 @@
 <div id="how-do-i-use-it" class="section level3">
 <h3 class="hasAnchor">
 <a href="#how-do-i-use-it" class="anchor"></a>How do I use it?</h3>
-<p>sinimR comes with a small set of functions to deliver the content of SINIM’s webpage. To get a first glance of the categories of information what are available please use the <code><a href="reference/getsinimcategories.html">getsinimcategories()</a></code> command.</p>
+<p>sinimR comes with a small set of functions to deliver the content of SINIM’s webpage. To get a first glance of the categories of information what are available please use the <code>getsinimcategories()</code> command.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(sinimr)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="reference/getsinimcategories.html">getsinimcategories</a></span>()</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="reference/get_sinim_cats.html">get_sinim_cats</a></span>()</a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="co">#&gt; $`-`</span></a>
 <a class="sourceLine" id="cb2-4" title="4"><span class="co">#&gt;     VARIABLE CODE</span></a>
 <a class="sourceLine" id="cb2-5" title="5"><span class="co">#&gt; 1 * SIM FIMU  539</span></a>
@@ -201,8 +201,8 @@
 <a class="sourceLine" id="cb2-82" title="82"><span class="co">#&gt; 1      1. INFORMACION GENERAL  516</span></a>
 <a class="sourceLine" id="cb2-83" title="83"><span class="co">#&gt; 2 A. INGRESOS CEMENTERIO (M$)  456</span></a>
 <a class="sourceLine" id="cb2-84" title="84"><span class="co">#&gt; 3   B. GASTOS CEMENTERIO (M$)  457</span></a></code></pre></div>
-<p>Every category have a bunch of variables associated. Use the CODE number and the <code><a href="reference/getsinimvariables.html">getsinimvariables()</a></code> function to get them.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="reference/getsinimvariables.html">getsinimvariables</a></span>(<span class="dv">517</span>)</a>
+<p>Every category have a bunch of variables associated. Use the CODE number and the <code>getsinimvariables()</code> function to get them.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="reference/get_sinim_vars.html">get_sinim_vars</a></span>(<span class="dv">517</span>)</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="co">#&gt;                                                       VARIABLE UNIT CODE</span></a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="co">#&gt; 108                       Presupuesto Inicial Sector Municipal M$   4210</span></a>
 <a class="sourceLine" id="cb3-4" title="4"><span class="co">#&gt; 109                     Presupuesto Inicial Gastos Municipales M$   4211</span></a>
@@ -210,7 +210,7 @@
 <a class="sourceLine" id="cb3-6" title="6"><span class="co">#&gt; 111                     Presupuesto Vigente Gastos Municpiales M$   4213</span></a>
 <a class="sourceLine" id="cb3-7" title="7"><span class="co">#&gt; 112 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226</span></a></code></pre></div>
 <p>Finally, to obtain the data across municipalities use the code column and specify a year.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/getsinimr.html">getsinimr</a></span>(<span class="kw">c</span>(<span class="dv">4210</span>,<span class="dv">4211</span>),<span class="dv">2015</span>))</a>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="kw">c</span>(<span class="dv">4210</span>,<span class="dv">4211</span>),<span class="dv">2015</span>))</a>
 <a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt;    CODE  MUNICIPALITY YEAR                               VARIABLE    VALUE</span></a>
 <a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt; 1 01101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 34245763</span></a>
 <a class="sourceLine" id="cb4-4" title="4"><span class="co">#&gt; 2 01107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9957966</span></a>
@@ -218,8 +218,8 @@
 <a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; 4 01402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1280727</span></a>
 <a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2067156</span></a>
 <a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt; 6 01404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3170237</span></a></code></pre></div>
-<p>You can get multiple years too! use the command <code><a href="reference/getsinimr.html">getsinimr()</a></code> and add more years as in the example.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/getsinimr.html">getsinimr</a></span>(<span class="dv">880</span>,<span class="dv">2015</span><span class="op">:</span><span class="dv">2017</span>))</a>
+<p>You can get multiple years too! use the command <code>getsinimr()</code> and add more years as in the example.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">880</span>,<span class="dv">2015</span><span class="op">:</span><span class="dv">2017</span>))</a>
 <a class="sourceLine" id="cb5-2" title="2"><span class="co">#&gt;    CODE  MUNICIPALITY YEAR                           VARIABLE   VALUE</span></a>
 <a class="sourceLine" id="cb5-3" title="3"><span class="co">#&gt; 1 01101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3342108</span></a>
 <a class="sourceLine" id="cb5-4" title="4"><span class="co">#&gt; 2 01107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7051989</span></a>
@@ -227,8 +227,8 @@
 <a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt; 4 01402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1580275</span></a>
 <a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1123179</span></a>
 <a class="sourceLine" id="cb5-8" title="8"><span class="co">#&gt; 6 01404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1366952</span></a></code></pre></div>
-<p>If you don’t know what are you looking for use <code><a href="reference/searchsinimvar.html">searchsinimvar()</a></code>to get search results based on variable descriptions, names and groups.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="reference/searchsinimvar.html">searchsinimvar</a></span>(<span class="st">"cementerio"</span>)</a>
+<p>If you don’t know what are you looking for use <code>searchsinimvar()</code>to get search results based on variable descriptions, names and groups.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="reference/search_sinim_vars.html">search_sinim_vars</a></span>(<span class="st">"cementerio"</span>)</a>
 <a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt;     CODE</span></a>
 <a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; 350 4140</span></a>
 <a class="sourceLine" id="cb6-4" title="4"><span class="co">#&gt; 351 4141</span></a>
@@ -268,14 +268,14 @@
 <a class="sourceLine" id="cb7-13" title="13">             <span class="st">"VITACURA"</span>, <span class="st">"LA GRANJA"</span>, <span class="st">"PROVIDENCIA"</span>, <span class="st">"SAN BERNARDO"</span>, <span class="st">"PUENTE ALTO"</span>, <span class="st">"PADRE HURTADO"</span>, <span class="st">"PIRQUE"</span>,</a>
 <a class="sourceLine" id="cb7-14" title="14">             <span class="st">"SAN JOSÉ DE MAIPO"</span>)</a>
 <a class="sourceLine" id="cb7-15" title="15"></a>
-<a class="sourceLine" id="cb7-16" title="16">var &lt;-<span class="st"> </span><span class="kw"><a href="reference/getsinimr.html">getsinimr</a></span>(<span class="dv">882</span>, <span class="dv">2017</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/filter">filter</a></span>(MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas)</a>
+<a class="sourceLine" id="cb7-16" title="16">var &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">882</span>, <span class="dv">2017</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas)</a>
 <a class="sourceLine" id="cb7-17" title="17"></a>
 <a class="sourceLine" id="cb7-18" title="18">var[<span class="dv">5</span>] &lt;-<span class="st"> </span>var[<span class="dv">5</span>]<span class="op">*</span><span class="dv">1000</span></a>
 <a class="sourceLine" id="cb7-19" title="19"></a>
 <a class="sourceLine" id="cb7-20" title="20">var.reg13.join &lt;-<span class="st"> </span>reg13 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-21" title="21"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/select">select</a></span>(COMUNA) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-22" title="22"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/mutate">transmute</a></span>(<span class="dt">CODE =</span> <span class="kw">as.character</span>(COMUNA)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-23" title="23"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/join">right_join</a></span>(var, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">"CODE"</span>))</a>
+<a class="sourceLine" id="cb7-21" title="21"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(COMUNA) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-22" title="22"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">transmute</a></span>(<span class="dt">CODE =</span> <span class="kw">as.character</span>(COMUNA)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-23" title="23"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">right_join</a></span>(var, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">"CODE"</span>))</a>
 <a class="sourceLine" id="cb7-24" title="24"></a>
 <a class="sourceLine" id="cb7-25" title="25">reg.<span class="fl">13.</span>plot &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_shape">tm_shape</a></span>(var.reg13.join) <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-26" title="26"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_polygons</a></span>(<span class="kw">names</span>(var.reg13.join)[<span class="dv">5</span>], <span class="dt">palette=</span><span class="st">"magma"</span>, <span class="dt">border.col =</span> <span class="st">"white"</span>) <span class="op">+</span></a>
@@ -297,7 +297,7 @@
 <a class="sourceLine" id="cb8-3" title="3"><span class="co">#&gt; To cite package 'sinimr' in publications use:</span></a>
 <a class="sourceLine" id="cb8-4" title="4"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt;   Roberto Salas (2019). sinimr: Chilean Municipalities Information</span></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt;   System Wrapper. R package version 0.2.2.</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt;   System Wrapper. R package version 0.2.3.</span></a>
 <a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt;   https://github.com/robsalasco/sinimr</span></a>
 <a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></a>
@@ -306,7 +306,7 @@
 <a class="sourceLine" id="cb8-12" title="12"><span class="co">#&gt;     title = {sinimr: Chilean Municipalities Information System Wrapper},</span></a>
 <a class="sourceLine" id="cb8-13" title="13"><span class="co">#&gt;     author = {Roberto Salas},</span></a>
 <a class="sourceLine" id="cb8-14" title="14"><span class="co">#&gt;     year = {2019},</span></a>
-<a class="sourceLine" id="cb8-15" title="15"><span class="co">#&gt;     note = {R package version 0.2.2},</span></a>
+<a class="sourceLine" id="cb8-15" title="15"><span class="co">#&gt;     note = {R package version 0.2.3},</span></a>
 <a class="sourceLine" id="cb8-16" title="16"><span class="co">#&gt;     url = {https://github.com/robsalasco/sinimr},</span></a>
 <a class="sourceLine" id="cb8-17" title="17"><span class="co">#&gt;   }</span></a></code></pre></div>
 </div>
