@@ -1,8 +1,8 @@
 Package: sinimr
 Type: Package
 Title: Chilean Municipalities Information System Wrapper
-Version: 0.2.2
-Date: 2019-07-09
+Version: 0.2.3
+Date: 2019-08-30
 Authors@R: c(person("Roberto", "Salas", email =
     "rosalas@uc.cl", role = c("aut", "cre"), 
     comment = c(ORCID = "0000-0001-9607-3930")))
@@ -14,15 +14,15 @@ Imports:
     jsonlite (>= 1.5),
     XML (>= 3.98-1.16),
     reshape2 (>= 1.4.3),
-    stats
+    stats,
+    sf
 Collate:
     sinimr.R
-    getsinimcategories.R
-    getsinimr.R
-    getsinimvariables.R
-    searchsinimvar.R
+    get_sinim_cats.R
+    get_sinim.R
+    get_sinim_vars.R
+    search_sinim_vars.R
     helpers.R
-    data.R
 Encoding: UTF-8
 RoxygenNote: 6.1.0
 Suggests: testthat,
