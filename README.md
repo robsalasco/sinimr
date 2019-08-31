@@ -52,7 +52,7 @@ what are available please use the `getsinimcategories()` command.
 
 ``` r
 library(sinimr)
-getsinimcategories()
+get_sinim_cats()
 #> $`-`
 #>     VARIABLE CODE
 #> 1 * SIM FIMU  539
@@ -141,7 +141,7 @@ Every category have a bunch of variables associated. Use the CODE number
 and the `getsinimvariables()` function to get them.
 
 ``` r
-getsinimvariables(517)
+get_sinim_vars(517)
 #>                                                       VARIABLE UNIT CODE
 #> 108                       Presupuesto Inicial Sector Municipal M$   4210
 #> 109                     Presupuesto Inicial Gastos Municipales M$   4211
@@ -154,7 +154,7 @@ Finally, to obtain the data across municipalities use the code column
 and specify a year.
 
 ``` r
-head(getsinimr(c(4210,4211),2015))
+head(get_sinim(c(4210,4211),2015))
 #>    CODE  MUNICIPALITY YEAR                               VARIABLE    VALUE
 #> 1 01101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 34245763
 #> 2 01107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9957966
@@ -168,7 +168,7 @@ You can get multiple years too\! use the command `getsinimr()` and add
 more years as in the example.
 
 ``` r
-head(getsinimr(880,2015:2017))
+head(get_sinim(880,2015:2017))
 #>    CODE  MUNICIPALITY YEAR                           VARIABLE   VALUE
 #> 1 01101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3342108
 #> 2 01107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7051989
@@ -182,7 +182,7 @@ If you don’t know what are you looking for use `searchsinimvar()`to get
 search results based on variable descriptions, names and groups.
 
 ``` r
-searchsinimvar("cementerio")
+search_sinim_vars("cementerio")
 #>     CODE
 #> 350 4140
 #> 351 4141
@@ -223,7 +223,7 @@ comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
              "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
              "SAN JOSÉ DE MAIPO")
 
-var <- getsinimr(882, 2017) %>% filter(MUNICIPALITY %in% comunas)
+var <- get_sinim(882, 2017) %>% filter(MUNICIPALITY %in% comunas)
 
 var[5] <- var[5]*1000
 
@@ -254,7 +254,7 @@ citation("sinimr")
 #> To cite package 'sinimr' in publications use:
 #> 
 #>   Roberto Salas (2019). sinimr: Chilean Municipalities Information
-#>   System Wrapper. R package version 0.2.2.
+#>   System Wrapper. R package version 0.2.3.
 #>   https://github.com/robsalasco/sinimr
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -263,7 +263,7 @@ citation("sinimr")
 #>     title = {sinimr: Chilean Municipalities Information System Wrapper},
 #>     author = {Roberto Salas},
 #>     year = {2019},
-#>     note = {R package version 0.2.2},
+#>     note = {R package version 0.2.3},
 #>     url = {https://github.com/robsalasco/sinimr},
 #>   }
 ```
