@@ -3,6 +3,9 @@ env: _R_CHECK_CRAN_INCOMING_=FALSE
 sudo: required
 warnings_are_errors: false
 
+before_install:
+  - sudo apt-get install -y libudunits2-dev
+
 r:
   - release
 
