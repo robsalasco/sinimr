@@ -2,12 +2,14 @@
 #' @param var Variable code
 #' @param year Year
 #' @param moncorr A logical value indicating the use of monetary correction
+#' @param truevalue A logical value indicating the use of converted values
 #' @param idgeo A logical value to add provincia and region columns
 #' @param geometry A logical value to add geographical features
-#' @param region Regional subsetting variable
-#' @param provincia provincia subsetting variable
+#' @param region Region subsetting variable
+#' @param provincia Provincia subsetting variable
 #' @param comuna Comuna subsetting variable
-#' @return data frame with data for the requested variable over time with optional geometry
+#' @param unit Use "comunas" or "limites"
+#' @return data frame for the requested variable over time with optional geometry
 #' @export
 #' @examples
 #' get_sinim(880, 2015)
