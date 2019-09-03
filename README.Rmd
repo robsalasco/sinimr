@@ -163,7 +163,7 @@ reg.13.plot
 
 ```
 
-```{r, message=F, fig.height=18, fig.width=12, fig.retina=2}
+```{r, message=F, fig.height=12, fig.width=24, fig.retina=2}
 library(sf)
 library(dplyr)
 library(geofacet)
@@ -196,7 +196,7 @@ ggplot(data, aes(YEAR, VALUE, group=1)) +
   geom_line(color = "steelblue") +
   facet_geo(~ MUNICIPALITY, grid = grd, scales = "free_y")+
   scale_x_date() +
-  scale_y_continuous(labels = dollar_format(suffix = "", prefix = "$", big.mark = "."))+
+  scale_y_continuous(labels = dollar_format(suffix = "", prefix = "$", big.mark = ".", decimal.mark=","))+
   theme_bw()
 ```
 
