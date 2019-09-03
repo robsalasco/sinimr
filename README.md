@@ -12,6 +12,55 @@ Status](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](h
 
 Chilean Municipalities Information System Wrapper
 
+``` r
+library(tmap)
+library(dplyr)
+library(stringr)
+library(sinimr)
+library(sf)
+
+data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173), 
+                        year = 2018, 
+                        geometry = T, 
+                        unit = "limites", 
+                        region = "13",
+                        truevalue = T)
+
+comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
+             "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
+             "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
+             "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
+             "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
+             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
+             "SAN JOSÉ DE MAIPO")
+
+var <- data_sinim %>% filter(MUNICIPALITY %in% comunas)
+
+namevar <- var %>% select(-MUNICIPALITY,-CODE) %>% st_set_geometry(NULL) %>% names() 
+
+sd <- tm_shape(var) +
+  tm_fill(col = namevar,
+          palette = "BuPu", 
+          border.col = "white", 
+          border.alpha = 0.5,
+          lwd=1,
+          style = "pretty",
+          title = namevar %>% stringr::str_remove("\\.\\d+"))+
+  tm_text("MUNICIPALITY", size = 0.4) +
+  tm_style("white", frame = T, legend.title.size = 1, legend.width=1) +
+  tm_layout(inner.margins = c(0.01, 0.15, 0.15, 0.01),
+            outer.margins = c(0, 0.01, 0.01, 0),
+            design.mode=F,
+            legend.format = list(text.separator = "a",
+                                 fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))+
+  tm_compass(type = "8star", position = c(.85, .80)) +
+  tm_borders(col = 'black')
+
+sd
+```
+
+<img src="docs/unnamed-chunk-2-1.png" width="960" />
+
 ### Support
 
 FONDECYT Regular 2016 Nº 1161417, ¿Quién es responsable del desarrollo
@@ -32,10 +81,9 @@ what have advantages over the site:
 
   - When you work with multiple variables or years it will be very
     useful for rapid analyses.
-  - Fast ploting directly from data source.
+  - Fast ploting directly from data source using the included
+    geometries.
   - Data download with or without monetary correction using a switch.
-
-![](docs/plot2.png)
 
 ### Installation
 
@@ -48,7 +96,7 @@ devtools::install_github("robsalasco/sinimr")
 
 sinimR comes with a small set of functions to deliver the content of
 SINIM’s webpage. To get a first glance of the categories of information
-what are available please use the `getsinimcategories()` command.
+what are available please use the `get_sinim_cats()` command.
 
 ``` r
 library(sinimr)
@@ -138,7 +186,7 @@ get_sinim_cats()
 ```
 
 Every category have a bunch of variables associated. Use the CODE number
-and the `getsinimvariables()` function to get them.
+and the `get_sinim_vars()` function to get them.
 
 ``` r
 get_sinim_vars(517)
@@ -164,7 +212,7 @@ head(get_sinim(c(4210,4211),2015))
 #> 6 01404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3170237
 ```
 
-You can get multiple years too\! use the command `getsinimr()` and add
+You can get multiple years too\! use the command `get_sinim()` and add
 more years as in the example.
 
 ``` r
@@ -178,8 +226,21 @@ head(get_sinim(880,2015:2017))
 #> 6 01404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1366952
 ```
 
-If you don’t know what are you looking for use `searchsinimvar()`to get
-search results based on variable descriptions, names and groups.
+The geometries are available using the `geometry==T` argument.
+
+``` r
+head(get_sinim(882,2015:2017), geometry=T)
+#>    CODE  MUNICIPALITY YEAR                     VARIABLE    VALUE
+#> 1 01101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 36847050
+#> 2 01107 ALTO HOSPICIO 2017 INGRESOS PROPIOS (IPP Y FCM) 11054686
+#> 3 01401  POZO ALMONTE 2017 INGRESOS PROPIOS (IPP Y FCM)  4547414
+#> 4 01402        CAMIÑA 2017 INGRESOS PROPIOS (IPP Y FCM)  1683404
+#> 5 01403      COLCHANE 2017 INGRESOS PROPIOS (IPP Y FCM)  1257502
+#> 6 01404         HUARA 2017 INGRESOS PROPIOS (IPP Y FCM)  2472729
+```
+
+If you don’t know what are you looking for use `search_sinim_vars()`to
+get search results based on variable descriptions, names and groups.
 
 ``` r
 search_sinim_vars("cementerio")
@@ -205,7 +266,9 @@ search_sinim_vars("cementerio")
 #> 353 09. CEMENTERIO      1. INFORMACION GENERAL S-N
 ```
 
-### Example plots
+On advanced usage please have a look in the documentation included.
+
+### Other example plots
 
 ``` r
 library(dplyr)
@@ -235,54 +298,7 @@ reg.13.plot <- tm_shape(var) +
 reg.13.plot
 ```
 
-<img src="docs/unnamed-chunk-7-1.png" width="768" />
-
-``` r
-library(tmap)
-library(dplyr)
-library(stringr)
-
-data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173), 
-                        year = 2018, 
-                        geometry = T, 
-                        unit = "limites", 
-                        region = "13",
-                        truevalue = T)
-
-comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
-             "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
-             "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
-             "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
-             "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
-             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
-             "SAN JOSÉ DE MAIPO")
-
-var <- data_sinim %>% filter(MUNICIPALITY %in% comunas)
-
-namevar <- var %>% select(-MUNICIPALITY,-CODE) %>% st_set_geometry(NULL) %>% names() 
-
-sd <- tm_shape(var) +
-  tm_fill(col = namevar,
-          palette = "BuPu", 
-          border.col = "white", 
-          border.alpha = 0.5,
-          lwd=1,
-          style = "pretty",
-          title = namevar %>% stringr::str_remove("\\.\\d+"))+
-  tm_text("MUNICIPALITY", size = 0.4) +
-  tm_style("white", frame = T, legend.title.size = 1, legend.width=1) +
-  tm_layout(inner.margins = c(0.01, 0.15, 0.15, 0.01),
-            outer.margins = c(0, 0.01, 0.01, 0),
-            design.mode=F,
-            legend.format = list(text.separator = "a",
-                                 fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))+
-  tm_compass(type = "8star", position = c(.85, .80)) +
-  tm_borders(col = 'black')
-
-sd
-```
-
-<img src="docs/unnamed-chunk-8-1.png" width="960" />
+<img src="docs/unnamed-chunk-9-1.png" width="768" />
 
 ### Citation
 
