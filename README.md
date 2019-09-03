@@ -247,9 +247,10 @@ reg.13.plot
 ``` r
 library(tmap)
 library(dplyr)
+library(stringr)
 
 data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173), 
-                        year=2018, 
+                        year = 2018, 
                         geometry = T, 
                         unit = "limites", 
                         region = "13",
