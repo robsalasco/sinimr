@@ -71,7 +71,12 @@ get_sinim <-
         vapply(datav, function(x)
           all(grepl("[0-9]+", na.omit(x))), logical(1))
       t[1:3] <- FALSE
-      datav[t] <- lapply(datav[t], function(x) (as.numeric(x))*1000)
+      
+      if(truevalue==TRUE){
+        datav[t] <- lapply(datav[t], function(x) (as.numeric(x))*1000)
+      } else {
+        datav[t] <- lapply(datav[t], function(x) (as.numeric(x)))
+      }
       
       if (!missing(region) |
           !missing(provincia) | 
