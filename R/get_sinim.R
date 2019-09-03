@@ -2,10 +2,10 @@
 #' @param var Variable code
 #' @param year Year
 #' @param moncorr A logical value indicating the use of monetary correction
-#' @param idgeo A logical value to add province and region columns
+#' @param idgeo A logical value to add provincia and region columns
 #' @param geometry A logical value to add geographical features
 #' @param region Regional subsetting variable
-#' @param province Province subsetting variable
+#' @param provincia provincia subsetting variable
 #' @param comuna Comuna subsetting variable
 #' @return data frame with data for the requested variable over time with optional geometry
 #' @export
@@ -26,10 +26,11 @@ get_sinim <-
   function(var,
            year,
            moncorr = T,
+           truevalue = F,
            idgeo = F,
            geometry = F,
            region,
-           province,
+           provincia,
            comuna,
            unit = "comunas") {
     
@@ -71,11 +72,11 @@ get_sinim <-
       datav[t] <- lapply(datav[t], function(x) (as.numeric(x))*1000)
       
       if (!missing(region) |
-          !missing(province) | 
+          !missing(provincia) | 
           !missing(comuna)) {
         selection <-
           geofilter(region = region,
-                    province = province,
+                    provincia = provincia,
                     comuna = comuna)
         data.selection <- subset(datav, CODE %in% selection)
         
@@ -98,15 +99,19 @@ get_sinim <-
       t <-
         vapply(datav, function(x)
           all(grepl("[0-9]+", na.omit(x))), logical(1))
+      
       t[1:3] <- FALSE
-      datav[t] <- lapply(datav[t], function(x) (as.numeric(x))*1000)
+      
+      if(truevalue==TRUE){
+        datav[t] <- lapply(datav[t], function(x) (as.numeric(x))*1000)
+      }
       
       if (!missing(region) |
-          !missing(province) | 
+          !missing(provincia) | 
           !missing(comuna)) {
         selection <-
           geofilter(region = region,
-                    province = province,
+                    provincia = provincia,
                     comuna = comuna)
         data.reshaped <-
           reshape(

@@ -138,20 +138,20 @@ namesco <- function(x,y){ #nocov start
   return(paste(rep_vars, rep_years, sep="."))
 } # nocov end
 
-geofilter <- function(region, province, comuna) { #nocov start
+geofilter <- function(region, provincia, comuna) { #nocov start
   if (!missing(region)) {
-    stopifnot(missing(province))
+    stopifnot(missing(provincia))
     stopifnot(missing(comuna))
     selection <- subset(id_geo_census, CODE.REG == region)$CODE
     return(selection)
-  } else if (!missing(province)) {
+  } else if (!missing(provincia)) {
     stopifnot(missing(region))
     stopifnot(missing(comuna))
-    selection <- subset(id_geo_census, CODE.PROV == province)$CODE
+    selection <- subset(id_geo_census, CODE.PROV == provincia)$CODE
     return(selection)
   } else if (!missing(comuna)) {
     stopifnot(missing(region))
-    stopifnot(missing(province))
+    stopifnot(missing(provincia))
     selection <- subset(id_geo_census, CODE == comuna)$CODE
     return(selection)
   } else {
