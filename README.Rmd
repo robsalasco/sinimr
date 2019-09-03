@@ -20,6 +20,14 @@ knitr::opts_chunk$set(
 
 Chilean Municipalities Information System Wrapper
 
+### What can I do with this?
+
+This R package allows easy SINIM (http://sinim.gov.cl) data retrieval what have advantages over the site:
+
+- When you work with multiple variables or years it will be very useful for rapid analyses.
+- Fast ploting directly from data source using the included geometries.
+- Data download with or without monetary correction using a switch.
+
 ```{r, message=F, fig.height=10, fig.width=10, fig.retina=2}
 library(tmap)
 library(dplyr)
@@ -76,14 +84,6 @@ FONDECYT Regular 2016 Nº 1161417, ¿Quién es responsable del desarrollo local
 
 When querying the API, please be respectful of the resources required to provide this data. Please retain the results for each request to avoid repeated requests for duplicate information.
 
-### What can I do with this?
-
-This R package allows easy SINIM (http://sinim.gov.cl) data retrieval what have advantages over the site:
-
-- When you work with multiple variables or years it will be very useful for rapid analyses.
-- Fast ploting directly from data source using the included geometries.
-- Data download with or without monetary correction using a switch.
-
 ### Installation
 
 ```R
@@ -121,7 +121,7 @@ head(get_sinim(880,2015:2017))
 The geometries are available using the ```geometry==T``` argument.
 
 ```{r}
-head(get_sinim(882,2015:2017), geometry=T)
+head(get_sinim(882,2015:2017, geometry=T))
 ```
 
 If you don't know what are you looking for use ```search_sinim_vars()```to get search results based on variable descriptions, names and groups.

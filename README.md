@@ -12,6 +12,19 @@ Status](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](h
 
 Chilean Municipalities Information System Wrapper
 
+### What can I do with this?
+
+This R package allows easy SINIM (<http://sinim.gov.cl>) data retrieval
+what have advantages over the site:
+
+  - When you work with multiple variables or years it will be very
+    useful for rapid analyses.
+  - Fast ploting directly from data source using the included
+    geometries.
+  - Data download with or without monetary correction using a switch.
+
+<!-- end list -->
+
 ``` r
 library(tmap)
 library(dplyr)
@@ -73,17 +86,6 @@ Tecnológica).
 When querying the API, please be respectful of the resources required to
 provide this data. Please retain the results for each request to avoid
 repeated requests for duplicate information.
-
-### What can I do with this?
-
-This R package allows easy SINIM (<http://sinim.gov.cl>) data retrieval
-what have advantages over the site:
-
-  - When you work with multiple variables or years it will be very
-    useful for rapid analyses.
-  - Fast ploting directly from data source using the included
-    geometries.
-  - Data download with or without monetary correction using a switch.
 
 ### Installation
 
@@ -229,14 +231,34 @@ head(get_sinim(880,2015:2017))
 The geometries are available using the `geometry==T` argument.
 
 ``` r
-head(get_sinim(882,2015:2017), geometry=T)
-#>    CODE  MUNICIPALITY YEAR                     VARIABLE    VALUE
-#> 1 01101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 36847050
-#> 2 01107 ALTO HOSPICIO 2017 INGRESOS PROPIOS (IPP Y FCM) 11054686
-#> 3 01401  POZO ALMONTE 2017 INGRESOS PROPIOS (IPP Y FCM)  4547414
-#> 4 01402        CAMIÑA 2017 INGRESOS PROPIOS (IPP Y FCM)  1683404
-#> 5 01403      COLCHANE 2017 INGRESOS PROPIOS (IPP Y FCM)  1257502
-#> 6 01404         HUARA 2017 INGRESOS PROPIOS (IPP Y FCM)  2472729
+head(get_sinim(882,2015:2017, geometry=T))
+#> Simple feature collection with 6 features and 5 fields
+#> geometry type:  MULTIPOLYGON
+#> dimension:      XY
+#> bbox:           xmin: -70.28665 ymin: -21.63061 xmax: -68.40454 ymax: -18.9369
+#> epsg (SRID):    4326
+#> proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#>    CODE  MUNICIPALITY INGRESOS PROPIOS (IPP Y FCM).2017
+#> 1 01101       IQUIQUE                          36847050
+#> 2 01107 ALTO HOSPICIO                          11054686
+#> 3 01401  POZO ALMONTE                           4547414
+#> 4 01402        CAMIÑA                           1683404
+#> 5 01403      COLCHANE                           1257502
+#> 6 01404         HUARA                           2472729
+#>   INGRESOS PROPIOS (IPP Y FCM).2016 INGRESOS PROPIOS (IPP Y FCM).2015
+#> 1                          35586455                          34139969
+#> 2                          10600513                          10386815
+#> 3                           5714872                           5630945
+#> 4                           1651371                           1609920
+#> 5                           1256502                           1183905
+#> 6                           2566803                           2624107
+#>                         geometry
+#> 1 MULTIPOLYGON (((-70.09894 -...
+#> 2 MULTIPOLYGON (((-70.1095 -2...
+#> 3 MULTIPOLYGON (((-68.86081 -...
+#> 4 MULTIPOLYGON (((-69.31789 -...
+#> 5 MULTIPOLYGON (((-68.65113 -...
+#> 6 MULTIPOLYGON (((-69.39615 -...
 ```
 
 If you don’t know what are you looking for use `search_sinim_vars()`to

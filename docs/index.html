@@ -86,6 +86,15 @@
 <a href="#sinimr" class="anchor"></a>sinimR <img src="sinimR_hexSticker.png" width="175" height="200" align="right">
 </h1></div>
 <p>Chilean Municipalities Information System Wrapper</p>
+<div id="what-can-i-do-with-this" class="section level3">
+<h3 class="hasAnchor">
+<a href="#what-can-i-do-with-this" class="anchor"></a>What can I do with this?</h3>
+<p>This R package allows easy SINIM (<a href="http://sinim.gov.cl" class="uri">http://sinim.gov.cl</a>) data retrieval what have advantages over the site:</p>
+<ul>
+<li>When you work with multiple variables or years it will be very useful for rapid analyses.</li>
+<li>Fast ploting directly from data source using the included geometries.</li>
+<li>Data download with or without monetary correction using a switch.</li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(tmap)</a>
 <a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(dplyr)</a>
 <a class="sourceLine" id="cb1-3" title="3"><span class="kw">library</span>(stringr)</a>
@@ -118,7 +127,7 @@
 <a class="sourceLine" id="cb1-30" title="30">          <span class="dt">border.alpha =</span> <span class="fl">0.5</span>,</a>
 <a class="sourceLine" id="cb1-31" title="31">          <span class="dt">lwd=</span><span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb1-32" title="32">          <span class="dt">style =</span> <span class="st">"pretty"</span>,</a>
-<a class="sourceLine" id="cb1-33" title="33">          <span class="dt">title =</span> namevar <span class="op">%&gt;%</span><span class="st"> </span>stringr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/stringr/topics/str_remove">str_remove</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">.</span><span class="ch">\\</span><span class="st">d+"</span>))<span class="op">+</span></a>
+<a class="sourceLine" id="cb1-33" title="33">          <span class="dt">title =</span> namevar <span class="op">%&gt;%</span><span class="st"> </span>stringr<span class="op">::</span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">.</span><span class="ch">\\</span><span class="st">d+"</span>))<span class="op">+</span></a>
 <a class="sourceLine" id="cb1-34" title="34"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_text">tm_text</a></span>(<span class="st">"MUNICIPALITY"</span>, <span class="dt">size =</span> <span class="fl">0.4</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb1-35" title="35"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_style</a></span>(<span class="st">"white"</span>, <span class="dt">frame =</span> T, <span class="dt">legend.title.size =</span> <span class="dv">1</span>, <span class="dt">legend.width=</span><span class="dv">1</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb1-36" title="36"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_layout</a></span>(<span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.01</span>, <span class="fl">0.15</span>, <span class="fl">0.15</span>, <span class="fl">0.01</span>),</a>
@@ -131,6 +140,7 @@
 <a class="sourceLine" id="cb1-43" title="43"></a>
 <a class="sourceLine" id="cb1-44" title="44">sd</a></code></pre></div>
 <p><img src="unnamed-chunk-2-1.png" width="960"></p>
+</div>
 <div id="support" class="section level3">
 <h3 class="hasAnchor">
 <a href="#support" class="anchor"></a>Support</h3>
@@ -140,16 +150,6 @@
 <h3 class="hasAnchor">
 <a href="#a-note-on-usage" class="anchor"></a>A note on usage</h3>
 <p>When querying the API, please be respectful of the resources required to provide this data. Please retain the results for each request to avoid repeated requests for duplicate information.</p>
-</div>
-<div id="what-can-i-do-with-this" class="section level3">
-<h3 class="hasAnchor">
-<a href="#what-can-i-do-with-this" class="anchor"></a>What can I do with this?</h3>
-<p>This R package allows easy SINIM (<a href="http://sinim.gov.cl" class="uri">http://sinim.gov.cl</a>) data retrieval what have advantages over the site:</p>
-<ul>
-<li>When you work with multiple variables or years it will be very useful for rapid analyses.</li>
-<li>Fast ploting directly from data source using the included geometries.</li>
-<li>Data download with or without monetary correction using a switch.</li>
-</ul>
 </div>
 <div id="installation" class="section level3">
 <h3 class="hasAnchor">
@@ -272,14 +272,34 @@
 <a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1123179</span></a>
 <a class="sourceLine" id="cb6-8" title="8"><span class="co">#&gt; 6 01404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1366952</span></a></code></pre></div>
 <p>The geometries are available using the <code>geometry==T</code> argument.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">882</span>,<span class="dv">2015</span><span class="op">:</span><span class="dv">2017</span>), <span class="dt">geometry=</span>T)</a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co">#&gt;    CODE  MUNICIPALITY YEAR                     VARIABLE    VALUE</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt; 1 01101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 36847050</span></a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="co">#&gt; 2 01107 ALTO HOSPICIO 2017 INGRESOS PROPIOS (IPP Y FCM) 11054686</span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; 3 01401  POZO ALMONTE 2017 INGRESOS PROPIOS (IPP Y FCM)  4547414</span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="co">#&gt; 4 01402        CAMIÑA 2017 INGRESOS PROPIOS (IPP Y FCM)  1683404</span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE 2017 INGRESOS PROPIOS (IPP Y FCM)  1257502</span></a>
-<a class="sourceLine" id="cb7-8" title="8"><span class="co">#&gt; 6 01404         HUARA 2017 INGRESOS PROPIOS (IPP Y FCM)  2472729</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">882</span>,<span class="dv">2015</span><span class="op">:</span><span class="dv">2017</span>, <span class="dt">geometry=</span>T))</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co">#&gt; Simple feature collection with 6 features and 5 fields</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt; geometry type:  MULTIPOLYGON</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="co">#&gt; dimension:      XY</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; bbox:           xmin: -70.28665 ymin: -21.63061 xmax: -68.40454 ymax: -18.9369</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="co">#&gt; epsg (SRID):    4326</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="co">#&gt;    CODE  MUNICIPALITY INGRESOS PROPIOS (IPP Y FCM).2017</span></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="co">#&gt; 1 01101       IQUIQUE                          36847050</span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="co">#&gt; 2 01107 ALTO HOSPICIO                          11054686</span></a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="co">#&gt; 3 01401  POZO ALMONTE                           4547414</span></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="co">#&gt; 4 01402        CAMIÑA                           1683404</span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="co">#&gt; 5 01403      COLCHANE                           1257502</span></a>
+<a class="sourceLine" id="cb7-14" title="14"><span class="co">#&gt; 6 01404         HUARA                           2472729</span></a>
+<a class="sourceLine" id="cb7-15" title="15"><span class="co">#&gt;   INGRESOS PROPIOS (IPP Y FCM).2016 INGRESOS PROPIOS (IPP Y FCM).2015</span></a>
+<a class="sourceLine" id="cb7-16" title="16"><span class="co">#&gt; 1                          35586455                          34139969</span></a>
+<a class="sourceLine" id="cb7-17" title="17"><span class="co">#&gt; 2                          10600513                          10386815</span></a>
+<a class="sourceLine" id="cb7-18" title="18"><span class="co">#&gt; 3                           5714872                           5630945</span></a>
+<a class="sourceLine" id="cb7-19" title="19"><span class="co">#&gt; 4                           1651371                           1609920</span></a>
+<a class="sourceLine" id="cb7-20" title="20"><span class="co">#&gt; 5                           1256502                           1183905</span></a>
+<a class="sourceLine" id="cb7-21" title="21"><span class="co">#&gt; 6                           2566803                           2624107</span></a>
+<a class="sourceLine" id="cb7-22" title="22"><span class="co">#&gt;                         geometry</span></a>
+<a class="sourceLine" id="cb7-23" title="23"><span class="co">#&gt; 1 MULTIPOLYGON (((-70.09894 -...</span></a>
+<a class="sourceLine" id="cb7-24" title="24"><span class="co">#&gt; 2 MULTIPOLYGON (((-70.1095 -2...</span></a>
+<a class="sourceLine" id="cb7-25" title="25"><span class="co">#&gt; 3 MULTIPOLYGON (((-68.86081 -...</span></a>
+<a class="sourceLine" id="cb7-26" title="26"><span class="co">#&gt; 4 MULTIPOLYGON (((-69.31789 -...</span></a>
+<a class="sourceLine" id="cb7-27" title="27"><span class="co">#&gt; 5 MULTIPOLYGON (((-68.65113 -...</span></a>
+<a class="sourceLine" id="cb7-28" title="28"><span class="co">#&gt; 6 MULTIPOLYGON (((-69.39615 -...</span></a></code></pre></div>
 <p>If you don’t know what are you looking for use <code><a href="reference/search_sinim_vars.html">search_sinim_vars()</a></code>to get search results based on variable descriptions, names and groups.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw"><a href="reference/search_sinim_vars.html">search_sinim_vars</a></span>(<span class="st">"cementerio"</span>)</a>
 <a class="sourceLine" id="cb8-2" title="2"><span class="co">#&gt;     CODE</span></a>
