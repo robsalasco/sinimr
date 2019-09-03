@@ -1,8 +1,8 @@
 context("test-sinimr.R")
 
-test_that("searchsinimvar returns a valid output", {
+test_that("search_sinim_vars returns a valid output", {
   
-  srch <- searchsinimvar("ingreso")
+  srch <- search_sinim_vars("ingreso")
   
   expect_is(srch, "data.frame")
   expect_output(str(srch), "65 obs. of  6 variables")
