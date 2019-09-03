@@ -4,8 +4,8 @@
 \alias{get_sinim}
 \title{Get a SINIM variable data in a specific year as a data frame}
 \usage{
-get_sinim(var, year, moncorr = T, idgeo = F, geometry = F, region,
-  province, comuna)
+get_sinim(var, year, moncorr = T, truevalue = F, idgeo = F,
+  geometry = F, region, provincia, comuna, unit = "comunas")
 }
 \arguments{
 \item{var}{Variable code}
@@ -14,18 +14,22 @@ get_sinim(var, year, moncorr = T, idgeo = F, geometry = F, region,
 
 \item{moncorr}{A logical value indicating the use of monetary correction}
 
-\item{idgeo}{A logical value to add province and region columns}
+\item{truevalue}{A logical value indicating the use of converted values}
+
+\item{idgeo}{A logical value to add provincia and region columns}
 
 \item{geometry}{A logical value to add geographical features}
 
-\item{region}{Regional subsetting variable}
+\item{region}{Region subsetting variable}
 
-\item{province}{Province subsetting variable}
+\item{provincia}{Provincia subsetting variable}
 
 \item{comuna}{Comuna subsetting variable}
+
+\item{unit}{Use "comunas" or "limites"}
 }
 \value{
-data frame with data for the requested variable over time with optional geometry
+data frame for the requested variable over time with optional geometry
 }
 \description{
 Get a SINIM variable data in a specific year as a data frame

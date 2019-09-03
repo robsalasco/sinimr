@@ -211,22 +211,29 @@
 <a class="sourceLine" id="cb3-7" title="7"><span class="co">#&gt; 112 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226</span></a></code></pre></div>
 <p>Finally, to obtain the data across municipalities use the code column and specify a year.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="kw">c</span>(<span class="dv">4210</span>,<span class="dv">4211</span>),<span class="dv">2015</span>))</a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt;    CODE  MUNICIPALITY YEAR                               VARIABLE    VALUE</span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt; 1 01101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 34245763</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="co">#&gt; 2 01107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9957966</span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="co">#&gt; 3 01401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7457210</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; 4 01402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1280727</span></a>
-<a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2067156</span></a>
-<a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt; 6 01404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3170237</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt;    CODE  MUNICIPALITY YEAR                               VARIABLE</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt; 1 01101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co">#&gt; 2 01107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="co">#&gt; 3 01401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; 4 01402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt; 6 01404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt;         VALUE</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; 1 34245763000</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt; 2  9957966000</span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; 3  7457210000</span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="co">#&gt; 4  1280727000</span></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="co">#&gt; 5  2067156000</span></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="co">#&gt; 6  3170237000</span></a></code></pre></div>
 <p>You can get multiple years too! use the command <code>getsinimr()</code> and add more years as in the example.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">880</span>,<span class="dv">2015</span><span class="op">:</span><span class="dv">2017</span>))</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="co">#&gt;    CODE  MUNICIPALITY YEAR                           VARIABLE   VALUE</span></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="co">#&gt; 1 01101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3342108</span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="co">#&gt; 2 01107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7051989</span></a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt; 3 01401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1834687</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt; 4 01402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1580275</span></a>
-<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1123179</span></a>
-<a class="sourceLine" id="cb5-8" title="8"><span class="co">#&gt; 6 01404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1366952</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co">#&gt;    CODE  MUNICIPALITY YEAR                           VARIABLE      VALUE</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="co">#&gt; 1 01101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3342108000</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co">#&gt; 2 01107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7051989000</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt; 3 01401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1834687000</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt; 4 01402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1580275000</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1123179000</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="co">#&gt; 6 01404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1366952000</span></a></code></pre></div>
 <p>If you don’t know what are you looking for use <code>searchsinimvar()</code>to get search results based on variable descriptions, names and groups.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="reference/search_sinim_vars.html">search_sinim_vars</a></span>(<span class="st">"cementerio"</span>)</a>
 <a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt;     CODE</span></a>
