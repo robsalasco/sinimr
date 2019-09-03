@@ -125,13 +125,12 @@ get_sinim <-
           geofilter(region = region,
                     provincia = provincia,
                     comuna = comuna)
-        data.reshaped <-
-          reshape(
-            datav,
-            idvar = c("CODE", "MUNICIPALITY"),
-            timevar = "YEAR",
-            direction = "wide"
-          )
+        data.reshaped <- reshape2::melt(
+          datav,
+          id = c("CODE", "MUNICIPALITY", "YEAR"),
+          value.name = "VALUE",
+          variable.name = "VARIABLE"
+        )
         data.selection <- subset(data.reshaped, CODE %in% selection)
         
         if (unit == "comunas") {
