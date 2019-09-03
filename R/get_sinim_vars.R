@@ -3,9 +3,9 @@
 #' @return data frame with variables and values
 #' @export
 #' @examples
-#' getsinimvariables(47)
+#' get_sinim_vars(47)
 
-getsinimvariables <- function(catn) {
+get_sinim_vars <- function(catn) {
   
   stopifnot(is.numeric(catn))
   stopifnot(catn > 0)

@@ -1,8 +1,8 @@
 context("test-sinimr.R")
 
-test_that("getsinimvariables returns a valid output", {
+test_that("get_sinim_vars returns a valid output", {
   
-  tbl <- getsinimvariables(262)
+  tbl <- get_sinim_vars(262)
   
   expect_is(tbl, "data.frame")
   expect_output(str(tbl), "4 obs. of  3 variables")

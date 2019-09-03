@@ -3,10 +3,10 @@
 #' @return data frame with results 
 #' @export
 #' @examples
-#' searchsinimvar()
-#' searchsinimvar("ingresos propios")
+#' search_sinim_vars()
+#' search_sinim_vars("ingresos propios")
 
-searchsinimvar <- function(keyword) {
+search_sinim_vars <- function(keyword) {
     
   
     body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")

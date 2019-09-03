@@ -1,8 +1,8 @@
 context("test-sinimr.R")
 
-test_that("getcategories returns a valid output", {
+test_that("get_sinim_cats returns a valid output", {
 
-  cat <- getsinimcategories()
+  cat <- get_sinim_cats()
   
   expect_is(cat, "list")
   expect_output(str(cat), "List of 10")
