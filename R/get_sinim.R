@@ -131,7 +131,7 @@ get_sinim <-
           )
         data.selection <- subset(data.reshaped, CODE %in% selection)
         
-        if(unit=="comuna") {
+        if(unit=="comunas") {
           merged.geo <-
             merge(census_geometry_comunas, data.selection, by = "CODE")
         } else if(unit=="limites") {
