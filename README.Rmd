@@ -88,8 +88,6 @@ library(sinimr)
 library(sf)
 library(tmap)
 
-reg13 <- read_sf("https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson")
-
 comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
              "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
              "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
@@ -98,16 +96,11 @@ comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
              "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
              "SAN JOSÉ DE MAIPO")
 
-var <- get_sinim(882, 2017, truevalue = T) %>% filter(MUNICIPALITY %in% comunas)
+var <- get_sinim(882, 2018, truevalue = T, geometry = T, unit = "limites") %>% filter(MUNICIPALITY %in% comunas)
 
-var.reg13.join <- reg13 %>%
-  select(COMUNA) %>% 
-  transmute(CODE = as.character(COMUNA)) %>%
-  right_join(var, by=c("CODE"))
-
-reg.13.plot <- tm_shape(var.reg13.join) +
-  tm_polygons(names(var.reg13.join)[5], palette="magma", border.col = "white") +
-  tm_text(names(var.reg13.join)[2], size = 0.4, style="jenks") +
+reg.13.plot <- tm_shape(var) +
+  tm_polygons(names(var)[3], palette="magma", border.col = "white") +
+  tm_text(names(var)[2], size = 0.4, style="jenks") +
   tm_legend(legend.position = c("left", "top")) +
   tm_compass(type = "8star", position = c("right", "top")) +
   tm_scale_bar(breaks = c(0, 10), size = 0.75, position = c("right", "bottom"), width = 1) +
