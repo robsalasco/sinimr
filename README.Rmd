@@ -28,51 +28,50 @@ This R package allows easy SINIM (http://sinim.gov.cl) data retrieval what have 
 - Fast ploting directly from data source using the included geometries.
 - Data download with or without monetary correction using a switch.
 
-```{r, message=F, fig.height=10, fig.width=10, fig.retina=2}
+```{r, message=F, fig.height=8, fig.width=15, fig.retina=2}
 library(tmap)
 library(dplyr)
 library(stringr)
 library(sinimr)
 library(sf)
 
+comunas.names <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
+                   "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
+                   "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
+                   "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
+                   "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
+                   "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
+                   "SAN JOSÉ DE MAIPO")
+
+comunas.codes<- filter(id_geo_census, MUNICIPALITY %in% comunas.names) %>% pull(CODE)
+
 data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173), 
                         year = 2018, 
-                        geometry = T, 
+                        geometry = T,
+                        truevalue = T,
                         unit = "limites", 
-                        region = "13",
-                        truevalue = T)
+                        comuna = comunas.codes)
 
-comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
-             "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
-             "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
-             "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
-             "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
-             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
-             "SAN JOSÉ DE MAIPO")
-
-var <- data_sinim %>% filter(MUNICIPALITY %in% comunas)
-
-namevar <- var %>% select(-MUNICIPALITY,-CODE) %>% st_set_geometry(NULL) %>% names() 
-
-sd <- tm_shape(var) +
-  tm_fill(col = namevar,
+gran_santiago_plot <- tm_shape(data_sinim) +
+  tm_fill(col = "VALUE",
           palette = "BuPu", 
           border.col = "white", 
           border.alpha = 0.5,
           lwd=1,
-          style = "pretty",
-          title = namevar %>% stringr::str_remove("\\.\\d+"))+
+          style = "jenks",
+          title = "VARIABLE")+
   tm_text("MUNICIPALITY", size = 0.4) +
   tm_style("white", frame = T, legend.title.size = 1, legend.width=1) +
-  tm_layout(inner.margins = c(0.01, 0.15, 0.15, 0.01),
-            outer.margins = c(0, 0.01, 0.01, 0),
+  tm_layout(inner.margins = c(0.01, 0.1, 0.1, 0.01),
+            outer.margins = c(0.01, 0.01, 0.01, 0.01),
             design.mode=F,
             legend.format = list(text.separator = "a",
                                  fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))+
   tm_compass(type = "8star", position = c(.85, .80)) +
-  tm_borders(col = 'black')
+  tm_borders(col = 'black') +
+  tm_facets(by="VARIABLE", ncol = 2)
 
-sd
+gran_santiago_plot
 
 ```
 
@@ -109,38 +108,111 @@ get_sinim_vars(517)
 Finally, to obtain the data across municipalities use the code column and specify a year.
 
 ```{r}
-head(get_sinim(c(4210,4211),2015))
+head(get_sinim(c(4210, 4211), 2015))
+```
+
+By default the values are in **miles de millones** but it can be disabled using the ```truevalue = T``` switch.
+
+```{r}
+head(get_sinim(c(4210, 4211), 2015, truevalue = T))
 ```
 
 You can get multiple years too! use the command ```get_sinim()``` and add more years as in the example.
 
 ```{r}
-head(get_sinim(880,2015:2017))
+head(get_sinim(880, 2015:2017))
 ```
 
-The geometries are available using the ```geometry==T``` argument.
+The geometries are available in long format using the ```geometry==T``` argument. By default it uses the **comunal** geographies but the **limite urbano censal** is also available. The switches are ```unit="comunas"``` and ```unit="limites"```. Note: Using  **limites** not all features are available because some comunas are not related to urban zones. As shown in the example below you can obtain multiple years and variables in long format.
+
 
 ```{r}
-head(get_sinim(882,2015:2017, geometry=T))
+head(get_sinim(882, 2015:2017, geometry=T))
 ```
 
-If you don't know what are you looking for use ```search_sinim_vars()```to get search results based on variable descriptions, names and groups.
+
+Another interesting feature is the possibility to subset by different contexts. e.g if you want the comunas of Antofagasta region this command is available. The command works with or without the presence of the geometry switch and other switches are avaiblable too ```region```, ```provincia``` and ```comuna``` all working with codes.
+
+```{r}
+head(get_sinim(882, 2015:2017, geometry=T, region="02"))
+```
+
+You can get a subset too
+
+```{r}
+head(get_sinim(882, 2015:2017, geometry=T, region=c("02","03")))
+```
+
+But where obtain the codes? a database is provided and you can filter it using the standard R functions.
+
+```{r}
+head(id_geo_census)
+```
+
+Related to variables if you don't know what are you looking for use ```search_sinim_vars()```to get search results based on variable descriptions, names and groups.
 
 ```{r}
 search_sinim_vars("cementerio")
 ```
 
-On advanced usage please have a look in the documentation included.
+## Advanced usage
+
+SINIM (Sistema Nacional de Información Municipal) by default applies a monetary correction to show current values of variables. The original values provided by municipalities are available using the ```moncorr==F``` switch. And if you want geographical identifiers like region or provincia you can apply them using  ```idgeo==T``` switch.
 
 ### Other example plots
 
-```{r, message=F, fig.height=8, fig.width=8, fig.retina=2}
+#### Single variable plot
+
+```{r, message=F, fig.height=6, fig.width=6, fig.retina=2}
+
 library(dplyr)
 library(sinimr)
 library(sf)
 library(tmap)
 
-comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
+comunas.names <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
+                   "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
+                   "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
+                   "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
+                   "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
+                   "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
+                   "SAN JOSÉ DE MAIPO")
+
+comunas.codes<- filter(id_geo_census, MUNICIPALITY %in% comunas.names) %>% pull(CODE)
+
+var <- get_sinim(882, 2018, truevalue = T, geometry = T, unit = "limites", comuna=comunas.codes)
+
+gran_santiago_plot <- tm_shape(var) +
+  tm_fill(col = "VALUE",
+          palette = "BuPu", 
+          border.col = "white", 
+          border.alpha = 0.5,
+          lwd=1,
+          style = "jenks",
+          title = unique(var$VARIABLE))+
+  tm_text("MUNICIPALITY", size = 0.4, style="jenks") +
+  tm_legend(legend.position = c("left", "top"), legend.title.size = 1, legend.text.size = 0.6) +
+  tm_compass(type = "8star", position = c("right", "top")) +
+  tm_scale_bar(breaks = c(0, 10), size = 0.75, position = c("right", "bottom"), width = 1) +
+  tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)+
+  tm_layout(legend.width=1,
+            inner.margins = c(0.1, 0.1, 0.10, 0.01), 
+            legend.format = list(text.separator = "a", 
+                                 fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))
+
+gran_santiago_plot
+
+```
+
+#### A variable in multiple years using facets
+
+```{r, message=F, fig.height=10, fig.width=18, fig.retina=2}
+library(dplyr)
+library(sinimr)
+library(sf)
+library(tmap)
+
+comunas.names <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
              "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
              "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
              "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
@@ -148,20 +220,37 @@ comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
              "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
              "SAN JOSÉ DE MAIPO")
 
-var <- get_sinim(882, 2018, truevalue = T, geometry = T, unit = "limites") %>% filter(MUNICIPALITY %in% comunas)
+comunas.codes<- filter(id_geo_census, MUNICIPALITY %in% comunas.names) %>% pull(CODE)
 
-reg.13.plot <- tm_shape(var) +
-  tm_polygons(names(var)[3], palette="magma", border.col = "white") +
-  tm_text(names(var)[2], size = 0.4, style="jenks") +
+var <- get_sinim(c(880, 882, 1226),
+                 2016:2018, 
+                 truevalue = T, 
+                 geometry = T, 
+                 unit = "limites", 
+                 comuna = comunas.codes)
+
+gran_santiago_plot <- tm_shape(var) +
+  tm_fill("VALUE",
+          palette="BuPu", 
+          border.col = "white", 
+          style = "jenks", 
+          border.alpha = 0.5,
+          lwd=1) +
+  tm_text("MUNICIPALITY", size = 0.4) +
   tm_legend(legend.position = c("left", "top")) +
-  tm_compass(type = "8star", position = c("right", "top")) +
-  tm_scale_bar(breaks = c(0, 10), size = 0.75, position = c("right", "bottom"), width = 1) +
-  tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)+
-  tm_layout(inner.margins = c(0.1, 0.1, 0.10, 0.01), legend.format = list(text.separator = "a", fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))
+  tm_layout(legend.width=0.09,
+            inner.margins = c(0.01, 0.1, 0.1, 0.01),
+            outer.margins = c(0.01, 0.01, 0.01, 0.01),
+            legend.format = list(text.separator = "a",
+                                 fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$"))) +
+  tm_facets(by=c("YEAR","VARIABLE"),) +
+  tm_borders(col = 'black')
 
-reg.13.plot
+gran_santiago_plot
 
 ```
+
+#### A variable in multiple years using geofacet
 
 ```{r, message=F, fig.height=12, fig.width=24, fig.retina=2}
 library(sf)
@@ -173,16 +262,21 @@ library(zoo)
 library(scales)
 library(ggpubr)
 
-comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
+comunas.names <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
              "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
              "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
              "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
              "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
-             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
-             "SAN JOSÉ DE MAIPO")
+             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO",
+             "PIRQUE", "SAN JOSÉ DE MAIPO")
 
-data <- get_sinim(882,2002:2018, moncorr = F) %>% filter(MUNICIPALITY %in% comunas)
-data[5] <- data[5]*1000
+comunas.codes<- filter(id_geo_census, MUNICIPALITY %in% comunas.names) %>% pull(CODE)
+
+data <- get_sinim(882, 2002:2018,
+                  moncorr = F, 
+                  truevalue = T,
+                  comuna = comunas.codes)
+
 data$YEAR <- as.numeric(as.character(data$YEAR))
 data$YEAR <- as.Date(as.yearmon(data$YEAR, "1-%y"))
 
