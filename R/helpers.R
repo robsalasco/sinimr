@@ -140,12 +140,18 @@ namesco <- function(x,y){ #nocov start
 
 geofilter <- function(region, province, comuna) { #nocov start
   if (!missing(region)) {
+    stopifnot(missing(province))
+    stopifnot(missing(comuna))
     selection <- subset(id_geo_census, CODE.REG == region)$CODE
     return(selection)
   } else if (!missing(province)) {
+    stopifnot(missing(region))
+    stopifnot(missing(comuna))
     selection <- subset(id_geo_census, CODE.PROV == province)$CODE
     return(selection)
   } else if (!missing(comuna)) {
+    stopifnot(missing(region))
+    stopifnot(missing(province))
     selection <- subset(id_geo_census, CODE == comuna)$CODE
     return(selection)
   } else {
