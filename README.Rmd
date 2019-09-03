@@ -155,7 +155,7 @@ sd <- tm_shape(var) +
             outer.margins = c(0, 0.01, 0.01, 0),
             design.mode=F,
             legend.format = list(text.separator = "a",
-                                 fun = function(x) paste0(formatC(x/1e7, digits = 0, format = "f"), " mm$")))+
+                                 fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))+
   tm_compass(type = "8star", position = c(.85, .80)) +
   tm_borders(col = 'black')
 
