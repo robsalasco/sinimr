@@ -322,6 +322,162 @@ reg.13.plot
 
 <img src="docs/unnamed-chunk-9-1.png" width="768" />
 
+``` r
+library(sf)
+library(dplyr)
+library(geofacet)
+library(sinimr)
+library(ggplot2)
+library(zoo)
+library(scales)
+library(ggpubr)
+
+comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
+             "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
+             "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
+             "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
+             "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
+             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
+             "SAN JOSÉ DE MAIPO")
+
+data <- get_sinim(882,2002:2018, moncorr = F) %>% filter(MUNICIPALITY %in% comunas)
+data[5] <- data[5]*1000
+data$YEAR <- as.numeric(as.character(data$YEAR))
+data$YEAR <- as.Date(as.yearmon(data$YEAR, "1-%y"))
+
+reg13 <- geogrid::read_polygons("https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson")
+#> Reading layer `R13' from data source `https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson' using driver `GeoJSON'
+#> Simple feature collection with 37 features and 8 fields
+#> geometry type:  POLYGON
+#> dimension:      XY
+#> bbox:           xmin: -70.84306 ymin: -33.65716 xmax: -70.43015 ymax: -33.31069
+#> epsg (SRID):    4326
+#> proj4string:    +proj=longlat +datum=WGS84 +no_defs
+grd <- grid_auto(reg13, seed = 1, names = "NOM_COMUNA", codes = "COMUNA")
+
+#grid_preview(grd, label = "name_NOM_COMUNA")
+#grid_design(grd, label = "name_NOM_COMUNA")
+
+ggplot(data, aes(YEAR, VALUE, group=1)) +
+  geom_line(color = "steelblue") +
+  facet_geo(~ MUNICIPALITY, grid = grd, scales = "free_y")+
+  scale_x_date() +
+  scale_y_continuous(labels = dollar_format(suffix = "", prefix = "$", big.mark = "."))+
+  theme_bw()
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+
+#> Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+#> 'big.mark' and 'decimal.mark' are both '.', which could be confusing
+```
+
+<img src="docs/unnamed-chunk-10-1.png" width="1152" />
+
 ### Citation
 
 ``` r

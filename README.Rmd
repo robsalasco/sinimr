@@ -163,6 +163,44 @@ reg.13.plot
 
 ```
 
+```{r, message=F, fig.height=18, fig.width=12, fig.retina=2}
+library(sf)
+library(dplyr)
+library(geofacet)
+library(sinimr)
+library(ggplot2)
+library(zoo)
+library(scales)
+library(ggpubr)
+
+comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
+             "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
+             "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
+             "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
+             "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
+             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
+             "SAN JOSÉ DE MAIPO")
+
+data <- get_sinim(882,2002:2018, moncorr = F) %>% filter(MUNICIPALITY %in% comunas)
+data[5] <- data[5]*1000
+data$YEAR <- as.numeric(as.character(data$YEAR))
+data$YEAR <- as.Date(as.yearmon(data$YEAR, "1-%y"))
+
+reg13 <- geogrid::read_polygons("https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson")
+grd <- grid_auto(reg13, seed = 1, names = "NOM_COMUNA", codes = "COMUNA")
+
+#grid_preview(grd, label = "name_NOM_COMUNA")
+#grid_design(grd, label = "name_NOM_COMUNA")
+
+ggplot(data, aes(YEAR, VALUE, group=1)) +
+  geom_line(color = "steelblue") +
+  facet_geo(~ MUNICIPALITY, grid = grd, scales = "free_y")+
+  scale_x_date() +
+  scale_y_continuous(labels = dollar_format(suffix = "", prefix = "$", big.mark = "."))+
+  theme_bw()
+```
+
+
 ### Citation
 
 ```{r}
