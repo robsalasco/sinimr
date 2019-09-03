@@ -212,7 +212,7 @@ search_sinim_vars("cementerio")
 #> 353 09. CEMENTERIO      1. INFORMACION GENERAL S-N
 ```
 
-### Example plot
+### Example plots
 
 ``` r
 library(dplyr)
@@ -252,6 +252,52 @@ reg.13.plot
 ```
 
 <img src="docs/unnamed-chunk-7-1.png" width="768" />
+
+``` r
+library(tmap)
+library(dplyr)
+
+data_sinim <- get_sinim(var = c(3754,3954,4174,880,1226,4251,4173), 
+                        year=2018, 
+                        geometry = T, 
+                        unit = "limites", 
+                        region = "13",
+                        truevalue = T)
+
+comunas <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
+             "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
+             "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
+             "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
+             "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
+             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
+             "SAN JOSÉ DE MAIPO")
+
+var <- data_sinim %>% filter(MUNICIPALITY %in% comunas)
+
+namevar <- var %>% select(-MUNICIPALITY,-CODE) %>% st_set_geometry(NULL) %>% names() 
+
+sd <- tm_shape(var) +
+  tm_fill(col = namevar,
+          palette = "BuPu", 
+          border.col = "white", 
+          border.alpha = 0.5,
+          lwd=1,
+          style = "pretty",
+          title = namevar %>% stringr::str_remove("\\.\\d+"))+
+  tm_text("MUNICIPALITY", size = 0.4) +
+  tm_style("white", frame = T, legend.title.size = 1, legend.width=1) +
+  tm_layout(inner.margins = c(0.01, 0.15, 0.15, 0.01),
+            outer.margins = c(0, 0.01, 0.01, 0),
+            design.mode=F,
+            legend.format = list(text.separator = "a",
+                                 fun = function(x) paste0(formatC(x/1e7, digits = 0, format = "f"), " mm$")))+
+  tm_compass(type = "8star", position = c(.85, .80)) +
+  tm_borders(col = 'black')
+
+sd
+```
+
+<img src="docs/unnamed-chunk-8-1.png" width="960" />
 
 ### Citation
 

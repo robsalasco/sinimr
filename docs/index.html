@@ -257,9 +257,9 @@
 <a class="sourceLine" id="cb6-20" title="20"><span class="co">#&gt; 352 09. CEMENTERIO      1. INFORMACION GENERAL S-N </span></a>
 <a class="sourceLine" id="cb6-21" title="21"><span class="co">#&gt; 353 09. CEMENTERIO      1. INFORMACION GENERAL S-N</span></a></code></pre></div>
 </div>
-<div id="example-plot" class="section level3">
+<div id="example-plots" class="section level3">
 <h3 class="hasAnchor">
-<a href="#example-plot" class="anchor"></a>Example plot</h3>
+<a href="#example-plots" class="anchor"></a>Example plots</h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">library</span>(dplyr)</a>
 <a class="sourceLine" id="cb7-2" title="2"><span class="kw">library</span>(sinimr)</a>
 <a class="sourceLine" id="cb7-3" title="3"><span class="kw">library</span>(sf)</a>
@@ -295,27 +295,69 @@
 <a class="sourceLine" id="cb7-33" title="33"></a>
 <a class="sourceLine" id="cb7-34" title="34">reg.<span class="fl">13.</span>plot</a></code></pre></div>
 <p><img src="unnamed-chunk-7-1.png" width="768"></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">library</span>(tmap)</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4">data_sinim &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dt">var =</span> <span class="kw">c</span>(<span class="dv">3754</span>,<span class="dv">3954</span>,<span class="dv">4174</span>,<span class="dv">880</span>,<span class="dv">1226</span>,<span class="dv">4251</span>,<span class="dv">4173</span>), </a>
+<a class="sourceLine" id="cb8-5" title="5">                        <span class="dt">year=</span><span class="dv">2018</span>, </a>
+<a class="sourceLine" id="cb8-6" title="6">                        <span class="dt">geometry =</span> T, </a>
+<a class="sourceLine" id="cb8-7" title="7">                        <span class="dt">unit =</span> <span class="st">"limites"</span>, </a>
+<a class="sourceLine" id="cb8-8" title="8">                        <span class="dt">region =</span> <span class="st">"13"</span>,</a>
+<a class="sourceLine" id="cb8-9" title="9">                        <span class="dt">truevalue =</span> T)</a>
+<a class="sourceLine" id="cb8-10" title="10"></a>
+<a class="sourceLine" id="cb8-11" title="11">comunas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"CERRILLOS"</span>, <span class="st">"LA REINA"</span>, <span class="st">"PUDAHUEL"</span>, <span class="st">"CERRO NAVIA"</span>, <span class="st">"LAS CONDES"</span>,</a>
+<a class="sourceLine" id="cb8-12" title="12">             <span class="st">"QUILICURA"</span>, <span class="st">"CONCHALÍ"</span>, <span class="st">"LO BARNECHEA"</span>, <span class="st">"QUINTA NORMAL"</span>, <span class="st">"EL BOSQUE"</span>,</a>
+<a class="sourceLine" id="cb8-13" title="13">             <span class="st">"LO ESPEJO"</span>, <span class="st">"RECOLETA"</span>, <span class="st">"ESTACIÓN CENTRAL"</span>, <span class="st">"LO PRADO"</span>, <span class="st">"RENCA"</span>, <span class="st">"HUECHURABA"</span>,</a>
+<a class="sourceLine" id="cb8-14" title="14">             <span class="st">"MACUL"</span>, <span class="st">"SAN MIGUEL"</span>, <span class="st">"INDEPENDENCIA"</span>, <span class="st">"MAIPÚ"</span>, <span class="st">"SAN JOAQUÍN"</span>, <span class="st">"LA CISTERNA"</span>, <span class="st">"ÑUÑOA"</span>,</a>
+<a class="sourceLine" id="cb8-15" title="15">             <span class="st">"SAN RAMÓN"</span>, <span class="st">"LA FLORIDA"</span>, <span class="st">"PEDRO AGUIRRE CERDA"</span>, <span class="st">"SANTIAGO"</span>, <span class="st">"LA PINTANA"</span>, <span class="st">"PEÑALOLÉN"</span>,</a>
+<a class="sourceLine" id="cb8-16" title="16">             <span class="st">"VITACURA"</span>, <span class="st">"LA GRANJA"</span>, <span class="st">"PROVIDENCIA"</span>, <span class="st">"SAN BERNARDO"</span>, <span class="st">"PUENTE ALTO"</span>, <span class="st">"PADRE HURTADO"</span>, <span class="st">"PIRQUE"</span>,</a>
+<a class="sourceLine" id="cb8-17" title="17">             <span class="st">"SAN JOSÉ DE MAIPO"</span>)</a>
+<a class="sourceLine" id="cb8-18" title="18"></a>
+<a class="sourceLine" id="cb8-19" title="19">var &lt;-<span class="st"> </span>data_sinim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas)</a>
+<a class="sourceLine" id="cb8-20" title="20"></a>
+<a class="sourceLine" id="cb8-21" title="21">namevar &lt;-<span class="st"> </span>var <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="op">-</span>MUNICIPALITY,<span class="op">-</span>CODE) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/st_geometry">st_set_geometry</a></span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">names</span>() </a>
+<a class="sourceLine" id="cb8-22" title="22"></a>
+<a class="sourceLine" id="cb8-23" title="23">sd &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_shape">tm_shape</a></span>(var) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-24" title="24"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_fill</a></span>(<span class="dt">col =</span> namevar,</a>
+<a class="sourceLine" id="cb8-25" title="25">          <span class="dt">palette =</span> <span class="st">"BuPu"</span>, </a>
+<a class="sourceLine" id="cb8-26" title="26">          <span class="dt">border.col =</span> <span class="st">"white"</span>, </a>
+<a class="sourceLine" id="cb8-27" title="27">          <span class="dt">border.alpha =</span> <span class="fl">0.5</span>,</a>
+<a class="sourceLine" id="cb8-28" title="28">          <span class="dt">lwd=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb8-29" title="29">          <span class="dt">style =</span> <span class="st">"pretty"</span>,</a>
+<a class="sourceLine" id="cb8-30" title="30">          <span class="dt">title =</span> namevar <span class="op">%&gt;%</span><span class="st"> </span>stringr<span class="op">::</span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">.</span><span class="ch">\\</span><span class="st">d+"</span>))<span class="op">+</span></a>
+<a class="sourceLine" id="cb8-31" title="31"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_text">tm_text</a></span>(<span class="st">"MUNICIPALITY"</span>, <span class="dt">size =</span> <span class="fl">0.4</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-32" title="32"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_style</a></span>(<span class="st">"white"</span>, <span class="dt">frame =</span> T, <span class="dt">legend.title.size =</span> <span class="dv">1</span>, <span class="dt">legend.width=</span><span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-33" title="33"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_layout</a></span>(<span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.01</span>, <span class="fl">0.15</span>, <span class="fl">0.15</span>, <span class="fl">0.01</span>),</a>
+<a class="sourceLine" id="cb8-34" title="34">            <span class="dt">outer.margins =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="dv">0</span>),</a>
+<a class="sourceLine" id="cb8-35" title="35">            <span class="dt">design.mode=</span>F,</a>
+<a class="sourceLine" id="cb8-36" title="36">            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">text.separator =</span> <span class="st">"a"</span>,</a>
+<a class="sourceLine" id="cb8-37" title="37">                                 <span class="dt">fun =</span> <span class="cf">function</span>(x) <span class="kw">paste0</span>(<span class="kw">formatC</span>(x<span class="op">/</span><span class="fl">1e7</span>, <span class="dt">digits =</span> <span class="dv">0</span>, <span class="dt">format =</span> <span class="st">"f"</span>), <span class="st">" mm$"</span>)))<span class="op">+</span></a>
+<a class="sourceLine" id="cb8-38" title="38"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_compass">tm_compass</a></span>(<span class="dt">type =</span> <span class="st">"8star"</span>, <span class="dt">position =</span> <span class="kw">c</span>(.<span class="dv">85</span>, <span class="fl">.80</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-39" title="39"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_borders</a></span>(<span class="dt">col =</span> <span class="st">'black'</span>)</a>
+<a class="sourceLine" id="cb8-40" title="40"></a>
+<a class="sourceLine" id="cb8-41" title="41">sd</a></code></pre></div>
+<p><img src="unnamed-chunk-8-1.png" width="960"></p>
 </div>
 <div id="citation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#citation" class="anchor"></a>Citation</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">citation</span>(<span class="st">"sinimr"</span>)</a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="co">#&gt; To cite package 'sinimr' in publications use:</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt;   Roberto Salas (2019). sinimr: Chilean Municipalities Information</span></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt;   System Wrapper. R package version 0.2.3.</span></a>
-<a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt;   https://github.com/robsalasco/sinimr</span></a>
-<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></a>
-<a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt;   @Manual{,</span></a>
-<a class="sourceLine" id="cb8-12" title="12"><span class="co">#&gt;     title = {sinimr: Chilean Municipalities Information System Wrapper},</span></a>
-<a class="sourceLine" id="cb8-13" title="13"><span class="co">#&gt;     author = {Roberto Salas},</span></a>
-<a class="sourceLine" id="cb8-14" title="14"><span class="co">#&gt;     year = {2019},</span></a>
-<a class="sourceLine" id="cb8-15" title="15"><span class="co">#&gt;     note = {R package version 0.2.3},</span></a>
-<a class="sourceLine" id="cb8-16" title="16"><span class="co">#&gt;     url = {https://github.com/robsalasco/sinimr},</span></a>
-<a class="sourceLine" id="cb8-17" title="17"><span class="co">#&gt;   }</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">citation</span>(<span class="st">"sinimr"</span>)</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="co">#&gt; To cite package 'sinimr' in publications use:</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="co">#&gt;   Roberto Salas (2019). sinimr: Chilean Municipalities Information</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="co">#&gt;   System Wrapper. R package version 0.2.3.</span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="co">#&gt;   https://github.com/robsalasco/sinimr</span></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="co">#&gt;   @Manual{,</span></a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="co">#&gt;     title = {sinimr: Chilean Municipalities Information System Wrapper},</span></a>
+<a class="sourceLine" id="cb9-13" title="13"><span class="co">#&gt;     author = {Roberto Salas},</span></a>
+<a class="sourceLine" id="cb9-14" title="14"><span class="co">#&gt;     year = {2019},</span></a>
+<a class="sourceLine" id="cb9-15" title="15"><span class="co">#&gt;     note = {R package version 0.2.3},</span></a>
+<a class="sourceLine" id="cb9-16" title="16"><span class="co">#&gt;     url = {https://github.com/robsalasco/sinimr},</span></a>
+<a class="sourceLine" id="cb9-17" title="17"><span class="co">#&gt;   }</span></a></code></pre></div>
 </div>
 <div id="references" class="section level3">
 <h3 class="hasAnchor">
