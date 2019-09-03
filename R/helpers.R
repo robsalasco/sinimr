@@ -142,17 +142,17 @@ geofilter <- function(region, provincia, comuna) { #nocov start
   if (!missing(region)) {
     stopifnot(missing(provincia))
     stopifnot(missing(comuna))
-    selection <- subset(id_geo_census, CODE.REG == region)$CODE
+    selection <- subset(id_geo_census, CODE.REG %in% region)$CODE
     return(selection)
   } else if (!missing(provincia)) {
     stopifnot(missing(region))
     stopifnot(missing(comuna))
-    selection <- subset(id_geo_census, CODE.PROV == provincia)$CODE
+    selection <- subset(id_geo_census, CODE.PROV %in% provincia)$CODE
     return(selection)
   } else if (!missing(comuna)) {
     stopifnot(missing(region))
     stopifnot(missing(provincia))
-    selection <- subset(id_geo_census, CODE == comuna)$CODE
+    selection <- subset(id_geo_census, CODE %in% comuna)$CODE
     return(selection)
   } else {
     return(id_geo_census$CODE)
