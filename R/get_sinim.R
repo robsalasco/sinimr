@@ -35,7 +35,6 @@ get_sinim <-
            provincia,
            comuna,
            unit = "comunas") {
-    
     stopifnot(is.numeric(var))
     stopifnot(is.numeric(year))
     
@@ -72,14 +71,16 @@ get_sinim <-
           all(grepl("[0-9]+", na.omit(x))), logical(1))
       t[1:3] <- FALSE
       
-      if(truevalue==TRUE){
-        datav[t] <- lapply(datav[t], function(x) (as.numeric(x))*1000)
+      if (truevalue == TRUE) {
+        datav[t] <- lapply(datav[t], function(x)
+          (as.numeric(x)) * 1000)
       } else {
-        datav[t] <- lapply(datav[t], function(x) (as.numeric(x)))
+        datav[t] <- lapply(datav[t], function(x)
+          (as.numeric(x)))
       }
       
       if (!missing(region) |
-          !missing(provincia) | 
+          !missing(provincia) |
           !missing(comuna)) {
         selection <-
           geofilter(region = region,
@@ -109,14 +110,16 @@ get_sinim <-
       
       t[1:3] <- FALSE
       
-      if(truevalue==TRUE){
-        datav[t] <- lapply(datav[t], function(x) (as.numeric(x))*1000)
+      if (truevalue == TRUE) {
+        datav[t] <- lapply(datav[t], function(x)
+          (as.numeric(x)) * 1000)
       } else {
-        datav[t] <- lapply(datav[t], function(x) (as.numeric(x)))
+        datav[t] <- lapply(datav[t], function(x)
+          (as.numeric(x)))
       }
       
       if (!missing(region) |
-          !missing(provincia) | 
+          !missing(provincia) |
           !missing(comuna)) {
         selection <-
           geofilter(region = region,
@@ -131,10 +134,10 @@ get_sinim <-
           )
         data.selection <- subset(data.reshaped, CODE %in% selection)
         
-        if(unit=="comunas") {
+        if (unit == "comunas") {
           merged.geo <-
             merge(census_geometry_comunas, data.selection, by = "CODE")
-        } else if(unit=="limites") {
+        } else if (unit == "limites") {
           merged.geo <-
             merge(census_geometry_limites, data.selection, by = "CODE")
         } else {
@@ -150,17 +153,17 @@ get_sinim <-
         }
         
       } else {
-        data.reshaped <-
-          reshape(
-            datav,
-            idvar = c("CODE", "MUNICIPALITY"),
-            timevar = "YEAR",
-            direction = "wide"
-          )
-        if(unit=="comunas"){
+        data.reshaped <- reshape2::melt(
+          datav,
+          id = c("CODE", "MUNICIPALITY", "YEAR"),
+          value.name = "VALUE",
+          variable.name = "VARIABLE"
+        )
+        
+        if (unit == "comunas") {
           merged.geo <-
             merge(census_geometry_comunas, data.reshaped, by = "CODE")
-        } else if(unit=="limites") {
+        } else if (unit == "limites") {
           merged.geo <-
             merge(census_geometry_limites, data.reshaped, by = "CODE")
         } else {
