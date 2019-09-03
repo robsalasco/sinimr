@@ -106,6 +106,8 @@ get_sinim <-
       
       if(truevalue==TRUE){
         datav[t] <- lapply(datav[t], function(x) (as.numeric(x))*1000)
+      } else {
+        datav[t] <- lapply(datav[t], function(x) (as.numeric(x)))
       }
       
       if (!missing(region) |
