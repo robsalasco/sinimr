@@ -122,7 +122,7 @@ reg.13.plot
 library(tmap)
 library(dplyr)
 
-data_sinim <- get_sinim(var = c(3754,3954,4174,880,1226,4251,4173), 
+data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173), 
                         year=2018, 
                         geometry = T, 
                         unit = "limites", 
