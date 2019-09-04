@@ -21,7 +21,9 @@ Collate:
     get_sinim_cats.R
     get_sinim.R
     get_sinim_vars.R
+    get_sinim_var_name.R
     search_sinim_vars.R
+    mm.R
     helpers.R
 Encoding: UTF-8
 RoxygenNote: 6.1.0
