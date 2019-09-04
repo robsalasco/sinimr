@@ -69,7 +69,8 @@ get_sinim <-
       t <-
         vapply(datav, function(x)
           all(grepl("[0-9]+", na.omit(x))), logical(1))
-      t[1:3] <- FALSE
+      
+      t[1:3] <- c(FALSE, FALSE, FALSE)
       
       if (truevalue == TRUE) {
         datav[t] <- lapply(datav[t], function(x)
@@ -108,7 +109,7 @@ get_sinim <-
         vapply(datav, function(x)
           all(grepl("[0-9]+", na.omit(x))), logical(1))
       
-      t[1:3] <- FALSE
+      t[1:3] <- c(FALSE, FALSE, FALSE)
       
       if (truevalue == TRUE) {
         datav[t] <- lapply(datav[t], function(x)
