@@ -71,14 +71,12 @@ get_sinim <-
           all(grepl("[0-9]+", na.omit(x))), logical(1))
       
       t[1:3] <- c(TRUE, FALSE, FALSE)
+      datav[t] <- lapply(datav[t], function(x)
+        (as.numeric(x)))
       
       if (truevalue == TRUE) {
-        datav[t] <- lapply(datav[t], function(x)
-          (as.numeric(x)) * 1000)
-      } else {
-        datav[t] <- lapply(datav[t], function(x)
-          (as.numeric(x)))
-      }
+        datav$VALUE <- datav$VALUE*1000
+      } 
       
       if (!missing(region) |
           !missing(provincia) |
@@ -90,7 +88,7 @@ get_sinim <-
         data.selection <- subset(datav, CODE %in% selection)
         
         if (idgeo == T) {
-          merged.pretty <- merge(data.selection, id_geo_census, by = "CODE")
+          merged.pretty <- merge(data.selection, id_geo_census, by = c("CODE","MUNICIPALITY"))
           return(merged.pretty)
         } else {
           return(data.selection)
@@ -105,18 +103,17 @@ get_sinim <-
         }
       }
     } else {
+      
       t <-
         vapply(datav, function(x)
           all(grepl("[0-9]+", na.omit(x))), logical(1))
       
       t[1:3] <- c(TRUE, FALSE, FALSE)
-      
+      datav[t] <- lapply(datav[t], function(x)
+        (as.numeric(x)))
+
       if (truevalue == TRUE) {
-        datav[t] <- lapply(datav[t], function(x)
-          (as.numeric(x)) * 1000)
-      } else {
-        datav[t] <- lapply(datav[t], function(x)
-          (as.numeric(x)))
+        datav[4] <- datav[4]*1000
       }
       
       if (!missing(region) |
