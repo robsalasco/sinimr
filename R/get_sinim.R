@@ -66,7 +66,7 @@ get_sinim <-
         value.name = "VALUE",
         variable.name = "VARIABLE"
       )
-
+      
       t <-
         vapply(datav, function(x)
           all(grepl("[0-9]+", na.omit(x))), logical(1))
@@ -76,8 +76,8 @@ get_sinim <-
         (as.numeric(x)))
       
       if (truevalue == TRUE) {
-        datav$VALUE <- datav$VALUE*1000
-      } 
+        datav$VALUE <- datav$VALUE * 1000
+      }
       
       if (!missing(region) |
           !missing(provincia) |
@@ -89,7 +89,10 @@ get_sinim <-
         data.selection <- subset(datav, CODE %in% selection)
         
         if (idgeo == T) {
-          merged.pretty <- merge(data.selection, id_geo_census, by = c("CODE","MUNICIPALITY"))
+          merged.pretty <-
+            merge(data.selection,
+                  id_geo_census,
+                  by = c("CODE", "MUNICIPALITY"))
           return(merged.pretty)
         } else {
           return(data.selection)
@@ -104,7 +107,6 @@ get_sinim <-
         }
       }
     } else {
-      
       datav <- reshape2::melt(
         datav,
         id = c("CODE", "MUNICIPALITY", "YEAR"),
@@ -121,8 +123,8 @@ get_sinim <-
         (as.numeric(x)))
       
       if (truevalue == TRUE) {
-        datav$VALUE <- datav$VALUE*1000
-      } 
+        datav$VALUE <- datav$VALUE * 1000
+      }
       
       if (!missing(region) |
           !missing(provincia) |
@@ -146,14 +148,16 @@ get_sinim <-
         
         
         if (idgeo == T) {
-          merged.geo.pretty <- merge(merged.geo, id_geo_census, by = c("CODE","MUNICIPALITY"))
+          merged.geo.pretty <-
+            merge(merged.geo,
+                  id_geo_census,
+                  by = c("CODE", "MUNICIPALITY"))
           return(merged.geo.pretty)
         } else {
           return(merged.geo)
         }
         
       } else {
-        
         if (unit == "comunas") {
           merged.geo <-
             merge(census_geometry_comunas, datav, by = "CODE")
