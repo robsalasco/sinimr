@@ -250,7 +250,7 @@ gran_santiago_plot
 
 ```
 
-#### A variable in multiple years using geofacet
+#### Multiple variables and years using geofacet
 
 ```{r, message=F, fig.height=12, fig.width=24, fig.retina=2}
 library(sf)

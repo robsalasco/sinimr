@@ -479,7 +479,7 @@ gran_santiago_plot
 
 <img src="docs/unnamed-chunk-14-1.png" width="1728" />
 
-#### A variable in multiple years using geofacet
+#### Multiple variables and years using geofacet
 
 ``` r
 library(sf)
