@@ -2,7 +2,9 @@
 
 export(get_sinim)
 export(get_sinim_cats)
+export(get_sinim_var_name)
 export(get_sinim_vars)
+export(mm)
 export(search_sinim_vars)
 import(XML)
 import(httr)
