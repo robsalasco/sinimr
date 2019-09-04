@@ -134,13 +134,13 @@ head(get_sinim(882, 2015:2017, geometry=T))
 Another interesting feature is the possibility to subset by different contexts. e.g if you want the comunas of Antofagasta region this command is available. The command works with or without the presence of the geometry switch and other switches are avaiblable too ```region```, ```provincia``` and ```comuna``` all working with codes.
 
 ```{r}
-head(get_sinim(882, 2015:2017, geometry=T, region="02"))
+head(get_sinim(882, 2015:2017, geometry=T, region=2))
 ```
 
 You can get a subset too
 
 ```{r}
-head(get_sinim(882, 2015:2017, geometry=T, region=c("02","03")))
+head(get_sinim(882, 2015:2017, geometry=T, region=c(2,3)))
 ```
 
 But where obtain the codes? a database is provided and you can filter it using the standard R functions.
