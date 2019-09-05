@@ -109,7 +109,7 @@
 <a class="sourceLine" id="cb1-12" title="12">                   <span class="st">"VITACURA"</span>, <span class="st">"LA GRANJA"</span>, <span class="st">"PROVIDENCIA"</span>, <span class="st">"SAN BERNARDO"</span>, <span class="st">"PUENTE ALTO"</span>, <span class="st">"PADRE HURTADO"</span>, <span class="st">"PIRQUE"</span>,</a>
 <a class="sourceLine" id="cb1-13" title="13">                   <span class="st">"SAN JOSÉ DE MAIPO"</span>)</a>
 <a class="sourceLine" id="cb1-14" title="14"></a>
-<a class="sourceLine" id="cb1-15" title="15">comunas.codes&lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/filter">filter</a></span>(id_geo_census, MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas.names) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/pull">pull</a></span>(CODE)</a>
+<a class="sourceLine" id="cb1-15" title="15">comunas.codes&lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(id_geo_census, MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas.names) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(CODE)</a>
 <a class="sourceLine" id="cb1-16" title="16"></a>
 <a class="sourceLine" id="cb1-17" title="17">data_sinim &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dt">var =</span> <span class="kw">c</span>(<span class="dv">3954</span>,<span class="dv">4174</span>,<span class="dv">880</span>,<span class="dv">1226</span>,<span class="dv">4251</span>,<span class="dv">4173</span>), </a>
 <a class="sourceLine" id="cb1-18" title="18">                        <span class="dt">year =</span> <span class="dv">2018</span>, </a>
@@ -254,22 +254,22 @@
 <a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; 112 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226</span></a></code></pre></div>
 <p>Finally, to obtain the data across municipalities use the code column and specify a year.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="kw">c</span>(<span class="dv">4210</span>, <span class="dv">4211</span>), <span class="dv">2015</span>))</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="co">#&gt;    CODE  MUNICIPALITY YEAR                               VARIABLE    VALUE</span></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="co">#&gt; 1 01101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 34245763</span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="co">#&gt; 2 01107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9957966</span></a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt; 3 01401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7457210</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt; 4 01402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1280727</span></a>
-<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2067156</span></a>
-<a class="sourceLine" id="cb5-8" title="8"><span class="co">#&gt; 6 01404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3170237</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co">#&gt;   CODE  MUNICIPALITY YEAR                               VARIABLE    VALUE</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="co">#&gt; 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 34245763</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co">#&gt; 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9957966</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt; 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7457210</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt; 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1280727</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2067156</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3170237</span></a></code></pre></div>
 <p>By default the values are in <strong>miles de millones</strong> but it can be disabled using the <code>truevalue = T</code> switch.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="kw">c</span>(<span class="dv">4210</span>, <span class="dv">4211</span>), <span class="dv">2015</span>, <span class="dt">truevalue =</span> T))</a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt;    CODE  MUNICIPALITY YEAR                               VARIABLE</span></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; 1 01101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="co">#&gt; 2 01107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; 3 01401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
-<a class="sourceLine" id="cb6-6" title="6"><span class="co">#&gt; 4 01402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
-<a class="sourceLine" id="cb6-8" title="8"><span class="co">#&gt; 6 01404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt;   CODE  MUNICIPALITY YEAR                               VARIABLE</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="co">#&gt; 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="co">#&gt; 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
 <a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt;         VALUE</span></a>
 <a class="sourceLine" id="cb6-10" title="10"><span class="co">#&gt; 1 34245763000</span></a>
 <a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt; 2  9957966000</span></a>
@@ -279,13 +279,13 @@
 <a class="sourceLine" id="cb6-15" title="15"><span class="co">#&gt; 6  3170237000</span></a></code></pre></div>
 <p>You can get multiple years too! use the command <code><a href="reference/get_sinim.html">get_sinim()</a></code> and add more years as in the example.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">880</span>, <span class="dv">2015</span><span class="op">:</span><span class="dv">2017</span>))</a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co">#&gt;    CODE  MUNICIPALITY YEAR                           VARIABLE   VALUE</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt; 1 01101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3342108</span></a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="co">#&gt; 2 01107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7051989</span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; 3 01401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1834687</span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="co">#&gt; 4 01402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1580275</span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1123179</span></a>
-<a class="sourceLine" id="cb7-8" title="8"><span class="co">#&gt; 6 01404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1366952</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co">#&gt;   CODE  MUNICIPALITY YEAR                           VARIABLE   VALUE</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt; 1 1101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3342108</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="co">#&gt; 2 1107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7051989</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; 3 1401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1834687</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="co">#&gt; 4 1402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1580275</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt; 5 1403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1123179</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="co">#&gt; 6 1404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1366952</span></a></code></pre></div>
 <p>The geometries are available in long format using the <code>geometry==T</code> argument. By default it uses the <strong>comunal</strong> geographies but the <strong>limite urbano censal</strong> is also available. The switches are <code>unit="comunas"</code> and <code>unit="limites"</code>. Note: Using <strong>limites</strong> not all features are available because some comunas are not related to urban zones. As shown in the example below you can obtain multiple years and variables in long format.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">882</span>, <span class="dv">2015</span><span class="op">:</span><span class="dv">2017</span>, <span class="dt">geometry=</span>T))</a>
 <a class="sourceLine" id="cb8-2" title="2"><span class="co">#&gt; Simple feature collection with 6 features and 5 fields</span></a>
@@ -294,13 +294,13 @@
 <a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt; bbox:           xmin: -70.20924 ymin: -21.43871 xmax: -69.81985 ymax: -20.04854</span></a>
 <a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt; epsg (SRID):    4326</span></a>
 <a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
-<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt;    CODE  MUNICIPALITY YEAR                     VARIABLE    VALUE</span></a>
-<a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt; 1 01101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 36847050</span></a>
-<a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt; 2 01101       IQUIQUE 2015 INGRESOS PROPIOS (IPP Y FCM) 34139969</span></a>
-<a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt; 3 01101       IQUIQUE 2016 INGRESOS PROPIOS (IPP Y FCM) 35586455</span></a>
-<a class="sourceLine" id="cb8-12" title="12"><span class="co">#&gt; 4 01107 ALTO HOSPICIO 2016 INGRESOS PROPIOS (IPP Y FCM) 10600513</span></a>
-<a class="sourceLine" id="cb8-13" title="13"><span class="co">#&gt; 5 01107 ALTO HOSPICIO 2017 INGRESOS PROPIOS (IPP Y FCM) 11054686</span></a>
-<a class="sourceLine" id="cb8-14" title="14"><span class="co">#&gt; 6 01107 ALTO HOSPICIO 2015 INGRESOS PROPIOS (IPP Y FCM) 10386815</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt;   CODE  MUNICIPALITY YEAR                     VARIABLE    VALUE</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt; 1 1101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 36847050</span></a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt; 2 1101       IQUIQUE 2015 INGRESOS PROPIOS (IPP Y FCM) 34139969</span></a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt; 3 1101       IQUIQUE 2016 INGRESOS PROPIOS (IPP Y FCM) 35586455</span></a>
+<a class="sourceLine" id="cb8-12" title="12"><span class="co">#&gt; 4 1107 ALTO HOSPICIO 2016 INGRESOS PROPIOS (IPP Y FCM) 10600513</span></a>
+<a class="sourceLine" id="cb8-13" title="13"><span class="co">#&gt; 5 1107 ALTO HOSPICIO 2017 INGRESOS PROPIOS (IPP Y FCM) 11054686</span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="co">#&gt; 6 1107 ALTO HOSPICIO 2015 INGRESOS PROPIOS (IPP Y FCM) 10386815</span></a>
 <a class="sourceLine" id="cb8-15" title="15"><span class="co">#&gt;                         geometry</span></a>
 <a class="sourceLine" id="cb8-16" title="16"><span class="co">#&gt; 1 MULTIPOLYGON (((-70.09894 -...</span></a>
 <a class="sourceLine" id="cb8-17" title="17"><span class="co">#&gt; 2 MULTIPOLYGON (((-70.09894 -...</span></a>
@@ -310,31 +310,57 @@
 <a class="sourceLine" id="cb8-21" title="21"><span class="co">#&gt; 6 MULTIPOLYGON (((-70.1095 -2...</span></a></code></pre></div>
 <p>Another interesting feature is the possibility to subset by different contexts. e.g if you want the comunas of Antofagasta region this command is available. The command works with or without the presence of the geometry switch and other switches are avaiblable too <code>region</code>, <code>provincia</code> and <code>comuna</code> all working with codes.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">882</span>, <span class="dv">2015</span><span class="op">:</span><span class="dv">2017</span>, <span class="dt">geometry=</span>T, <span class="dt">region=</span><span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="co">#&gt; Simple feature collection with 0 features and 5 fields</span></a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="co">#&gt; bbox:           xmin: NA ymin: NA xmax: NA ymax: NA</span></a>
-<a class="sourceLine" id="cb9-4" title="4"><span class="co">#&gt; epsg (SRID):    4326</span></a>
-<a class="sourceLine" id="cb9-5" title="5"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
-<a class="sourceLine" id="cb9-6" title="6"><span class="co">#&gt; [1] CODE         MUNICIPALITY YEAR         VARIABLE     VALUE       </span></a>
-<a class="sourceLine" id="cb9-7" title="7"><span class="co">#&gt; [6] geometry    </span></a>
-<a class="sourceLine" id="cb9-8" title="8"><span class="co">#&gt; &lt;0 rows&gt; (or 0-length row.names)</span></a></code></pre></div>
+<a class="sourceLine" id="cb9-2" title="2"><span class="co">#&gt; Simple feature collection with 6 features and 5 fields</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="co">#&gt; geometry type:  MULTIPOLYGON</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="co">#&gt; dimension:      XY</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="co">#&gt; bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="co">#&gt; epsg (SRID):    4326</span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="co">#&gt;   CODE MUNICIPALITY YEAR                     VARIABLE    VALUE</span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="co">#&gt; 1 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 48979299</span></a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="co">#&gt; 2 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 51962067</span></a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="co">#&gt; 3 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 52231972</span></a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="co">#&gt; 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  6829739</span></a>
+<a class="sourceLine" id="cb9-13" title="13"><span class="co">#&gt; 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6209799</span></a>
+<a class="sourceLine" id="cb9-14" title="14"><span class="co">#&gt; 6 2102   MEJILLONES 2017 INGRESOS PROPIOS (IPP Y FCM)       NA</span></a>
+<a class="sourceLine" id="cb9-15" title="15"><span class="co">#&gt;                         geometry</span></a>
+<a class="sourceLine" id="cb9-16" title="16"><span class="co">#&gt; 1 MULTIPOLYGON (((-70.60654 -...</span></a>
+<a class="sourceLine" id="cb9-17" title="17"><span class="co">#&gt; 2 MULTIPOLYGON (((-70.60654 -...</span></a>
+<a class="sourceLine" id="cb9-18" title="18"><span class="co">#&gt; 3 MULTIPOLYGON (((-70.60654 -...</span></a>
+<a class="sourceLine" id="cb9-19" title="19"><span class="co">#&gt; 4 MULTIPOLYGON (((-69.97002 -...</span></a>
+<a class="sourceLine" id="cb9-20" title="20"><span class="co">#&gt; 5 MULTIPOLYGON (((-69.97002 -...</span></a>
+<a class="sourceLine" id="cb9-21" title="21"><span class="co">#&gt; 6 MULTIPOLYGON (((-69.97002 -...</span></a></code></pre></div>
 <p>You can get a subset too</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">882</span>, <span class="dv">2015</span><span class="op">:</span><span class="dv">2017</span>, <span class="dt">geometry=</span>T, <span class="dt">region=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)))</a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="co">#&gt; Simple feature collection with 0 features and 5 fields</span></a>
-<a class="sourceLine" id="cb10-3" title="3"><span class="co">#&gt; bbox:           xmin: NA ymin: NA xmax: NA ymax: NA</span></a>
-<a class="sourceLine" id="cb10-4" title="4"><span class="co">#&gt; epsg (SRID):    4326</span></a>
-<a class="sourceLine" id="cb10-5" title="5"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
-<a class="sourceLine" id="cb10-6" title="6"><span class="co">#&gt; [1] CODE         MUNICIPALITY YEAR         VARIABLE     VALUE       </span></a>
-<a class="sourceLine" id="cb10-7" title="7"><span class="co">#&gt; [6] geometry    </span></a>
-<a class="sourceLine" id="cb10-8" title="8"><span class="co">#&gt; &lt;0 rows&gt; (or 0-length row.names)</span></a></code></pre></div>
+<a class="sourceLine" id="cb10-2" title="2"><span class="co">#&gt; Simple feature collection with 6 features and 5 fields</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="co">#&gt; geometry type:  MULTIPOLYGON</span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="co">#&gt; dimension:      XY</span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="co">#&gt; bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254</span></a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="co">#&gt; epsg (SRID):    4326</span></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="co">#&gt;   CODE MUNICIPALITY YEAR                     VARIABLE    VALUE</span></a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="co">#&gt; 1 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 52231972</span></a>
+<a class="sourceLine" id="cb10-10" title="10"><span class="co">#&gt; 2 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 48979299</span></a>
+<a class="sourceLine" id="cb10-11" title="11"><span class="co">#&gt; 3 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 51962067</span></a>
+<a class="sourceLine" id="cb10-12" title="12"><span class="co">#&gt; 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  6829739</span></a>
+<a class="sourceLine" id="cb10-13" title="13"><span class="co">#&gt; 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6209799</span></a>
+<a class="sourceLine" id="cb10-14" title="14"><span class="co">#&gt; 6 2102   MEJILLONES 2017 INGRESOS PROPIOS (IPP Y FCM)       NA</span></a>
+<a class="sourceLine" id="cb10-15" title="15"><span class="co">#&gt;                         geometry</span></a>
+<a class="sourceLine" id="cb10-16" title="16"><span class="co">#&gt; 1 MULTIPOLYGON (((-70.60654 -...</span></a>
+<a class="sourceLine" id="cb10-17" title="17"><span class="co">#&gt; 2 MULTIPOLYGON (((-70.60654 -...</span></a>
+<a class="sourceLine" id="cb10-18" title="18"><span class="co">#&gt; 3 MULTIPOLYGON (((-70.60654 -...</span></a>
+<a class="sourceLine" id="cb10-19" title="19"><span class="co">#&gt; 4 MULTIPOLYGON (((-69.97002 -...</span></a>
+<a class="sourceLine" id="cb10-20" title="20"><span class="co">#&gt; 5 MULTIPOLYGON (((-69.97002 -...</span></a>
+<a class="sourceLine" id="cb10-21" title="21"><span class="co">#&gt; 6 MULTIPOLYGON (((-69.97002 -...</span></a></code></pre></div>
 <p>But where obtain the codes? a database is provided and you can filter it using the standard R functions.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">head</span>(id_geo_census)</a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="co">#&gt;    CODE  MUNICIPALITY CODE.REG  NOM.REG CODE.PROV  NOM.PROV</span></a>
-<a class="sourceLine" id="cb11-3" title="3"><span class="co">#&gt; 1 01101       IQUIQUE       01 TARAPACA       011   IQUIQUE</span></a>
-<a class="sourceLine" id="cb11-4" title="4"><span class="co">#&gt; 2 01107 ALTO HOSPICIO       01 TARAPACA       011   IQUIQUE</span></a>
-<a class="sourceLine" id="cb11-5" title="5"><span class="co">#&gt; 3 01401  POZO ALMONTE       01 TARAPACA       014 TAMARUGAL</span></a>
-<a class="sourceLine" id="cb11-6" title="6"><span class="co">#&gt; 4 01402        CAMIÑA       01 TARAPACA       014 TAMARUGAL</span></a>
-<a class="sourceLine" id="cb11-7" title="7"><span class="co">#&gt; 5 01403      COLCHANE       01 TARAPACA       014 TAMARUGAL</span></a>
-<a class="sourceLine" id="cb11-8" title="8"><span class="co">#&gt; 6 01404         HUARA       01 TARAPACA       014 TAMARUGAL</span></a></code></pre></div>
+<a class="sourceLine" id="cb11-2" title="2"><span class="co">#&gt;   CODE  MUNICIPALITY CODE.REG  NOM.REG CODE.PROV  NOM.PROV</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="co">#&gt; 1 1101       IQUIQUE        1 TARAPACA        11   IQUIQUE</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="co">#&gt; 2 1107 ALTO HOSPICIO        1 TARAPACA        11   IQUIQUE</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="co">#&gt; 3 1401  POZO ALMONTE        1 TARAPACA        14 TAMARUGAL</span></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="co">#&gt; 4 1402        CAMIÑA        1 TARAPACA        14 TAMARUGAL</span></a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="co">#&gt; 5 1403      COLCHANE        1 TARAPACA        14 TAMARUGAL</span></a>
+<a class="sourceLine" id="cb11-8" title="8"><span class="co">#&gt; 6 1404         HUARA        1 TARAPACA        14 TAMARUGAL</span></a></code></pre></div>
 <p>Related to variables if you don’t know what are you looking for use <code><a href="reference/search_sinim_vars.html">search_sinim_vars()</a></code>to get search results based on variable descriptions, names and groups.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw"><a href="reference/search_sinim_vars.html">search_sinim_vars</a></span>(<span class="st">"cementerio"</span>)</a>
 <a class="sourceLine" id="cb12-2" title="2"><span class="co">#&gt;     CODE</span></a>
@@ -382,29 +408,30 @@
 <a class="sourceLine" id="cb13-12" title="12">                   <span class="st">"VITACURA"</span>, <span class="st">"LA GRANJA"</span>, <span class="st">"PROVIDENCIA"</span>, <span class="st">"SAN BERNARDO"</span>, <span class="st">"PUENTE ALTO"</span>, <span class="st">"PADRE HURTADO"</span>, <span class="st">"PIRQUE"</span>,</a>
 <a class="sourceLine" id="cb13-13" title="13">                   <span class="st">"SAN JOSÉ DE MAIPO"</span>)</a>
 <a class="sourceLine" id="cb13-14" title="14"></a>
-<a class="sourceLine" id="cb13-15" title="15">comunas.codes&lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/filter">filter</a></span>(id_geo_census, MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas.names) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/pull">pull</a></span>(CODE)</a>
+<a class="sourceLine" id="cb13-15" title="15">comunas.codes&lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(id_geo_census, MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas.names) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(CODE)</a>
 <a class="sourceLine" id="cb13-16" title="16"></a>
-<a class="sourceLine" id="cb13-17" title="17">var &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">882</span>, <span class="dv">2018</span>, <span class="dt">truevalue =</span> T, <span class="dt">geometry =</span> T, <span class="dt">unit =</span> <span class="st">"limites"</span>, <span class="dt">comuna=</span>comunas.codes)</a>
-<a class="sourceLine" id="cb13-18" title="18"></a>
-<a class="sourceLine" id="cb13-19" title="19">gran_santiago_plot &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_shape">tm_shape</a></span>(var) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-20" title="20"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_fill</a></span>(<span class="dt">col =</span> <span class="st">"VALUE"</span>,</a>
-<a class="sourceLine" id="cb13-21" title="21">          <span class="dt">palette =</span> <span class="st">"BuPu"</span>, </a>
-<a class="sourceLine" id="cb13-22" title="22">          <span class="dt">border.col =</span> <span class="st">"white"</span>, </a>
-<a class="sourceLine" id="cb13-23" title="23">          <span class="dt">border.alpha =</span> <span class="fl">0.5</span>,</a>
-<a class="sourceLine" id="cb13-24" title="24">          <span class="dt">lwd=</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb13-25" title="25">          <span class="dt">style =</span> <span class="st">"jenks"</span>,</a>
-<a class="sourceLine" id="cb13-26" title="26">          <span class="dt">title =</span> <span class="kw">unique</span>(var<span class="op">$</span>VARIABLE))<span class="op">+</span></a>
-<a class="sourceLine" id="cb13-27" title="27"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_text">tm_text</a></span>(<span class="st">"MUNICIPALITY"</span>, <span class="dt">size =</span> <span class="fl">0.4</span>, <span class="dt">style=</span><span class="st">"jenks"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-28" title="28"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_legend</a></span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="st">"left"</span>, <span class="st">"top"</span>), <span class="dt">legend.title.size =</span> <span class="dv">1</span>, <span class="dt">legend.text.size =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-29" title="29"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_compass">tm_compass</a></span>(<span class="dt">type =</span> <span class="st">"8star"</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-30" title="30"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_scale_bar">tm_scale_bar</a></span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">size =</span> <span class="fl">0.75</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">"right"</span>, <span class="st">"bottom"</span>), <span class="dt">width =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-31" title="31"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_credits">tm_credits</a></span>(<span class="st">"Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior."</span>, <span class="dt">position=</span><span class="kw">c</span>(<span class="st">"left"</span>, <span class="st">"bottom"</span>), <span class="dt">size=</span><span class="fl">0.55</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb13-32" title="32"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_layout</a></span>(<span class="dt">legend.width=</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb13-33" title="33">            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.10</span>, <span class="fl">0.01</span>), </a>
-<a class="sourceLine" id="cb13-34" title="34">            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">text.separator =</span> <span class="st">"a"</span>, </a>
-<a class="sourceLine" id="cb13-35" title="35">                                 <span class="dt">fun =</span> <span class="cf">function</span>(x) <span class="kw">paste0</span>(<span class="kw">formatC</span>(x<span class="op">/</span><span class="fl">1e9</span>, <span class="dt">digits =</span> <span class="dv">0</span>, <span class="dt">format =</span> <span class="st">"f"</span>), <span class="st">" mm$"</span>)))</a>
-<a class="sourceLine" id="cb13-36" title="36"></a>
-<a class="sourceLine" id="cb13-37" title="37">gran_santiago_plot</a></code></pre></div>
+<a class="sourceLine" id="cb13-17" title="17">varcode &lt;-<span class="st"> </span><span class="dv">882</span></a>
+<a class="sourceLine" id="cb13-18" title="18">var &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(varcode, <span class="dv">2018</span>, <span class="dt">truevalue =</span> T, <span class="dt">geometry =</span> T, <span class="dt">unit =</span> <span class="st">"limites"</span>, <span class="dt">comuna=</span>comunas.codes)</a>
+<a class="sourceLine" id="cb13-19" title="19"></a>
+<a class="sourceLine" id="cb13-20" title="20">gran_santiago_plot &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_shape">tm_shape</a></span>(var) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-21" title="21"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_fill</a></span>(<span class="dt">col =</span> <span class="st">"VALUE"</span>,</a>
+<a class="sourceLine" id="cb13-22" title="22">          <span class="dt">palette =</span> <span class="st">"BuPu"</span>, </a>
+<a class="sourceLine" id="cb13-23" title="23">          <span class="dt">border.col =</span> <span class="st">"white"</span>, </a>
+<a class="sourceLine" id="cb13-24" title="24">          <span class="dt">border.alpha =</span> <span class="fl">0.5</span>,</a>
+<a class="sourceLine" id="cb13-25" title="25">          <span class="dt">lwd=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb13-26" title="26">          <span class="dt">style =</span> <span class="st">"jenks"</span>,</a>
+<a class="sourceLine" id="cb13-27" title="27">          <span class="dt">title =</span> <span class="kw"><a href="reference/get_sinim_var_name.html">get_sinim_var_name</a></span>(varcode))<span class="op">+</span></a>
+<a class="sourceLine" id="cb13-28" title="28"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_text">tm_text</a></span>(<span class="st">"MUNICIPALITY"</span>, <span class="dt">size =</span> <span class="fl">0.4</span>, <span class="dt">style=</span><span class="st">"jenks"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-29" title="29"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_legend</a></span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="st">"left"</span>, <span class="st">"top"</span>), <span class="dt">legend.title.size =</span> <span class="dv">1</span>, <span class="dt">legend.text.size =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-30" title="30"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_compass">tm_compass</a></span>(<span class="dt">type =</span> <span class="st">"8star"</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-31" title="31"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_scale_bar">tm_scale_bar</a></span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">size =</span> <span class="fl">0.75</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">"right"</span>, <span class="st">"bottom"</span>), <span class="dt">width =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-32" title="32"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_credits">tm_credits</a></span>(<span class="st">"Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior."</span>, <span class="dt">position=</span><span class="kw">c</span>(<span class="st">"left"</span>, <span class="st">"bottom"</span>), <span class="dt">size=</span><span class="fl">0.55</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb13-33" title="33"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_layout</a></span>(<span class="dt">legend.width=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb13-34" title="34">            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.10</span>, <span class="fl">0.01</span>), </a>
+<a class="sourceLine" id="cb13-35" title="35">            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">text.separator =</span> <span class="st">"a"</span>, </a>
+<a class="sourceLine" id="cb13-36" title="36">                                 <span class="dt">fun =</span> <span class="cf">function</span>(x) <span class="kw">paste0</span>(<span class="kw">formatC</span>(x<span class="op">/</span><span class="fl">1e9</span>, <span class="dt">digits =</span> <span class="dv">0</span>, <span class="dt">format =</span> <span class="st">"f"</span>), <span class="st">" mm$"</span>)))</a>
+<a class="sourceLine" id="cb13-37" title="37"></a>
+<a class="sourceLine" id="cb13-38" title="38">gran_santiago_plot</a></code></pre></div>
 <p><img src="unnamed-chunk-13-1.png" width="576"></p>
 </div>
 <div id="a-variable-in-multiple-years-using-facets" class="section level4">
@@ -423,7 +450,7 @@
 <a class="sourceLine" id="cb14-11" title="11">             <span class="st">"VITACURA"</span>, <span class="st">"LA GRANJA"</span>, <span class="st">"PROVIDENCIA"</span>, <span class="st">"SAN BERNARDO"</span>, <span class="st">"PUENTE ALTO"</span>, <span class="st">"PADRE HURTADO"</span>, <span class="st">"PIRQUE"</span>,</a>
 <a class="sourceLine" id="cb14-12" title="12">             <span class="st">"SAN JOSÉ DE MAIPO"</span>)</a>
 <a class="sourceLine" id="cb14-13" title="13"></a>
-<a class="sourceLine" id="cb14-14" title="14">comunas.codes&lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/filter">filter</a></span>(id_geo_census, MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas.names) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/pull">pull</a></span>(CODE)</a>
+<a class="sourceLine" id="cb14-14" title="14">comunas.codes&lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(id_geo_census, MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas.names) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(CODE)</a>
 <a class="sourceLine" id="cb14-15" title="15"></a>
 <a class="sourceLine" id="cb14-16" title="16">var &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="kw">c</span>(<span class="dv">880</span>, <span class="dv">882</span>, <span class="dv">1226</span>),</a>
 <a class="sourceLine" id="cb14-17" title="17">                 <span class="dv">2016</span><span class="op">:</span><span class="dv">2018</span>, </a>
@@ -472,7 +499,7 @@
 <a class="sourceLine" id="cb15-15" title="15">             <span class="st">"VITACURA"</span>, <span class="st">"LA GRANJA"</span>, <span class="st">"PROVIDENCIA"</span>, <span class="st">"SAN BERNARDO"</span>, <span class="st">"PUENTE ALTO"</span>, <span class="st">"PADRE HURTADO"</span>,</a>
 <a class="sourceLine" id="cb15-16" title="16">             <span class="st">"PIRQUE"</span>, <span class="st">"SAN JOSÉ DE MAIPO"</span>)</a>
 <a class="sourceLine" id="cb15-17" title="17"></a>
-<a class="sourceLine" id="cb15-18" title="18">comunas.codes&lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/filter">filter</a></span>(id_geo_census, MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas.names) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/dplyr/topics/pull">pull</a></span>(CODE)</a>
+<a class="sourceLine" id="cb15-18" title="18">comunas.codes&lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(id_geo_census, MUNICIPALITY <span class="op">%in%</span><span class="st"> </span>comunas.names) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(CODE)</a>
 <a class="sourceLine" id="cb15-19" title="19"></a>
 <a class="sourceLine" id="cb15-20" title="20">data &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">882</span>, <span class="dv">2002</span><span class="op">:</span><span class="dv">2018</span>,</a>
 <a class="sourceLine" id="cb15-21" title="21">                  <span class="dt">moncorr =</span> F, </a>
