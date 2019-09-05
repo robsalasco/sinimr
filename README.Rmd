@@ -180,7 +180,8 @@ comunas.names <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS COND
 
 comunas.codes<- filter(id_geo_census, MUNICIPALITY %in% comunas.names) %>% pull(CODE)
 
-var <- get_sinim(882, 2018, truevalue = T, geometry = T, unit = "limites", comuna=comunas.codes)
+varcode <- 882
+var <- get_sinim(varcode, 2018, truevalue = T, geometry = T, unit = "limites", comuna=comunas.codes)
 
 gran_santiago_plot <- tm_shape(var) +
   tm_fill(col = "VALUE",
@@ -189,7 +190,7 @@ gran_santiago_plot <- tm_shape(var) +
           border.alpha = 0.5,
           lwd=1,
           style = "jenks",
-          title = unique(var$VARIABLE))+
+          title = get_sinim_var_name(varcode))+
   tm_text("MUNICIPALITY", size = 0.4, style="jenks") +
   tm_legend(legend.position = c("left", "top"), legend.title.size = 1, legend.text.size = 0.6) +
   tm_compass(type = "8star", position = c("right", "top")) +
