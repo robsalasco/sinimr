@@ -170,7 +170,7 @@ get_sinim <-
         
         
         if (idgeo == T) {
-          merged.geo.pretty <- merge(merged.geo, id_geo_census, by = "CODE")
+          merged.geo.pretty <- merge(merged.geo, id_geo_census, by = c("CODE","MUNICIPALITY"))
           return(merged.geo.pretty)
         } else {
           return(merged.geo)
