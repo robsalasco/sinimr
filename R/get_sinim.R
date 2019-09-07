@@ -67,11 +67,13 @@ get_sinim <-
         variable.name = "VARIABLE"
       )
       
+      datav$VARIABLE <- as.character(datav$VARIABLE)
+      
       t <-
         vapply(datav, function(x)
           all(grepl("[0-9]+", na.omit(x))), logical(1))
       
-      t[1:3] <- c(TRUE, FALSE, FALSE)
+      t[1:4] <- c(TRUE, FALSE, FALSE, FALSE)
       datav[t] <- lapply(datav[t], function(x)
         (as.numeric(x)))
       
@@ -114,11 +116,13 @@ get_sinim <-
         variable.name = "VARIABLE"
       )
       
+      datav$VARIABLE <- as.character(datav$VARIABLE)
+      
       t <-
         vapply(datav, function(x)
           all(grepl("[0-9]+", na.omit(x))), logical(1))
       
-      t[1:3] <- c(TRUE, FALSE, FALSE)
+      t[1:4] <- c(TRUE, FALSE, FALSE, FALSE)
       datav[t] <- lapply(datav[t], function(x)
         (as.numeric(x)))
       
