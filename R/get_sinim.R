@@ -147,7 +147,7 @@ get_sinim <-
           merged.geo <-
             merge(census_geometry_limites, data.selection, by = "CODE")
         } else {
-          print("Unit not valid")
+          stop("Unit not valid")
         }
         
         
@@ -169,7 +169,7 @@ get_sinim <-
           merged.geo <-
             merge(census_geometry_limites, datav, by = "CODE")
         } else {
-          print("Unit not valid")
+          stop("Unit not valid")
         }
         
         
