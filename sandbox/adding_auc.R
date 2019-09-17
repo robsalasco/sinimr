@@ -8,6 +8,7 @@ auc <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
 "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
 "SAN JOSÉ DE MAIPO")
 
-id_geo_census$AUC <- ifelse(id_geo_census$MUNICIPALITY %in% auc,1,0)
+id_geo_census$AUC <- ifelse(id_geo_census$CODE.REG!=13,1,
+                            ifelse(id_geo_census$MUNICIPALITY %in% auc,1,0))
 
 save(id_geo_census, file="data/id_geo_census.rda")
