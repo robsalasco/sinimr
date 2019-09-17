@@ -152,7 +152,7 @@ geofilter <- function(region, provincia, comuna, auc=F) { #nocov start
   } else if (!missing(provincia)) {
     stopifnot(missing(region))
     stopifnot(missing(comuna))
-    if(!missing(auc)) {
+    if(auc==T) {
       warning("AUC not available subsetting provincias")
     }
     selection <- subset(id_geo_census, CODE.PROV %in% provincia)$CODE
@@ -160,7 +160,7 @@ geofilter <- function(region, provincia, comuna, auc=F) { #nocov start
   } else if (!missing(comuna)) {
     stopifnot(missing(region))
     stopifnot(missing(provincia))
-    if(!missing(auc)) {
+    if(auc==T) {
       warning("AUC not available subsetting comunas")
     }
     selection <- subset(id_geo_census, CODE %in% comuna)$CODE
