@@ -32,7 +32,6 @@ library(stringr)
 library(sinimr)
 library(sf)
 
-
 data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173), 
                         year = 2018, 
                         region = 13,
@@ -55,7 +54,7 @@ gran_santiago_plot <- tm_shape(data_sinim) +
             outer.margins = c(0.01, 0.01, 0.01, 0.01),
             design.mode=F,
             legend.format = list(text.separator = "a",
-                                 fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))+
+                                 fun = mm))+
   tm_compass(type = "8star", position = c(.85, .80)) +
   tm_borders(col = 'black') +
   tm_facets(by="VARIABLE", ncol = 2)
@@ -382,7 +381,6 @@ provincia you can apply them using `idgeo==T` switch.
 #### Single variable plot
 
 ``` r
-
 library(dplyr)
 library(sinimr)
 library(sf)
@@ -407,14 +405,12 @@ gran_santiago_plot <- tm_shape(var) +
   tm_text("MUNICIPALITY", size = 0.4, style="jenks") +
   tm_legend(legend.position = c("left", "top"), legend.title.size = 1, legend.text.size = 0.6) +
   tm_compass(type = "8star", position = c("right", "top")) +
-  tm_scale_bar(breaks = c(0, 10), size = 0.75, position = c("right", "bottom"), width = 1) +
+  tm_scale_bar(breaks = c(0, 10), text.size = 0.75, position = c("right", "bottom"), width = 1) +
   tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)+
   tm_layout(legend.width=1,
             inner.margins = c(0.1, 0.1, 0.10, 0.01), 
             legend.format = list(text.separator = "a", 
-                                 fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))
-#> Warning: The argument size of tm_scale_bar is deprecated. It has been
-#> renamed to text.size
+                                 fun = mm))
 
 gran_santiago_plot
 ```
@@ -451,7 +447,7 @@ gran_santiago_plot <- tm_shape(var) +
             inner.margins = c(0.01, 0.1, 0.1, 0.01),
             outer.margins = c(0.01, 0.01, 0.01, 0.01),
             legend.format = list(text.separator = "a",
-                                 fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$"))) +
+                                 fun = mm)) +
   tm_facets(by=c("YEAR","VARIABLE"),) +
   tm_borders(col = 'black')
 
