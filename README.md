@@ -26,43 +26,43 @@ what have advantages over the site:
 <!-- end list -->
 
 ``` r
-library(tmap)
 library(dplyr)
-library(stringr)
 library(sinimr)
 library(sf)
+library(tmap)
 
-data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173), 
-                        year = 2018, 
-                        region = 13,
-                        geometry = T,
-                        truevalue = T,
-                        auc = T,
-                        unit = "limites")
+varcode <- 882
+var <- get_sinim(varcode, 2018, 
+                 region = 13, 
+                 truevalue = T, 
+                 geometry = T, 
+                 auc = T, 
+                 unit = "limites")
 
-gran_santiago_plot <- tm_shape(data_sinim) +
+gran_santiago_plot <- tm_shape(var) +
   tm_fill(col = "VALUE",
           palette = "BuPu", 
           border.col = "white", 
           border.alpha = 0.5,
           lwd=1,
           style = "jenks",
-          title = "VARIABLE")+
-  tm_text("MUNICIPALITY", size = 0.4) +
-  tm_style("white", frame = T, legend.title.size = 1, legend.width=1) +
-  tm_layout(inner.margins = c(0.01, 0.1, 0.1, 0.01),
-            outer.margins = c(0.01, 0.01, 0.01, 0.01),
-            design.mode=F,
-            legend.format = list(text.separator = "a",
-                                 fun = mm))+
+          title = get_sinim_var_name(varcode))+
+  tm_text("MUNICIPALITY", size = 0.4, style="jenks") +
+  tm_legend(legend.position = c("left", "top"), legend.title.size = 1, legend.text.size = 0.6) +
   tm_compass(type = "8star", position = c(.85, .80)) +
-  tm_borders(col = 'black') +
-  tm_facets(by="VARIABLE", ncol = 2)
+  tm_scale_bar(breaks = c(0, 10), text.size = 0.75, position = c("right", "bottom")) +
+  tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)+
+  tm_layout(legend.width=1,
+            inner.margins = c(0.1, 0.1, 0.10, 0.1), 
+            legend.format = list(text.separator = "a", 
+                                 fun = mm)) +
+  tm_borders(col = 'black')
+
 
 gran_santiago_plot
 ```
 
-<img src="docs/unnamed-chunk-2-1.png" width="1440" />
+<img src="docs/unnamed-chunk-2-1.png" width="576" />
 
 ### Support
 
@@ -332,12 +332,12 @@ using the standard R functions.
 ``` r
 head(id_geo_census)
 #>   CODE  MUNICIPALITY CODE.REG  NOM.REG CODE.PROV  NOM.PROV AUC
-#> 1 1101       IQUIQUE        1 TARAPACA        11   IQUIQUE   0
-#> 2 1107 ALTO HOSPICIO        1 TARAPACA        11   IQUIQUE   0
-#> 3 1401  POZO ALMONTE        1 TARAPACA        14 TAMARUGAL   0
-#> 4 1402        CAMIÑA        1 TARAPACA        14 TAMARUGAL   0
-#> 5 1403      COLCHANE        1 TARAPACA        14 TAMARUGAL   0
-#> 6 1404         HUARA        1 TARAPACA        14 TAMARUGAL   0
+#> 1 1101       IQUIQUE        1 TARAPACA        11   IQUIQUE   1
+#> 2 1107 ALTO HOSPICIO        1 TARAPACA        11   IQUIQUE   1
+#> 3 1401  POZO ALMONTE        1 TARAPACA        14 TAMARUGAL   1
+#> 4 1402        CAMIÑA        1 TARAPACA        14 TAMARUGAL   1
+#> 5 1403      COLCHANE        1 TARAPACA        14 TAMARUGAL   1
+#> 6 1404         HUARA        1 TARAPACA        14 TAMARUGAL   1
 ```
 
 Related to variables if you don’t know what are you looking for use
@@ -378,44 +378,45 @@ provincia you can apply them using `idgeo==T` switch.
 
 ### Other example plots
 
-#### Single variable plot
+#### Multiple variable faceted plot
 
 ``` r
+library(tmap)
 library(dplyr)
+library(stringr)
 library(sinimr)
 library(sf)
-library(tmap)
 
-varcode <- 882
-var <- get_sinim(varcode, 2018, 
-                 region = 13, 
-                 truevalue = T, 
-                 geometry = T, 
-                 auc = T, 
-                 unit = "limites")
+data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173), 
+                        year = 2018, 
+                        region = 13,
+                        geometry = T,
+                        truevalue = T,
+                        auc = T,
+                        unit = "limites")
 
-gran_santiago_plot <- tm_shape(var) +
+gran_santiago_plot <- tm_shape(data_sinim) +
   tm_fill(col = "VALUE",
           palette = "BuPu", 
           border.col = "white", 
           border.alpha = 0.5,
           lwd=1,
           style = "jenks",
-          title = get_sinim_var_name(varcode))+
-  tm_text("MUNICIPALITY", size = 0.4, style="jenks") +
-  tm_legend(legend.position = c("left", "top"), legend.title.size = 1, legend.text.size = 0.6) +
-  tm_compass(type = "8star", position = c("right", "top")) +
-  tm_scale_bar(breaks = c(0, 10), text.size = 0.75, position = c("right", "bottom"), width = 1) +
-  tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)+
-  tm_layout(legend.width=1,
-            inner.margins = c(0.1, 0.1, 0.10, 0.01), 
-            legend.format = list(text.separator = "a", 
-                                 fun = mm))
+          title = "VARIABLE")+
+  tm_text("MUNICIPALITY", size = 0.4) +
+  tm_style("white", frame = T, legend.title.size = 1, legend.width=1) +
+  tm_layout(inner.margins = c(0.01, 0.1, 0.1, 0.01),
+            outer.margins = c(0.01, 0.01, 0.01, 0.01),
+            design.mode=F,
+            legend.format = list(text.separator = "a",
+                                 fun = mm))+
+  tm_borders(col = 'black') +
+  tm_facets(by="VARIABLE", ncol = 2)
 
 gran_santiago_plot
 ```
 
-<img src="docs/unnamed-chunk-13-1.png" width="576" />
+<img src="docs/unnamed-chunk-13-1.png" width="1440" />
 
 #### A variable in multiple years using facets
 

@@ -28,39 +28,39 @@ This R package allows easy SINIM (http://sinim.gov.cl) data retrieval what have 
 - Fast ploting directly from data source using the included geometries.
 - Data download with or without monetary correction using a switch.
 
-```{r, message=F, fig.height=8, fig.width=15, fig.retina=2}
-library(tmap)
+```{r, message=F, fig.height=6, fig.width=6, fig.retina=2}
 library(dplyr)
-library(stringr)
 library(sinimr)
 library(sf)
+library(tmap)
 
-data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173), 
-                        year = 2018, 
-                        region = 13,
-                        geometry = T,
-                        truevalue = T,
-                        auc = T,
-                        unit = "limites")
+varcode <- 882
+var <- get_sinim(varcode, 2018, 
+                 region = 13, 
+                 truevalue = T, 
+                 geometry = T, 
+                 auc = T, 
+                 unit = "limites")
 
-gran_santiago_plot <- tm_shape(data_sinim) +
+gran_santiago_plot <- tm_shape(var) +
   tm_fill(col = "VALUE",
           palette = "BuPu", 
           border.col = "white", 
           border.alpha = 0.5,
           lwd=1,
           style = "jenks",
-          title = "VARIABLE")+
-  tm_text("MUNICIPALITY", size = 0.4) +
-  tm_style("white", frame = T, legend.title.size = 1, legend.width=1) +
-  tm_layout(inner.margins = c(0.01, 0.1, 0.1, 0.01),
-            outer.margins = c(0.01, 0.01, 0.01, 0.01),
-            design.mode=F,
-            legend.format = list(text.separator = "a",
-                                 fun = mm))+
+          title = get_sinim_var_name(varcode))+
+  tm_text("MUNICIPALITY", size = 0.4, style="jenks") +
+  tm_legend(legend.position = c("left", "top"), legend.title.size = 1, legend.text.size = 0.6) +
   tm_compass(type = "8star", position = c(.85, .80)) +
-  tm_borders(col = 'black') +
-  tm_facets(by="VARIABLE", ncol = 2)
+  tm_scale_bar(breaks = c(0, 10), text.size = 0.75, position = c("right", "bottom")) +
+  tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)+
+  tm_layout(legend.width=1,
+            inner.margins = c(0.1, 0.1, 0.10, 0.1), 
+            legend.format = list(text.separator = "a", 
+                                 fun = mm)) +
+  tm_borders(col = 'black')
+
 
 gran_santiago_plot
 
@@ -152,39 +152,40 @@ SINIM (Sistema Nacional de Información Municipal) by default applies a monetary
 
 ### Other example plots
 
-#### Single variable plot
+#### Multiple variable faceted plot
 
-```{r, message=F, fig.height=6, fig.width=6, fig.retina=2}
+```{r, message=F, fig.height=8, fig.width=15, fig.retina=2}
+library(tmap)
 library(dplyr)
+library(stringr)
 library(sinimr)
 library(sf)
-library(tmap)
 
-varcode <- 882
-var <- get_sinim(varcode, 2018, 
-                 region = 13, 
-                 truevalue = T, 
-                 geometry = T, 
-                 auc = T, 
-                 unit = "limites")
+data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173), 
+                        year = 2018, 
+                        region = 13,
+                        geometry = T,
+                        truevalue = T,
+                        auc = T,
+                        unit = "limites")
 
-gran_santiago_plot <- tm_shape(var) +
+gran_santiago_plot <- tm_shape(data_sinim) +
   tm_fill(col = "VALUE",
           palette = "BuPu", 
           border.col = "white", 
           border.alpha = 0.5,
           lwd=1,
           style = "jenks",
-          title = get_sinim_var_name(varcode))+
-  tm_text("MUNICIPALITY", size = 0.4, style="jenks") +
-  tm_legend(legend.position = c("left", "top"), legend.title.size = 1, legend.text.size = 0.6) +
-  tm_compass(type = "8star", position = c("right", "top")) +
-  tm_scale_bar(breaks = c(0, 10), text.size = 0.75, position = c("right", "bottom"), width = 1) +
-  tm_credits("Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior.", position=c("left", "bottom"), size=0.55)+
-  tm_layout(legend.width=1,
-            inner.margins = c(0.1, 0.1, 0.10, 0.01), 
-            legend.format = list(text.separator = "a", 
-                                 fun = mm))
+          title = "VARIABLE")+
+  tm_text("MUNICIPALITY", size = 0.4) +
+  tm_style("white", frame = T, legend.title.size = 1, legend.width=1) +
+  tm_layout(inner.margins = c(0.01, 0.1, 0.1, 0.01),
+            outer.margins = c(0.01, 0.01, 0.01, 0.01),
+            design.mode=F,
+            legend.format = list(text.separator = "a",
+                                 fun = mm))+
+  tm_borders(col = 'black') +
+  tm_facets(by="VARIABLE", ncol = 2)
 
 gran_santiago_plot
 
