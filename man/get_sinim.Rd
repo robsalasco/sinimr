@@ -5,7 +5,7 @@
 \title{Get a SINIM variable data in a specific year as a data frame}
 \usage{
 get_sinim(var, year, moncorr = T, truevalue = F, idgeo = F,
-  geometry = F, region, provincia, comuna, unit = "comunas")
+  geometry = F, region, provincia, comuna, auc = F, unit = "comunas")
 }
 \arguments{
 \item{var}{Variable code}
@@ -25,6 +25,8 @@ get_sinim(var, year, moncorr = T, truevalue = F, idgeo = F,
 \item{provincia}{Provincia subsetting variable}
 
 \item{comuna}{Comuna subsetting variable}
+
+\item{auc}{A logical value to retrieve only AUC features}
 
 \item{unit}{Use "comunas" or "limites"}
 }

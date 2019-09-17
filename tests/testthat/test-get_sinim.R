@@ -5,15 +5,10 @@ test_that("get_sinim returns a valid output", {
   tbl <- get_sinim(880, 2015)
   
   expect_is(tbl, "data.frame")
+  expect_true(is.numeric(tbl$VALUE))
   expect_output(str(tbl), "346 obs. of  5 variables")
 })
 
-test_that("get_sinim returns a numeric", {
-  
-  tbl <- get_sinim(880, 2015)
-  
-  expect_true(is.numeric(tbl$VALUE))
-})
 
 test_that("get_sinim returns a character", {
   
