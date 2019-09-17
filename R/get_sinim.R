@@ -8,6 +8,7 @@
 #' @param region Region subsetting variable
 #' @param provincia Provincia subsetting variable
 #' @param comuna Comuna subsetting variable
+#' @param auc A logical value to retrieve only AUC features
 #' @param unit Use "comunas" or "limites"
 #' @return data frame for the requested variable over time with optional geometry
 #' @export
@@ -34,6 +35,7 @@ get_sinim <-
            region,
            provincia,
            comuna,
+           auc = F,
            unit = "comunas") {
     stopifnot(is.numeric(var))
     stopifnot(is.numeric(year))
@@ -87,7 +89,8 @@ get_sinim <-
         selection <-
           geofilter(region = region,
                     provincia = provincia,
-                    comuna = comuna)
+                    comuna = comuna,
+                    auc)
         data.selection <- subset(datav, CODE %in% selection)
         
         if (idgeo == T) {
@@ -136,7 +139,8 @@ get_sinim <-
         selection <-
           geofilter(region = region,
                     provincia = provincia,
-                    comuna = comuna)
+                    comuna = comuna,
+                    auc)
         
         data.selection <- subset(datav, CODE %in% selection)
         
