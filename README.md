@@ -32,22 +32,14 @@ library(stringr)
 library(sinimr)
 library(sf)
 
-comunas.names <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
-                   "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
-                   "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
-                   "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
-                   "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
-                   "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
-                   "SAN JOSÉ DE MAIPO")
-
-comunas.codes<- filter(id_geo_census, MUNICIPALITY %in% comunas.names) %>% pull(CODE)
 
 data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173), 
                         year = 2018, 
+                        region = 13,
                         geometry = T,
                         truevalue = T,
-                        unit = "limites", 
-                        comuna = comunas.codes)
+                        auc = T,
+                        unit = "limites")
 
 gran_santiago_plot <- tm_shape(data_sinim) +
   tm_fill(col = "VALUE",
@@ -127,8 +119,7 @@ get_sinim_cats()
 #> 1  A. PERSONAL DE PLANTA  381
 #> 2 B. PERSONAL A CONTRATA  382
 #> 3         C. HONORARIOS   383
-#> 4  D. CÓDIGO DEL TRABAJO  523
-#> 5   D. OTROS INDICADORES  384
+#> 4   D. OTROS INDICADORES  384
 #> 
 #> $`03.  EDUCACION MUNICIPAL`
 #>                                     VARIABLE CODE
@@ -341,13 +332,13 @@ using the standard R functions.
 
 ``` r
 head(id_geo_census)
-#>   CODE  MUNICIPALITY CODE.REG  NOM.REG CODE.PROV  NOM.PROV
-#> 1 1101       IQUIQUE        1 TARAPACA        11   IQUIQUE
-#> 2 1107 ALTO HOSPICIO        1 TARAPACA        11   IQUIQUE
-#> 3 1401  POZO ALMONTE        1 TARAPACA        14 TAMARUGAL
-#> 4 1402        CAMIÑA        1 TARAPACA        14 TAMARUGAL
-#> 5 1403      COLCHANE        1 TARAPACA        14 TAMARUGAL
-#> 6 1404         HUARA        1 TARAPACA        14 TAMARUGAL
+#>   CODE  MUNICIPALITY CODE.REG  NOM.REG CODE.PROV  NOM.PROV AUC
+#> 1 1101       IQUIQUE        1 TARAPACA        11   IQUIQUE   0
+#> 2 1107 ALTO HOSPICIO        1 TARAPACA        11   IQUIQUE   0
+#> 3 1401  POZO ALMONTE        1 TARAPACA        14 TAMARUGAL   0
+#> 4 1402        CAMIÑA        1 TARAPACA        14 TAMARUGAL   0
+#> 5 1403      COLCHANE        1 TARAPACA        14 TAMARUGAL   0
+#> 6 1404         HUARA        1 TARAPACA        14 TAMARUGAL   0
 ```
 
 Related to variables if you don’t know what are you looking for use
@@ -397,18 +388,13 @@ library(sinimr)
 library(sf)
 library(tmap)
 
-comunas.names <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
-                   "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
-                   "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
-                   "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
-                   "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
-                   "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
-                   "SAN JOSÉ DE MAIPO")
-
-comunas.codes<- filter(id_geo_census, MUNICIPALITY %in% comunas.names) %>% pull(CODE)
-
 varcode <- 882
-var <- get_sinim(varcode, 2018, truevalue = T, geometry = T, unit = "limites", comuna=comunas.codes)
+var <- get_sinim(varcode, 2018, 
+                 region = 13, 
+                 truevalue = T, 
+                 geometry = T, 
+                 auc = T, 
+                 unit = "limites")
 
 gran_santiago_plot <- tm_shape(var) +
   tm_fill(col = "VALUE",
@@ -427,6 +413,8 @@ gran_santiago_plot <- tm_shape(var) +
             inner.margins = c(0.1, 0.1, 0.10, 0.01), 
             legend.format = list(text.separator = "a", 
                                  fun = function(x) paste0(formatC(x/1e9, digits = 0, format = "f"), " mm$")))
+#> Warning: The argument size of tm_scale_bar is deprecated. It has been
+#> renamed to text.size
 
 gran_santiago_plot
 ```
@@ -441,22 +429,14 @@ library(sinimr)
 library(sf)
 library(tmap)
 
-comunas.names <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
-             "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
-             "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
-             "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
-             "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
-             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO", "PIRQUE",
-             "SAN JOSÉ DE MAIPO")
-
-comunas.codes<- filter(id_geo_census, MUNICIPALITY %in% comunas.names) %>% pull(CODE)
 
 var <- get_sinim(c(880, 882, 1226),
                  2016:2018, 
+                 region = 13,
                  truevalue = T, 
-                 geometry = T, 
-                 unit = "limites", 
-                 comuna = comunas.codes)
+                 geometry = T,
+                 auc = T,
+                 unit = "limites")
 
 gran_santiago_plot <- tm_shape(var) +
   tm_fill("VALUE",
@@ -492,20 +472,11 @@ library(zoo)
 library(scales)
 library(ggpubr)
 
-comunas.names <- c("CERRILLOS", "LA REINA", "PUDAHUEL", "CERRO NAVIA", "LAS CONDES",
-             "QUILICURA", "CONCHALÍ", "LO BARNECHEA", "QUINTA NORMAL", "EL BOSQUE",
-             "LO ESPEJO", "RECOLETA", "ESTACIÓN CENTRAL", "LO PRADO", "RENCA", "HUECHURABA",
-             "MACUL", "SAN MIGUEL", "INDEPENDENCIA", "MAIPÚ", "SAN JOAQUÍN", "LA CISTERNA", "ÑUÑOA",
-             "SAN RAMÓN", "LA FLORIDA", "PEDRO AGUIRRE CERDA", "SANTIAGO", "LA PINTANA", "PEÑALOLÉN",
-             "VITACURA", "LA GRANJA", "PROVIDENCIA", "SAN BERNARDO", "PUENTE ALTO", "PADRE HURTADO",
-             "PIRQUE", "SAN JOSÉ DE MAIPO")
-
-comunas.codes<- filter(id_geo_census, MUNICIPALITY %in% comunas.names) %>% pull(CODE)
-
 data <- get_sinim(882, 2002:2018,
+                  region = 13,
                   moncorr = F, 
                   truevalue = T,
-                  comuna = comunas.codes)
+                  auc = T)
 
 data$YEAR <- as.numeric(as.character(data$YEAR))
 data$YEAR <- as.Date(as.yearmon(data$YEAR, "1-%y"))
