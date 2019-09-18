@@ -71,9 +71,9 @@ test_that("get_sinim returns a valid output using a comuna subset", {
 
 test_that("get_sinim returns a valid output using a AUC subset", {
   
-  tbl <-  get_sinim(c(4333, 4211), 2015, region=13, auc=T)
+  tbl <-  get_sinim(var=882, year=2018, region = 13, truevalue = T, geometry = T, auc = T, unit = "limites")
   
   expect_is(tbl, c("data.frame"))
-  expect_output(str(tbl), "74 obs. of  5 variables")
+  expect_output(str(tbl), "37 obs. of  6 variables")
 })
 
