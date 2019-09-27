@@ -6,7 +6,7 @@
 
 callapi <- function(url) { # nocov start
   resp <- httr::GET(url, add_headers("X-Request-Source" = "r"))
-  stop_for_status(resp, task = "calling api")
+  stop_for_status(resp, task = "call api")
   data <- httr::content(resp, "text", encoding = "UTF-8")
   data <- substr(data, 2, nchar(data))
   
@@ -25,7 +25,7 @@ postapi <- function(url, body) { # nocov start
     )
   )
   
-  stop_for_status(resp, task = "calling api")
+  stop_for_status(resp, task = "call api")
   
   data <- jsonlite::fromJSON(content(resp, "text"))
   return(data)
