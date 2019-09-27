@@ -6,9 +6,10 @@
 
 callapi <- function(url) { # nocov start
   resp <- httr::GET(url, add_headers("X-Request-Source" = "r"))
-  stop_for_status(resp)
+  stop_for_status(resp, task = "calling api")
   data <- httr::content(resp, "text", encoding = "UTF-8")
   data <- substr(data, 2, nchar(data))
+  
   return(data)
 } # nocov end
 
@@ -23,7 +24,9 @@ postapi <- function(url, body) { # nocov start
       "X-Requested-With" = "XMLHttpRequest"
     )
   )
-  stop_for_status(resp)
+  
+  stop_for_status(resp, task = "calling api")
+  
   data <- jsonlite::fromJSON(content(resp, "text"))
   return(data)
 } # nocov end
