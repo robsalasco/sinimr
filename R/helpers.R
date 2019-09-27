@@ -69,11 +69,11 @@ getid <- function(name) { # nocov start
   values <- reshape2::melt(sapply(resp, function(b)
     b$id_dato))
   list$id <- values$value
-  colnames(list) <- c("VARIABLE", "CATEGORY", "VALUE")
-  list$VARIABLE <-
-    as.vector(lapply(as.character(list$VARIABLE), function(x)
+  colnames(list) <- c("variable", "category", "value")
+  list$variable <-
+    as.vector(lapply(as.character(list$variable), function(x)
       trimws(x)))
-  return(list[complete.cases(match(list$VARIABLE, name)), 3])
+  return(list[complete.cases(match(list$variable, name)), 3])
 } # nocov end
 
 getname <- function(names) { # nocov start
@@ -87,11 +87,11 @@ getname <- function(names) { # nocov start
   values <- reshape2::melt(sapply(resp, function(b)
     b$id_dato))
   list$id <- values$value
-  colnames(list) <- c("VARIABLE", "CATEGORY", "VALUE")
-  list$VARIABLE <-
-    as.vector(lapply(as.character(list$VARIABLE), function(x)
+  colnames(list) <- c("variable", "category", "value")
+  list$variable <-
+    as.vector(lapply(as.character(list$variable), function(x)
       trimws(x)))
-  names.list <- gsub("\\.", "", toupper(unlist(list[which(list$VALUE %in% names), 1])))
+  names.list <- gsub("\\.", "", toupper(unlist(list[which(list$value %in% names), 1])))
   return(names.list)
 } # nocov end
 
@@ -143,10 +143,10 @@ geofilter <- function(region, provincia, comuna, auc=F) { #nocov start
     stopifnot(missing(provincia))
     stopifnot(missing(comuna))
     if(auc==T) {
-      selection <- subset(id_geo_census, CODE.REG %in% region &
-                            AUC==1)$CODE
+      selection <- subset(id_geo_census, code.reg %in% region &
+                            auc==1)$code
     } else {
-      selection <- subset(id_geo_census, CODE.REG %in% region)$CODE
+      selection <- subset(id_geo_census, code.reg %in% region)$code
     }
     return(selection)
   } else if (!missing(provincia)) {
@@ -155,7 +155,7 @@ geofilter <- function(region, provincia, comuna, auc=F) { #nocov start
     if(auc==T) {
       warning("AUC not available subsetting provincias")
     }
-    selection <- subset(id_geo_census, CODE.PROV %in% provincia)$CODE
+    selection <- subset(id_geo_census, code.prov %in% provincia)$code
     return(selection)
   } else if (!missing(comuna)) {
     stopifnot(missing(region))
@@ -163,9 +163,9 @@ geofilter <- function(region, provincia, comuna, auc=F) { #nocov start
     if(auc==T) {
       warning("AUC not available subsetting comunas")
     }
-    selection <- subset(id_geo_census, CODE %in% comuna)$CODE
+    selection <- subset(id_geo_census, code %in% comuna)$code
     return(selection)
   } else {
-    return(id_geo_census$CODE)
+    return(id_geo_census$code)
   }
 } # nocov end

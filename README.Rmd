@@ -43,14 +43,14 @@ var <- get_sinim(varcode, 2018,
                  unit = "limites")
 
 gran_santiago_plot <- tm_shape(var) +
-  tm_fill(col = "VALUE",
+  tm_fill(col = "value",
           palette = "BuPu", 
           border.col = "white", 
           border.alpha = 0.5,
           lwd=1,
           style = "jenks",
           title = get_sinim_var_name(varcode))+
-  tm_text("MUNICIPALITY", size = 0.4, style="jenks") +
+  tm_text("municipality", size = 0.4, style="jenks") +
   tm_legend(legend.position = c("left", "top"), legend.title.size = 1, legend.text.size = 0.6) +
   tm_compass(type = "8star", position = c(.85, .80)) +
   tm_scale_bar(breaks = c(0, 10), text.size = 0.75, position = c("right", "bottom")) +
@@ -170,14 +170,14 @@ data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173),
                         unit = "limites")
 
 gran_santiago_plot <- tm_shape(data_sinim) +
-  tm_fill(col = "VALUE",
+  tm_fill(col = "value",
           palette = "BuPu", 
           border.col = "white", 
           border.alpha = 0.5,
           lwd=1,
           style = "jenks",
-          title = "VARIABLE")+
-  tm_text("MUNICIPALITY", size = 0.4) +
+          title = "variable")+
+  tm_text("municipality", size = 0.4) +
   tm_style("white", frame = T, legend.title.size = 1, legend.width=1) +
   tm_layout(inner.margins = c(0.01, 0.1, 0.1, 0.01),
             outer.margins = c(0.01, 0.01, 0.01, 0.01),
@@ -185,7 +185,7 @@ gran_santiago_plot <- tm_shape(data_sinim) +
             legend.format = list(text.separator = "a",
                                  fun = mm))+
   tm_borders(col = 'black') +
-  tm_facets(by="VARIABLE", ncol = 2)
+  tm_facets(by="variable", ncol = 2)
 
 gran_santiago_plot
 
@@ -209,20 +209,20 @@ var <- get_sinim(c(880, 882, 1226),
                  unit = "limites")
 
 gran_santiago_plot <- tm_shape(var) +
-  tm_fill("VALUE",
+  tm_fill("value",
           palette="BuPu", 
           border.col = "white", 
           style = "jenks", 
           border.alpha = 0.5,
           lwd=1) +
-  tm_text("MUNICIPALITY", size = 0.4) +
+  tm_text("municipality", size = 0.4) +
   tm_legend(legend.position = c("left", "top")) +
   tm_layout(legend.width=0.09,
             inner.margins = c(0.01, 0.1, 0.1, 0.01),
             outer.margins = c(0.01, 0.01, 0.01, 0.01),
             legend.format = list(text.separator = "a",
                                  fun = mm)) +
-  tm_facets(by=c("YEAR","VARIABLE"),) +
+  tm_facets(by=c("year","variable"),) +
   tm_borders(col = 'black')
 
 gran_santiago_plot
@@ -247,8 +247,8 @@ data <- get_sinim(882, 2002:2018,
                   truevalue = T,
                   auc = T)
 
-data$YEAR <- as.numeric(as.character(data$YEAR))
-data$YEAR <- as.Date(as.yearmon(data$YEAR, "1-%y"))
+data$year <- as.numeric(as.character(data$year))
+data$year <- as.Date(as.yearmon(data$year, "1-%y"))
 
 reg13 <- geogrid::read_polygons("https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson")
 grd <- grid_auto(reg13, seed = 1, names = "NOM_COMUNA", codes = "COMUNA")
@@ -256,9 +256,9 @@ grd <- grid_auto(reg13, seed = 1, names = "NOM_COMUNA", codes = "COMUNA")
 #grid_preview(grd, label = "name_NOM_COMUNA")
 #grid_design(grd, label = "name_NOM_COMUNA")
 
-ggplot(data, aes(YEAR, VALUE, group=1)) +
+ggplot(data, aes(year, value, group=1)) +
   geom_line(color = "steelblue") +
-  facet_geo(~ MUNICIPALITY, grid = grd, scales = "free_y")+
+  facet_geo(~ municipality, grid = grd, scales = "free_y")+
   scale_x_date() +
   scale_y_continuous(labels = dollar_format(suffix = "", prefix = "$", big.mark = ".", decimal.mark=","))+
   theme_bw()

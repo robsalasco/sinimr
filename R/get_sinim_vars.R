@@ -17,7 +17,7 @@ get_sinim_vars <- function(catn) {
   )
   list <- Reduce(function(...) merge(..., all = T), resp)
   sub <- as.vector(subset(list, id_subarea == catn, select = c("mtro_datos_nombre", "unidad_medida_simbolo", "id_dato")))
-  colnames(sub) <- c("VARIABLE", "UNIT", "CODE")
+  colnames(sub) <- c("variable", "unit", "code")
  
   stopifnot(nrow(sub) > 0)
   

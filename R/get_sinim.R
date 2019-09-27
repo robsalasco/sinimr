@@ -43,14 +43,14 @@ get_sinim <-
     values <- parsexml(var, year, moncorr = moncorr)
     
     colnames(values) <-
-      c("CODE", "MUNICIPALITY", namesco(var, year))
+      c("code", "municipality", namesco(var, year))
     
     datav <- stats::reshape(
       values,
-      idvar = c("CODE", "MUNICIPALITY"),
+      idvar = c("code", "municipality"),
       varying = namesco(var, year),
       direction = "long",
-      timevar = "YEAR",
+      timevar = "year",
       times = sort(year, decreasing = T)
     )
     
@@ -64,12 +64,12 @@ get_sinim <-
     if (geometry == FALSE) {
       datav <- reshape2::melt(
         datav,
-        id = c("CODE", "MUNICIPALITY", "YEAR"),
-        value.name = "VALUE",
-        variable.name = "VARIABLE"
+        id = c("code", "municipality", "year"),
+        value.name = "value",
+        variable.name = "variable"
       )
       
-      datav$VARIABLE <- as.character(datav$VARIABLE)
+      datav$variable <- as.character(datav$variable)
       
       t <-
         vapply(datav, function(x)
@@ -80,7 +80,7 @@ get_sinim <-
         (as.numeric(x)))
       
       if (truevalue == TRUE) {
-        datav$VALUE <- datav$VALUE * 1000
+        datav$value <- datav$value * 1000
       }
       
       if (!missing(region) |
@@ -91,13 +91,13 @@ get_sinim <-
                     provincia = provincia,
                     comuna = comuna,
                     auc)
-        data.selection <- subset(datav, CODE %in% selection)
+        data.selection <- subset(datav, code %in% selection)
         
         if (idgeo == T) {
           merged.pretty <-
             merge(data.selection,
                   id_geo_census,
-                  by = c("CODE", "MUNICIPALITY"))
+                  by = c("code", "municipality"))
           return(merged.pretty)
         } else {
           return(data.selection)
@@ -105,7 +105,7 @@ get_sinim <-
         
       } else {
         if (idgeo == T) {
-          merged.pretty <- merge(datav, id_geo_census, by = "CODE")
+          merged.pretty <- merge(datav, id_geo_census, by = "code")
           return(merged.pretty)
         } else {
           return(datav)
@@ -114,12 +114,12 @@ get_sinim <-
     } else {
       datav <- reshape2::melt(
         datav,
-        id = c("CODE", "MUNICIPALITY", "YEAR"),
-        value.name = "VALUE",
-        variable.name = "VARIABLE"
+        id = c("code", "municipality", "year"),
+        value.name = "value",
+        variable.name = "variable"
       )
       
-      datav$VARIABLE <- as.character(datav$VARIABLE)
+      datav$variable <- as.character(datav$variable)
       
       t <-
         vapply(datav, function(x)
@@ -130,7 +130,7 @@ get_sinim <-
         (as.numeric(x)))
       
       if (truevalue == TRUE) {
-        datav$VALUE <- datav$VALUE * 1000
+        datav$value <- datav$value * 1000
       }
       
       if (!missing(region) |
@@ -142,14 +142,14 @@ get_sinim <-
                     comuna = comuna,
                     auc)
         
-        data.selection <- subset(datav, CODE %in% selection)
+        data.selection <- subset(datav, code %in% selection)
         
         if (unit == "comunas") {
           merged.geo <-
-            merge(census_geometry_comunas, data.selection, by = "CODE")
+            merge(census_geometry_comunas, data.selection, by = "code")
         } else if (unit == "limites") {
           merged.geo <-
-            merge(census_geometry_limites, data.selection, by = "CODE")
+            merge(census_geometry_limites, data.selection, by = "code")
         } else {
           stop("Unit not valid")
         }
@@ -159,7 +159,7 @@ get_sinim <-
           merged.geo.pretty <-
             merge(merged.geo,
                   id_geo_census,
-                  by = c("CODE", "MUNICIPALITY"))
+                  by = c("code", "municipality"))
           return(merged.geo.pretty)
         } else {
           return(merged.geo)
@@ -168,17 +168,17 @@ get_sinim <-
       } else {
         if (unit == "comunas") {
           merged.geo <-
-            merge(census_geometry_comunas, datav, by = "CODE")
+            merge(census_geometry_comunas, datav, by = "code")
         } else if (unit == "limites") {
           merged.geo <-
-            merge(census_geometry_limites, datav, by = "CODE")
+            merge(census_geometry_limites, datav, by = "code")
         } else {
           stop("Unit not valid")
         }
         
         
         if (idgeo == T) {
-          merged.geo.pretty <- merge(merged.geo, id_geo_census, by = c("CODE","MUNICIPALITY"))
+          merged.geo.pretty <- merge(merged.geo, id_geo_census, by = c("code","municipality"))
           return(merged.geo.pretty)
         } else {
           return(merged.geo)

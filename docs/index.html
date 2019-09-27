@@ -109,14 +109,14 @@
 <a class="sourceLine" id="cb1-12" title="12">                 <span class="dt">unit =</span> <span class="st">"limites"</span>)</a>
 <a class="sourceLine" id="cb1-13" title="13"></a>
 <a class="sourceLine" id="cb1-14" title="14">gran_santiago_plot &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_shape">tm_shape</a></span>(var) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-15" title="15"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_fill</a></span>(<span class="dt">col =</span> <span class="st">"VALUE"</span>,</a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_fill</a></span>(<span class="dt">col =</span> <span class="st">"value"</span>,</a>
 <a class="sourceLine" id="cb1-16" title="16">          <span class="dt">palette =</span> <span class="st">"BuPu"</span>, </a>
 <a class="sourceLine" id="cb1-17" title="17">          <span class="dt">border.col =</span> <span class="st">"white"</span>, </a>
 <a class="sourceLine" id="cb1-18" title="18">          <span class="dt">border.alpha =</span> <span class="fl">0.5</span>,</a>
 <a class="sourceLine" id="cb1-19" title="19">          <span class="dt">lwd=</span><span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb1-20" title="20">          <span class="dt">style =</span> <span class="st">"jenks"</span>,</a>
 <a class="sourceLine" id="cb1-21" title="21">          <span class="dt">title =</span> <span class="kw"><a href="reference/get_sinim_var_name.html">get_sinim_var_name</a></span>(varcode))<span class="op">+</span></a>
-<a class="sourceLine" id="cb1-22" title="22"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_text">tm_text</a></span>(<span class="st">"MUNICIPALITY"</span>, <span class="dt">size =</span> <span class="fl">0.4</span>, <span class="dt">style=</span><span class="st">"jenks"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-22" title="22"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_text">tm_text</a></span>(<span class="st">"municipality"</span>, <span class="dt">size =</span> <span class="fl">0.4</span>, <span class="dt">style=</span><span class="st">"jenks"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb1-23" title="23"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_legend</a></span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="st">"left"</span>, <span class="st">"top"</span>), <span class="dt">legend.title.size =</span> <span class="dv">1</span>, <span class="dt">legend.text.size =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb1-24" title="24"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_compass">tm_compass</a></span>(<span class="dt">type =</span> <span class="st">"8star"</span>, <span class="dt">position =</span> <span class="kw">c</span>(.<span class="dv">85</span>, <span class="fl">.80</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb1-25" title="25"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_scale_bar">tm_scale_bar</a></span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">text.size =</span> <span class="fl">0.75</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">"right"</span>, <span class="st">"bottom"</span>)) <span class="op">+</span></a>
@@ -154,11 +154,11 @@
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(sinimr)</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="reference/get_sinim_cats.html">get_sinim_cats</a></span>()</a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="co">#&gt; $`-`</span></a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="co">#&gt;     VARIABLE CODE</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">#&gt;     variable code</span></a>
 <a class="sourceLine" id="cb3-5" title="5"><span class="co">#&gt; 1 * SIM FIMU  539</span></a>
 <a class="sourceLine" id="cb3-6" title="6"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-7" title="7"><span class="co">#&gt; $`01.  ADMINISTRACION Y FINANZAS MUNICIPALES`</span></a>
-<a class="sourceLine" id="cb3-8" title="8"><span class="co">#&gt;                                             VARIABLE CODE</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co">#&gt;                                             variable code</span></a>
 <a class="sourceLine" id="cb3-9" title="9"><span class="co">#&gt; 1  A.1. PRESUPUESTO INICIAL Y VIGENTE MUNICIPAL (M$)  517</span></a>
 <a class="sourceLine" id="cb3-10" title="10"><span class="co">#&gt; 2                       A. INGRESOS MUNICIPALES (M$)   21</span></a>
 <a class="sourceLine" id="cb3-11" title="11"><span class="co">#&gt; 3                        B. INGRESOS MUNICIPALES (%)  191</span></a>
@@ -174,14 +174,14 @@
 <a class="sourceLine" id="cb3-21" title="21"><span class="co">#&gt; 13                                                M.  506</span></a>
 <a class="sourceLine" id="cb3-22" title="22"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-23" title="23"><span class="co">#&gt; $`02.  RECURSOS HUMANOS MUNICIPAL`</span></a>
-<a class="sourceLine" id="cb3-24" title="24"><span class="co">#&gt;                 VARIABLE CODE</span></a>
+<a class="sourceLine" id="cb3-24" title="24"><span class="co">#&gt;                 variable code</span></a>
 <a class="sourceLine" id="cb3-25" title="25"><span class="co">#&gt; 1  A. PERSONAL DE PLANTA  381</span></a>
 <a class="sourceLine" id="cb3-26" title="26"><span class="co">#&gt; 2 B. PERSONAL A CONTRATA  382</span></a>
 <a class="sourceLine" id="cb3-27" title="27"><span class="co">#&gt; 3         C. HONORARIOS   383</span></a>
 <a class="sourceLine" id="cb3-28" title="28"><span class="co">#&gt; 4   D. OTROS INDICADORES  384</span></a>
 <a class="sourceLine" id="cb3-29" title="29"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-30" title="30"><span class="co">#&gt; $`03.  EDUCACION MUNICIPAL`</span></a>
-<a class="sourceLine" id="cb3-31" title="31"><span class="co">#&gt;                                     VARIABLE CODE</span></a>
+<a class="sourceLine" id="cb3-31" title="31"><span class="co">#&gt;                                     variable code</span></a>
 <a class="sourceLine" id="cb3-32" title="32"><span class="co">#&gt; 1     A. ANTECEDENTES GENERALES DE EDUCACION   38</span></a>
 <a class="sourceLine" id="cb3-33" title="33"><span class="co">#&gt; 2    B. ASISTENCIA Y MATRÍCULAS EN EDUCACION   32</span></a>
 <a class="sourceLine" id="cb3-34" title="34"><span class="co">#&gt; 3                          C. RESULTADOS PSU   33</span></a>
@@ -191,7 +191,7 @@
 <a class="sourceLine" id="cb3-38" title="38"><span class="co">#&gt; 7 G. ESTABLECIMIENTOS DE EDUCACION MUNICIPAL  379</span></a>
 <a class="sourceLine" id="cb3-39" title="39"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-40" title="40"><span class="co">#&gt; $`04.  SALUD MUNICIPAL`</span></a>
-<a class="sourceLine" id="cb3-41" title="41"><span class="co">#&gt;                             VARIABLE CODE</span></a>
+<a class="sourceLine" id="cb3-41" title="41"><span class="co">#&gt;                             variable code</span></a>
 <a class="sourceLine" id="cb3-42" title="42"><span class="co">#&gt; 1 A. ANTECEDENTES GENERALES DE SALUD   30</span></a>
 <a class="sourceLine" id="cb3-43" title="43"><span class="co">#&gt; 2    B. COBERTURA EN SALUD MUNICIPAL   25</span></a>
 <a class="sourceLine" id="cb3-44" title="44"><span class="co">#&gt; 3    C. INGRESOS  EN SALUD MUNICIPAL   26</span></a>
@@ -200,7 +200,7 @@
 <a class="sourceLine" id="cb3-47" title="47"><span class="co">#&gt; 6       F. RECURSOS HUMANOS EN SALUD  362</span></a>
 <a class="sourceLine" id="cb3-48" title="48"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-49" title="49"><span class="co">#&gt; $`05.  SOCIAL Y COMUNITARIA`</span></a>
-<a class="sourceLine" id="cb3-50" title="50"><span class="co">#&gt;                                VARIABLE CODE</span></a>
+<a class="sourceLine" id="cb3-50" title="50"><span class="co">#&gt;                                variable code</span></a>
 <a class="sourceLine" id="cb3-51" title="51"><span class="co">#&gt; 1         A. INFORMACION ENCUESTA CASEN   47</span></a>
 <a class="sourceLine" id="cb3-52" title="52"><span class="co">#&gt; 2 B. RED SOCIAL (SUBSIDIOS Y PENSIONES)   44</span></a>
 <a class="sourceLine" id="cb3-53" title="53"><span class="co">#&gt; 3             C. INTERMEDIACION LABORAL   43</span></a>
@@ -211,7 +211,7 @@
 <a class="sourceLine" id="cb3-58" title="58"><span class="co">#&gt; 8              H. PREVENCIÓN DEL DELITO  511</span></a>
 <a class="sourceLine" id="cb3-59" title="59"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-60" title="60"><span class="co">#&gt; $`06.  DESARROLLO Y GESTION TERRITORIAL`</span></a>
-<a class="sourceLine" id="cb3-61" title="61"><span class="co">#&gt;                                     VARIABLE CODE</span></a>
+<a class="sourceLine" id="cb3-61" title="61"><span class="co">#&gt;                                     variable code</span></a>
 <a class="sourceLine" id="cb3-62" title="62"><span class="co">#&gt; 1           A. CARACTERISTICAS TERRITORIALES   39</span></a>
 <a class="sourceLine" id="cb3-63" title="63"><span class="co">#&gt; 2        B. SERVICIOS BASICOS A LA COMUNIDAD   41</span></a>
 <a class="sourceLine" id="cb3-64" title="64"><span class="co">#&gt; 3                         C. INFRAESTRUCTURA   40</span></a>
@@ -221,22 +221,22 @@
 <a class="sourceLine" id="cb3-68" title="68"><span class="co">#&gt; 7                  G. PLAN REGULADOR COMUNAL   42</span></a>
 <a class="sourceLine" id="cb3-69" title="69"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-70" title="70"><span class="co">#&gt; $`07.  CARACTERIZACION COMUNAL`</span></a>
-<a class="sourceLine" id="cb3-71" title="71"><span class="co">#&gt;                       VARIABLE CODE</span></a>
+<a class="sourceLine" id="cb3-71" title="71"><span class="co">#&gt;                       variable code</span></a>
 <a class="sourceLine" id="cb3-72" title="72"><span class="co">#&gt; 1 A. GEOGRAFICO ADMINISTRATIVA   49</span></a>
 <a class="sourceLine" id="cb3-73" title="73"><span class="co">#&gt; 2                 B. POBLACION   50</span></a>
 <a class="sourceLine" id="cb3-74" title="74"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-75" title="75"><span class="co">#&gt; $`08.  GENERO`</span></a>
-<a class="sourceLine" id="cb3-76" title="76"><span class="co">#&gt;                                           VARIABLE CODE</span></a>
+<a class="sourceLine" id="cb3-76" title="76"><span class="co">#&gt;                                           variable code</span></a>
 <a class="sourceLine" id="cb3-77" title="77"><span class="co">#&gt; 1 A. DOTACION FUNCIONARIA Y PROFESIONAL DE MUJERES  262</span></a>
 <a class="sourceLine" id="cb3-78" title="78"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-79" title="79"><span class="co">#&gt; $`09. CEMENTERIO`</span></a>
-<a class="sourceLine" id="cb3-80" title="80"><span class="co">#&gt;                      VARIABLE CODE</span></a>
+<a class="sourceLine" id="cb3-80" title="80"><span class="co">#&gt;                      variable code</span></a>
 <a class="sourceLine" id="cb3-81" title="81"><span class="co">#&gt; 1      1. INFORMACION GENERAL  516</span></a>
 <a class="sourceLine" id="cb3-82" title="82"><span class="co">#&gt; 2 A. INGRESOS CEMENTERIO (M$)  456</span></a>
 <a class="sourceLine" id="cb3-83" title="83"><span class="co">#&gt; 3   B. GASTOS CEMENTERIO (M$)  457</span></a></code></pre></div>
 <p>Every category have a bunch of variables associated. Use the CODE number and the <code><a href="reference/get_sinim_vars.html">get_sinim_vars()</a></code> function to get them.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="reference/get_sinim_vars.html">get_sinim_vars</a></span>(<span class="dv">517</span>)</a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt;                                                       VARIABLE UNIT CODE</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt;                                                       variable unit code</span></a>
 <a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt; 108                       Presupuesto Inicial Sector Municipal M$   4210</span></a>
 <a class="sourceLine" id="cb4-4" title="4"><span class="co">#&gt; 109                     Presupuesto Inicial Gastos Municipales M$   4211</span></a>
 <a class="sourceLine" id="cb4-5" title="5"><span class="co">#&gt; 110                       Presupuesto Vigente Sector Municipal M$   4212</span></a>
@@ -244,7 +244,7 @@
 <a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; 112 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226</span></a></code></pre></div>
 <p>Finally, to obtain the data across municipalities use the code column and specify a year.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="kw">c</span>(<span class="dv">4210</span>, <span class="dv">4211</span>), <span class="dv">2015</span>))</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="co">#&gt;   CODE  MUNICIPALITY YEAR                               VARIABLE    VALUE</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co">#&gt;   code  municipality year                               variable    value</span></a>
 <a class="sourceLine" id="cb5-3" title="3"><span class="co">#&gt; 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 34245763</span></a>
 <a class="sourceLine" id="cb5-4" title="4"><span class="co">#&gt; 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9957966</span></a>
 <a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt; 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7457210</span></a>
@@ -253,14 +253,14 @@
 <a class="sourceLine" id="cb5-8" title="8"><span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3170237</span></a></code></pre></div>
 <p>By default the values are in <strong>miles de millones</strong> but it can be disabled using the <code>truevalue = T</code> switch.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="kw">c</span>(<span class="dv">4210</span>, <span class="dv">4211</span>), <span class="dv">2015</span>, <span class="dt">truevalue =</span> T))</a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt;   CODE  MUNICIPALITY YEAR                               VARIABLE</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt;   code  municipality year                               variable</span></a>
 <a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
 <a class="sourceLine" id="cb6-4" title="4"><span class="co">#&gt; 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
 <a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
 <a class="sourceLine" id="cb6-6" title="6"><span class="co">#&gt; 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
 <a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
 <a class="sourceLine" id="cb6-8" title="8"><span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span></a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt;         VALUE</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt;         value</span></a>
 <a class="sourceLine" id="cb6-10" title="10"><span class="co">#&gt; 1 34245763000</span></a>
 <a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt; 2  9957966000</span></a>
 <a class="sourceLine" id="cb6-12" title="12"><span class="co">#&gt; 3  7457210000</span></a>
@@ -269,7 +269,7 @@
 <a class="sourceLine" id="cb6-15" title="15"><span class="co">#&gt; 6  3170237000</span></a></code></pre></div>
 <p>You can get multiple years too! use the command <code><a href="reference/get_sinim.html">get_sinim()</a></code> and add more years as in the example.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="dv">880</span>, <span class="dv">2015</span><span class="op">:</span><span class="dv">2017</span>))</a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co">#&gt;   CODE  MUNICIPALITY YEAR                           VARIABLE   VALUE</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co">#&gt;   code  municipality year                           variable   value</span></a>
 <a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt; 1 1101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3342108</span></a>
 <a class="sourceLine" id="cb7-4" title="4"><span class="co">#&gt; 2 1107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7051989</span></a>
 <a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; 3 1401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1834687</span></a>
@@ -284,7 +284,7 @@
 <a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt; bbox:           xmin: -70.20924 ymin: -21.43871 xmax: -69.81985 ymax: -20.04854</span></a>
 <a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt; epsg (SRID):    4326</span></a>
 <a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
-<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt;   CODE  MUNICIPALITY YEAR                     VARIABLE    VALUE</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt;   code  municipality year                     variable    value</span></a>
 <a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt; 1 1101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 36847050</span></a>
 <a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt; 2 1101       IQUIQUE 2015 INGRESOS PROPIOS (IPP Y FCM) 34139969</span></a>
 <a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt; 3 1101       IQUIQUE 2016 INGRESOS PROPIOS (IPP Y FCM) 35586455</span></a>
@@ -306,7 +306,7 @@
 <a class="sourceLine" id="cb9-5" title="5"><span class="co">#&gt; bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254</span></a>
 <a class="sourceLine" id="cb9-6" title="6"><span class="co">#&gt; epsg (SRID):    4326</span></a>
 <a class="sourceLine" id="cb9-7" title="7"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
-<a class="sourceLine" id="cb9-8" title="8"><span class="co">#&gt;   CODE MUNICIPALITY YEAR                     VARIABLE    VALUE</span></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="co">#&gt;   code municipality year                     variable    value</span></a>
 <a class="sourceLine" id="cb9-9" title="9"><span class="co">#&gt; 1 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 48979299</span></a>
 <a class="sourceLine" id="cb9-10" title="10"><span class="co">#&gt; 2 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 51962067</span></a>
 <a class="sourceLine" id="cb9-11" title="11"><span class="co">#&gt; 3 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 52231972</span></a>
@@ -328,7 +328,7 @@
 <a class="sourceLine" id="cb10-5" title="5"><span class="co">#&gt; bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254</span></a>
 <a class="sourceLine" id="cb10-6" title="6"><span class="co">#&gt; epsg (SRID):    4326</span></a>
 <a class="sourceLine" id="cb10-7" title="7"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
-<a class="sourceLine" id="cb10-8" title="8"><span class="co">#&gt;   CODE MUNICIPALITY YEAR                     VARIABLE    VALUE</span></a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="co">#&gt;   code municipality year                     variable    value</span></a>
 <a class="sourceLine" id="cb10-9" title="9"><span class="co">#&gt; 1 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 52231972</span></a>
 <a class="sourceLine" id="cb10-10" title="10"><span class="co">#&gt; 2 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 48979299</span></a>
 <a class="sourceLine" id="cb10-11" title="11"><span class="co">#&gt; 3 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 51962067</span></a>
@@ -344,31 +344,31 @@
 <a class="sourceLine" id="cb10-21" title="21"><span class="co">#&gt; 6 MULTIPOLYGON (((-69.97002 -...</span></a></code></pre></div>
 <p>But where obtain the codes? a database is provided and you can filter it using the standard R functions.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">head</span>(id_geo_census)</a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="co">#&gt;   CODE  MUNICIPALITY CODE.REG  NOM.REG CODE.PROV  NOM.PROV AUC</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="co">#&gt;   code  municipality code.reg  nom.reg code.prov  nom.prov auc</span></a>
 <a class="sourceLine" id="cb11-3" title="3"><span class="co">#&gt; 1 1101       IQUIQUE        1 TARAPACA        11   IQUIQUE   1</span></a>
 <a class="sourceLine" id="cb11-4" title="4"><span class="co">#&gt; 2 1107 ALTO HOSPICIO        1 TARAPACA        11   IQUIQUE   1</span></a>
-<a class="sourceLine" id="cb11-5" title="5"><span class="co">#&gt; 3 1401  POZO ALMONTE        1 TARAPACA        14 TAMARUGAL   1</span></a>
-<a class="sourceLine" id="cb11-6" title="6"><span class="co">#&gt; 4 1402        CAMIÑA        1 TARAPACA        14 TAMARUGAL   1</span></a>
-<a class="sourceLine" id="cb11-7" title="7"><span class="co">#&gt; 5 1403      COLCHANE        1 TARAPACA        14 TAMARUGAL   1</span></a>
-<a class="sourceLine" id="cb11-8" title="8"><span class="co">#&gt; 6 1404         HUARA        1 TARAPACA        14 TAMARUGAL   1</span></a></code></pre></div>
+<a class="sourceLine" id="cb11-5" title="5"><span class="co">#&gt; 3 1401  POZO ALMONTE        1 TARAPACA        14 TAMARUGAL   0</span></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="co">#&gt; 4 1402        CAMIÑA        1 TARAPACA        14 TAMARUGAL   0</span></a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="co">#&gt; 5 1403      COLCHANE        1 TARAPACA        14 TAMARUGAL   0</span></a>
+<a class="sourceLine" id="cb11-8" title="8"><span class="co">#&gt; 6 1404         HUARA        1 TARAPACA        14 TAMARUGAL   0</span></a></code></pre></div>
 <p>Related to variables if you don’t know what are you looking for use <code><a href="reference/search_sinim_vars.html">search_sinim_vars()</a></code>to get search results based on variable descriptions, names and groups.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw"><a href="reference/search_sinim_vars.html">search_sinim_vars</a></span>(<span class="st">"cementerio"</span>)</a>
-<a class="sourceLine" id="cb12-2" title="2"><span class="co">#&gt;     CODE</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="co">#&gt;     code</span></a>
 <a class="sourceLine" id="cb12-3" title="3"><span class="co">#&gt; 350 4140</span></a>
 <a class="sourceLine" id="cb12-4" title="4"><span class="co">#&gt; 351 4141</span></a>
 <a class="sourceLine" id="cb12-5" title="5"><span class="co">#&gt; 352 4406</span></a>
 <a class="sourceLine" id="cb12-6" title="6"><span class="co">#&gt; 353 4407</span></a>
-<a class="sourceLine" id="cb12-7" title="7"><span class="co">#&gt;                                                                                                                                   VARIABLE</span></a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="co">#&gt;                                                                                                                                   variable</span></a>
 <a class="sourceLine" id="cb12-8" title="8"><span class="co">#&gt; 350                                                                                          Ingresos Cementerio (Ingreso Total Percibido)</span></a>
 <a class="sourceLine" id="cb12-9" title="9"><span class="co">#&gt; 351                                                                                              Gastos Cementerio (Gasto Total Devengado)</span></a>
 <a class="sourceLine" id="cb12-10" title="10"><span class="co">#&gt; 352                                                                                 ¿La Municipalidad o Corporación administra Cementerio?</span></a>
 <a class="sourceLine" id="cb12-11" title="11"><span class="co">#&gt; 353 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.</span></a>
-<a class="sourceLine" id="cb12-12" title="12"><span class="co">#&gt;                                                                                                                                                                  DESCRIPTION</span></a>
+<a class="sourceLine" id="cb12-12" title="12"><span class="co">#&gt;                                                                                                                                                                  description</span></a>
 <a class="sourceLine" id="cb12-13" title="13"><span class="co">#&gt; 350                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)</span></a>
 <a class="sourceLine" id="cb12-14" title="14"><span class="co">#&gt; 351                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).</span></a>
 <a class="sourceLine" id="cb12-15" title="15"><span class="co">#&gt; 352 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.</span></a>
 <a class="sourceLine" id="cb12-16" title="16"><span class="co">#&gt; 353                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.</span></a>
-<a class="sourceLine" id="cb12-17" title="17"><span class="co">#&gt;               AREA                     SUBAREA UNIT</span></a>
+<a class="sourceLine" id="cb12-17" title="17"><span class="co">#&gt;               area                     subarea unit</span></a>
 <a class="sourceLine" id="cb12-18" title="18"><span class="co">#&gt; 350 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  </span></a>
 <a class="sourceLine" id="cb12-19" title="19"><span class="co">#&gt; 351 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  </span></a>
 <a class="sourceLine" id="cb12-20" title="20"><span class="co">#&gt; 352 09. CEMENTERIO      1. INFORMACION GENERAL S-N </span></a>
@@ -399,14 +399,14 @@
 <a class="sourceLine" id="cb13-13" title="13">                        <span class="dt">unit =</span> <span class="st">"limites"</span>)</a>
 <a class="sourceLine" id="cb13-14" title="14"></a>
 <a class="sourceLine" id="cb13-15" title="15">gran_santiago_plot &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_shape">tm_shape</a></span>(data_sinim) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-16" title="16"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_fill</a></span>(<span class="dt">col =</span> <span class="st">"VALUE"</span>,</a>
+<a class="sourceLine" id="cb13-16" title="16"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_fill</a></span>(<span class="dt">col =</span> <span class="st">"value"</span>,</a>
 <a class="sourceLine" id="cb13-17" title="17">          <span class="dt">palette =</span> <span class="st">"BuPu"</span>, </a>
 <a class="sourceLine" id="cb13-18" title="18">          <span class="dt">border.col =</span> <span class="st">"white"</span>, </a>
 <a class="sourceLine" id="cb13-19" title="19">          <span class="dt">border.alpha =</span> <span class="fl">0.5</span>,</a>
 <a class="sourceLine" id="cb13-20" title="20">          <span class="dt">lwd=</span><span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb13-21" title="21">          <span class="dt">style =</span> <span class="st">"jenks"</span>,</a>
-<a class="sourceLine" id="cb13-22" title="22">          <span class="dt">title =</span> <span class="st">"VARIABLE"</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb13-23" title="23"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_text">tm_text</a></span>(<span class="st">"MUNICIPALITY"</span>, <span class="dt">size =</span> <span class="fl">0.4</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-22" title="22">          <span class="dt">title =</span> <span class="st">"variable"</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb13-23" title="23"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_text">tm_text</a></span>(<span class="st">"municipality"</span>, <span class="dt">size =</span> <span class="fl">0.4</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb13-24" title="24"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_style</a></span>(<span class="st">"white"</span>, <span class="dt">frame =</span> T, <span class="dt">legend.title.size =</span> <span class="dv">1</span>, <span class="dt">legend.width=</span><span class="dv">1</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb13-25" title="25"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_layout</a></span>(<span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.01</span>),</a>
 <a class="sourceLine" id="cb13-26" title="26">            <span class="dt">outer.margins =</span> <span class="kw">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>),</a>
@@ -414,7 +414,7 @@
 <a class="sourceLine" id="cb13-28" title="28">            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">text.separator =</span> <span class="st">"a"</span>,</a>
 <a class="sourceLine" id="cb13-29" title="29">                                 <span class="dt">fun =</span> mm))<span class="op">+</span></a>
 <a class="sourceLine" id="cb13-30" title="30"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_borders</a></span>(<span class="dt">col =</span> <span class="st">'black'</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-31" title="31"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_facets">tm_facets</a></span>(<span class="dt">by=</span><span class="st">"VARIABLE"</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb13-31" title="31"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_facets">tm_facets</a></span>(<span class="dt">by=</span><span class="st">"variable"</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb13-32" title="32"></a>
 <a class="sourceLine" id="cb13-33" title="33">gran_santiago_plot</a></code></pre></div>
 <p><img src="unnamed-chunk-13-1.png" width="1440"></p>
@@ -437,20 +437,20 @@
 <a class="sourceLine" id="cb14-13" title="13">                 <span class="dt">unit =</span> <span class="st">"limites"</span>)</a>
 <a class="sourceLine" id="cb14-14" title="14"></a>
 <a class="sourceLine" id="cb14-15" title="15">gran_santiago_plot &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_shape">tm_shape</a></span>(var) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-16" title="16"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_fill</a></span>(<span class="st">"VALUE"</span>,</a>
+<a class="sourceLine" id="cb14-16" title="16"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_fill</a></span>(<span class="st">"value"</span>,</a>
 <a class="sourceLine" id="cb14-17" title="17">          <span class="dt">palette=</span><span class="st">"BuPu"</span>, </a>
 <a class="sourceLine" id="cb14-18" title="18">          <span class="dt">border.col =</span> <span class="st">"white"</span>, </a>
 <a class="sourceLine" id="cb14-19" title="19">          <span class="dt">style =</span> <span class="st">"jenks"</span>, </a>
 <a class="sourceLine" id="cb14-20" title="20">          <span class="dt">border.alpha =</span> <span class="fl">0.5</span>,</a>
 <a class="sourceLine" id="cb14-21" title="21">          <span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-22" title="22"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_text">tm_text</a></span>(<span class="st">"MUNICIPALITY"</span>, <span class="dt">size =</span> <span class="fl">0.4</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-22" title="22"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_text">tm_text</a></span>(<span class="st">"municipality"</span>, <span class="dt">size =</span> <span class="fl">0.4</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb14-23" title="23"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_legend</a></span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="st">"left"</span>, <span class="st">"top"</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb14-24" title="24"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_layout">tm_layout</a></span>(<span class="dt">legend.width=</span><span class="fl">0.09</span>,</a>
 <a class="sourceLine" id="cb14-25" title="25">            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.01</span>),</a>
 <a class="sourceLine" id="cb14-26" title="26">            <span class="dt">outer.margins =</span> <span class="kw">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>),</a>
 <a class="sourceLine" id="cb14-27" title="27">            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">text.separator =</span> <span class="st">"a"</span>,</a>
 <a class="sourceLine" id="cb14-28" title="28">                                 <span class="dt">fun =</span> mm)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-29" title="29"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_facets">tm_facets</a></span>(<span class="dt">by=</span><span class="kw">c</span>(<span class="st">"YEAR"</span>,<span class="st">"VARIABLE"</span>),) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-29" title="29"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_facets">tm_facets</a></span>(<span class="dt">by=</span><span class="kw">c</span>(<span class="st">"year"</span>,<span class="st">"variable"</span>),) <span class="op">+</span></a>
 <a class="sourceLine" id="cb14-30" title="30"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tmap/topics/tm_polygons">tm_borders</a></span>(<span class="dt">col =</span> <span class="st">'black'</span>)</a>
 <a class="sourceLine" id="cb14-31" title="31"></a>
 <a class="sourceLine" id="cb14-32" title="32">gran_santiago_plot</a></code></pre></div>
@@ -474,8 +474,8 @@
 <a class="sourceLine" id="cb15-13" title="13">                  <span class="dt">truevalue =</span> T,</a>
 <a class="sourceLine" id="cb15-14" title="14">                  <span class="dt">auc =</span> T)</a>
 <a class="sourceLine" id="cb15-15" title="15"></a>
-<a class="sourceLine" id="cb15-16" title="16">data<span class="op">$</span>YEAR &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(data<span class="op">$</span>YEAR))</a>
-<a class="sourceLine" id="cb15-17" title="17">data<span class="op">$</span>YEAR &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/zoo/topics/yearmon">as.Date</a></span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/zoo/topics/yearmon">as.yearmon</a></span>(data<span class="op">$</span>YEAR, <span class="st">"1-%y"</span>))</a>
+<a class="sourceLine" id="cb15-16" title="16">data<span class="op">$</span>year &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(data<span class="op">$</span>year))</a>
+<a class="sourceLine" id="cb15-17" title="17">data<span class="op">$</span>year &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/zoo/topics/yearmon">as.Date</a></span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/zoo/topics/yearmon">as.yearmon</a></span>(data<span class="op">$</span>year, <span class="st">"1-%y"</span>))</a>
 <a class="sourceLine" id="cb15-18" title="18"></a>
 <a class="sourceLine" id="cb15-19" title="19">reg13 &lt;-<span class="st"> </span>geogrid<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/geogrid/topics/read_polygons">read_polygons</a></span>(<span class="st">"https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson"</span>)</a>
 <a class="sourceLine" id="cb15-20" title="20"><span class="co">#&gt; Reading layer `R13' from data source `https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson' using driver `GeoJSON'</span></a>
@@ -490,12 +490,12 @@
 <a class="sourceLine" id="cb15-29" title="29"><span class="co">#grid_preview(grd, label = "name_NOM_COMUNA")</span></a>
 <a class="sourceLine" id="cb15-30" title="30"><span class="co">#grid_design(grd, label = "name_NOM_COMUNA")</span></a>
 <a class="sourceLine" id="cb15-31" title="31"></a>
-<a class="sourceLine" id="cb15-32" title="32"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(data, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(YEAR, VALUE, <span class="dt">group=</span><span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-33" title="33"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(<span class="dt">color =</span> <span class="st">"steelblue"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-34" title="34"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/geofacet/topics/facet_geo">facet_geo</a></span>(<span class="op">~</span><span class="st"> </span>MUNICIPALITY, <span class="dt">grid =</span> grd, <span class="dt">scales =</span> <span class="st">"free_y"</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb15-35" title="35"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_date</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-36" title="36"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/scales/topics/dollar_format">dollar_format</a></span>(<span class="dt">suffix =</span> <span class="st">""</span>, <span class="dt">prefix =</span> <span class="st">"$"</span>, <span class="dt">big.mark =</span> <span class="st">"."</span>, <span class="dt">decimal.mark=</span><span class="st">","</span>))<span class="op">+</span></a>
-<a class="sourceLine" id="cb15-37" title="37"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb15-32" title="32"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(data, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(year, value, <span class="dt">group=</span><span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-33" title="33"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_path">geom_line</a></span>(<span class="dt">color =</span> <span class="st">"steelblue"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-34" title="34"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/geofacet/topics/facet_geo">facet_geo</a></span>(<span class="op">~</span><span class="st"> </span>municipality, <span class="dt">grid =</span> grd, <span class="dt">scales =</span> <span class="st">"free_y"</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb15-35" title="35"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_date">scale_x_date</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-36" title="36"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_continuous">scale_y_continuous</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/scales/topics/dollar_format">dollar_format</a></span>(<span class="dt">suffix =</span> <span class="st">""</span>, <span class="dt">prefix =</span> <span class="st">"$"</span>, <span class="dt">big.mark =</span> <span class="st">"."</span>, <span class="dt">decimal.mark=</span><span class="st">","</span>))<span class="op">+</span></a>
+<a class="sourceLine" id="cb15-37" title="37"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggtheme">theme_bw</a></span>()</a></code></pre></div>
 <p><img src="unnamed-chunk-15-1.png" width="2304"></p>
 </div>
 </div>

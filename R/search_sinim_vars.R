@@ -14,14 +14,14 @@ search_sinim_vars <- function(keyword) {
             body)
     data <- Reduce(function(...) merge(..., all=T), resp2)
     data <- data[ ,c(8, 10, 18, 2, 4, 5)]
-    colnames(data) <- c("CODE", "VARIABLE", "DESCRIPTION", "AREA", "SUBAREA", "UNIT")
+    colnames(data) <- c("code", "variable", "description", "area", "subarea", "unit")
     
     if (missing(keyword)) {
       search <- data
     } 
     else {
       stopifnot(is.character(keyword))
-      search <- data[with(data, grepl(keyword, paste(VARIABLE, DESCRIPTION, AREA, SUBAREA), ignore.case = T)), ]
+      search <- data[with(data, grepl(keyword, paste(variable, description, area, subarea), ignore.case = T)), ]
     }
     
     return(search)

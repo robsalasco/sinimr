@@ -40,14 +40,14 @@ var <- get_sinim(varcode, 2018,
                  unit = "limites")
 
 gran_santiago_plot <- tm_shape(var) +
-  tm_fill(col = "VALUE",
+  tm_fill(col = "value",
           palette = "BuPu", 
           border.col = "white", 
           border.alpha = 0.5,
           lwd=1,
           style = "jenks",
           title = get_sinim_var_name(varcode))+
-  tm_text("MUNICIPALITY", size = 0.4, style="jenks") +
+  tm_text("municipality", size = 0.4, style="jenks") +
   tm_legend(legend.position = c("left", "top"), legend.title.size = 1, legend.text.size = 0.6) +
   tm_compass(type = "8star", position = c(.85, .80)) +
   tm_scale_bar(breaks = c(0, 10), text.size = 0.75, position = c("right", "bottom")) +
@@ -94,11 +94,11 @@ what are available please use the `get_sinim_cats()` command.
 library(sinimr)
 get_sinim_cats()
 #> $`-`
-#>     VARIABLE CODE
+#>     variable code
 #> 1 * SIM FIMU  539
 #> 
 #> $`01.  ADMINISTRACION Y FINANZAS MUNICIPALES`
-#>                                             VARIABLE CODE
+#>                                             variable code
 #> 1  A.1. PRESUPUESTO INICIAL Y VIGENTE MUNICIPAL (M$)  517
 #> 2                       A. INGRESOS MUNICIPALES (M$)   21
 #> 3                        B. INGRESOS MUNICIPALES (%)  191
@@ -114,14 +114,14 @@ get_sinim_cats()
 #> 13                                                M.  506
 #> 
 #> $`02.  RECURSOS HUMANOS MUNICIPAL`
-#>                 VARIABLE CODE
+#>                 variable code
 #> 1  A. PERSONAL DE PLANTA  381
 #> 2 B. PERSONAL A CONTRATA  382
 #> 3         C. HONORARIOS   383
 #> 4   D. OTROS INDICADORES  384
 #> 
 #> $`03.  EDUCACION MUNICIPAL`
-#>                                     VARIABLE CODE
+#>                                     variable code
 #> 1     A. ANTECEDENTES GENERALES DE EDUCACION   38
 #> 2    B. ASISTENCIA Y MATRÍCULAS EN EDUCACION   32
 #> 3                          C. RESULTADOS PSU   33
@@ -131,7 +131,7 @@ get_sinim_cats()
 #> 7 G. ESTABLECIMIENTOS DE EDUCACION MUNICIPAL  379
 #> 
 #> $`04.  SALUD MUNICIPAL`
-#>                             VARIABLE CODE
+#>                             variable code
 #> 1 A. ANTECEDENTES GENERALES DE SALUD   30
 #> 2    B. COBERTURA EN SALUD MUNICIPAL   25
 #> 3    C. INGRESOS  EN SALUD MUNICIPAL   26
@@ -140,7 +140,7 @@ get_sinim_cats()
 #> 6       F. RECURSOS HUMANOS EN SALUD  362
 #> 
 #> $`05.  SOCIAL Y COMUNITARIA`
-#>                                VARIABLE CODE
+#>                                variable code
 #> 1         A. INFORMACION ENCUESTA CASEN   47
 #> 2 B. RED SOCIAL (SUBSIDIOS Y PENSIONES)   44
 #> 3             C. INTERMEDIACION LABORAL   43
@@ -151,7 +151,7 @@ get_sinim_cats()
 #> 8              H. PREVENCIÓN DEL DELITO  511
 #> 
 #> $`06.  DESARROLLO Y GESTION TERRITORIAL`
-#>                                     VARIABLE CODE
+#>                                     variable code
 #> 1           A. CARACTERISTICAS TERRITORIALES   39
 #> 2        B. SERVICIOS BASICOS A LA COMUNIDAD   41
 #> 3                         C. INFRAESTRUCTURA   40
@@ -161,16 +161,16 @@ get_sinim_cats()
 #> 7                  G. PLAN REGULADOR COMUNAL   42
 #> 
 #> $`07.  CARACTERIZACION COMUNAL`
-#>                       VARIABLE CODE
+#>                       variable code
 #> 1 A. GEOGRAFICO ADMINISTRATIVA   49
 #> 2                 B. POBLACION   50
 #> 
 #> $`08.  GENERO`
-#>                                           VARIABLE CODE
+#>                                           variable code
 #> 1 A. DOTACION FUNCIONARIA Y PROFESIONAL DE MUJERES  262
 #> 
 #> $`09. CEMENTERIO`
-#>                      VARIABLE CODE
+#>                      variable code
 #> 1      1. INFORMACION GENERAL  516
 #> 2 A. INGRESOS CEMENTERIO (M$)  456
 #> 3   B. GASTOS CEMENTERIO (M$)  457
@@ -181,7 +181,7 @@ and the `get_sinim_vars()` function to get them.
 
 ``` r
 get_sinim_vars(517)
-#>                                                       VARIABLE UNIT CODE
+#>                                                       variable unit code
 #> 108                       Presupuesto Inicial Sector Municipal M$   4210
 #> 109                     Presupuesto Inicial Gastos Municipales M$   4211
 #> 110                       Presupuesto Vigente Sector Municipal M$   4212
@@ -194,7 +194,7 @@ and specify a year.
 
 ``` r
 head(get_sinim(c(4210, 4211), 2015))
-#>   CODE  MUNICIPALITY YEAR                               VARIABLE    VALUE
+#>   code  municipality year                               variable    value
 #> 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 34245763
 #> 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9957966
 #> 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7457210
@@ -208,14 +208,14 @@ disabled using the `truevalue = T` switch.
 
 ``` r
 head(get_sinim(c(4210, 4211), 2015, truevalue = T))
-#>   CODE  MUNICIPALITY YEAR                               VARIABLE
+#>   code  municipality year                               variable
 #> 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
 #> 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
 #> 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
 #> 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
 #> 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
 #> 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
-#>         VALUE
+#>         value
 #> 1 34245763000
 #> 2  9957966000
 #> 3  7457210000
@@ -229,7 +229,7 @@ more years as in the example.
 
 ``` r
 head(get_sinim(880, 2015:2017))
-#>   CODE  MUNICIPALITY YEAR                           VARIABLE   VALUE
+#>   code  municipality year                           variable   value
 #> 1 1101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3342108
 #> 2 1107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7051989
 #> 3 1401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1834687
@@ -254,7 +254,7 @@ head(get_sinim(882, 2015:2017, geometry=T))
 #> bbox:           xmin: -70.20924 ymin: -21.43871 xmax: -69.81985 ymax: -20.04854
 #> epsg (SRID):    4326
 #> proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#>   CODE  MUNICIPALITY YEAR                     VARIABLE    VALUE
+#>   code  municipality year                     variable    value
 #> 1 1101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 36847050
 #> 2 1101       IQUIQUE 2015 INGRESOS PROPIOS (IPP Y FCM) 34139969
 #> 3 1101       IQUIQUE 2016 INGRESOS PROPIOS (IPP Y FCM) 35586455
@@ -284,7 +284,7 @@ head(get_sinim(882, 2015:2017, geometry=T, region=2))
 #> bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254
 #> epsg (SRID):    4326
 #> proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#>   CODE MUNICIPALITY YEAR                     VARIABLE    VALUE
+#>   code municipality year                     variable    value
 #> 1 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 48979299
 #> 2 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 51962067
 #> 3 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 52231972
@@ -310,7 +310,7 @@ head(get_sinim(882, 2015:2017, geometry=T, region=c(2,3)))
 #> bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254
 #> epsg (SRID):    4326
 #> proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#>   CODE MUNICIPALITY YEAR                     VARIABLE    VALUE
+#>   code municipality year                     variable    value
 #> 1 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 52231972
 #> 2 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 48979299
 #> 3 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 51962067
@@ -331,13 +331,13 @@ using the standard R functions.
 
 ``` r
 head(id_geo_census)
-#>   CODE  MUNICIPALITY CODE.REG  NOM.REG CODE.PROV  NOM.PROV AUC
+#>   code  municipality code.reg  nom.reg code.prov  nom.prov auc
 #> 1 1101       IQUIQUE        1 TARAPACA        11   IQUIQUE   1
 #> 2 1107 ALTO HOSPICIO        1 TARAPACA        11   IQUIQUE   1
-#> 3 1401  POZO ALMONTE        1 TARAPACA        14 TAMARUGAL   1
-#> 4 1402        CAMIÑA        1 TARAPACA        14 TAMARUGAL   1
-#> 5 1403      COLCHANE        1 TARAPACA        14 TAMARUGAL   1
-#> 6 1404         HUARA        1 TARAPACA        14 TAMARUGAL   1
+#> 3 1401  POZO ALMONTE        1 TARAPACA        14 TAMARUGAL   0
+#> 4 1402        CAMIÑA        1 TARAPACA        14 TAMARUGAL   0
+#> 5 1403      COLCHANE        1 TARAPACA        14 TAMARUGAL   0
+#> 6 1404         HUARA        1 TARAPACA        14 TAMARUGAL   0
 ```
 
 Related to variables if you don’t know what are you looking for use
@@ -346,22 +346,22 @@ descriptions, names and groups.
 
 ``` r
 search_sinim_vars("cementerio")
-#>     CODE
+#>     code
 #> 350 4140
 #> 351 4141
 #> 352 4406
 #> 353 4407
-#>                                                                                                                                   VARIABLE
+#>                                                                                                                                   variable
 #> 350                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
 #> 351                                                                                              Gastos Cementerio (Gasto Total Devengado)
 #> 352                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
 #> 353 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
-#>                                                                                                                                                                  DESCRIPTION
+#>                                                                                                                                                                  description
 #> 350                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
 #> 351                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
 #> 352 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
 #> 353                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
-#>               AREA                     SUBAREA UNIT
+#>               area                     subarea unit
 #> 350 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
 #> 351 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
 #> 352 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
@@ -396,14 +396,14 @@ data_sinim <- get_sinim(var = c(3954,4174,880,1226,4251,4173),
                         unit = "limites")
 
 gran_santiago_plot <- tm_shape(data_sinim) +
-  tm_fill(col = "VALUE",
+  tm_fill(col = "value",
           palette = "BuPu", 
           border.col = "white", 
           border.alpha = 0.5,
           lwd=1,
           style = "jenks",
-          title = "VARIABLE")+
-  tm_text("MUNICIPALITY", size = 0.4) +
+          title = "variable")+
+  tm_text("municipality", size = 0.4) +
   tm_style("white", frame = T, legend.title.size = 1, legend.width=1) +
   tm_layout(inner.margins = c(0.01, 0.1, 0.1, 0.01),
             outer.margins = c(0.01, 0.01, 0.01, 0.01),
@@ -411,7 +411,7 @@ gran_santiago_plot <- tm_shape(data_sinim) +
             legend.format = list(text.separator = "a",
                                  fun = mm))+
   tm_borders(col = 'black') +
-  tm_facets(by="VARIABLE", ncol = 2)
+  tm_facets(by="variable", ncol = 2)
 
 gran_santiago_plot
 ```
@@ -436,20 +436,20 @@ var <- get_sinim(c(880, 882, 1226),
                  unit = "limites")
 
 gran_santiago_plot <- tm_shape(var) +
-  tm_fill("VALUE",
+  tm_fill("value",
           palette="BuPu", 
           border.col = "white", 
           style = "jenks", 
           border.alpha = 0.5,
           lwd=1) +
-  tm_text("MUNICIPALITY", size = 0.4) +
+  tm_text("municipality", size = 0.4) +
   tm_legend(legend.position = c("left", "top")) +
   tm_layout(legend.width=0.09,
             inner.margins = c(0.01, 0.1, 0.1, 0.01),
             outer.margins = c(0.01, 0.01, 0.01, 0.01),
             legend.format = list(text.separator = "a",
                                  fun = mm)) +
-  tm_facets(by=c("YEAR","VARIABLE"),) +
+  tm_facets(by=c("year","variable"),) +
   tm_borders(col = 'black')
 
 gran_santiago_plot
@@ -475,8 +475,8 @@ data <- get_sinim(882, 2002:2018,
                   truevalue = T,
                   auc = T)
 
-data$YEAR <- as.numeric(as.character(data$YEAR))
-data$YEAR <- as.Date(as.yearmon(data$YEAR, "1-%y"))
+data$year <- as.numeric(as.character(data$year))
+data$year <- as.Date(as.yearmon(data$year, "1-%y"))
 
 reg13 <- geogrid::read_polygons("https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson")
 #> Reading layer `R13' from data source `https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson' using driver `GeoJSON'
@@ -491,9 +491,9 @@ grd <- grid_auto(reg13, seed = 1, names = "NOM_COMUNA", codes = "COMUNA")
 #grid_preview(grd, label = "name_NOM_COMUNA")
 #grid_design(grd, label = "name_NOM_COMUNA")
 
-ggplot(data, aes(YEAR, VALUE, group=1)) +
+ggplot(data, aes(year, value, group=1)) +
   geom_line(color = "steelblue") +
-  facet_geo(~ MUNICIPALITY, grid = grd, scales = "free_y")+
+  facet_geo(~ municipality, grid = grd, scales = "free_y")+
   scale_x_date() +
   scale_y_continuous(labels = dollar_format(suffix = "", prefix = "$", big.mark = ".", decimal.mark=","))+
   theme_bw()
