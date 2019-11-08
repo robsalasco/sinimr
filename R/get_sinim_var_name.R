@@ -9,5 +9,6 @@
 #' get_sinim_var_name(c(880, 882))
 get_sinim_var_name <- function(var) {
   x <- getname(var)
+  
   return(x)
 }
