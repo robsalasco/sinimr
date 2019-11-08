@@ -6,7 +6,7 @@ test_that("get_sinim returns a valid output", {
   
   expect_is(tbl, "data.frame")
   expect_true(is.numeric(tbl$value))
-  expect_output(str(tbl), "346 obs. of  5 variables")
+  expect_output(str(tbl), "345 obs. of  5 variables")
 })
 
 
