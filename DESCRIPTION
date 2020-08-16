@@ -17,7 +17,6 @@ Imports:
     stats,
     sf
 Collate:
-    sinimr.R
     get_sinim_cats.R
     get_sinim.R
     get_sinim_vars.R
@@ -26,7 +25,7 @@ Collate:
     mm.R
     helpers.R
 Encoding: UTF-8
-RoxygenNote: 6.1.0
+RoxygenNote: 7.1.0
 Suggests: testthat,
     covr,
     knitr,

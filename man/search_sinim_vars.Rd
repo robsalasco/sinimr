@@ -16,6 +16,5 @@ data frame with results
 Search for a SINIM variable and if no keyword is provided returns all variables
 }
 \examples{
-search_sinim_vars()
 search_sinim_vars("ingresos propios")
 }

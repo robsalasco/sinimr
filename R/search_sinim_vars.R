@@ -3,7 +3,6 @@
 #' @return data frame with results 
 #' @export
 #' @examples
-#' search_sinim_vars()
 #' search_sinim_vars("ingresos propios")
 
 search_sinim_vars <- function(keyword) {

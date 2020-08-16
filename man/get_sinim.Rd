@@ -4,8 +4,19 @@
 \alias{get_sinim}
 \title{Get a SINIM variable data in a specific year as a data frame}
 \usage{
-get_sinim(var, year, moncorr = T, truevalue = F, idgeo = F,
-  geometry = F, region, provincia, comuna, auc = F, unit = "comunas")
+get_sinim(
+  var,
+  year,
+  moncorr = T,
+  truevalue = F,
+  idgeo = F,
+  geometry = F,
+  region,
+  provincia,
+  comuna,
+  auc = F,
+  unit = "comunas"
+)
 }
 \arguments{
 \item{var}{Variable code}
