@@ -148,7 +148,7 @@ search_sinim_vars("cementerio")
 
 ## Advanced usage
 
-SINIM (Sistema Nacional de Información Municipal) by default applies a monetary correction to show current values of variables. The original values provided by municipalities are available using the ```moncorr==F``` switch. And if you want geographical identifiers like region or provincia you can apply them using  ```idgeo==T``` switch.
+SINIM (Sistema Nacional de Información Municipal) by default applies a monetary correction to show current values of variables. The original values provided by municipalities are available using the ```moncorr = F``` switch. And if you want geographical identifiers like region or provincia you can apply them using  ```idgeo = T``` switch.
 
 ### Other example plots
 

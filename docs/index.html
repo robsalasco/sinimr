@@ -132,7 +132,7 @@
 <h3 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h3>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"robsalasco/sinimr"</span>)</pre></div>
+<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"robsalasco/sinimr"</span>)</pre></div>
 </div>
 <div id="how-do-i-use-it" class="section level3">
 <h3 class="hasAnchor">
@@ -228,56 +228,49 @@
 <span class="co">#&gt; 109                     Presupuesto Inicial Gastos Municipales M$   4211</span>
 <span class="co">#&gt; 110                       Presupuesto Vigente Sector Municipal M$   4212</span>
 <span class="co">#&gt; 111                     Presupuesto Vigente Gastos Municpiales M$   4213</span>
-<span class="co">#&gt; 112 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226</span></pre></div>
+<span class="co">#&gt; 112 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226</span>
+<span class="co">#&gt; 113 Presupuesto Inicial Saldo Inicial de Caja sector Municipal M$   4441</span></pre></div>
 <p>Finally, to obtain the data across municipalities use the code column and specify a year.</p>
 <div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4210</span>, <span class="fl">4211</span>), <span class="fl">2015</span>))
 <span class="co">#&gt;   code  municipality year                               variable    value</span>
-<span class="co">#&gt; 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 34245763</span>
-<span class="co">#&gt; 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9957966</span>
-<span class="co">#&gt; 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7457210</span>
-<span class="co">#&gt; 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1280727</span>
-<span class="co">#&gt; 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2067156</span>
-<span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3170237</span></pre></div>
+<span class="co">#&gt; 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 35295076</span>
+<span class="co">#&gt; 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 10263084</span>
+<span class="co">#&gt; 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7685704</span>
+<span class="co">#&gt; 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1319970</span>
+<span class="co">#&gt; 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2130495</span>
+<span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3267375</span></pre></div>
 <p>By default the values are in <strong>miles de millones</strong> but it can be disabled using the <code>truevalue = T</code> switch.</p>
 <div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4210</span>, <span class="fl">4211</span>), <span class="fl">2015</span>, <span class="kw">truevalue</span> <span class="kw">=</span> <span class="no">T</span>))
-<span class="co">#&gt;   code  municipality year                               variable</span>
-<span class="co">#&gt; 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span>
-<span class="co">#&gt; 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span>
-<span class="co">#&gt; 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span>
-<span class="co">#&gt; 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span>
-<span class="co">#&gt; 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span>
-<span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES</span>
-<span class="co">#&gt;         value</span>
-<span class="co">#&gt; 1 34245763000</span>
-<span class="co">#&gt; 2  9957966000</span>
-<span class="co">#&gt; 3  7457210000</span>
-<span class="co">#&gt; 4  1280727000</span>
-<span class="co">#&gt; 5  2067156000</span>
-<span class="co">#&gt; 6  3170237000</span></pre></div>
+<span class="co">#&gt;   code  municipality year                               variable       value</span>
+<span class="co">#&gt; 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 35295076000</span>
+<span class="co">#&gt; 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 10263084000</span>
+<span class="co">#&gt; 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7685704000</span>
+<span class="co">#&gt; 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1319970000</span>
+<span class="co">#&gt; 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2130495000</span>
+<span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3267375000</span></pre></div>
 <p>You can get multiple years too! use the command <code><a href="reference/get_sinim.html">get_sinim()</a></code> and add more years as in the example.</p>
 <div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">880</span>, <span class="fl">2015</span>:<span class="fl">2017</span>))
 <span class="co">#&gt;   code  municipality year                           variable   value</span>
-<span class="co">#&gt; 1 1101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3342108</span>
-<span class="co">#&gt; 2 1107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7051989</span>
-<span class="co">#&gt; 3 1401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1834687</span>
-<span class="co">#&gt; 4 1402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1580275</span>
-<span class="co">#&gt; 5 1403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1123179</span>
-<span class="co">#&gt; 6 1404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1366952</span></pre></div>
+<span class="co">#&gt; 1 1101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3439830</span>
+<span class="co">#&gt; 2 1107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7258188</span>
+<span class="co">#&gt; 3 1401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1888333</span>
+<span class="co">#&gt; 4 1402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1626482</span>
+<span class="co">#&gt; 5 1403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1156020</span>
+<span class="co">#&gt; 6 1404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1406921</span></pre></div>
 <p>The geometries are available in long format using the <code>geometry==T</code> argument. By default it uses the <strong>comunal</strong> geographies but the <strong>limite urbano censal</strong> is also available. The switches are <code>unit="comunas"</code> and <code>unit="limites"</code>. Note: Using <strong>limites</strong> not all features are available because some comunas are not related to urban zones. As shown in the example below you can obtain multiple years and variables in long format.</p>
 <div class="sourceCode" id="cb8"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">882</span>, <span class="fl">2015</span>:<span class="fl">2017</span>, <span class="kw">geometry</span><span class="kw">=</span><span class="no">T</span>))
 <span class="co">#&gt; Simple feature collection with 6 features and 5 fields</span>
 <span class="co">#&gt; geometry type:  MULTIPOLYGON</span>
 <span class="co">#&gt; dimension:      XY</span>
 <span class="co">#&gt; bbox:           xmin: -70.20924 ymin: -21.43871 xmax: -69.81985 ymax: -20.04854</span>
-<span class="co">#&gt; epsg (SRID):    4326</span>
-<span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span>
+<span class="co">#&gt; geographic CRS: WGS 84</span>
 <span class="co">#&gt;   code  municipality year                     variable    value</span>
-<span class="co">#&gt; 1 1101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 36847050</span>
-<span class="co">#&gt; 2 1101       IQUIQUE 2015 INGRESOS PROPIOS (IPP Y FCM) 34139969</span>
-<span class="co">#&gt; 3 1101       IQUIQUE 2016 INGRESOS PROPIOS (IPP Y FCM) 35586455</span>
-<span class="co">#&gt; 4 1107 ALTO HOSPICIO 2016 INGRESOS PROPIOS (IPP Y FCM) 10600513</span>
-<span class="co">#&gt; 5 1107 ALTO HOSPICIO 2017 INGRESOS PROPIOS (IPP Y FCM) 11054686</span>
-<span class="co">#&gt; 6 1107 ALTO HOSPICIO 2015 INGRESOS PROPIOS (IPP Y FCM) 10386815</span>
+<span class="co">#&gt; 1 1101       IQUIQUE 2016 INGRESOS PROPIOS (IPP Y FCM) 36638105</span>
+<span class="co">#&gt; 2 1101       IQUIQUE 2015 INGRESOS PROPIOS (IPP Y FCM) 35186041</span>
+<span class="co">#&gt; 3 1101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 37924449</span>
+<span class="co">#&gt; 4 1107 ALTO HOSPICIO 2017 INGRESOS PROPIOS (IPP Y FCM) 11377923</span>
+<span class="co">#&gt; 5 1107 ALTO HOSPICIO 2016 INGRESOS PROPIOS (IPP Y FCM) 10913779</span>
+<span class="co">#&gt; 6 1107 ALTO HOSPICIO 2015 INGRESOS PROPIOS (IPP Y FCM) 10705074</span>
 <span class="co">#&gt;                         geometry</span>
 <span class="co">#&gt; 1 MULTIPOLYGON (((-70.09894 -...</span>
 <span class="co">#&gt; 2 MULTIPOLYGON (((-70.09894 -...</span>
@@ -291,14 +284,13 @@
 <span class="co">#&gt; geometry type:  MULTIPOLYGON</span>
 <span class="co">#&gt; dimension:      XY</span>
 <span class="co">#&gt; bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254</span>
-<span class="co">#&gt; epsg (SRID):    4326</span>
-<span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span>
+<span class="co">#&gt; geographic CRS: WGS 84</span>
 <span class="co">#&gt;   code municipality year                     variable    value</span>
-<span class="co">#&gt; 1 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 48979299</span>
-<span class="co">#&gt; 2 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 51962067</span>
-<span class="co">#&gt; 3 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 52231972</span>
-<span class="co">#&gt; 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  6829739</span>
-<span class="co">#&gt; 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6209799</span>
+<span class="co">#&gt; 1 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 50480057</span>
+<span class="co">#&gt; 2 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 53481425</span>
+<span class="co">#&gt; 3 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 53775528</span>
+<span class="co">#&gt; 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  7031571</span>
+<span class="co">#&gt; 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6400071</span>
 <span class="co">#&gt; 6 2102   MEJILLONES 2017 INGRESOS PROPIOS (IPP Y FCM)       NA</span>
 <span class="co">#&gt;                         geometry</span>
 <span class="co">#&gt; 1 MULTIPOLYGON (((-70.60654 -...</span>
@@ -313,14 +305,13 @@
 <span class="co">#&gt; geometry type:  MULTIPOLYGON</span>
 <span class="co">#&gt; dimension:      XY</span>
 <span class="co">#&gt; bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254</span>
-<span class="co">#&gt; epsg (SRID):    4326</span>
-<span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span>
+<span class="co">#&gt; geographic CRS: WGS 84</span>
 <span class="co">#&gt;   code municipality year                     variable    value</span>
-<span class="co">#&gt; 1 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 52231972</span>
-<span class="co">#&gt; 2 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 48979299</span>
-<span class="co">#&gt; 3 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 51962067</span>
-<span class="co">#&gt; 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  6829739</span>
-<span class="co">#&gt; 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6209799</span>
+<span class="co">#&gt; 1 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 53775528</span>
+<span class="co">#&gt; 2 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 50480057</span>
+<span class="co">#&gt; 3 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 53481425</span>
+<span class="co">#&gt; 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  7031571</span>
+<span class="co">#&gt; 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6400071</span>
 <span class="co">#&gt; 6 2102   MEJILLONES 2017 INGRESOS PROPIOS (IPP Y FCM)       NA</span>
 <span class="co">#&gt;                         geometry</span>
 <span class="co">#&gt; 1 MULTIPOLYGON (((-70.60654 -...</span>
@@ -341,25 +332,25 @@
 <p>Related to variables if you don’t know what are you looking for use <code><a href="reference/search_sinim_vars.html">search_sinim_vars()</a></code>to get search results based on variable descriptions, names and groups.</p>
 <div class="sourceCode" id="cb12"><pre class="r"><span class="fu"><a href="reference/search_sinim_vars.html">search_sinim_vars</a></span>(<span class="st">"cementerio"</span>)
 <span class="co">#&gt;     code</span>
-<span class="co">#&gt; 350 4140</span>
-<span class="co">#&gt; 351 4141</span>
-<span class="co">#&gt; 352 4406</span>
-<span class="co">#&gt; 353 4407</span>
+<span class="co">#&gt; 356 4140</span>
+<span class="co">#&gt; 357 4141</span>
+<span class="co">#&gt; 358 4406</span>
+<span class="co">#&gt; 359 4407</span>
 <span class="co">#&gt;                                                                                                                                   variable</span>
-<span class="co">#&gt; 350                                                                                          Ingresos Cementerio (Ingreso Total Percibido)</span>
-<span class="co">#&gt; 351                                                                                              Gastos Cementerio (Gasto Total Devengado)</span>
-<span class="co">#&gt; 352                                                                                 ¿La Municipalidad o Corporación administra Cementerio?</span>
-<span class="co">#&gt; 353 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.</span>
+<span class="co">#&gt; 356                                                                                          Ingresos Cementerio (Ingreso Total Percibido)</span>
+<span class="co">#&gt; 357                                                                                              Gastos Cementerio (Gasto Total Devengado)</span>
+<span class="co">#&gt; 358                                                                                 ¿La Municipalidad o Corporación administra Cementerio?</span>
+<span class="co">#&gt; 359 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.</span>
 <span class="co">#&gt;                                                                                                                                                                  description</span>
-<span class="co">#&gt; 350                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)</span>
-<span class="co">#&gt; 351                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).</span>
-<span class="co">#&gt; 352 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.</span>
-<span class="co">#&gt; 353                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.</span>
+<span class="co">#&gt; 356                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)</span>
+<span class="co">#&gt; 357                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).</span>
+<span class="co">#&gt; 358 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.</span>
+<span class="co">#&gt; 359                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.</span>
 <span class="co">#&gt;               area                     subarea unit</span>
-<span class="co">#&gt; 350 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  </span>
-<span class="co">#&gt; 351 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  </span>
-<span class="co">#&gt; 352 09. CEMENTERIO      1. INFORMACION GENERAL S-N </span>
-<span class="co">#&gt; 353 09. CEMENTERIO      1. INFORMACION GENERAL S-N</span></pre></div>
+<span class="co">#&gt; 356 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  </span>
+<span class="co">#&gt; 357 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  </span>
+<span class="co">#&gt; 358 09. CEMENTERIO      1. INFORMACION GENERAL S-N </span>
+<span class="co">#&gt; 359 09. CEMENTERIO      1. INFORMACION GENERAL S-N</span></pre></div>
 </div>
 <div id="advanced-usage" class="section level2">
 <h2 class="hasAnchor">
@@ -465,13 +456,15 @@
 <span class="no">data</span>$<span class="no">year</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.yearmon</a></span>(<span class="no">data</span>$<span class="no">year</span>, <span class="st">"1-%y"</span>))
 
 <span class="no">reg13</span> <span class="kw">&lt;-</span> <span class="kw pkg">geogrid</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/geogrid/man/read_polygons.html">read_polygons</a></span>(<span class="st">"https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson"</span>)
+<span class="co">#&gt; Warning: 'geogrid::read_polygons' is deprecated.</span>
+<span class="co">#&gt; Use 'sf::st_read' instead.</span>
+<span class="co">#&gt; See help("Deprecated")</span>
 <span class="co">#&gt; Reading layer `R13' from data source `https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson' using driver `GeoJSON'</span>
 <span class="co">#&gt; Simple feature collection with 37 features and 8 fields</span>
 <span class="co">#&gt; geometry type:  POLYGON</span>
 <span class="co">#&gt; dimension:      XY</span>
 <span class="co">#&gt; bbox:           xmin: -70.84306 ymin: -33.65716 xmax: -70.43015 ymax: -33.31069</span>
-<span class="co">#&gt; epsg (SRID):    4326</span>
-<span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span>
+<span class="co">#&gt; geographic CRS: WGS 84</span>
 <span class="no">grd</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/grid_auto.html">grid_auto</a></span>(<span class="no">reg13</span>, <span class="kw">seed</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">names</span> <span class="kw">=</span> <span class="st">"NOM_COMUNA"</span>, <span class="kw">codes</span> <span class="kw">=</span> <span class="st">"COMUNA"</span>)
 
 <span class="co">#grid_preview(grd, label = "name_NOM_COMUNA")</span>
@@ -481,7 +474,7 @@
   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="st">"steelblue"</span>) +
   <span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/facet_geo.html">facet_geo</a></span>(~ <span class="no">municipality</span>, <span class="kw">grid</span> <span class="kw">=</span> <span class="no">grd</span>, <span class="kw">scales</span> <span class="kw">=</span> <span class="st">"free_y"</span>)+
   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_date.html">scale_x_date</a></span>() +
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_continuous.html">scale_y_continuous</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/scales/man/label_dollar.html">dollar_format</a></span>(<span class="kw">suffix</span> <span class="kw">=</span> <span class="st">""</span>, <span class="kw">prefix</span> <span class="kw">=</span> <span class="st">"$"</span>, <span class="kw">big.mark</span> <span class="kw">=</span> <span class="st">"."</span>, <span class="kw">decimal.mark</span><span class="kw">=</span><span class="st">","</span>))+
+  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_continuous.html">scale_y_continuous</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://scales.r-lib.org//reference/label_dollar.html">dollar_format</a></span>(<span class="kw">suffix</span> <span class="kw">=</span> <span class="st">""</span>, <span class="kw">prefix</span> <span class="kw">=</span> <span class="st">"$"</span>, <span class="kw">big.mark</span> <span class="kw">=</span> <span class="st">"."</span>, <span class="kw">decimal.mark</span><span class="kw">=</span><span class="st">","</span>))+
   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_bw</a></span>()</pre></div>
 <p><img src="docs/unnamed-chunk-15-1.png" width="2304"></p>
 </div>

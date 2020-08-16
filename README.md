@@ -187,6 +187,7 @@ get_sinim_vars(517)
 #> 110                       Presupuesto Vigente Sector Municipal M$   4212
 #> 111                     Presupuesto Vigente Gastos Municpiales M$   4213
 #> 112 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226
+#> 113 Presupuesto Inicial Saldo Inicial de Caja sector Municipal M$   4441
 ```
 
 Finally, to obtain the data across municipalities use the code column
@@ -195,12 +196,12 @@ and specify a year.
 ``` r
 head(get_sinim(c(4210, 4211), 2015))
 #>   code  municipality year                               variable    value
-#> 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 34245763
-#> 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  9957966
-#> 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7457210
-#> 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1280727
-#> 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2067156
-#> 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3170237
+#> 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 35295076
+#> 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 10263084
+#> 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7685704
+#> 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1319970
+#> 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2130495
+#> 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3267375
 ```
 
 By default the values are in **miles de millones** but it can be
@@ -208,20 +209,13 @@ disabled using the `truevalue = T` switch.
 
 ``` r
 head(get_sinim(c(4210, 4211), 2015, truevalue = T))
-#>   code  municipality year                               variable
-#> 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
-#> 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
-#> 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
-#> 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
-#> 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
-#> 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES
-#>         value
-#> 1 34245763000
-#> 2  9957966000
-#> 3  7457210000
-#> 4  1280727000
-#> 5  2067156000
-#> 6  3170237000
+#>   code  municipality year                               variable       value
+#> 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 35295076000
+#> 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 10263084000
+#> 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7685704000
+#> 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1319970000
+#> 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2130495000
+#> 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3267375000
 ```
 
 You can get multiple years too\! use the command `get_sinim()` and add
@@ -230,12 +224,12 @@ more years as in the example.
 ``` r
 head(get_sinim(880, 2015:2017))
 #>   code  municipality year                           variable   value
-#> 1 1101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3342108
-#> 2 1107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7051989
-#> 3 1401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1834687
-#> 4 1402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1580275
-#> 5 1403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1123179
-#> 6 1404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1366952
+#> 1 1101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3439830
+#> 2 1107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7258188
+#> 3 1401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1888333
+#> 4 1402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1626482
+#> 5 1403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1156020
+#> 6 1404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1406921
 ```
 
 The geometries are available in long format using the `geometry==T`
@@ -252,15 +246,14 @@ head(get_sinim(882, 2015:2017, geometry=T))
 #> geometry type:  MULTIPOLYGON
 #> dimension:      XY
 #> bbox:           xmin: -70.20924 ymin: -21.43871 xmax: -69.81985 ymax: -20.04854
-#> epsg (SRID):    4326
-#> proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#> geographic CRS: WGS 84
 #>   code  municipality year                     variable    value
-#> 1 1101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 36847050
-#> 2 1101       IQUIQUE 2015 INGRESOS PROPIOS (IPP Y FCM) 34139969
-#> 3 1101       IQUIQUE 2016 INGRESOS PROPIOS (IPP Y FCM) 35586455
-#> 4 1107 ALTO HOSPICIO 2016 INGRESOS PROPIOS (IPP Y FCM) 10600513
-#> 5 1107 ALTO HOSPICIO 2017 INGRESOS PROPIOS (IPP Y FCM) 11054686
-#> 6 1107 ALTO HOSPICIO 2015 INGRESOS PROPIOS (IPP Y FCM) 10386815
+#> 1 1101       IQUIQUE 2016 INGRESOS PROPIOS (IPP Y FCM) 36638105
+#> 2 1101       IQUIQUE 2015 INGRESOS PROPIOS (IPP Y FCM) 35186041
+#> 3 1101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 37924449
+#> 4 1107 ALTO HOSPICIO 2017 INGRESOS PROPIOS (IPP Y FCM) 11377923
+#> 5 1107 ALTO HOSPICIO 2016 INGRESOS PROPIOS (IPP Y FCM) 10913779
+#> 6 1107 ALTO HOSPICIO 2015 INGRESOS PROPIOS (IPP Y FCM) 10705074
 #>                         geometry
 #> 1 MULTIPOLYGON (((-70.09894 -...
 #> 2 MULTIPOLYGON (((-70.09894 -...
@@ -282,14 +275,13 @@ head(get_sinim(882, 2015:2017, geometry=T, region=2))
 #> geometry type:  MULTIPOLYGON
 #> dimension:      XY
 #> bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254
-#> epsg (SRID):    4326
-#> proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#> geographic CRS: WGS 84
 #>   code municipality year                     variable    value
-#> 1 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 48979299
-#> 2 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 51962067
-#> 3 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 52231972
-#> 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  6829739
-#> 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6209799
+#> 1 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 50480057
+#> 2 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 53481425
+#> 3 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 53775528
+#> 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  7031571
+#> 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6400071
 #> 6 2102   MEJILLONES 2017 INGRESOS PROPIOS (IPP Y FCM)       NA
 #>                         geometry
 #> 1 MULTIPOLYGON (((-70.60654 -...
@@ -308,14 +300,13 @@ head(get_sinim(882, 2015:2017, geometry=T, region=c(2,3)))
 #> geometry type:  MULTIPOLYGON
 #> dimension:      XY
 #> bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254
-#> epsg (SRID):    4326
-#> proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#> geographic CRS: WGS 84
 #>   code municipality year                     variable    value
-#> 1 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 52231972
-#> 2 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 48979299
-#> 3 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 51962067
-#> 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  6829739
-#> 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6209799
+#> 1 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 53775528
+#> 2 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 50480057
+#> 3 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 53481425
+#> 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  7031571
+#> 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6400071
 #> 6 2102   MEJILLONES 2017 INGRESOS PROPIOS (IPP Y FCM)       NA
 #>                         geometry
 #> 1 MULTIPOLYGON (((-70.60654 -...
@@ -347,25 +338,25 @@ descriptions, names and groups.
 ``` r
 search_sinim_vars("cementerio")
 #>     code
-#> 350 4140
-#> 351 4141
-#> 352 4406
-#> 353 4407
+#> 356 4140
+#> 357 4141
+#> 358 4406
+#> 359 4407
 #>                                                                                                                                   variable
-#> 350                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
-#> 351                                                                                              Gastos Cementerio (Gasto Total Devengado)
-#> 352                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
-#> 353 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
+#> 356                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
+#> 357                                                                                              Gastos Cementerio (Gasto Total Devengado)
+#> 358                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
+#> 359 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
 #>                                                                                                                                                                  description
-#> 350                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
-#> 351                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
-#> 352 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
-#> 353                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
+#> 356                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
+#> 357                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
+#> 358 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
+#> 359                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
 #>               area                     subarea unit
-#> 350 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
-#> 351 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
-#> 352 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
-#> 353 09. CEMENTERIO      1. INFORMACION GENERAL S-N
+#> 356 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
+#> 357 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
+#> 358 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
+#> 359 09. CEMENTERIO      1. INFORMACION GENERAL S-N
 ```
 
 ## Advanced usage
@@ -479,13 +470,15 @@ data$year <- as.numeric(as.character(data$year))
 data$year <- as.Date(as.yearmon(data$year, "1-%y"))
 
 reg13 <- geogrid::read_polygons("https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson")
+#> Warning: 'geogrid::read_polygons' is deprecated.
+#> Use 'sf::st_read' instead.
+#> See help("Deprecated")
 #> Reading layer `R13' from data source `https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson' using driver `GeoJSON'
 #> Simple feature collection with 37 features and 8 fields
 #> geometry type:  POLYGON
 #> dimension:      XY
 #> bbox:           xmin: -70.84306 ymin: -33.65716 xmax: -70.43015 ymax: -33.31069
-#> epsg (SRID):    4326
-#> proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#> geographic CRS: WGS 84
 grd <- grid_auto(reg13, seed = 1, names = "NOM_COMUNA", codes = "COMUNA")
 
 #grid_preview(grd, label = "name_NOM_COMUNA")
