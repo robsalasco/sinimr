@@ -70,7 +70,7 @@
 
 <div id="sinimr-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#sinimr-" class="anchor"></a>sinimR <img src="docs/sinimR_hexSticker.png" width="175" height="200" align="right">
+<a href="#sinimr-" class="anchor"></a>sinimR <img src="reference/figures/sinimR_hexSticker.png" width="175" height="200" align="right">
 </h1></div>
 <p>Chilean Municipalities Information System Wrapper</p>
 <div id="what-can-i-do-with-this" class="section level3">
@@ -82,41 +82,43 @@
 <li>Fast ploting directly from data source using the included geometries.</li>
 <li>Data download with or without monetary correction using a switch.</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sinimr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sf</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tmap</span>)
+<!-- end list --><div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://dplyr.tidyverse.org">dplyr</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/robsalasco/sinimr">sinimr</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://r-spatial.github.io/sf">sf</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/mtennekes/tmap">tmap</a></span>)
 
-<span class="no">varcode</span> <span class="kw">&lt;-</span> <span class="fl">882</span>
-<span class="no">var</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="no">varcode</span>, <span class="fl">2018</span>,
-                 <span class="kw">region</span> <span class="kw">=</span> <span class="fl">13</span>,
-                 <span class="kw">truevalue</span> <span class="kw">=</span> <span class="no">T</span>,
-                 <span class="kw">geometry</span> <span class="kw">=</span> <span class="no">T</span>,
-                 <span class="kw">auc</span> <span class="kw">=</span> <span class="no">T</span>,
-                 <span class="kw">unit</span> <span class="kw">=</span> <span class="st">"limites"</span>)
+<span class="kw">varcode</span> <span class="op">&lt;-</span> <span class="fl">882</span>
+<span class="kw">var</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="kw">varcode</span>, <span class="fl">2018</span>, 
+                 region = <span class="fl">13</span>, 
+                 truevalue = <span class="kw">T</span>, 
+                 geometry = <span class="kw">T</span>, 
+                 auc = <span class="kw">T</span>, 
+                 unit = <span class="st">"limites"</span>)
 
-<span class="no">gran_santiago_plot</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span>(<span class="no">var</span>) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="st">"value"</span>,
-          <span class="kw">palette</span> <span class="kw">=</span> <span class="st">"BuPu"</span>,
-          <span class="kw">border.col</span> <span class="kw">=</span> <span class="st">"white"</span>,
-          <span class="kw">border.alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>,
-          <span class="kw">lwd</span><span class="kw">=</span><span class="fl">1</span>,
-          <span class="kw">style</span> <span class="kw">=</span> <span class="st">"jenks"</span>,
-          <span class="kw">title</span> <span class="kw">=</span> <span class="fu"><a href="reference/get_sinim_var_name.html">get_sinim_var_name</a></span>(<span class="no">varcode</span>))+
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_text.html">tm_text</a></span>(<span class="st">"municipality"</span>, <span class="kw">size</span> <span class="kw">=</span> <span class="fl">0.4</span>, <span class="kw">style</span><span class="kw">=</span><span class="st">"jenks"</span>) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_legend</a></span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"left"</span>, <span class="st">"top"</span>), <span class="kw">legend.title.size</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">legend.text.size</span> <span class="kw">=</span> <span class="fl">0.6</span>) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_compass.html">tm_compass</a></span>(<span class="kw">type</span> <span class="kw">=</span> <span class="st">"8star"</span>, <span class="kw">position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">.85</span>, <span class="fl">.80</span>)) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_scale_bar.html">tm_scale_bar</a></span>(<span class="kw">breaks</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="fl">10</span>), <span class="kw">text.size</span> <span class="kw">=</span> <span class="fl">0.75</span>, <span class="kw">position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"right"</span>, <span class="st">"bottom"</span>)) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_credits.html">tm_credits</a></span>(<span class="st">"Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior."</span>, <span class="kw">position</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"left"</span>, <span class="st">"bottom"</span>), <span class="kw">size</span><span class="kw">=</span><span class="fl">0.55</span>)+
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span>(<span class="kw">legend.width</span><span class="kw">=</span><span class="fl">1</span>,
-            <span class="kw">inner.margins</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.10</span>, <span class="fl">0.1</span>),
-            <span class="kw">legend.format</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">text.separator</span> <span class="kw">=</span> <span class="st">"a"</span>,
-                                 <span class="kw">fun</span> <span class="kw">=</span> <span class="no">mm</span>)) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="st">'black'</span>)
+<span class="kw">gran_santiago_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span>(<span class="kw">var</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span>(col = <span class="st">"value"</span>,
+          palette = <span class="st">"BuPu"</span>, 
+          border.col = <span class="st">"white"</span>, 
+          border.alpha = <span class="fl">0.5</span>,
+          lwd=<span class="fl">1</span>,
+          style = <span class="st">"jenks"</span>,
+          title = <span class="fu"><a href="reference/get_sinim_var_name.html">get_sinim_var_name</a></span>(<span class="kw">varcode</span>))<span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_text.html">tm_text</a></span>(<span class="st">"municipality"</span>, size = <span class="fl">0.4</span>, style=<span class="st">"jenks"</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_legend</a></span>(legend.position = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"left"</span>, <span class="st">"top"</span>), legend.title.size = <span class="fl">1</span>, legend.text.size = <span class="fl">0.6</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_compass.html">tm_compass</a></span>(type = <span class="st">"8star"</span>, position = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">.85</span>, <span class="fl">.80</span>)) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_scale_bar.html">tm_scale_bar</a></span>(breaks = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="fl">10</span>), text.size = <span class="fl">0.75</span>, position = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"right"</span>, <span class="st">"bottom"</span>)) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_credits.html">tm_credits</a></span>(<span class="st">"Fuente: Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio del Interior."</span>, position=<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"left"</span>, <span class="st">"bottom"</span>), size=<span class="fl">0.55</span>)<span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span>(legend.width=<span class="fl">1</span>,
+            inner.margins = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.10</span>, <span class="fl">0.1</span>), 
+            legend.format = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(text.separator = <span class="st">"a"</span>, 
+                                 fun = <span class="kw">mm</span>)) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span>(col = <span class="st">'black'</span>)
 
 
-<span class="no">gran_santiago_plot</span></pre></div>
-<p><img src="docs/unnamed-chunk-2-1.png" width="576"></p>
+<span class="kw">gran_santiago_plot</span>
+</pre></div>
+<p><img src="reference/figures/unnamed-chunk-2-1.png" width="576"></p>
 </div>
 <div id="support" class="section level3">
 <h3 class="hasAnchor">
@@ -131,14 +133,17 @@
 <div id="installation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h3>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"robsalasco/sinimr"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"robsalasco/sinimr"</span>)
+</pre></div>
 </div>
 <div id="how-do-i-use-it" class="section level3">
 <h3 class="hasAnchor">
 <a href="#how-do-i-use-it" class="anchor"></a>How do I use it?</h3>
 <p>sinimR comes with a small set of functions to deliver the content of SINIM’s webpage. To get a first glance of the categories of information what are available please use the <code><a href="reference/get_sinim_cats.html">get_sinim_cats()</a></code> command.</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sinimr</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/robsalasco/sinimr">sinimr</a></span>)
 <span class="fu"><a href="reference/get_sinim_cats.html">get_sinim_cats</a></span>()
 <span class="co">#&gt; $`-`</span>
 <span class="co">#&gt;     variable code</span>
@@ -220,45 +225,55 @@
 <span class="co">#&gt;                      variable code</span>
 <span class="co">#&gt; 1      1. INFORMACION GENERAL  516</span>
 <span class="co">#&gt; 2 A. INGRESOS CEMENTERIO (M$)  456</span>
-<span class="co">#&gt; 3   B. GASTOS CEMENTERIO (M$)  457</span></pre></div>
+<span class="co">#&gt; 3   B. GASTOS CEMENTERIO (M$)  457</span>
+</pre></div>
 <p>Every category have a bunch of variables associated. Use the CODE number and the <code><a href="reference/get_sinim_vars.html">get_sinim_vars()</a></code> function to get them.</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="reference/get_sinim_vars.html">get_sinim_vars</a></span>(<span class="fl">517</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="reference/get_sinim_vars.html">get_sinim_vars</a></span>(<span class="fl">517</span>)
 <span class="co">#&gt;                                                       variable unit code</span>
 <span class="co">#&gt; 108                       Presupuesto Inicial Sector Municipal M$   4210</span>
 <span class="co">#&gt; 109                     Presupuesto Inicial Gastos Municipales M$   4211</span>
 <span class="co">#&gt; 110                       Presupuesto Vigente Sector Municipal M$   4212</span>
 <span class="co">#&gt; 111                     Presupuesto Vigente Gastos Municpiales M$   4213</span>
 <span class="co">#&gt; 112 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226</span>
-<span class="co">#&gt; 113 Presupuesto Inicial Saldo Inicial de Caja sector Municipal M$   4441</span></pre></div>
+<span class="co">#&gt; 113 Presupuesto Inicial Saldo Inicial de Caja sector Municipal M$   4441</span>
+</pre></div>
 <p>Finally, to obtain the data across municipalities use the code column and specify a year.</p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4210</span>, <span class="fl">4211</span>), <span class="fl">2015</span>))
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4210</span>, <span class="fl">4211</span>), <span class="fl">2015</span>))
 <span class="co">#&gt;   code  municipality year                               variable    value</span>
 <span class="co">#&gt; 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 35295076</span>
 <span class="co">#&gt; 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 10263084</span>
 <span class="co">#&gt; 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7685704</span>
 <span class="co">#&gt; 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1319970</span>
 <span class="co">#&gt; 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2130495</span>
-<span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3267375</span></pre></div>
+<span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3267375</span>
+</pre></div>
 <p>By default the values are in <strong>miles de millones</strong> but it can be disabled using the <code>truevalue = T</code> switch.</p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4210</span>, <span class="fl">4211</span>), <span class="fl">2015</span>, <span class="kw">truevalue</span> <span class="kw">=</span> <span class="no">T</span>))
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4210</span>, <span class="fl">4211</span>), <span class="fl">2015</span>, truevalue = <span class="kw">T</span>))
 <span class="co">#&gt;   code  municipality year                               variable       value</span>
 <span class="co">#&gt; 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 35295076000</span>
 <span class="co">#&gt; 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 10263084000</span>
 <span class="co">#&gt; 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7685704000</span>
 <span class="co">#&gt; 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1319970000</span>
 <span class="co">#&gt; 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2130495000</span>
-<span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3267375000</span></pre></div>
+<span class="co">#&gt; 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3267375000</span>
+</pre></div>
 <p>You can get multiple years too! use the command <code><a href="reference/get_sinim.html">get_sinim()</a></code> and add more years as in the example.</p>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">880</span>, <span class="fl">2015</span>:<span class="fl">2017</span>))
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">880</span>, <span class="fl">2015</span><span class="op">:</span><span class="fl">2017</span>))
 <span class="co">#&gt;   code  municipality year                           variable   value</span>
 <span class="co">#&gt; 1 1101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3439830</span>
 <span class="co">#&gt; 2 1107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7258188</span>
 <span class="co">#&gt; 3 1401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1888333</span>
 <span class="co">#&gt; 4 1402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1626482</span>
 <span class="co">#&gt; 5 1403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1156020</span>
-<span class="co">#&gt; 6 1404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1406921</span></pre></div>
+<span class="co">#&gt; 6 1404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1406921</span>
+</pre></div>
 <p>The geometries are available in long format using the <code>geometry==T</code> argument. By default it uses the <strong>comunal</strong> geographies but the <strong>limite urbano censal</strong> is also available. The switches are <code>unit="comunas"</code> and <code>unit="limites"</code>. Note: Using <strong>limites</strong> not all features are available because some comunas are not related to urban zones. As shown in the example below you can obtain multiple years and variables in long format.</p>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">882</span>, <span class="fl">2015</span>:<span class="fl">2017</span>, <span class="kw">geometry</span><span class="kw">=</span><span class="no">T</span>))
+<div class="sourceCode" id="cb8"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">882</span>, <span class="fl">2015</span><span class="op">:</span><span class="fl">2017</span>, geometry=<span class="kw">T</span>))
 <span class="co">#&gt; Simple feature collection with 6 features and 5 fields</span>
 <span class="co">#&gt; geometry type:  MULTIPOLYGON</span>
 <span class="co">#&gt; dimension:      XY</span>
@@ -277,9 +292,11 @@
 <span class="co">#&gt; 3 MULTIPOLYGON (((-70.09894 -...</span>
 <span class="co">#&gt; 4 MULTIPOLYGON (((-70.1095 -2...</span>
 <span class="co">#&gt; 5 MULTIPOLYGON (((-70.1095 -2...</span>
-<span class="co">#&gt; 6 MULTIPOLYGON (((-70.1095 -2...</span></pre></div>
+<span class="co">#&gt; 6 MULTIPOLYGON (((-70.1095 -2...</span>
+</pre></div>
 <p>Another interesting feature is the possibility to subset by different contexts. e.g if you want the comunas of Antofagasta region this command is available. The command works with or without the presence of the geometry switch and other switches are avaiblable too <code>region</code>, <code>provincia</code> and <code>comuna</code> all working with codes.</p>
-<div class="sourceCode" id="cb9"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">882</span>, <span class="fl">2015</span>:<span class="fl">2017</span>, <span class="kw">geometry</span><span class="kw">=</span><span class="no">T</span>, <span class="kw">region</span><span class="kw">=</span><span class="fl">2</span>))
+<div class="sourceCode" id="cb9"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">882</span>, <span class="fl">2015</span><span class="op">:</span><span class="fl">2017</span>, geometry=<span class="kw">T</span>, region=<span class="fl">2</span>))
 <span class="co">#&gt; Simple feature collection with 6 features and 5 fields</span>
 <span class="co">#&gt; geometry type:  MULTIPOLYGON</span>
 <span class="co">#&gt; dimension:      XY</span>
@@ -298,9 +315,11 @@
 <span class="co">#&gt; 3 MULTIPOLYGON (((-70.60654 -...</span>
 <span class="co">#&gt; 4 MULTIPOLYGON (((-69.97002 -...</span>
 <span class="co">#&gt; 5 MULTIPOLYGON (((-69.97002 -...</span>
-<span class="co">#&gt; 6 MULTIPOLYGON (((-69.97002 -...</span></pre></div>
+<span class="co">#&gt; 6 MULTIPOLYGON (((-69.97002 -...</span>
+</pre></div>
 <p>You can get a subset too</p>
-<div class="sourceCode" id="cb10"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">882</span>, <span class="fl">2015</span>:<span class="fl">2017</span>, <span class="kw">geometry</span><span class="kw">=</span><span class="no">T</span>, <span class="kw">region</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">3</span>)))
+<div class="sourceCode" id="cb10"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">882</span>, <span class="fl">2015</span><span class="op">:</span><span class="fl">2017</span>, geometry=<span class="kw">T</span>, region=<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">3</span>)))
 <span class="co">#&gt; Simple feature collection with 6 features and 5 fields</span>
 <span class="co">#&gt; geometry type:  MULTIPOLYGON</span>
 <span class="co">#&gt; dimension:      XY</span>
@@ -319,18 +338,22 @@
 <span class="co">#&gt; 3 MULTIPOLYGON (((-70.60654 -...</span>
 <span class="co">#&gt; 4 MULTIPOLYGON (((-69.97002 -...</span>
 <span class="co">#&gt; 5 MULTIPOLYGON (((-69.97002 -...</span>
-<span class="co">#&gt; 6 MULTIPOLYGON (((-69.97002 -...</span></pre></div>
+<span class="co">#&gt; 6 MULTIPOLYGON (((-69.97002 -...</span>
+</pre></div>
 <p>But where obtain the codes? a database is provided and you can filter it using the standard R functions.</p>
-<div class="sourceCode" id="cb11"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">id_geo_census</span>)
+<div class="sourceCode" id="cb11"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">id_geo_census</span>)
 <span class="co">#&gt;   code  municipality code.reg  nom.reg code.prov  nom.prov auc</span>
 <span class="co">#&gt; 1 1101       IQUIQUE        1 TARAPACA        11   IQUIQUE   1</span>
 <span class="co">#&gt; 2 1107 ALTO HOSPICIO        1 TARAPACA        11   IQUIQUE   1</span>
 <span class="co">#&gt; 3 1401  POZO ALMONTE        1 TARAPACA        14 TAMARUGAL   0</span>
 <span class="co">#&gt; 4 1402        CAMIÑA        1 TARAPACA        14 TAMARUGAL   0</span>
 <span class="co">#&gt; 5 1403      COLCHANE        1 TARAPACA        14 TAMARUGAL   0</span>
-<span class="co">#&gt; 6 1404         HUARA        1 TARAPACA        14 TAMARUGAL   0</span></pre></div>
+<span class="co">#&gt; 6 1404         HUARA        1 TARAPACA        14 TAMARUGAL   0</span>
+</pre></div>
 <p>Related to variables if you don’t know what are you looking for use <code><a href="reference/search_sinim_vars.html">search_sinim_vars()</a></code>to get search results based on variable descriptions, names and groups.</p>
-<div class="sourceCode" id="cb12"><pre class="r"><span class="fu"><a href="reference/search_sinim_vars.html">search_sinim_vars</a></span>(<span class="st">"cementerio"</span>)
+<div class="sourceCode" id="cb12"><pre class="downlit">
+<span class="fu"><a href="reference/search_sinim_vars.html">search_sinim_vars</a></span>(<span class="st">"cementerio"</span>)
 <span class="co">#&gt;     code</span>
 <span class="co">#&gt; 356 4140</span>
 <span class="co">#&gt; 357 4141</span>
@@ -350,112 +373,118 @@
 <span class="co">#&gt; 356 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  </span>
 <span class="co">#&gt; 357 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  </span>
 <span class="co">#&gt; 358 09. CEMENTERIO      1. INFORMACION GENERAL S-N </span>
-<span class="co">#&gt; 359 09. CEMENTERIO      1. INFORMACION GENERAL S-N</span></pre></div>
+<span class="co">#&gt; 359 09. CEMENTERIO      1. INFORMACION GENERAL S-N</span>
+</pre></div>
 </div>
 <div id="advanced-usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#advanced-usage" class="anchor"></a>Advanced usage</h2>
-<p>SINIM (Sistema Nacional de Información Municipal) by default applies a monetary correction to show current values of variables. The original values provided by municipalities are available using the <code>moncorr==F</code> switch. And if you want geographical identifiers like region or provincia you can apply them using <code>idgeo==T</code> switch.</p>
+<p>SINIM (Sistema Nacional de Información Municipal) by default applies a monetary correction to show current values of variables. The original values provided by municipalities are available using the <code>moncorr = F</code> switch. And if you want geographical identifiers like region or provincia you can apply them using <code>idgeo = T</code> switch.</p>
 <div id="other-example-plots" class="section level3">
 <h3 class="hasAnchor">
 <a href="#other-example-plots" class="anchor"></a>Other example plots</h3>
 <div id="multiple-variable-faceted-plot" class="section level4">
 <h4 class="hasAnchor">
 <a href="#multiple-variable-faceted-plot" class="anchor"></a>Multiple variable faceted plot</h4>
-<div class="sourceCode" id="cb13"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tmap</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">stringr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sinimr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sf</span>)
+<div class="sourceCode" id="cb13"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/mtennekes/tmap">tmap</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://dplyr.tidyverse.org">dplyr</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://stringr.tidyverse.org">stringr</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/robsalasco/sinimr">sinimr</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://r-spatial.github.io/sf">sf</a></span>)
 
-<span class="no">data_sinim</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="kw">var</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3954</span>,<span class="fl">4174</span>,<span class="fl">880</span>,<span class="fl">1226</span>,<span class="fl">4251</span>,<span class="fl">4173</span>),
-                        <span class="kw">year</span> <span class="kw">=</span> <span class="fl">2018</span>,
-                        <span class="kw">region</span> <span class="kw">=</span> <span class="fl">13</span>,
-                        <span class="kw">geometry</span> <span class="kw">=</span> <span class="no">T</span>,
-                        <span class="kw">truevalue</span> <span class="kw">=</span> <span class="no">T</span>,
-                        <span class="kw">auc</span> <span class="kw">=</span> <span class="no">T</span>,
-                        <span class="kw">unit</span> <span class="kw">=</span> <span class="st">"limites"</span>)
+<span class="kw">data_sinim</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(var = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3954</span>,<span class="fl">4174</span>,<span class="fl">880</span>,<span class="fl">1226</span>,<span class="fl">4251</span>,<span class="fl">4173</span>), 
+                        year = <span class="fl">2018</span>, 
+                        region = <span class="fl">13</span>,
+                        geometry = <span class="kw">T</span>,
+                        truevalue = <span class="kw">T</span>,
+                        auc = <span class="kw">T</span>,
+                        unit = <span class="st">"limites"</span>)
 
-<span class="no">gran_santiago_plot</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span>(<span class="no">data_sinim</span>) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="st">"value"</span>,
-          <span class="kw">palette</span> <span class="kw">=</span> <span class="st">"BuPu"</span>,
-          <span class="kw">border.col</span> <span class="kw">=</span> <span class="st">"white"</span>,
-          <span class="kw">border.alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>,
-          <span class="kw">lwd</span><span class="kw">=</span><span class="fl">1</span>,
-          <span class="kw">style</span> <span class="kw">=</span> <span class="st">"jenks"</span>,
-          <span class="kw">title</span> <span class="kw">=</span> <span class="st">"variable"</span>)+
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_text.html">tm_text</a></span>(<span class="st">"municipality"</span>, <span class="kw">size</span> <span class="kw">=</span> <span class="fl">0.4</span>) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_style</a></span>(<span class="st">"white"</span>, <span class="kw">frame</span> <span class="kw">=</span> <span class="no">T</span>, <span class="kw">legend.title.size</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">legend.width</span><span class="kw">=</span><span class="fl">1</span>) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span>(<span class="kw">inner.margins</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.01</span>),
-            <span class="kw">outer.margins</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>),
-            <span class="kw">design.mode</span><span class="kw">=</span><span class="no">F</span>,
-            <span class="kw">legend.format</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">text.separator</span> <span class="kw">=</span> <span class="st">"a"</span>,
-                                 <span class="kw">fun</span> <span class="kw">=</span> <span class="no">mm</span>))+
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="st">'black'</span>) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_facets.html">tm_facets</a></span>(<span class="kw">by</span><span class="kw">=</span><span class="st">"variable"</span>, <span class="kw">ncol</span> <span class="kw">=</span> <span class="fl">2</span>)
+<span class="kw">gran_santiago_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span>(<span class="kw">data_sinim</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span>(col = <span class="st">"value"</span>,
+          palette = <span class="st">"BuPu"</span>, 
+          border.col = <span class="st">"white"</span>, 
+          border.alpha = <span class="fl">0.5</span>,
+          lwd=<span class="fl">1</span>,
+          style = <span class="st">"jenks"</span>,
+          title = <span class="st">"variable"</span>)<span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_text.html">tm_text</a></span>(<span class="st">"municipality"</span>, size = <span class="fl">0.4</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_style</a></span>(<span class="st">"white"</span>, frame = <span class="kw">T</span>, legend.title.size = <span class="fl">1</span>, legend.width=<span class="fl">1</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span>(inner.margins = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.01</span>),
+            outer.margins = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>),
+            design.mode=<span class="kw">F</span>,
+            legend.format = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(text.separator = <span class="st">"a"</span>,
+                                 fun = <span class="kw">mm</span>))<span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span>(col = <span class="st">'black'</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_facets.html">tm_facets</a></span>(by=<span class="st">"variable"</span>, ncol = <span class="fl">2</span>)
 
-<span class="no">gran_santiago_plot</span></pre></div>
-<p><img src="docs/unnamed-chunk-13-1.png" width="1440"></p>
+<span class="kw">gran_santiago_plot</span>
+</pre></div>
+<p><img src="reference/figures/unnamed-chunk-13-1.png" width="1440"></p>
 </div>
 <div id="a-variable-in-multiple-years-using-facets" class="section level4">
 <h4 class="hasAnchor">
 <a href="#a-variable-in-multiple-years-using-facets" class="anchor"></a>A variable in multiple years using facets</h4>
-<div class="sourceCode" id="cb14"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sinimr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sf</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tmap</span>)
+<div class="sourceCode" id="cb14"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://dplyr.tidyverse.org">dplyr</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/robsalasco/sinimr">sinimr</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://r-spatial.github.io/sf">sf</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/mtennekes/tmap">tmap</a></span>)
 
 
-<span class="no">var</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">880</span>, <span class="fl">882</span>, <span class="fl">1226</span>),
-                 <span class="fl">2016</span>:<span class="fl">2018</span>,
-                 <span class="kw">region</span> <span class="kw">=</span> <span class="fl">13</span>,
-                 <span class="kw">truevalue</span> <span class="kw">=</span> <span class="no">T</span>,
-                 <span class="kw">geometry</span> <span class="kw">=</span> <span class="no">T</span>,
-                 <span class="kw">auc</span> <span class="kw">=</span> <span class="no">T</span>,
-                 <span class="kw">unit</span> <span class="kw">=</span> <span class="st">"limites"</span>)
+<span class="kw">var</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">880</span>, <span class="fl">882</span>, <span class="fl">1226</span>),
+                 <span class="fl">2016</span><span class="op">:</span><span class="fl">2018</span>, 
+                 region = <span class="fl">13</span>,
+                 truevalue = <span class="kw">T</span>, 
+                 geometry = <span class="kw">T</span>,
+                 auc = <span class="kw">T</span>,
+                 unit = <span class="st">"limites"</span>)
 
-<span class="no">gran_santiago_plot</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span>(<span class="no">var</span>) +
+<span class="kw">gran_santiago_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span>(<span class="kw">var</span>) <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span>(<span class="st">"value"</span>,
-          <span class="kw">palette</span><span class="kw">=</span><span class="st">"BuPu"</span>,
-          <span class="kw">border.col</span> <span class="kw">=</span> <span class="st">"white"</span>,
-          <span class="kw">style</span> <span class="kw">=</span> <span class="st">"jenks"</span>,
-          <span class="kw">border.alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>,
-          <span class="kw">lwd</span><span class="kw">=</span><span class="fl">1</span>) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_text.html">tm_text</a></span>(<span class="st">"municipality"</span>, <span class="kw">size</span> <span class="kw">=</span> <span class="fl">0.4</span>) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_legend</a></span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"left"</span>, <span class="st">"top"</span>)) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span>(<span class="kw">legend.width</span><span class="kw">=</span><span class="fl">0.09</span>,
-            <span class="kw">inner.margins</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.01</span>),
-            <span class="kw">outer.margins</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>),
-            <span class="kw">legend.format</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">text.separator</span> <span class="kw">=</span> <span class="st">"a"</span>,
-                                 <span class="kw">fun</span> <span class="kw">=</span> <span class="no">mm</span>)) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_facets.html">tm_facets</a></span>(<span class="kw">by</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"year"</span>,<span class="st">"variable"</span>),) +
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="st">'black'</span>)
+          palette=<span class="st">"BuPu"</span>, 
+          border.col = <span class="st">"white"</span>, 
+          style = <span class="st">"jenks"</span>, 
+          border.alpha = <span class="fl">0.5</span>,
+          lwd=<span class="fl">1</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_text.html">tm_text</a></span>(<span class="st">"municipality"</span>, size = <span class="fl">0.4</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_legend</a></span>(legend.position = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"left"</span>, <span class="st">"top"</span>)) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span>(legend.width=<span class="fl">0.09</span>,
+            inner.margins = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.01</span>),
+            outer.margins = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>),
+            legend.format = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(text.separator = <span class="st">"a"</span>,
+                                 fun = <span class="kw">mm</span>)) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_facets.html">tm_facets</a></span>(by=<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"year"</span>,<span class="st">"variable"</span>),) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span>(col = <span class="st">'black'</span>)
 
-<span class="no">gran_santiago_plot</span></pre></div>
-<p><img src="docs/unnamed-chunk-14-1.png" width="1728"></p>
+<span class="kw">gran_santiago_plot</span>
+</pre></div>
+<p><img src="reference/figures/unnamed-chunk-14-1.png" width="1728"></p>
 </div>
 <div id="multiple-variables-and-years-using-geofacet" class="section level4">
 <h4 class="hasAnchor">
 <a href="#multiple-variables-and-years-using-geofacet" class="anchor"></a>Multiple variables and years using geofacet</h4>
-<div class="sourceCode" id="cb15"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sf</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">geofacet</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sinimr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">zoo</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">scales</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggpubr</span>)
+<div class="sourceCode" id="cb15"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://r-spatial.github.io/sf">sf</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://dplyr.tidyverse.org">dplyr</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/hafen/geofacet">geofacet</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/robsalasco/sinimr">sinimr</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://zoo.R-Forge.R-project.org">zoo</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://scales.r-lib.org">scales</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://rpkgs.datanovia.com/ggpubr">ggpubr</a></span>)
 
-<span class="no">data</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">882</span>, <span class="fl">2002</span>:<span class="fl">2018</span>,
-                  <span class="kw">region</span> <span class="kw">=</span> <span class="fl">13</span>,
-                  <span class="kw">moncorr</span> <span class="kw">=</span> <span class="no">F</span>,
-                  <span class="kw">truevalue</span> <span class="kw">=</span> <span class="no">T</span>,
-                  <span class="kw">auc</span> <span class="kw">=</span> <span class="no">T</span>)
+<span class="kw">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">882</span>, <span class="fl">2002</span><span class="op">:</span><span class="fl">2018</span>,
+                  region = <span class="fl">13</span>,
+                  moncorr = <span class="kw">F</span>, 
+                  truevalue = <span class="kw">T</span>,
+                  auc = <span class="kw">T</span>)
 
-<span class="no">data</span>$<span class="no">year</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="no">data</span>$<span class="no">year</span>))
-<span class="no">data</span>$<span class="no">year</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.yearmon</a></span>(<span class="no">data</span>$<span class="no">year</span>, <span class="st">"1-%y"</span>))
+<span class="kw">data</span><span class="op">$</span><span class="kw">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="kw">data</span><span class="op">$</span><span class="kw">year</span>))
+<span class="kw">data</span><span class="op">$</span><span class="kw">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.yearmon</a></span>(<span class="kw">data</span><span class="op">$</span><span class="kw">year</span>, <span class="st">"1-%y"</span>))
 
-<span class="no">reg13</span> <span class="kw">&lt;-</span> <span class="kw pkg">geogrid</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/geogrid/man/read_polygons.html">read_polygons</a></span>(<span class="st">"https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson"</span>)
+<span class="kw">reg13</span> <span class="op">&lt;-</span> <span class="kw">geogrid</span>::<span class="fu"><a href="https://rdrr.io/pkg/geogrid/man/read_polygons.html">read_polygons</a></span>(<span class="st">"https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson"</span>)
 <span class="co">#&gt; Warning: 'geogrid::read_polygons' is deprecated.</span>
 <span class="co">#&gt; Use 'sf::st_read' instead.</span>
 <span class="co">#&gt; See help("Deprecated")</span>
@@ -465,24 +494,26 @@
 <span class="co">#&gt; dimension:      XY</span>
 <span class="co">#&gt; bbox:           xmin: -70.84306 ymin: -33.65716 xmax: -70.43015 ymax: -33.31069</span>
 <span class="co">#&gt; geographic CRS: WGS 84</span>
-<span class="no">grd</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/grid_auto.html">grid_auto</a></span>(<span class="no">reg13</span>, <span class="kw">seed</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">names</span> <span class="kw">=</span> <span class="st">"NOM_COMUNA"</span>, <span class="kw">codes</span> <span class="kw">=</span> <span class="st">"COMUNA"</span>)
+<span class="kw">grd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/grid_auto.html">grid_auto</a></span>(<span class="kw">reg13</span>, seed = <span class="fl">1</span>, names = <span class="st">"NOM_COMUNA"</span>, codes = <span class="st">"COMUNA"</span>)
 
 <span class="co">#grid_preview(grd, label = "name_NOM_COMUNA")</span>
 <span class="co">#grid_design(grd, label = "name_NOM_COMUNA")</span>
 
-<span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span>(<span class="no">data</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span>(<span class="no">year</span>, <span class="no">value</span>, <span class="kw">group</span><span class="kw">=</span><span class="fl">1</span>)) +
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="st">"steelblue"</span>) +
-  <span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/facet_geo.html">facet_geo</a></span>(~ <span class="no">municipality</span>, <span class="kw">grid</span> <span class="kw">=</span> <span class="no">grd</span>, <span class="kw">scales</span> <span class="kw">=</span> <span class="st">"free_y"</span>)+
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_date.html">scale_x_date</a></span>() +
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_continuous.html">scale_y_continuous</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/scales/man/label_dollar.html">dollar_format</a></span>(<span class="kw">suffix</span> <span class="kw">=</span> <span class="st">""</span>, <span class="kw">prefix</span> <span class="kw">=</span> <span class="st">"$"</span>, <span class="kw">big.mark</span> <span class="kw">=</span> <span class="st">"."</span>, <span class="kw">decimal.mark</span><span class="kw">=</span><span class="st">","</span>))+
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_bw</a></span>()</pre></div>
-<p><img src="docs/unnamed-chunk-15-1.png" width="2304"></p>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">year</span>, <span class="kw">value</span>, group=<span class="fl">1</span>)) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(color = <span class="st">"steelblue"</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/facet_geo.html">facet_geo</a></span>(<span class="op">~</span> <span class="kw">municipality</span>, grid = <span class="kw">grd</span>, scales = <span class="st">"free_y"</span>)<span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_date</a></span>() <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span>(labels = <span class="fu"><a href="https://scales.r-lib.org//reference/label_dollar.html">dollar_format</a></span>(suffix = <span class="st">""</span>, prefix = <span class="st">"$"</span>, big.mark = <span class="st">"."</span>, decimal.mark=<span class="st">","</span>))<span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()
+</pre></div>
+<p><img src="reference/figures/unnamed-chunk-15-1.png" width="2304"></p>
 </div>
 </div>
 <div id="citation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#citation" class="anchor"></a>Citation</h3>
-<div class="sourceCode" id="cb16"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">"sinimr"</span>)
+<div class="sourceCode" id="cb16"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">"sinimr"</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; To cite package 'sinimr' in publications use:</span>
 <span class="co">#&gt; </span>
@@ -498,7 +529,8 @@
 <span class="co">#&gt;     year = {2019},</span>
 <span class="co">#&gt;     note = {R package version 0.3.0},</span>
 <span class="co">#&gt;     url = {https://github.com/robsalasco/sinimr},</span>
-<span class="co">#&gt;   }</span></pre></div>
+<span class="co">#&gt;   }</span>
+</pre></div>
 </div>
 <div id="references" class="section level3">
 <h3 class="hasAnchor">
@@ -555,7 +587,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

@@ -118,17 +118,17 @@
     </div>
 
     <pre class="usage"><span class='fu'>get_sinim</span>(
-  <span class='no'>var</span>,
-  <span class='no'>year</span>,
-  <span class='kw'>moncorr</span> <span class='kw'>=</span> <span class='no'>T</span>,
-  <span class='kw'>truevalue</span> <span class='kw'>=</span> <span class='no'>F</span>,
-  <span class='kw'>idgeo</span> <span class='kw'>=</span> <span class='no'>F</span>,
-  <span class='kw'>geometry</span> <span class='kw'>=</span> <span class='no'>F</span>,
-  <span class='no'>region</span>,
-  <span class='no'>provincia</span>,
-  <span class='no'>comuna</span>,
-  <span class='kw'>auc</span> <span class='kw'>=</span> <span class='no'>F</span>,
-  <span class='kw'>unit</span> <span class='kw'>=</span> <span class='st'>"comunas"</span>
+  <span class='kw'>var</span>,
+  <span class='kw'>year</span>,
+  moncorr = <span class='kw'>T</span>,
+  truevalue = <span class='kw'>F</span>,
+  idgeo = <span class='kw'>F</span>,
+  geometry = <span class='kw'>F</span>,
+  <span class='kw'>region</span>,
+  <span class='kw'>provincia</span>,
+  <span class='kw'>comuna</span>,
+  auc = <span class='kw'>F</span>,
+  unit = <span class='st'>"comunas"</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -530,7 +530,7 @@
 #&gt; 342 16302             COIHUECO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2994633
 #&gt; 343 16303               ÑIQUÉN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  2062094
 #&gt; 344 16304           SAN FABIÁN 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1224081
-#&gt; 345 16305          SAN NICOLÁS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1602036</div><div class='input'><span class='fu'>get_sinim</span>(<span class='fl'>880</span>, <span class='fl'>2015</span>:<span class='fl'>2017</span>)</div><div class='output co'>#&gt;       code         municipality year                           variable
+#&gt; 345 16305          SAN NICOLÁS 2015 INGRESOS POR FONDO COMÚN MUNICIPAL  1602036</div><div class='input'><span class='fu'>get_sinim</span>(<span class='fl'>880</span>, <span class='fl'>2015</span><span class='op'>:</span><span class='fl'>2017</span>)</div><div class='output co'>#&gt;       code         municipality year                           variable
 #&gt; 1     1101              IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL
 #&gt; 2     1107        ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL
 #&gt; 3     1401         POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL
@@ -3982,7 +3982,7 @@
 #&gt; 687   3646543
 #&gt; 688   2490992
 #&gt; 689   1497725
-#&gt; 690   1963316</div><div class='input'><span class='fu'>get_sinim</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>880</span>, <span class='fl'>882</span>), <span class='fl'>2015</span>:<span class='fl'>2017</span>)</div><div class='output co'>#&gt;       code         municipality year                           variable
+#&gt; 690   1963316</div><div class='input'><span class='fu'>get_sinim</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>880</span>, <span class='fl'>882</span>), <span class='fl'>2015</span><span class='op'>:</span><span class='fl'>2017</span>)</div><div class='output co'>#&gt;       code         municipality year                           variable
 #&gt; 1     1101              IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL
 #&gt; 2     1107        ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL
 #&gt; 3     1401         POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL
@@ -8123,7 +8123,7 @@
 #&gt; 2067   3646543
 #&gt; 2068   2490992
 #&gt; 2069   1497725
-#&gt; 2070   1963316</div><div class='input'><span class='fu'>get_sinim</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>880</span>, <span class='fl'>882</span>), <span class='fl'>2015</span>, <span class='kw'>idgeo</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;      code       municipality.x year                           variable
+#&gt; 2070   1963316</div><div class='input'><span class='fu'>get_sinim</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>880</span>, <span class='fl'>882</span>), <span class='fl'>2015</span>, idgeo=<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;      code       municipality.x year                           variable
 #&gt; 1    1101              IQUIQUE 2015 INGRESOS POR FONDO COMÚN MUNICIPAL
 #&gt; 2    1101              IQUIQUE 2015       INGRESOS PROPIOS (IPP Y FCM)
 #&gt; 3    1107        ALTO HOSPICIO 2015 INGRESOS POR FONDO COMÚN MUNICIPAL
@@ -10886,7 +10886,7 @@
 #&gt; 687   0
 #&gt; 688   0
 #&gt; 689   0
-#&gt; 690   0</div><div class='input'><span class='fu'>get_sinim</span>(<span class='fl'>882</span>, <span class='fl'>2015</span>, <span class='kw'>geometry</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; Simple feature collection with 324 features and 5 fields
+#&gt; 690   0</div><div class='input'><span class='fu'>get_sinim</span>(<span class='fl'>882</span>, <span class='fl'>2015</span>, geometry=<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; Simple feature collection with 324 features and 5 fields
 #&gt; geometry type:  MULTIPOLYGON
 #&gt; dimension:      XY
 #&gt; bbox:           xmin: -109.4499 ymin: -56.51549 xmax: -66.41617 ymax: -17.49778
@@ -10913,7 +10913,7 @@
 #&gt; 7  MULTIPOLYGON (((-68.65113 -...
 #&gt; 8  MULTIPOLYGON (((-70.60654 -...
 #&gt; 9  MULTIPOLYGON (((-69.97002 -...
-#&gt; 10 MULTIPOLYGON (((-68.66131 -...</div><div class='input'><span class='fu'>get_sinim</span>(<span class='fl'>882</span>, <span class='fl'>2015</span>, <span class='kw'>region</span><span class='kw'>=</span><span class='st'>"02"</span>)</div><div class='output co'>#&gt; [1] code         municipality year         variable     value       
+#&gt; 10 MULTIPOLYGON (((-68.66131 -...</div><div class='input'><span class='fu'>get_sinim</span>(<span class='fl'>882</span>, <span class='fl'>2015</span>, region=<span class='st'>"02"</span>)</div><div class='output co'>#&gt; [1] code         municipality year         variable     value       
 #&gt; &lt;0 rows&gt; (or 0-length row.names)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -10930,7 +10930,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

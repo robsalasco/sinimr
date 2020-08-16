@@ -6,7 +6,7 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "docs/"
+  fig.path = "man/figures/"
 )
 ```
 
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/robsalasco/sinimr?branch=master&svg=true)](https://ci.appveyor.com/project/robsalasco/sinimr)
 [![Coverage Status](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](https://codecov.io/github/robsalasco/sinimr?branch=master)
 
-# sinimR <img src="docs/sinimR_hexSticker.png" width = "175" height = "200" align="right" /> 
+# sinimR <img src="man/figures/sinimR_hexSticker.png" width = "175" height = "200" align="right" /> 
 
 Chilean Municipalities Information System Wrapper
 

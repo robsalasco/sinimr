@@ -8,7 +8,7 @@ Status](https://ci.appveyor.com/api/projects/status/github/robsalasco/sinimr?bra
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](https://codecov.io/github/robsalasco/sinimr?branch=master)
 
-# sinimR <img src="docs/sinimR_hexSticker.png" width = "175" height = "200" align="right" />
+# sinimR <img src="man/figures/sinimR_hexSticker.png" width = "175" height = "200" align="right" />
 
 Chilean Municipalities Information System Wrapper
 
@@ -62,7 +62,7 @@ gran_santiago_plot <- tm_shape(var) +
 gran_santiago_plot
 ```
 
-<img src="docs/unnamed-chunk-2-1.png" width="576" />
+<img src="man/figures/unnamed-chunk-2-1.png" width="576" />
 
 ### Support
 
@@ -363,9 +363,9 @@ search_sinim_vars("cementerio")
 
 SINIM (Sistema Nacional de Información Municipal) by default applies a
 monetary correction to show current values of variables. The original
-values provided by municipalities are available using the `moncorr==F`
+values provided by municipalities are available using the `moncorr = F`
 switch. And if you want geographical identifiers like region or
-provincia you can apply them using `idgeo==T` switch.
+provincia you can apply them using `idgeo = T` switch.
 
 ### Other example plots
 
@@ -407,7 +407,7 @@ gran_santiago_plot <- tm_shape(data_sinim) +
 gran_santiago_plot
 ```
 
-<img src="docs/unnamed-chunk-13-1.png" width="1440" />
+<img src="man/figures/unnamed-chunk-13-1.png" width="1440" />
 
 #### A variable in multiple years using facets
 
@@ -446,7 +446,7 @@ gran_santiago_plot <- tm_shape(var) +
 gran_santiago_plot
 ```
 
-<img src="docs/unnamed-chunk-14-1.png" width="1728" />
+<img src="man/figures/unnamed-chunk-14-1.png" width="1728" />
 
 #### Multiple variables and years using geofacet
 
@@ -492,7 +492,7 @@ ggplot(data, aes(year, value, group=1)) +
   theme_bw()
 ```
 
-<img src="docs/unnamed-chunk-15-1.png" width="2304" />
+<img src="man/figures/unnamed-chunk-15-1.png" width="2304" />
 
 ### Citation
 
