@@ -271,7 +271,7 @@
 <span class="co">#&gt; 5 1403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1156020</span>
 <span class="co">#&gt; 6 1404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1406921</span>
 </pre></div>
-<p>The geometries are available in long format using the <code>geometry==T</code> argument. By default it uses the <strong>comunal</strong> geographies but the <strong>limite urbano censal</strong> is also available. The switches are <code>unit="comunas"</code> and <code>unit="limites"</code>. Note: Using <strong>limites</strong> not all features are available because some comunas are not related to urban zones. As shown in the example below you can obtain multiple years and variables in long format.</p>
+<p>The geometries are available in long format using the <code>geometry=T</code> argument. By default it uses the <strong>comunal</strong> geographies but the <strong>limite urbano censal</strong> is also available. The switches are <code>unit="comunas"</code> and <code>unit="limites"</code>. Note: Using <strong>limites</strong> not all features are available because some comunas are not related to urban zones. As shown in the example below you can obtain multiple years and variables in long format.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_sinim.html">get_sinim</a></span>(<span class="fl">882</span>, <span class="fl">2015</span><span class="op">:</span><span class="fl">2017</span>, geometry=<span class="kw">T</span>))
 <span class="co">#&gt; Simple feature collection with 6 features and 5 fields</span>

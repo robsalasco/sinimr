@@ -232,7 +232,7 @@ head(get_sinim(880, 2015:2017))
 #> 6 1404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1406921
 ```
 
-The geometries are available in long format using the `geometry==T`
+The geometries are available in long format using the `geometry=T`
 argument. By default it uses the **comunal** geographies but the
 **limite urbano censal** is also available. The switches are
 `unit="comunas"` and `unit="limites"`. Note: Using **limites** not all

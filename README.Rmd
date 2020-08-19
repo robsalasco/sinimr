@@ -114,7 +114,7 @@ You can get multiple years too! use the command ```get_sinim()``` and add more y
 head(get_sinim(880, 2015:2017))
 ```
 
-The geometries are available in long format using the ```geometry==T``` argument. By default it uses the **comunal** geographies but the **limite urbano censal** is also available. The switches are ```unit="comunas"``` and ```unit="limites"```. Note: Using  **limites** not all features are available because some comunas are not related to urban zones. As shown in the example below you can obtain multiple years and variables in long format.
+The geometries are available in long format using the ```geometry=T``` argument. By default it uses the **comunal** geographies but the **limite urbano censal** is also available. The switches are ```unit="comunas"``` and ```unit="limites"```. Note: Using  **limites** not all features are available because some comunas are not related to urban zones. As shown in the example below you can obtain multiple years and variables in long format.
 
 
 ```{r}
