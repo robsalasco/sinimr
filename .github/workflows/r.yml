@@ -20,11 +20,12 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Install system dependencies
-      - run: sudo apt-get install -y libudunits2-dev libgdal-dev
       - uses: actions/checkout@master
       - uses: r-lib/actions/setup-r@v1
         
+      - name: Install system dependencies
+        run: sudo apt-get install -y libudunits2-dev libgdal-dev
+
       - name: Query dependencies
         run: |
           install.packages('remotes')
