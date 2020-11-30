@@ -1,7 +1,8 @@
 
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco)
 [![Donate](https://img.shields.io/badge/donate-paypal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WDDLRUVD344XL&currency_code=USD&source=url)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/robsalasco/sinimr/R)
+[![Travis-CI Build
+Status](https://travis-ci.org/robsalasco/sinimr.svg?branch=master)](https://travis-ci.org/robsalasco/sinimr)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/robsalasco/sinimr?branch=master&svg=true)](https://ci.appveyor.com/project/robsalasco/sinimr)
 [![Coverage
@@ -65,10 +66,10 @@ gran_santiago_plot
 
 ### Support
 
-FONDECYT Regular 2016 Nº 1161417, ¿Quién es responsable del desarrollo
-local? Una geografía política del neoestructuralismo en “comunas de
-exportación” (Comisión Nacional de Investigación Científica y
-Tecnológica).
+FONDECYT Regular 2016 Nº 1161417, ¿Quién es responsable del desarrollo
+local? Una geografía política del neoestructuralismo en “comunas de
+exportación” (Comisión Nacional de Investigación Científica y
+Tecnológica).
 
 ### A note on usage
 
