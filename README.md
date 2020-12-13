@@ -1,9 +1,9 @@
 
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco)
 [![Donate](https://img.shields.io/badge/donate-paypal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WDDLRUVD344XL&currency_code=USD&source=url)
-![GitHub Workflow
-Status](https://img.shields.io/github/workflow/status/robsalasco/sinimr/R)
-[![Coverage
+<!-- badges: start --> [![R build
+status](https://github.com/robsalasco/sinimr/workflows/R-CMD-check/badge.svg)](https://github.com/robsalasco/sinimr/actions)
+<!-- badges: end --> [![Coverage
 Status](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](https://codecov.io/github/robsalasco/sinimr?branch=master)
 
 # sinimR <img src="man/figures/sinimR_hexSticker.png" width = "175" height = "200" align="right" />
@@ -15,13 +15,11 @@ Chilean Municipalities Information System Wrapper
 This R package allows easy SINIM (<http://sinim.gov.cl>) data retrieval
 what have advantages over the site:
 
-  - When you work with multiple variables or years it will be very
+-   When you work with multiple variables or years it will be very
     useful for rapid analyses.
-  - Fast ploting directly from data source using the included
+-   Fast ploting directly from data source using the included
     geometries.
-  - Data download with or without monetary correction using a switch.
-
-<!-- end list -->
+-   Data download with or without monetary correction using a switch.
 
 ``` r
 library(dplyr)
@@ -216,7 +214,7 @@ head(get_sinim(c(4210, 4211), 2015, truevalue = T))
 #> 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3267375000
 ```
 
-You can get multiple years too\! use the command `get_sinim()` and add
+You can get multiple years too! use the command `get_sinim()` and add
 more years as in the example.
 
 ``` r
@@ -336,25 +334,25 @@ descriptions, names and groups.
 ``` r
 search_sinim_vars("cementerio")
 #>     code
-#> 356 4140
-#> 357 4141
-#> 358 4406
-#> 359 4407
+#> 361 4140
+#> 362 4141
+#> 363 4406
+#> 364 4407
 #>                                                                                                                                   variable
-#> 356                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
-#> 357                                                                                              Gastos Cementerio (Gasto Total Devengado)
-#> 358                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
-#> 359 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
+#> 361                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
+#> 362                                                                                              Gastos Cementerio (Gasto Total Devengado)
+#> 363                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
+#> 364 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
 #>                                                                                                                                                                  description
-#> 356                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
-#> 357                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
-#> 358 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
-#> 359                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
+#> 361                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
+#> 362                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
+#> 363 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
+#> 364                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
 #>               area                     subarea unit
-#> 356 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
-#> 357 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
-#> 358 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
-#> 359 09. CEMENTERIO      1. INFORMACION GENERAL S-N
+#> 361 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
+#> 362 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
+#> 363 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
+#> 364 09. CEMENTERIO      1. INFORMACION GENERAL S-N
 ```
 
 ## Advanced usage
@@ -516,5 +514,5 @@ citation("sinimr")
 
 ### References
 
-  - Sistema Nacional de Información Municipal (SINIM), SUBDERE,
+-   Sistema Nacional de Información Municipal (SINIM), SUBDERE,
     Ministerio del Interior.
