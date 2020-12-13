@@ -1,10 +1,8 @@
 
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco)
 [![Donate](https://img.shields.io/badge/donate-paypal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WDDLRUVD344XL&currency_code=USD&source=url)
-<!-- badges: start --> [![R build
-status](https://github.com/robsalasco/sinimr/workflows/R-CMD-check/badge.svg)](https://github.com/robsalasco/sinimr/actions)
-<!-- badges: end --> [![Coverage
-Status](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](https://codecov.io/github/robsalasco/sinimr?branch=master)
+[![Rbuildstatus](https://github.com/robsalasco/sinimr/workflows/R-CMD-check/badge.svg)](https://github.com/robsalasco/sinimr/actions)
+[![CoverageStatus](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](https://codecov.io/github/robsalasco/sinimr?branch=master)
 
 # sinimR <img src="man/figures/sinimR_hexSticker.png" width = "175" height = "200" align="right" />
 
