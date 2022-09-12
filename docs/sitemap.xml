@@ -1,27 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://robsalasco.github.io/sinimr/index.html</loc>
+    <loc>/404.html</loc>
   </url>
   <url>
-    <loc>https://robsalasco.github.io/sinimr/reference/getsinimcategories.html</loc>
+    <loc>/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://robsalasco.github.io/sinimr/reference/getsinimr.html</loc>
+    <loc>/articles/creating-geofacets.html</loc>
   </url>
   <url>
-    <loc>https://robsalasco.github.io/sinimr/reference/getsinimryears.html</loc>
+    <loc>/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://robsalasco.github.io/sinimr/reference/getsinimvariables.html</loc>
+    <loc>/authors.html</loc>
   </url>
   <url>
-    <loc>https://robsalasco.github.io/sinimr/reference/idgeocensus.html</loc>
+    <loc>/index.html</loc>
   </url>
   <url>
-    <loc>https://robsalasco.github.io/sinimr/reference/searchsinimvar.html</loc>
+    <loc>/reference/get_sinim.html</loc>
   </url>
   <url>
-    <loc>https://robsalasco.github.io/sinimr/reference/sinimr.html</loc>
+    <loc>/reference/get_sinim_cats.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_sinim_var_name.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_sinim_vars.html</loc>
+  </url>
+  <url>
+    <loc>/reference/getsinimcategories.html</loc>
+  </url>
+  <url>
+    <loc>/reference/getsinimr.html</loc>
+  </url>
+  <url>
+    <loc>/reference/getsinimryears.html</loc>
+  </url>
+  <url>
+    <loc>/reference/getsinimvariables.html</loc>
+  </url>
+  <url>
+    <loc>/reference/idgeocensus.html</loc>
+  </url>
+  <url>
+    <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/mm.html</loc>
+  </url>
+  <url>
+    <loc>/reference/search_sinim_vars.html</loc>
+  </url>
+  <url>
+    <loc>/reference/searchsinimvar.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sinimr.html</loc>
   </url>
 </urlset>
