@@ -25,7 +25,7 @@ Collate:
     mm.R
     helpers.R
 Encoding: UTF-8
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.1
 Suggests: testthat,
     covr,
     knitr,
