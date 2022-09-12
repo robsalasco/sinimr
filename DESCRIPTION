@@ -24,6 +24,7 @@ Collate:
     search_sinim_vars.R
     mm.R
     helpers.R
+    data.R
 Encoding: UTF-8
 RoxygenNote: 7.2.1
 Suggests: testthat,
