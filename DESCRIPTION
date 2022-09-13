@@ -1,7 +1,7 @@
 Package: sinimr
 Type: Package
 Title: Chilean Municipalities Information System Wrapper
-Version: 0.3.1
+Version: 0.3.2
 Date: 2022-09-12
 Authors@R: c(person("Roberto", "Salas", email =
     "rosalas@uc.cl", role = c("aut", "cre"), 
