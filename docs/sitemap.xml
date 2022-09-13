@@ -19,6 +19,15 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/news/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/census_geometry_comunas.html</loc>
+  </url>
+  <url>
+    <loc>/reference/census_geometry_limites.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_sinim.html</loc>
   </url>
   <url>
@@ -41,6 +50,9 @@
   </url>
   <url>
     <loc>/reference/getsinimvariables.html</loc>
+  </url>
+  <url>
+    <loc>/reference/id_geo_census.html</loc>
   </url>
   <url>
     <loc>/reference/idgeocensus.html</loc>
