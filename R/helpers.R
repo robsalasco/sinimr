@@ -55,7 +55,8 @@ getyear <- function(year) { # nocov start
     2018,
     2019,
     2020,
-    2021
+    2021,
+    2022
   )
   if (any(is.na(match(year, year_list)))) {
     stop("Year not found in list")
