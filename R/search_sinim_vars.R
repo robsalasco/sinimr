@@ -9,7 +9,7 @@ search_sinim_vars <- function(keyword) {
     
   
     body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
-    resp2 <- postapi("http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
+    resp2 <- postapi("https://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
             body)
     data <- Reduce(function(...) merge(..., all=T), resp2)
     data <- data[ ,c(8, 10, 18, 2, 4, 5)]

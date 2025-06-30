@@ -18,10 +18,11 @@ postapi <- function(url, body) { # nocov start
     url,
     body = body,
     add_headers(
-      "User-Agent" = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36",
-      "Referer" = "http://datos.sinim.gov.cl/datos_municipales.php",
+      "User-Agent" = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3.1 Safari/605.1.15",
+      "Referer" = "https://datos.sinim.gov.cl/datos_municipales.php",
       "Host" = "datos.sinim.gov.cl",
-      "X-Requested-With" = "XMLHttpRequest"
+      "X-Requested-With" = "XMLHttpRequest",
+      "Accept-Encoding" = "gzip, deflate, br"
     )
   )
   
@@ -67,7 +68,7 @@ getid <- function(name) { # nocov start
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <-
     postapi(
-      "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
+      "https://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
       body
     )
   list <- reshape2::melt(sapply(resp, function(b)
@@ -85,7 +86,7 @@ getid <- function(name) { # nocov start
 getname <- function(names) { # nocov start
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <- postapi(
-      "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
+      "https://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
       body
     )
   list <- reshape2::melt(sapply(resp, function(b)
@@ -105,13 +106,13 @@ parsexml <- function(var, years, moncorr=T) { # nocov start
     yearsn <- getyear(years)
     if(moncorr==T){
       url <- paste(
-        "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
+        "https://datos.sinim.gov.cl/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
         paste(var, collapse = ","), "&periodos[]=", paste(yearsn, collapse = ","), "&regiones[]=T&municipios[]=T&corrmon=1",
         sep = ""
       )
     } else {
       url <- paste(
-        "http://datos.sinim.gov.cl/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
+        "https://datos.sinim.gov.cl/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
         paste(var, collapse = ","), "&periodos[]=", paste(yearsn, collapse = ","), "&regiones[]=T&municipios[]=T&corrmon=0",
         sep = ""
       )
