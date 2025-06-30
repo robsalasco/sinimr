@@ -1,7 +1,7 @@
 
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco)
 [![Donate](https://img.shields.io/badge/donate-paypal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WDDLRUVD344XL&currency_code=USD&source=url)
-[![R-CMD-check](https://github.com/robsalasco/sinimr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/robsalasco/sinimr/actions/workflows/R-CMD-check.yaml)
+[![Rbuildstatus](https://github.com/robsalasco/sinimr/workflows/R-CMD-check/badge.svg)](https://github.com/robsalasco/sinimr/actions)
 [![CoverageStatus](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](https://codecov.io/github/robsalasco/sinimr?branch=master)
 
 # sinimR <img src="man/figures/sinimR_hexSticker.png" width = "175" height = "200" align="right" />
@@ -13,11 +13,10 @@ Chilean Municipalities Information System Wrapper
 This R package allows easy SINIM (<http://sinim.gov.cl>) data retrieval
 what have advantages over the site:
 
--   When you work with multiple variables or years it will be very
-    useful for rapid analyses.
--   Fast ploting directly from data source using the included
-    geometries.
--   Data download with or without monetary correction using a switch.
+- When you work with multiple variables or years it will be very useful
+  for rapid analyses.
+- Fast ploting directly from data source using the included geometries.
+- Data download with or without monetary correction using a switch.
 
 ``` r
 library(dplyr)
@@ -118,7 +117,7 @@ get_sinim_cats()
 #>                                     variable code
 #> 1     A. ANTECEDENTES GENERALES DE EDUCACION   38
 #> 2    B. ASISTENCIA Y MATRÍCULAS EN EDUCACION   32
-#> 3                          C. RESULTADOS PSU   33
+#> 3                         C. RESULTADOS PAES   33
 #> 4         D. INGRESOS EN EDUCACION MUNICIPAL   35
 #> 5           E. GASTOS EN EDUCACION MUNICIPAL   36
 #> 6    F. RECURSOS HUMANOS EN SECTOR EDUCACION   34
@@ -134,15 +133,20 @@ get_sinim_cats()
 #> 6       F. RECURSOS HUMANOS EN SALUD  362
 #> 
 #> $`05.  SOCIAL Y COMUNITARIA`
-#>                                variable code
-#> 1         A. INFORMACION ENCUESTA CASEN   47
-#> 2 B. RED SOCIAL (SUBSIDIOS Y PENSIONES)   44
-#> 3             C. INTERMEDIACION LABORAL   43
-#> 4        D. ORGANIZACIONES COMUNITARIAS   46
-#> 5                              E. BECAS  377
-#> 6            F. PARTICIPACIÓN CIUDADANA  510
-#> 7                       G. DISCAPACIDAD  512
-#> 8              H. PREVENCIÓN DEL DELITO  511
+#>                                   variable code
+#> 1            A. INFORMACION ENCUESTA CASEN   47
+#> 2    B. RED SOCIAL (SUBSIDIOS Y PENSIONES)   44
+#> 3                C. INTERMEDIACION LABORAL   43
+#> 4           D. ORGANIZACIONES COMUNITARIAS   46
+#> 5                                 E. BECAS  377
+#> 6               F. PARTICIPACIÓN CIUDADANA  510
+#> 7                          G. DISCAPACIDAD  512
+#> 8     H. PREVENCIÓN DEL DELITO Y SEGURIDAD  511
+#> 9          L. RSH - ANTECEDENTES GENERALES  560
+#> 10 N.RSH - NIVEL INGRESOS - VULNERABILIDAD  561
+#> 11     O.RSH - CARACTERISTICAS ENCUESTADOS  562
+#> 12                P. INE - TIPO DE HOGARES  563
+#> 13                             RETIROS 10%  565
 #> 
 #> $`06.  DESARROLLO Y GESTION TERRITORIAL`
 #>                                     variable code
@@ -153,6 +157,7 @@ get_sinim_cats()
 #> 5                           E. AREAS VERDES   376
 #> 6    F. PLAN DE DESARROLLO COMUNAL (PLADECO)  304
 #> 7                  G. PLAN REGULADOR COMUNAL   42
+#> 8                                 H. CULTURA  587
 #> 
 #> $`07.  CARACTERIZACION COMUNAL`
 #>                       variable code
@@ -160,8 +165,8 @@ get_sinim_cats()
 #> 2                 B. POBLACION   50
 #> 
 #> $`08.  GENERO`
-#>                                           variable code
-#> 1 A. DOTACION FUNCIONARIA Y PROFESIONAL DE MUJERES  262
+#>                               variable code
+#> 1 DOTACION MUNICIPAL HOMBRES Y MUJERES  262
 #> 
 #> $`09. CEMENTERIO`
 #>                      variable code
@@ -175,13 +180,13 @@ and the `get_sinim_vars()` function to get them.
 
 ``` r
 get_sinim_vars(517)
-#>                                                       variable unit code
-#> 108                       Presupuesto Inicial Sector Municipal M$   4210
-#> 109                     Presupuesto Inicial Gastos Municipales M$   4211
-#> 110                       Presupuesto Vigente Sector Municipal M$   4212
-#> 111                     Presupuesto Vigente Gastos Municpiales M$   4213
-#> 112 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226
-#> 113 Presupuesto Inicial Saldo Inicial de Caja sector Municipal M$   4441
+#>                                                     variable unit code
+#> 1                       Presupuesto Inicial Sector Municipal M$   4210
+#> 2                     Presupuesto Inicial Gastos Municipales M$   4211
+#> 3                       Presupuesto Vigente Sector Municipal M$   4212
+#> 4                     Presupuesto Vigente Gastos Municpiales M$   4213
+#> 5 Presupuesto Vigente Saldo Inicial de Caja Sector Municipal M$   4226
+#> 6 Presupuesto Inicial Saldo Inicial de Caja sector Municipal M$   4441
 ```
 
 Finally, to obtain the data across municipalities use the code column
@@ -190,12 +195,12 @@ and specify a year.
 ``` r
 head(get_sinim(c(4210, 4211), 2015))
 #>   code  municipality year                               variable    value
-#> 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 35295076
-#> 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 10263084
-#> 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7685704
-#> 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1319970
-#> 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2130495
-#> 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3267375
+#> 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 47727846
+#> 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 13878279
+#> 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 10393011
+#> 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1784932
+#> 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2880967
+#> 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  4418315
 ```
 
 By default the values are in **miles de millones** but it can be
@@ -204,12 +209,12 @@ disabled using the `truevalue = T` switch.
 ``` r
 head(get_sinim(c(4210, 4211), 2015, truevalue = T))
 #>   code  municipality year                               variable       value
-#> 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 35295076000
-#> 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 10263084000
-#> 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  7685704000
-#> 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1319970000
-#> 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2130495000
-#> 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  3267375000
+#> 1 1101       IQUIQUE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 47727846000
+#> 2 1107 ALTO HOSPICIO 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 13878279000
+#> 3 1401  POZO ALMONTE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES 10393011000
+#> 4 1402        CAMIÑA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  1784932000
+#> 5 1403      COLCHANE 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  2880967000
+#> 6 1404         HUARA 2015 PRESUPUESTO INICIAL GASTOS MUNICIPALES  4418315000
 ```
 
 You can get multiple years too! use the command `get_sinim()` and add
@@ -218,12 +223,12 @@ more years as in the example.
 ``` r
 head(get_sinim(880, 2015:2017))
 #>   code  municipality year                           variable   value
-#> 1 1101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 3439830
-#> 2 1107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 7258188
-#> 3 1401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1888333
-#> 4 1402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1626482
-#> 5 1403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1156020
-#> 6 1404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1406921
+#> 1 1101       IQUIQUE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 4654846
+#> 2 1107 ALTO HOSPICIO 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 9821923
+#> 3 1401  POZO ALMONTE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 2555329
+#> 4 1402        CAMIÑA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 2200987
+#> 5 1403      COLCHANE 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1564349
+#> 6 1404         HUARA 2017 INGRESOS POR FONDO COMÚN MUNICIPAL 1903874
 ```
 
 The geometries are available in long format using the `geometry=T`
@@ -236,18 +241,19 @@ variables in long format.
 
 ``` r
 head(get_sinim(882, 2015:2017, geometry=T))
+#> old-style crs object detected; please recreate object with a recent sf::st_crs()
 #> Simple feature collection with 6 features and 5 fields
-#> geometry type:  MULTIPOLYGON
-#> dimension:      XY
-#> bbox:           xmin: -70.20924 ymin: -21.43871 xmax: -69.81985 ymax: -20.04854
-#> geographic CRS: WGS 84
+#> Geometry type: MULTIPOLYGON
+#> Dimension:     XY
+#> Bounding box:  xmin: -70.20924 ymin: -21.43871 xmax: -69.81985 ymax: -20.04854
+#> Geodetic CRS:  WGS 84
 #>   code  municipality year                     variable    value
-#> 1 1101       IQUIQUE 2016 INGRESOS PROPIOS (IPP Y FCM) 36638105
-#> 2 1101       IQUIQUE 2015 INGRESOS PROPIOS (IPP Y FCM) 35186041
-#> 3 1101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 37924449
-#> 4 1107 ALTO HOSPICIO 2017 INGRESOS PROPIOS (IPP Y FCM) 11377923
-#> 5 1107 ALTO HOSPICIO 2016 INGRESOS PROPIOS (IPP Y FCM) 10913779
-#> 6 1107 ALTO HOSPICIO 2015 INGRESOS PROPIOS (IPP Y FCM) 10705074
+#> 1 1101       IQUIQUE 2016 INGRESOS PROPIOS (IPP Y FCM) 49563214
+#> 2 1101       IQUIQUE 2015 INGRESOS PROPIOS (IPP Y FCM) 47580403
+#> 3 1101       IQUIQUE 2017 INGRESOS PROPIOS (IPP Y FCM) 51320111
+#> 4 1107 ALTO HOSPICIO 2017 INGRESOS PROPIOS (IPP Y FCM) 15396829
+#> 5 1107 ALTO HOSPICIO 2016 INGRESOS PROPIOS (IPP Y FCM) 14763918
+#> 6 1107 ALTO HOSPICIO 2015 INGRESOS PROPIOS (IPP Y FCM) 14475961
 #>                         geometry
 #> 1 MULTIPOLYGON (((-70.09894 -...
 #> 2 MULTIPOLYGON (((-70.09894 -...
@@ -265,17 +271,18 @@ geometry switch and other switches are avaiblable too `region`,
 
 ``` r
 head(get_sinim(882, 2015:2017, geometry=T, region=2))
+#> old-style crs object detected; please recreate object with a recent sf::st_crs()
 #> Simple feature collection with 6 features and 5 fields
-#> geometry type:  MULTIPOLYGON
-#> dimension:      XY
-#> bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254
-#> geographic CRS: WGS 84
+#> Geometry type: MULTIPOLYGON
+#> Dimension:     XY
+#> Bounding box:  xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254
+#> Geodetic CRS:  WGS 84
 #>   code municipality year                     variable    value
-#> 1 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 50480057
-#> 2 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 53481425
-#> 3 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 53775528
-#> 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  7031571
-#> 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6400071
+#> 1 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 68261771
+#> 2 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 72372118
+#> 3 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 72746340
+#> 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  9512153
+#> 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  8654511
 #> 6 2102   MEJILLONES 2017 INGRESOS PROPIOS (IPP Y FCM)       NA
 #>                         geometry
 #> 1 MULTIPOLYGON (((-70.60654 -...
@@ -290,17 +297,18 @@ You can get a subset too
 
 ``` r
 head(get_sinim(882, 2015:2017, geometry=T, region=c(2,3)))
+#> old-style crs object detected; please recreate object with a recent sf::st_crs()
 #> Simple feature collection with 6 features and 5 fields
-#> geometry type:  MULTIPOLYGON
-#> dimension:      XY
-#> bbox:           xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254
-#> geographic CRS: WGS 84
+#> Geometry type: MULTIPOLYGON
+#> Dimension:     XY
+#> Bounding box:  xmin: -70.62886 ymin: -25.40293 xmax: -68.0676 ymax: -22.4254
+#> Geodetic CRS:  WGS 84
 #>   code municipality year                     variable    value
-#> 1 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 53775528
-#> 2 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 50480057
-#> 3 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 53481425
-#> 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  7031571
-#> 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  6400071
+#> 1 2101  ANTOFAGASTA 2016 INGRESOS PROPIOS (IPP Y FCM) 72746340
+#> 2 2101  ANTOFAGASTA 2015 INGRESOS PROPIOS (IPP Y FCM) 68261771
+#> 3 2101  ANTOFAGASTA 2017 INGRESOS PROPIOS (IPP Y FCM) 72372118
+#> 4 2102   MEJILLONES 2016 INGRESOS PROPIOS (IPP Y FCM)  9512153
+#> 5 2102   MEJILLONES 2015 INGRESOS PROPIOS (IPP Y FCM)  8654511
 #> 6 2102   MEJILLONES 2017 INGRESOS PROPIOS (IPP Y FCM)       NA
 #>                         geometry
 #> 1 MULTIPOLYGON (((-70.60654 -...
@@ -332,25 +340,25 @@ descriptions, names and groups.
 ``` r
 search_sinim_vars("cementerio")
 #>     code
-#> 361 4140
-#> 362 4141
-#> 363 4406
-#> 364 4407
+#> 450 4140
+#> 451 4141
+#> 452 4406
+#> 453 4407
 #>                                                                                                                                   variable
-#> 361                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
-#> 362                                                                                              Gastos Cementerio (Gasto Total Devengado)
-#> 363                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
-#> 364 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
+#> 450                                                                                          Ingresos Cementerio (Ingreso Total Percibido)
+#> 451                                                                                              Gastos Cementerio (Gasto Total Devengado)
+#> 452                                                                                 ¿La Municipalidad o Corporación administra Cementerio?
+#> 453 Si la Municipalidad o Corporación administra Cementerio, indique si tiene presupuesto propio. SI = presupuesto propio o independiente.
 #>                                                                                                                                                                  description
-#> 361                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
-#> 362                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
-#> 363 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
-#> 364                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
+#> 450                                                                                              Ingreso total percibido del sector Cementerio (clasificador presupuestario)
+#> 451                                                                                                  Gastos total devengado sector Cementerio (clasificador presupuestario).
+#> 452 Indica si la Municipalidad o Corporación administra o no Cementerio Municipal, ya sea con presupuesto propio o asociado a otro sector de la municipalidad o corporación.
+#> 453                                             Indica si administra un presupuesto independiente o anexo a otro sector de la municipalidad, como Salud, Municipalidad, etc.
 #>               area                     subarea unit
-#> 361 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
-#> 362 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
-#> 363 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
-#> 364 09. CEMENTERIO      1. INFORMACION GENERAL S-N
+#> 450 09. CEMENTERIO A. INGRESOS CEMENTERIO (M$) M$  
+#> 451 09. CEMENTERIO   B. GASTOS CEMENTERIO (M$) M$  
+#> 452 09. CEMENTERIO      1. INFORMACION GENERAL S-N 
+#> 453 09. CEMENTERIO      1. INFORMACION GENERAL S-N
 ```
 
 ## Advanced usage
@@ -397,6 +405,8 @@ gran_santiago_plot <- tm_shape(data_sinim) +
                                  fun = mm))+
   tm_borders(col = 'black') +
   tm_facets(by="variable", ncol = 2)
+#> Warning: argument design.mode not used anymore. Please use the stand-alone
+#> function tmap_design_mode() to set the design mode globally.
 
 gran_santiago_plot
 ```
@@ -464,15 +474,17 @@ data$year <- as.numeric(as.character(data$year))
 data$year <- as.Date(as.yearmon(data$year, "1-%y"))
 
 reg13 <- geogrid::read_polygons("https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson")
-#> Warning: 'geogrid::read_polygons' is deprecated.
+#> Warning in geogrid::read_polygons("https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson"): 'geogrid::read_polygons' is deprecated.
 #> Use 'sf::st_read' instead.
 #> See help("Deprecated")
-#> Reading layer `R13' from data source `https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson' using driver `GeoJSON'
+#> Reading layer `R13' from data source 
+#>   `https://raw.githubusercontent.com/robsalasco/precenso_2016_geojson_chile/master/Extras/GRAN_SANTIAGO.geojson' 
+#>   using driver `GeoJSON'
 #> Simple feature collection with 37 features and 8 fields
-#> geometry type:  POLYGON
-#> dimension:      XY
-#> bbox:           xmin: -70.84306 ymin: -33.65716 xmax: -70.43015 ymax: -33.31069
-#> geographic CRS: WGS 84
+#> Geometry type: POLYGON
+#> Dimension:     XY
+#> Bounding box:  xmin: -70.84306 ymin: -33.65716 xmax: -70.43015 ymax: -33.31069
+#> Geodetic CRS:  WGS 84
 grd <- grid_auto(reg13, seed = 1, names = "NOM_COMUNA", codes = "COMUNA")
 
 #grid_preview(grd, label = "name_NOM_COMUNA")
@@ -492,25 +504,24 @@ ggplot(data, aes(year, value, group=1)) +
 
 ``` r
 citation("sinimr")
-#> 
 #> To cite package 'sinimr' in publications use:
 #> 
-#>   Roberto Salas (2019). sinimr: Chilean Municipalities Information
-#>   System Wrapper. R package version 0.3.0.
-#>   https://github.com/robsalasco/sinimr
+#>   Salas R (2025). _sinimr: Chilean Municipalities Information System
+#>   Wrapper_. R package version 0.3.3,
+#>   <https://github.com/robsalasco/sinimr>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {sinimr: Chilean Municipalities Information System Wrapper},
 #>     author = {Roberto Salas},
-#>     year = {2019},
-#>     note = {R package version 0.3.0},
+#>     year = {2025},
+#>     note = {R package version 0.3.3},
 #>     url = {https://github.com/robsalasco/sinimr},
 #>   }
 ```
 
 ### References
 
--   Sistema Nacional de Información Municipal (SINIM), SUBDERE,
-    Ministerio del Interior.
+- Sistema Nacional de Información Municipal (SINIM), SUBDERE, Ministerio
+  del Interior.
