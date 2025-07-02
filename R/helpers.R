@@ -4,6 +4,11 @@
 #' @importFrom reshape2 melt
 #' @importFrom stats complete.cases
 
+utils::globalVariables(c(
+  "id_geo_census", "code.reg", "code.prov", "code",
+  "census_geometry_comunas", "census_geometry_limites", "id_subarea"
+))
+
 callapi <- function(url) { # nocov start
   resp <- httr::GET(url, add_headers("X-Request-Source" = "r"))
   stop_for_status(resp, task = "call api")

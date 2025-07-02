@@ -507,7 +507,7 @@ citation("sinimr")
 #> To cite package 'sinimr' in publications use:
 #> 
 #>   Salas R (2025). _sinimr: Chilean Municipalities Information System
-#>   Wrapper_. R package version 0.3.4,
+#>   Wrapper_. R package version 0.3.5,
 #>   <https://github.com/robsalasco/sinimr>.
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -516,7 +516,7 @@ citation("sinimr")
 #>     title = {sinimr: Chilean Municipalities Information System Wrapper},
 #>     author = {Roberto Salas},
 #>     year = {2025},
-#>     note = {R package version 0.3.4},
+#>     note = {R package version 0.3.5},
 #>     url = {https://github.com/robsalasco/sinimr},
 #>   }
 ```

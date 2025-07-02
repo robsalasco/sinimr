@@ -1,3 +1,7 @@
+# sinimr 0.3.5
+
+* More changes for CRAN submission
+
 # sinimr 0.3.4
 
 * Preparing CRAN submission
