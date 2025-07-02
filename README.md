@@ -2,7 +2,7 @@
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/robsalasco)
 [![Donate](https://img.shields.io/badge/donate-paypal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WDDLRUVD344XL&currency_code=USD&source=url)
 [![Rbuildstatus](https://github.com/robsalasco/sinimr/workflows/R-CMD-check/badge.svg)](https://github.com/robsalasco/sinimr/actions)
-[![CoverageStatus](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](https://codecov.io/github/robsalasco/sinimr?branch=master)
+[![CoverageStatus](https://img.shields.io/codecov/c/github/robsalasco/sinimr/master.svg)](https://app.codecov.io/github/robsalasco/sinimr?branch=master)
 
 # sinimR <img src="man/figures/sinimR_hexSticker.png" width = "175" height = "200" align="right" />
 
@@ -10,7 +10,7 @@ Chilean Municipalities Information System Wrapper
 
 ### What can I do with this?
 
-This R package allows easy SINIM (<http://sinim.gov.cl>) data retrieval
+This R package allows easy SINIM (<https://sinim.gov.cl>) data retrieval
 what have advantages over the site:
 
 - When you work with multiple variables or years it will be very useful
@@ -507,7 +507,7 @@ citation("sinimr")
 #> To cite package 'sinimr' in publications use:
 #> 
 #>   Salas R (2025). _sinimr: Chilean Municipalities Information System
-#>   Wrapper_. R package version 0.3.3,
+#>   Wrapper_. R package version 0.3.4,
 #>   <https://github.com/robsalasco/sinimr>.
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -516,7 +516,7 @@ citation("sinimr")
 #>     title = {sinimr: Chilean Municipalities Information System Wrapper},
 #>     author = {Roberto Salas},
 #>     year = {2025},
-#>     note = {R package version 0.3.3},
+#>     note = {R package version 0.3.4},
 #>     url = {https://github.com/robsalasco/sinimr},
 #>   }
 ```

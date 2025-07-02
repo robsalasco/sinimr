@@ -1,3 +1,11 @@
+# sinimr 0.3.4
+
+* Preparing CRAN submission
+
+# sinimr 0.3.3
+
+* Fixed github bug #7 and #8
+
 # sinimr 0.3.2
 
 * Fixed and updated GitHub action
