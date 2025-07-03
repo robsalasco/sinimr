@@ -40,11 +40,14 @@ get_sinim <-
     stopifnot(is.numeric(var))
     stopifnot(is.numeric(year))
     
+    # Download and parse the raw data for the requested variables and years
     values <- parsexml(var, year, moncorr = moncorr)
     
+    # Set column names for the parsed data
     colnames(values) <-
       c("code", "municipality", namesco(var, year))
     
+    # Reshape the data to long format for easier manipulation
     datav <- stats::reshape(
       values,
       idvar = c("code", "municipality"),
@@ -54,14 +57,16 @@ get_sinim <-
       times = sort(year, decreasing = T)
     )
     
-    
+    # Remove row names for clarity
     rownames(datav) <- NULL
     
+    # Replace 'No Recepcionado' and 'No Aplica' with NA
     datav <-
       as.data.frame(apply(datav, 2, function(x)
         gsub("No Recepcionado|No Aplica", NA, x)), stringsAsFactors = FALSE)
     
     if (geometry == FALSE) {
+      # Melt the data to have one row per variable per year
       datav <- reshape2::melt(
         datav,
         id = c("code", "municipality", "year"),
@@ -71,6 +76,7 @@ get_sinim <-
       
       datav$variable <- as.character(datav$variable)
       
+      # Identify numeric columns for conversion
       t <-
         vapply(datav, function(x)
           all(grepl("[0-9]+", na.omit(x))), logical(1))
@@ -79,10 +85,12 @@ get_sinim <-
       datav[t] <- lapply(datav[t], function(x)
         (as.numeric(x)))
       
+      # Apply value conversion if requested
       if (truevalue == TRUE) {
         datav$value <- datav$value * 1000
       }
       
+      # Subset by region, provincia, or comuna if provided
       if (!missing(region) |
           !missing(provincia) |
           !missing(comuna)) {
@@ -93,6 +101,7 @@ get_sinim <-
                     auc)
         data.selection <- subset(datav, code %in% selection)
         
+        # Merge with geographic info if requested
         if (idgeo == T) {
           merged.pretty <-
             merge(data.selection,
@@ -104,6 +113,7 @@ get_sinim <-
         }
         
       } else {
+        # Merge with geographic info for all data if requested
         if (idgeo == T) {
           merged.pretty <- merge(datav, id_geo_census, by = "code")
           return(merged.pretty)
@@ -112,6 +122,7 @@ get_sinim <-
         }
       }
     } else {
+      # Melt the data for geometry output
       datav <- reshape2::melt(
         datav,
         id = c("code", "municipality", "year"),
@@ -121,6 +132,7 @@ get_sinim <-
       
       datav$variable <- as.character(datav$variable)
       
+      # Identify numeric columns for conversion
       t <-
         vapply(datav, function(x)
           all(grepl("[0-9]+", na.omit(x))), logical(1))
@@ -129,10 +141,12 @@ get_sinim <-
       datav[t] <- lapply(datav[t], function(x)
         (as.numeric(x)))
       
+      # Apply value conversion if requested
       if (truevalue == TRUE) {
         datav$value <- datav$value * 1000
       }
       
+      # Subset by region, provincia, or comuna if provided
       if (!missing(region) |
           !missing(provincia) |
           !missing(comuna)) {
@@ -144,6 +158,7 @@ get_sinim <-
         
         data.selection <- subset(datav, code %in% selection)
         
+        # Merge with geometry based on the selected unit
         if (unit == "comunas") {
           merged.geo <-
             merge(census_geometry_comunas, data.selection, by = "code")
@@ -154,7 +169,7 @@ get_sinim <-
           stop("Unit not valid")
         }
         
-        
+        # Merge with geographic info if requested
         if (idgeo == T) {
           merged.geo.pretty <-
             merge(merged.geo,
@@ -166,6 +181,7 @@ get_sinim <-
         }
         
       } else {
+        # Merge with geometry for all data based on the selected unit
         if (unit == "comunas") {
           merged.geo <-
             merge(census_geometry_comunas, datav, by = "code")
@@ -176,7 +192,7 @@ get_sinim <-
           stop("Unit not valid")
         }
         
-        
+        # Merge with geographic info if requested
         if (idgeo == T) {
           merged.geo.pretty <- merge(merged.geo, id_geo_census, by = c("code","municipality"))
           return(merged.geo.pretty)

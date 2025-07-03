@@ -4,11 +4,15 @@
 #' @importFrom reshape2 melt
 #' @importFrom stats complete.cases
 
+# Helper functions for API calls, data parsing, and variable lookups used throughout the sinimr package.
+
+# Register global variables to avoid CRAN NOTES about undefined variables in data manipulation code.
 utils::globalVariables(c(
   "id_geo_census", "code.reg", "code.prov", "code",
   "census_geometry_comunas", "census_geometry_limites", "id_subarea"
 ))
 
+# Call the SINIM API with a GET request and return the raw response as a string.
 callapi <- function(url) { # nocov start
   resp <- httr::GET(url, add_headers("X-Request-Source" = "r"))
   stop_for_status(resp, task = "call api")
@@ -18,6 +22,7 @@ callapi <- function(url) { # nocov start
   return(data)
 } # nocov end
 
+# Call the SINIM API with a POST request and return the parsed JSON response.
 postapi <- function(url, body) { # nocov start
   resp <- httr::POST(
     url,
@@ -37,6 +42,7 @@ postapi <- function(url, body) { # nocov start
   return(data)
 } # nocov end
 
+# Validate and convert a year or vector of years to their index in the supported year list.
 getyear <- function(year) { # nocov start
   year_list <- c(
     2000,
@@ -61,7 +67,9 @@ getyear <- function(year) { # nocov start
     2019,
     2020,
     2021,
-    2022
+    2022,
+    2023,
+    2024
   )
   if (any(is.na(match(year, year_list)))) {
     stop("Year not found in list")
@@ -70,6 +78,7 @@ getyear <- function(year) { # nocov start
   }
 } # nocov end
 
+# Retrieve the internal SINIM variable ID(s) for a given variable name or names.
 getid <- function(name) { # nocov start
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <-
@@ -89,6 +98,7 @@ getid <- function(name) { # nocov start
   return(list[complete.cases(match(list$variable, name)), 3])
 } # nocov end
 
+# Retrieve the SINIM variable name(s) for a given variable code or codes.
 getname <- function(names) { # nocov start
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <- postapi(
@@ -108,6 +118,7 @@ getname <- function(names) { # nocov start
   return(names.list)
 } # nocov end
 
+# Parse XML data from the SINIM API for the given variables and years, optionally applying monetary correction.
 parsexml <- function(var, years, moncorr=T) { # nocov start
     yearsn <- getyear(years)
     if(moncorr==T){
@@ -145,12 +156,14 @@ parsexml <- function(var, years, moncorr=T) { # nocov start
     return(values)
 } # nocov end
 
+# Construct column names for variables and years in the format VARIABLE.YEAR.
 namesco <- function(x,y){ #nocov start
   rep_vars <- rep(getname(x), each=length(y))
   rep_years <- rep(sort(y, decreasing = T), length(x))
   return(paste(rep_vars, rep_years, sep="."))
 } # nocov end
 
+# Filter geographic codes by region, province, or comuna, with optional AUC filtering.
 geofilter <- function(region, provincia, comuna, auc=F) { #nocov start
   if (!missing(region)) {
     stopifnot(missing(provincia))
