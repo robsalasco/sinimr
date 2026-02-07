@@ -18,7 +18,7 @@ callapi <- function(url) { # nocov start
   stop_for_status(resp, task = "call api")
   data <- httr::content(resp, "text", encoding = "UTF-8")
   data <- substr(data, 2, nchar(data))
-
+  
   return(data)
 } # nocov end
 
@@ -35,9 +35,9 @@ postapi <- function(url, body) { # nocov start
       "Accept-Encoding" = "gzip, deflate, br"
     )
   )
-
+  
   stop_for_status(resp, task = "call api")
-
+  
   data <- jsonlite::fromJSON(content(resp, "text"))
   return(data)
 } # nocov end
@@ -83,7 +83,7 @@ getid <- function(name) { # nocov start
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <-
     postapi(
-      "https://cf-sinimr-proxy.mtnlss.workers.dev/datos_municipales/obtener_datos_filtros.php",
+      "https://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
       body
     )
   list <- reshape2::melt(sapply(resp, function(b)
@@ -102,7 +102,7 @@ getid <- function(name) { # nocov start
 getname <- function(names) { # nocov start
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <- postapi(
-      "https://cf-sinimr-proxy.mtnlss.workers.dev/datos_municipales/obtener_datos_filtros.php",
+      "https://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
       body
     )
   list <- reshape2::melt(sapply(resp, function(b)
@@ -123,13 +123,13 @@ parsexml <- function(var, years, moncorr=T) { # nocov start
     yearsn <- getyear(years)
     if(moncorr==T){
       url <- paste(
-        "https://cf-sinimr-proxy.mtnlss.workers.dev/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
+        "https://datos.sinim.gov.cl/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
         paste(var, collapse = ","), "&periodos[]=", paste(yearsn, collapse = ","), "&regiones[]=T&municipios[]=T&corrmon=1",
         sep = ""
       )
     } else {
       url <- paste(
-        "https://cf-sinimr-proxy.mtnlss.workers.dev/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
+        "https://datos.sinim.gov.cl/datos_municipales/obtener_datos_municipales.php?area[]=T&subarea[]=T&variables[]=",
         paste(var, collapse = ","), "&periodos[]=", paste(yearsn, collapse = ","), "&regiones[]=T&municipios[]=T&corrmon=0",
         sep = ""
       )
@@ -149,8 +149,8 @@ parsexml <- function(var, years, moncorr=T) { # nocov start
       namespaces = c(tei = getDefaultNamespace(data)[[1]]$uri),
       xmlValue
     )
-    values <- matrix(varxml,
-                     nrow = length(varxml)/((length(var)*length(yearsn))+2),
+    values <- matrix(varxml, 
+                     nrow = length(varxml)/((length(var)*length(yearsn))+2), 
                      ncol = ((length(var)*length(yearsn))+2), byrow = T)
     values <- as.data.frame(values, stringsAsFactors = F)
     return(values)
