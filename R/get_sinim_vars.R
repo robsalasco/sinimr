@@ -12,7 +12,7 @@ get_sinim_vars <- function(catn) {
   
   body <- list("dato_area[]" = "T", "dato_subarea[]" = "T")
   resp <- postapi(
-    "https://datos.sinim.gov.cl/datos_municipales/obtener_datos_filtros.php",
+    "https://cf-sinimr-proxy.mtnlss.workers.dev/datos_municipales/obtener_datos_filtros.php",
     body
   )
   list <- Reduce(function(...) merge(..., all = T), resp)
